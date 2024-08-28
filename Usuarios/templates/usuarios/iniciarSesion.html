@@ -1,4 +1,7 @@
 {% extends "index.html" %} 
+{% block title %}
+Login | JetBooms
+{% endblock title%}
 {% block styles_apply %} 
   {% load static %}
   <link rel="stylesheet" href="{% static "css/login.css" %}" /> 
@@ -6,9 +9,6 @@
 
 {% block main_content %}
 <main class="main">
-  <a href="/index.html">
-    <img class="volverinicio" src="{% static "/img/JETTBOOM_BLANCO T.png" %}" alt="" />
-  </a>
   <div class="container-titulo">
     <h1>¡HOLA!</h1>
     <h2>Colecciona tus mejores recuerdos</h2>
@@ -29,9 +29,10 @@
       </div>
       <input type="submit" value="Continuar" />
       <div class="registrarse">
-        <a href="/html/crearCuenta.html"
-          >¿No tienes cuenta? <br />Resgistrate AQUI</a
-        ><br />
+        <a href="/html/crearCuenta.html">
+          ¿No tienes cuenta? <br />Resgistrate AQUI
+        </a>
+          <br />
       </div>
     </form>
   </div>
