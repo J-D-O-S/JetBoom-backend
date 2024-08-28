@@ -62,7 +62,7 @@
 }
 
 [data-theme="light"] {
-    --font-color: var(--negro);
+    --font-color: var(--oscuro);
     --background-theme: var(--gris);
 
     /* tipografía */
@@ -192,6 +192,11 @@ label {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+}
+
+button,
+a {
+    cursor: pointer;
 }
 
 [type="button"] {

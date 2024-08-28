@@ -36,13 +36,13 @@ darkSchemeMediaQuery.addEventListener("change", (event) => {
 function toggleTheme() {
 	const setStyles = superElement.style;
 	const getStyles = getComputedStyle(superElement);
-	const negro = getStyles.getPropertyValue("--oscuro").toString();
+	const oscuro = getStyles.getPropertyValue("--oscuro").toString();
 	const gris = getStyles.getPropertyValue("--gris").toString();
 	let theme = superElement.getAttribute("data-theme");
 	theme = theme === "dark" ? "light" : "dark";
 	superElement.setAttribute("data-theme", theme);
 	if (theme === "dark") {
-		setStyles.setProperty("--background-theme", negro);
+		setStyles.setProperty("--background-theme", oscuro);
 	} else {
 		setStyles.setProperty("--background-theme", gris);
 	}
