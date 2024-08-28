@@ -23,7 +23,11 @@
 	</head>
 
 	<body class="body">
-		<header class="centrado header">
+		{% if user.is_authenticated %}
+			<header class="centrado header user-logged-in">
+		{% else %} 
+			<header class="centrado header">
+		{% endif %}
 			<div class="logoContainer">
 				<a href="{% url "home" %}" class="logo logoLink">
 					<img src="{% static "img/jbLogo_N.webp" %}" alt="Logo JetBoom" />
@@ -48,85 +52,108 @@
 						<li class="underline nav-links">
 							<a href="./html/album.html">Álbum</a>
 						</li>
-						<li class="underline nav-links getIntoSession">
-							<a href="#">Regístrate</a>
-						</li>
-						<li class="underline nav-links getIntoSession">
-							<a href="./html/login.html">Iniciar Sesión</a>
-						</li>
-						<li class="user-info">
-							<ul class="ul-user-info">
-								<li class="underline nav-links">
-									<span class="user-name">Nombre Usuario</span>
-								</li>
-								<li>
-									<img
-										class="user-photo"
-										src="{% static "img/fondoCC.webp" %}"
-										alt="Foto de perfil del usuario"
-									/>
-								</li>
-							</ul>
-							<div class="user-info-brief">
-								<div class="user-deploy-info">
-									<ul class="ul-deploy-info">
-										<li>
-											<h3>Nombre del usuario</h3>
-											<small>Correo del usuario</small>
-										</li>
-										<li class="li-items-config-nav">
-											<button class="btn-user-info" type="button">
-												<span class="material-symbols-rounded">
-													person
-												</span>
-												Ver Perfil
-											</button>
-										</li>
-										<li class="li-items-config-nav">
-											<button class="btn-user-info" type="button">
-												<span class="material-symbols-rounded"> lock </span>
-												Cambiar Contraseña
-											</button>
-										</li>
-										<li class="li-items-config-nav">
-											<button class="btn-user-info" type="button">
-												<span class="material-symbols-rounded">
-													logout
-												</span>
-												Cerrar Sesión
-											</button>
-										</li>
-									</ul>
-									<section class="section-controlers">
-										<div class="icons-settings">
-											<button type="button" class="btn-settings cambiar-tema">
-												<img
-													class="img-user-info"
-													src="{% static "/icons/light_mode_B.svg" %}"
-													alt="Selección del tema"
-												/>
-											</button>
-											<button
-												type="button"
-												class="btn-settings close-user-info"
-											>
-												<img
-													class="img-user-info"
-													src="{% static "/icons/close_B.svg" %}"
-													alt="Cerrar detalles de usuario"
-												/>
-											</button>
-										</div>
+						{% if user.is_authenticated %}
+							<li class="user-info">
+								<ul class="ul-user-info">
+									<li class="underline nav-links">
+										<span class="user-name">
+											{% if user.first_name %}
+												{{ user.first_name }}
+											{% else %}
+												{{ user.username }}
+											{% endif %}
+										</span>
+									</li>
+									<li>
 										<img
-											class="imgUser"
-											src="#"
-											alt="Imagen de perfil del usuario"
+											class="user-photo"
+											src="{% static "img/fondoCC.webp" %}"
+											alt="Foto de perfil del usuario"
 										/>
-									</section>
+									</li>
+								</ul>
+								<div class="user-info-brief">
+									<div class="user-deploy-info">
+										<ul class="ul-deploy-info">
+											<li>
+												<h3>
+													{% if user.first_name %}
+														{{ user.first_name }}
+														{{ user.second_name }}
+														{{ user.first_last_name }}
+														{{ user.second_last_name }}
+													{% else %}
+														{{ user.username }}
+													{% endif %}
+												</h3>
+												<small>
+													{{ user.email }}
+												</small>
+											</li>
+											<li class="li-items-config-nav">
+												<button class="btn-user-info" type="button">
+													<span class="material-symbols-rounded">
+														person
+													</span>
+													Ver Perfil
+												</button>
+											</li>
+											<li class="li-items-config-nav">
+												<button class="btn-user-info" type="button">
+													<span class="material-symbols-rounded"> lock </span>
+													Cambiar Contraseña
+												</button>
+											</li>
+											<li class="li-items-config-nav">
+												<form action="{% url "cerrar sesion" %}" method="post">
+													{% csrf_token %}
+												<button class="btn-user-info" type="submit">
+													<span class="material-symbols-rounded">
+														logout
+													</span>
+													Cerrar Sesión
+												</button>
+											</form>
+											</li>
+										</ul>
+										<section class="section-controlers">
+											<div class="icons-settings">
+												<button type="button" class="btn-settings cambiar-tema">
+													<img
+														class="img-user-info"
+														src="{% static "/icons/light_mode_B.svg" %}"
+														alt="Selección del tema"
+													/>
+												</button>
+												<button
+													type="button"
+													class="btn-settings close-user-info"
+												>
+													<img
+														class="img-user-info"
+														src="{% static "/icons/close_B.svg" %}"
+														alt="Cerrar detalles de usuario"
+													/>
+												</button>
+											</div>
+											<img
+												class="imgUser"
+												src="#"
+												alt="Imagen de perfil del usuario"
+											/>
+										</section>
+									</div>
+									<p class="text-jb">JetBoom</p>
 								</div>
-								<p class="text-jb">JetBoom</p>
-							</div>
-						</li>
+							</li>
+						{% else %}
+							<li class="underline nav-links getIntoSession">
+								<a href="#">Regístrate</a>
+							</li>
+							<li class="underline nav-links getIntoSession">
+								<a href="{% url "iniciar sesion" %}">Iniciar Sesión</a>
+							</li>
+						{% endif %}
 					</ul>
 				</nav>
 			</div>
