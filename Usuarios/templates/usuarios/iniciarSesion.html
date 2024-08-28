@@ -15,7 +15,8 @@ Login | JetBooms
   </div>
   <div class="formulario">
     <h1>INICIAR SESION</h1>
-    <form method="post">
+    <form method="post" autocomplete="off">
+      {% csrf_token %}
       <div class="username">
         <input type="text" required id="id_username" name="username" />
         <label>&nbsp;&nbsp;&nbsp;Correo</label>
