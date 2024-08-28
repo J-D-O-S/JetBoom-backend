@@ -1,0 +1,56 @@
+.img-fondo-perfil{
+  width: 100%;
+  height:10px;
+}
+.img-foto-perfil{
+  width: 15%;
+  height: 15%;
+  border-radius: 25%;
+  margin-top: -30%;
+  margin-bottom: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.img-foto-perfil{
+  
+}
+.img-foto-perfil h2{
+  font-size: 1.5rem;
+  color: var(--gris);
+}
+.img-foto-perfil h2 p{
+  font-size: 1.5rem;
+  color: var(--gris);
+}
+.info-perfil{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--gris);
+  color: var(--gris);
+}
+.publicacion{
+  background-color: var(--rojo);
+  padding: 1%
+}
+.reseña{
+  background-color: var(--rojo);
+  padding: 1%
+}
+.seguidor{
+  background-color: var(--rojo);
+  padding: 1%
+}
+.info-galeria{
+  background-color: var(--gris);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.galeria .mispuntos .reserva .album{
+  background-color: var(--rojo);
+}

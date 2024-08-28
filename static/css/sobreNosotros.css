@@ -1,0 +1,336 @@
+.main-section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Estilos de la imagen y titulo principal*/
+.container-rectangulo {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-section {
+  width: 80%;
+  height: auto;
+  display: block;
+  margin: 3rem 0;
+}
+
+.contenedor-texto-sobre-imagen {
+  position: relative;
+  display: inline-block;
+}
+
+.texto-sobre-imagen {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--negro);
+  text-align: center;
+}
+
+.titulo-sobre-imagen {
+  font-size: 4.5rem;
+  font-family: "titulos-especiales";
+}
+
+/* Estilos del texto JetBoom */
+.rectangulo-jet {
+  color: var(--gris);
+  background-color: var(--rojo);
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.titulo-jet {
+  color: var(--gris);
+  font-size: 4rem;
+  font-family: "JF";
+}
+
+.texto-jet {
+  text-align: center;
+  margin: 0.5% 5%;
+  font-size: 1.4rem;
+}
+
+/* Estilos para los lados izquierdo y derecho */
+#pantalla-dividida {
+  display: flex;
+}
+
+/* lado izquierdo */
+.ladoizquierdo {
+  flex: 1;
+  display: flex;
+  justify-content: right;
+  align-items: right;
+  padding: 4rem 0 0 10rem;
+}
+
+.cuadradoi {
+  width: 30rem;
+  height: 20rem;
+  border-radius: var(--border-radius);
+  background-color: var(--amarillo);
+  align-content:center;
+  
+}
+
+.titulo-i{
+  font-size: 2.5rem;
+  font-family: "titulos";
+}
+
+.texto-i {
+  text-align: center;
+  margin: 2% 5%;
+  font-size: 1.2rem;
+}
+
+/* lado derecho*/ 
+.ladoderecho {
+  flex: 1;
+  display: flex;
+  justify-content: left;
+  padding: 4rem 2rem 0 8rem;
+}
+
+.cuadradod {
+  width: 20rem;
+  height: 20rem;
+  box-shadow: 0px 4px 9px rgba(0,0,1, 1);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;    
+  text-align: center;   
+}
+
+.texto-d {
+  font-size: 1.1rem;
+  margin: 0 10%;
+  color: var(--negro);
+}
+
+/*Botón*/
+.cuadradod .btn-pqrs {
+  background: var(--rojo);
+  color: var(--gris);
+  border: none;
+  padding: 10px 20px;
+  font-size: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.7s ease, color 0.7s ease;
+  margin-top: 20px; /* Espacio entre el texto y el botón */
+}
+
+.btn-pqrs:hover {
+  background: var(--amarillo);
+  outline: 2px solid var(--rojo);
+  color: var(--negro);
+  transition: all 0.5s ease-in-out;
+}
+
+.button-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Estilos para la misión y la visión*/
+.section-MV {
+  display: flex;
+  flex-direction: column;
+  margin: 4rem;
+}
+
+.container-MV {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 3rem 0;
+}
+
+.title-MV {
+  color: var(--negro);
+  font-size: 3.5rem;
+  font-family: "titulos";
+}
+
+.container-vision {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  width: 80%;
+  padding: 3rem 4rem;
+  background-color: var(--rojo);
+  border-radius: 20px;
+}
+
+.container-mision {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  width: 80%;
+  padding: 3rem 4rem;
+  background-color: var(--amarillo);
+  border-radius: 20px;
+  flex-direction: row-reverse;
+}
+
+.titles-v {
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--amarillo)
+}
+
+.text-v {
+  font-size: 1.3rem;
+  text-align: center;
+  color: var(--gris);
+}
+
+.titles-m {
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--rojo)
+}
+
+.text-m {
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+/*Media queries para pantallas más pequeñas (móviles)*/
+@media (max-width: 1200px) {
+  /* Estilos de la imagen y titulo principal*/
+  .img-section {
+    width: 95%;
+    height: auto;
+  }
+
+  .texto-sobre-imagen {
+    top: 38%;
+  }
+
+  .titulo-sobre-imagen {
+    font-size: 3.8rem;
+  }
+
+  /* Estilos del texto JetBoom */
+  .titulo-jet {
+    font-size: 5.5rem;
+  }
+
+  .texto-jet {
+    font-size: 1.3rem;
+  }
+
+  /* Estilos para los lados izquierdo y derecho */
+  #pantalla-dividida {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* lado izquierdo */
+  .ladoizquierdo {
+    flex: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem 0;
+  }
+
+  .cuadradoi {
+    width: 50rem;
+    height: 35rem;
+  }
+
+  .titulo-i{
+    margin: 3rem 0 1.5rem 0;
+    font-size: 4rem;
+  }
+
+  .texto-i {
+    margin: 0 3rem 3rem;
+    font-size: 2rem;
+  }
+
+  /* lado derecho*/ 
+  .ladoderecho {
+    flex: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
+  }
+
+  .cuadradod {
+    width: 38rem;
+    height: 38rem; 
+  }
+
+  .texto-d {
+    font-size: 2.5rem;
+    margin: -2% 15%;
+  }
+
+  /*Botón*/
+  .cuadradod .btn-pqrs {
+    padding: 10px 60px;
+    font-size: 40px;
+    margin-top: 30px; 
+  }
+
+  /* Estilos para la misión y la visión*/
+  .title-MV {
+    font-size: 5rem;
+  }
+
+  .container-vision {
+    width: 95%;
+    padding: 3rem 2.5rem;
+  }
+
+  .container-mision {
+    width: 95%;
+    padding: 3rem 2.5rem;
+  }
+
+  .titles-v {
+    font-size: 3.5rem;
+  }
+
+  .text-v {
+    font-size: 1.5rem;
+  }
+
+  .titles-m {
+    font-size: 3.5rem;
+  }
+
+  .text-m {
+    font-size: 1.5rem;
+  } 
+}
+
+

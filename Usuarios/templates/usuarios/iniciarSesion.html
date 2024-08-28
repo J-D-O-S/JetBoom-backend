@@ -1,0 +1,39 @@
+{% extends "index.html" %} 
+{% block styles_apply %} 
+  {% load static %}
+  <link rel="stylesheet" href="{% static "css/login.css" %}" /> 
+{% endblock styles_apply %} 
+
+{% block main_content %}
+<main class="main">
+  <a href="/index.html">
+    <img class="volverinicio" src="{% static "/img/JETTBOOM_BLANCO T.png" %}" alt="" />
+  </a>
+  <div class="container-titulo">
+    <h1>¡HOLA!</h1>
+    <h2>Colecciona tus mejores recuerdos</h2>
+  </div>
+  <div class="formulario">
+    <h1>INICIAR SESION</h1>
+    <form method="post">
+      <div class="username">
+        <input type="text" required id="id_username" name="username" />
+        <label>&nbsp;&nbsp;&nbsp;Correo</label>
+      </div>
+      <div class="username">
+        <input type="password" required id="id_password" name="password" />
+        <label>&nbsp;&nbsp;&nbsp;Contraseña</label>
+      </div>
+      <div class="recordar">
+        <a>¿Olvidaste tu contraseña?</a>
+      </div>
+      <input type="submit" value="Continuar" />
+      <div class="registrarse">
+        <a href="/html/crearCuenta.html"
+          >¿No tienes cuenta? <br />Resgistrate AQUI</a
+        ><br />
+      </div>
+    </form>
+  </div>
+</main>
+{% endblock main_content %}

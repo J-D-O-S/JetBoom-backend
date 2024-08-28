@@ -1,0 +1,178 @@
+.body {
+  /*diseño, margenes y letra de la pagina*/
+  background-color: var(--gris);
+  margin: 0;
+  padding: 0;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.container-titulo {
+  /*diseño del contenedor del titulo*/
+  color: var(--negro);
+  margin: 4% 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.container-titulo h1 {
+  /*tipo y tamaño de la letra del titulo*/
+  font-family: "titulos-especiales";
+  font-size: 45px;
+  margin-top: -10%;
+}
+
+.texto {
+  /*tipo y tamaño de la letra del titulo 2*/
+  font-family: "titulos";
+  font-size: 35px;
+}
+
+.formulario {
+  /*diseño de la caja con el contenido de iniciar sesion*/
+  position: absolute;
+  top: 53%;
+  left: 50%;
+  transform: translate(-50%, -35%);
+  width: 500px;
+  background: var(--rojo);
+  border-radius: 30px;
+}
+
+.formulario h1 {
+  /*tipo y tamaño de la letra del titulo de la caja*/
+  margin: 4% 0;
+  text-align: center;
+  font-family: "titulos-especiales";
+  font-size: 40px;
+  color: var(--gris);
+  margin: 7% 0;
+  border-bottom: 1px solid var(--rojo);
+}
+
+.formulario form {
+  /*forma y espacio para el form de la caja*/
+  padding: 0 15%;
+  box-sizing: border-box;
+}
+
+form .username {
+  /*diseño de los espacios del form de la caja*/
+  position: relative;
+  background-color: var(--gris);
+  border-radius: 10px;
+  margin: 7% 0;
+}
+
+.username input {
+  /*Diseño y tamaño del espacio para correo y contraseña*/
+  width: 100%;
+  padding: 3% 5%;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+.username label {
+  /*Diseño y tamaño de la letra del espacio para correo y contraseña*/
+  position: absolute;
+  top: 60%;
+  left: 2%;
+  color: var(--negro);
+  font-family: "textos";
+  transform: translateY(-75%);
+  font-size: 16px;
+  pointer-events: none;
+  transition: .5s;
+}
+
+.username span::before {
+  /*Animacion de los espacios para correo y contraseña*/
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--negro);
+  transition: .5s;
+}
+
+.username input:focus~label,
+.username input:valid~label {
+  /*Animacion de los espacios para correo y contraseña despues de agregar el contenido*/
+  top: -5px;
+  color: var(--gris);
+  font-family: "textos";
+  transition: top 0.3s ease, color 0.3s ease;
+}
+
+.recordar {
+  /*Diseño del espacio del ¿Olvidaste tu contraseña?*/
+  margin: 20px 0;
+}
+
+.recordar a {
+  /*Diseño de la letra del ¿Olvidaste tu contraseña?*/
+  font-size: 14px;
+  font-family: Brother1816-Medium;
+  color: #fff;
+  text-decoration: none;
+}
+
+.recordar a:hover {
+  /*Linia inferior cuando el mouse pasa sobre el texto del ¿Olvidaste tu contraseña?*/
+  text-decoration: underline;
+  color: var(--rojo);
+}
+
+/*Diseño del boton de continuar*/
+input[type="submit"] {
+  /*tamaño del boton y de sus bordes*/
+  width: 100%;
+  height: 50px;
+  border: 2px solid;
+  /*tipo, tamaño y color de letra y el color del fondo para el boton*/
+  font-size: 18px;
+  font-family: Brother1816-Medium;
+  color: var(--negro);
+  border-color: var(--amarillo);
+  background: var(--amarillo);
+  /*se establece el redondeo de las esquinas del boton*/
+  border-radius: var(--border-radius);
+  /*Cambia el cursor al estar cerca o sobre el boton*/
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  /*Borde para cuando el mouse pasa sobre el boton de continuar*/
+  border-color: var(--amarillo);
+  transition: .5s;
+}
+
+.registrarse {
+  /*Diseño del espacio de registrase y iniciar sesion*/
+  margin-top: 20px;
+  text-align: center;
+}
+
+.registrarse a {
+  /*Diseño de la letra del registrase y iniciar sesion*/
+  font-size: 14px;
+  font-family: Brother1816-Medium;
+  color: #0c0e0c;
+  text-decoration: none;
+}
+
+.registrarse a:hover {
+  /*Linia inferior cuando el mouse pasa sobre el texto del registrase y iniciar sesion*/
+  text-decoration: underline;
+}

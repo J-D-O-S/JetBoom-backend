@@ -1,0 +1,82 @@
+.main {
+  /*centra el contenido*/
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2% 10% 4% 10%;
+  gap: 1rem;
+  position: relative;
+  min-height: 100%;
+  /* transform: translateY(50%); */
+}
+  
+ .img404 {
+  /* Tamaño y posición del numero 404 */
+  width: 65%;
+  height: auto;
+}
+
+ .img500 {
+  /* Tamaño y posición del numero 500 */
+  margin-top: -2%;
+  width: 60%;
+  height: auto;
+}
+
+.titulo404 {
+  /* Tamaño y posición del titulo del error 404*/
+  text-align: center;
+  margin-top: 2%;
+  font-family: "titulos-especiales";
+  font-size: 4.5em;
+  color: var(--negro);
+}
+
+.titulo500 {
+  /* Tamaño y posición del titulo del error 500*/
+  text-align: center;
+  margin-top: -2%;
+  font-family: "titulos-especiales";
+  font-size: 4.5em;
+  color: var(--negro);
+}
+
+.texto-404-500 {
+  /* Tamaño y posición del texto del error */
+  text-align: center;
+  font-size: 1.3em;
+  color: var(--oscuro);
+}
+
+@media (max-width: 1200px) {
+  .main {
+    padding: 10%;
+  }
+  
+  .img404{
+    width: 100%;
+  }
+
+  .img500 {
+    width: 90%;
+  }
+  
+  .titulo404 {
+    font-size: 3.5em;
+  }
+
+  .titulo500 {
+    font-size: 3.5em;
+    margin-top: -4%;
+  }
+  
+  .texto-404-500 {
+    font-size: 1.2em;
+    margin-top: 2%;
+  }
+}
+
+
+

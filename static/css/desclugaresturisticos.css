@@ -1,0 +1,390 @@
+/* Estilos del cuerpo */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.contenedorprincipal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 50px;
+}
+
+/* Estilos para los lados izquierdo y derecho */
+
+/* lado izquierdo */
+.ladoizquierdo {
+  flex: 1;
+  display: flex;
+  justify-content: right;
+  align-items: right;
+  padding-right: 1.5%;
+}
+
+.cuadradoi {
+  width: 36.5rem;
+  height: 35rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0px 4px 9px rgba(0, 0, 1, 1);
+  align-content: center;
+}
+
+.cuadradoi .img {
+  width: 100%;
+  object-fit: contain;
+  padding: 0 5%;
+}
+
+.cuadradoi p {
+  text-align: center;
+  margin-top: 7%;
+  font-size: 3rem;
+  font-family: "jf";
+  padding-right: 1.5%;
+}
+
+.cuadradoi {
+  width: 36.5rem;
+  height: 35rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0px 4px 9px rgba(0, 0, 1, 1);
+  align-content: center;
+}
+
+.cuadradoi .img {
+  width: 100%;
+  object-fit: contain;
+  padding: 0 5%;
+}
+
+.cuadradoi p {
+  text-align: center;
+  margin-top: 7%;
+  font-size: 3rem;
+  font-family: "jf";
+}
+
+/* lado derecho */
+.ladoderecho {
+  flex: 1;
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  padding-left: 1.5%;
+}
+
+.cuadradod {
+  width: 36.5rem;
+  height: 35rem;
+  background-color: var(--rojo);
+  border-radius: var(--border-radius);
+}
+
+.cuadradod h1 {
+  font-size: 3rem;
+  text-align: center;
+  color: var(--amarillo);
+  font-family: "titulos-especiales";
+  margin-top: 5%;
+}
+
+.cuadradod p {
+  font-size: 1.2rem;
+  color: var(--gris);
+  padding: 4% 6%;
+}
+
+/* Estilos del mapa */
+.rectangulomapa {
+  background-color: var(--amarillo);
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rectangulomapa input[type="checkbox"] {
+  display: none;
+}
+
+.rectangulomapa .map-toggle {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rectangulomapa .map-toggle img {
+  width: 8rem;
+  /* Aumenta el porcentaje para hacer el ícono más grande */
+  height: auto;
+  /* Mantiene la relación de aspecto del ícono */
+  object-fit: contain;
+  /* Asegura que la imagen se ajuste sin distorsionarse */
+  display: inline-block;
+  /* Asegura que el ícono se muestre en línea con otros elementos */
+}
+
+.rectangulomapa .contenido-adicional {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-out;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  /* Asegura que el contenedor del mapa ocupe el 100% del ancho disponible */
+}
+
+.rectangulomapa input[type="checkbox"]:checked~.contenido-adicional {
+  max-height: 600px;
+  /* Asegúrate de que este valor sea suficiente para mostrar el mapa */
+}
+
+.rectangulomapa p {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.map-container {
+  width: 100%;
+  /* Ajusta el tamaño del contenedor del mapa */
+  max-width: 800px;
+  /* Establece un ancho máximo opcional */
+  position: relative;
+  border-radius: 15px;
+  /* Bordes redondeados del contenedor */
+  border: 2px solid black;
+  /* Borde negro alrededor del contenedor */
+  box-shadow: 0px 8px 20px 4px rgba(0, 0, 0, 0.5);
+  /* Sombra opcional para darle profundidad */
+  overflow: hidden;
+  /* Asegura que el contenido no se desborde del contenedor con bordes redondeados */
+}
+
+.map-container::before {
+  content: "";
+  display: block;
+  padding-top: 56.25%;
+  /* Mantiene una proporción de 16:9 */
+}
+
+.map-container iframe {
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+
+/* diseño del contenedor que tiene el texto y el boton de reserva tu plan turistico */
+.texto-adicional {
+  display: flex;
+  flex-direction: column;
+  /* Organiza los elementos en una columna */
+  align-items: center;
+  /* Centra los elementos horizontalmente */
+  justify-content: center;
+  /* Centra los elementos verticalmente */
+  text-align: center;
+  /* Centra el texto dentro del contenedor */
+  padding: 20px;
+  /* Opcional: Espacio interno para el contenedor */
+}
+
+.texto-adicional h2 {
+  font-size: 1.5rem;
+  margin: 2% 0;
+}
+
+/*boton*/
+.texto-adicional .btn-reserva {
+  background: var(--rojo);
+  font-size: 1.2rem;
+  color: var(--gris);
+  padding: 4% 6%;
+}
+
+/* Estilos del mapa */
+.rectangulomapa {
+  background-color: var(--amarillo);
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rectangulomapa input[type="checkbox"] {
+  display: none;
+}
+
+.rectangulomapa .map-toggle {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rectangulomapa .map-toggle img {
+  width: 8rem;
+  /* Aumenta el porcentaje para hacer el ícono más grande */
+  height: auto;
+  /* Mantiene la relación de aspecto del ícono */
+  object-fit: contain;
+  /* Asegura que la imagen se ajuste sin distorsionarse */
+  display: inline-block;
+  /* Asegura que el ícono se muestre en línea con otros elementos */
+}
+
+.rectangulomapa .contenido-adicional {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-out;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  /* Asegura que el contenedor del mapa ocupe el 100% del ancho disponible */
+}
+
+.rectangulomapa input[type="checkbox"]:checked~.contenido-adicional {
+  max-height: 600px;
+  /* Asegúrate de que este valor sea suficiente para mostrar el mapa */
+}
+
+.rectangulomapa p {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.map-container {
+  width: 100%;
+  /* Ajusta el tamaño del contenedor del mapa */
+  max-width: 800px;
+  /* Establece un ancho máximo opcional */
+  position: relative;
+  border-radius: 15px;
+  /* Bordes redondeados del contenedor */
+  border: 2px solid black;
+  /* Borde negro alrededor del contenedor */
+  box-shadow: 0px 8px 20px 4px rgba(0, 0, 0, 0.5);
+  /* Sombra opcional para darle profundidad */
+  overflow: hidden;
+  /* Asegura que el contenido no se desborde del contenedor con bordes redondeados */
+}
+
+.map-container::before {
+  content: "";
+  display: block;
+  padding-top: 56.25%;
+  /* Mantiene una proporción de 16:9 */
+}
+
+.map-container iframe {
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+
+/* diseño del contenedor que tiene el texto y el boton de reserva tu plan turistico */
+.texto-adicional {
+  display: flex;
+  flex-direction: column;
+  /* Organiza los elementos en una columna */
+  align-items: center;
+  /* Centra los elementos horizontalmente */
+  justify-content: center;
+  /* Centra los elementos verticalmente */
+  text-align: center;
+  /* Centra el texto dentro del contenedor */
+  padding: 20px;
+  /* Opcional: Espacio interno para el contenedor */
+}
+
+.texto-adicional h2 {
+  font-size: 1.5rem;
+  margin: 2% 0;
+}
+
+/*boton*/
+.texto-adicional .btn-reserva {
+  background: var(--rojo);
+  color: var(--gris);
+  border: none;
+  padding: 10px 20px;
+  font-size: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.7s ease, color 0.7s ease;
+  margin-top: auto;
+  align-self: center;
+  outline: 0px solid transparent;
+}
+
+.btn-reserva:hover {
+  background: var(--amarillo);
+  outline: 2px solid var(--rojo);
+  color: var(--negro);
+  transition: all 0.5s ease-in-out;
+}
+
+.texto-adicional p {
+  font-size: 2rem;
+  /* Ajusta el tamaño del texto según sea necesario */
+  margin: 0;
+  /* Elimina el margen por defecto del párrafo */
+  border: none;
+  padding: 10px 20px;
+  font-size: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.7s ease, color 0.7s ease;
+  margin-top: auto;
+  align-self: center;
+  outline: 0px solid transparent;
+}
+
+.btn-reserva:hover {
+  background: var(--amarillo);
+  outline: 2px solid var(--rojo);
+  color: var(--negro);
+  transition: all 0.5s ease-in-out;
+}
+
+.texto-adicional p {
+  font-size: 2rem;
+  /* Ajusta el tamaño del texto según sea necesario */
+  margin: 0;
+  /* Elimina el margen por defecto del párrafo */
+}
+
+
+/* Media queries para pantallas más pequeñas (móviles) */
+@media (max-width: 1200px) {
+  .contenedorprincipal {
+    flex-direction: column;
+  }
+
+  .ladoizquierdo,
+  .ladoderecho {
+    flex: none;
+    width: 100%;
+    height: 50%;
+  }
+}
