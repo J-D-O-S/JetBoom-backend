@@ -57,8 +57,9 @@
 								<ul class="ul-user-info">
 									<li class="underline nav-links">
 										<span class="user-name">
-											{% if user.first_name %}
-												{{ user.first_name }}
+											{% if user.nombre %}
+												{{ user.nombre }}
+												{{ user.apellido }}
 											{% else %}
 												{{ user.username }}
 											{% endif %}
@@ -77,11 +78,15 @@
 										<ul class="ul-deploy-info">
 											<li>
 												<h3>
-													{% if user.first_name %}
-														{{ user.first_name }}
-														{{ user.second_name }}
-														{{ user.first_last_name }}
-														{{ user.second_last_name }}
+													{% if user.nombre %}
+														{{ user.nombre }}
+														{% if user.segundo_nombre %}
+															{{ user.segundo_nombre }}
+														{% endif %}
+														{{ user.apellido }}
+														{% if user.segundo_apellido %}
+															{{ user.segundo_apellido }}
+														{% endif %}
 													{% else %}
 														{{ user.username }}
 													{% endif %}
@@ -271,7 +276,7 @@
 					</p>
 					<a href="html/sobreNosotros.html" class="btn-base" type="button">
 						<span class="material-symbols-rounded"> contact_support </span>
-						Contáctanos
+						Sobre nosotros
 					</a>
 					<a href="html/crearCuenta.html" class="btn-base" type="button">
 						<span class="material-symbols-rounded">person_add</span>
@@ -290,7 +295,9 @@
 					<ul class="list-items">
 						<li class="dot-style"><a href="{% url "home" %}">Inicio</a></li>
 						<li class="dot-style">
-							<a href="html/sobreNosotros.html">Sobre Nosotros</a>
+							<a href="html/sobreNosotros.html">Sobre Nosotros</a> 
+							{% comment %} <a href="{% url "html/sobreNosotros.html" %}">Sobre Nosotros</a>  {% endcomment %}
+							{% comment %} TODO: Revisar esta URL más tarde para cambiarla por el url:name {% endcomment %}
 						</li>
 						<li class="dot-style">
 							<a href="html/lugaresTuristicos.html">Lugares Turísticos</a>
@@ -305,7 +312,7 @@
 						<li><p class="dot-style">Síguenos en:</p></li>
 						<li><a class="dot-style" href="html/error404.html">Facebook</a></li>
 						<li><a class="dot-style" href="html/error500.html">Instagram</a></li>
-						<li><a class="dot-style" href="#">Correo</a></li>
+						<li><a class="dot-style" href="#">Contáctanos</a></li>
 					</ul>
 				</div>
 			</section>
