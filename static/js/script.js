@@ -175,6 +175,10 @@ window.onload = function () {
 		const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
 		const themeToApply = storedTheme || (prefersDarkScheme ? "dark" : "light");
 
+		console.trace("Tema a aplicar: ", themeToApply);
+		console.table(storedTheme, prefersDarkScheme, themeToApply);
+		// console.log(themeToApply);
+
 		document.documentElement.setAttribute("data-theme", themeToApply);
 		applyThemeBody(themeToApply);
 		const setStyles = document.documentElement.style;
