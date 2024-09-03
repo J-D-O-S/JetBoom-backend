@@ -1,5 +1,9 @@
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+from django.contrib.auth.models import (
+    AbstractBaseUser,
+    BaseUserManager,
+    PermissionsMixin,
+)
 
 
 class CustomUserManager(BaseUserManager):
@@ -66,7 +70,7 @@ class CustomUserManager(BaseUserManager):
         )
 
 
-class Usuario(AbstractBaseUser):
+class Usuario(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(unique=True, verbose_name="Correo Electrónico")
     nombre = models.CharField(max_length=20, verbose_name="Nombre")
     segundo_nombre = models.CharField(
@@ -94,7 +98,6 @@ class Usuario(AbstractBaseUser):
 
     TIPO_IDENTIFICACION_CHOICES = [
         ("CC", "Cédula de Ciudadanía"),
-        ("TI", "Tarjeta de Identidad"),
         ("CE", "Cédula de Extranjería"),
         ("PA", "Pasaporte"),
     ]
@@ -114,7 +117,9 @@ class Usuario(AbstractBaseUser):
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = [
         "nombre",
+        "segundo_nombre",
         "apellido",
+        "segundo_apellido",
         "fecha_nacimiento",
         "numero_identificacion",
         "tipo_identificacion",
