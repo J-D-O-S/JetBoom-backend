@@ -8,7 +8,7 @@ urlpatterns = (
         path(
             "iniciar_sesion/",
             LoginUsuarioView.as_view(),
-            name="iniciar sesion",
+            name="iniciar_sesion",
         ),
         path(
             "registrarse/",
@@ -18,7 +18,7 @@ urlpatterns = (
         path(
             "cerrar_sesion/",
             LogoutUsuarioView.as_view(),
-            name="cerrar sesion",
+            name="cerrar_sesion",
         ),
     ]
     + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

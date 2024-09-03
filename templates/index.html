@@ -110,7 +110,7 @@
 												</button>
 											</li>
 											<li class="li-items-config-nav">
-												<form action="{% url "cerrar sesion" %}" method="post">
+												<form action="{% url "cerrar_sesion" %}" method="post">
 													{% csrf_token %}
 												<button class="btn-user-info" type="submit">
 													<span class="material-symbols-rounded">
@@ -156,7 +156,7 @@
 								<a href="{% url "registrarse" %}">Regístrate</a>
 							</li>
 							<li class="underline nav-links getIntoSession">
-								<a href="{% url "iniciar sesion" %}">Iniciar Sesión</a>
+								<a href="{% url "iniciar_sesion" %}">Iniciar Sesión</a>
 							</li>
 						{% endif %}
 					</ul>
