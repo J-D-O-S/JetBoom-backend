@@ -1,21 +1,9 @@
-body {
+/* body {
   margin: 0;
   padding: 0;
   height: 100vh;
   font-family: Brother1816-Book;
-}
-
-@font-face {
-  /*fuente*/
-  font-family: "Brother1816-Medium";
-  src: url(./../font/Brother1816-Medium.ttf) format("truetype");
-}
-
-@font-face {
-  /*fuente2*/
-  font-family: "Brother1816Printed-ExtraBold";
-  src: url(./../font/Brother1816Printed-ExtraBold.ttf) format("truetype");
-}
+} */
 
 #pantalla-dividida {
   display: flex;
@@ -23,84 +11,66 @@ body {
 
 .izquierda {
   /*imagen de fondo y tamaño para el contenido ubicado en el div derecho*/
-  background-image: url(/img/fondoCrearCuenta.jpg);
-  background-size: cover;
-  background-position: center;
+  /* background-image: url(/img/fondoCrearCuenta.jpg); */
+  /* background-size: cover; */
+  /* background-position: center; */
   height: 100vh;
   width: 50%;
 }
 
-.volverinicio {
-  position: fixed;
-  /* Posición fija para que la imagen se mantenga en su lugar al desplazar la página */
-  top: 15px;
-  /* Distancia desde la parte superior */
-  left: 15px;
-  /* Distancia desde la parte izquierda */
-  width: 15%;
-  /* Ancho de la imagen */
-  height: auto;
-  /* Altura automática para mantener la proporción */
-  z-index: 1000;
-  /* Z-index para asegurar que la imagen esté encima de otros elementos si es necesario */
-}
-
 .derecha {
   /*color y tamaño para el contenido ubicado en el div derecho*/
-  background-color: #fff;
   height: 100vh;
   width: 50%;
   margin-left: 5%;
 }
 
-.formulariocrear{
+.formulariocrear {
   /* el contenido del formulario*/
   position: absolute;
   top: 10%;
-  background: #fff;
   border-radius: 10px;
 }
 
-.formulariocrear h1{
+.formulariocrear h1 {
   /*tipo y tamaño de la letra del titulo del formulario*/
   text-align: center;
   font-size: 40px;
-  font-family: Brother1816Printed-ExtraBold;
+  font-family: "titulos";
   padding: 0 0 20px 0;
   border-bottom: 1px solid #fff;
 }
 
-.formulariocrear form{
+.formulariocrear form {
   /*forma y espacio para el form de la caja*/
   padding: 0 40px;
   box-sizing: border-box;
 }
 
-form .username{
+form .username {
   /*diseño de los espacios del form de la caja*/
   position: relative;
   border-bottom: 2px solid #0c0e0c;
   margin: 30px 0;
 }
 
-.username input{
+.username input {
   /*Diseño y tamaño del espacio para los campos que solicitan informacion*/
   width: 100%;
   padding: 0 5px;
   height: 40px;
   font-size: 16 px;
   border: none;
-  background:none ;
+  background: none;
   outline: none;
 }
 
-.username label{
+.username label {
   /*Diseño y tamaño de la letra del espacio para los campos que solicitan informacion*/
   position: absolute;
   top: 50%;
   left: 5px;
-  color: #adadad;
-  font-family: Brother1816-Medium;
+  color: var(--negro);
   transform: translateY(-50%);
   font-size: 16px;
   pointer-events: none;
@@ -119,8 +89,8 @@ form .username{
   transition: .5s;
 }
 
-.username input:focus ~ label,
-.username input:valid ~ label{
+.username input:focus~label,
+.username input:valid~label {
   top: -5px;
   color: #e4032e;
   font-family: Brother1816-Medium;
@@ -130,7 +100,7 @@ form .username{
 
 
 /*diseñpo del boton*/
-button[type="submit"]{
+button[type="submit"] {
   /*tamaño del boton y de sus bordes*/
   width: 100%;
   height: 50px;
@@ -138,7 +108,8 @@ button[type="submit"]{
   /*tipo, tamaño y color de letra y el color del fondo para el boton*/
   font-family: Brother1816-Book;
   font-size: 20px;
-  color: #fff;;
+  color: #fff;
+  ;
   background: #e4032e;
   /*se establece el redondeo de las esquinas del boton*/
   border-radius: 15px;
@@ -146,8 +117,7 @@ button[type="submit"]{
   cursor: pointer;
 }
 
-button[type="submit"]:hover{
+button[type="submit"]:hover {
   border-color: #e4032e;
   transition: .5s;
 }
-

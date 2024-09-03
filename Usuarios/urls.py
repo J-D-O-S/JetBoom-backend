@@ -1,23 +1,23 @@
-from django.contrib.auth.views import LoginView, LogoutView
-from django.conf.urls.static import static
-from django.conf import settings
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
+from .views import LoginUsuarioView, LogoutUsuarioView, RegistroView
 
 urlpatterns = (
     [
         path(
             "iniciar_sesion/",
-            LoginView.as_view(template_name="usuarios/iniciarSesion.html"),
+            LoginUsuarioView.as_view(),
             name="iniciar sesion",
         ),
-        # path(
-        #     "registrarse/",
-        #     RegistroUsuario.as_view(),
-        #     name="registrarse",
-        # ),
+        path(
+            "registrarse/",
+            RegistroView.as_view(),
+            name="registrarse",
+        ),
         path(
             "cerrar_sesion/",
-            LogoutView.as_view(),
+            LogoutUsuarioView.as_view(),
             name="cerrar sesion",
         ),
     ]
