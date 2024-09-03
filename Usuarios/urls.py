@@ -7,7 +7,7 @@ urlpatterns = (
     [
         path(
             "iniciar_sesion/",
-            LoginView.as_view(template_name="usuarios/iniciarSesion.html"),
+            LoginView.as_view(),
             name="iniciar sesion",
         ),
         # path(
