@@ -1,4 +1,3 @@
-const preferencesColorScheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
 const darkSchemeMediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
 const superElement = document.documentElement;
 superElement.style.transition = "all 0.5s ease-in-out";
@@ -8,11 +7,11 @@ applyStoredOrPreferredTheme();
 
 darkSchemeMediaQuery.addEventListener("change", (event) => {
 	if (!event.matches) {
-		applyTheme("dark");
-		superElement.style.setProperty("--background_theme", "var(--oscuro)");
-	} else {
 		applyTheme("light");
 		superElement.style.setProperty("--background_theme", "var(--gris)");
+	} else {
+		applyTheme("dark");
+		superElement.style.setProperty("--background_theme", "var(--oscuro)");
 	}
 });
 
