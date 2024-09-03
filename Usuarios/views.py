@@ -10,6 +10,14 @@ class RegistroView(View):
         form = CustomUserCreationForm()
         return render(request, "usuarios/crearCuenta.html", {"form": form})
 
+    def post(self, request):
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            print(form)
+            form.save()
+            return redirect("iniciar_sesion")  # TODO: Redirect to perfil page
+        return render(request, "usuarios/crearCuenta.html", {"form": form})
+
 
 class LoginUsuarioView(View):
     def get(self, request):

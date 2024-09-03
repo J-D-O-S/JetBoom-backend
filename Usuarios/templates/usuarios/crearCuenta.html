@@ -14,79 +14,80 @@
     </div>
     <div class="derecha">
         <div class="formulariocrear">
-            <form method="post" action="" >
+            <form method="post" autocomplete="off" >
                 {% csrf_token %}
                 <h1>Crear cuenta</h1>
                 <div class="username">
-                    <input type="text" required />
+                    <input type="email" required name="email" />
                     <label>Correo</label>
-                    {% if form.errors %}
-                        <p style="color: red;">{{ form.errors }}</p>
-                        {% comment %} TODO: make validations {% endcomment %}
-                    {% endif %}
                 </div>
+                {% if form.errors %}
+                    <p style="color: red;">{{ form.errors }}</p>
+                    {% comment %} TODO: make validations {% endcomment %}
+                {% endif %}
                 <div class="username">
-                    <input type="text" required />
+                    <input type="text" required name="nombre" />
                     <label>Nombre</label>
-                    {% if form.errors %}
-                        <p style="color: red;">{{ form.errors }}</p>
-                        {% comment %} TODO: make validations {% endcomment %}
-                    {% endif %}
                 </div>
+                {% if form.errors %}
+                    <p style="color: red;">{{ form.errors }}</p>
+                    {% comment %} TODO: make validations {% endcomment %}
+                {% endif %}
                 <div class="username">
-                    <input type="text" />
+                    <input type="text" name="segundo_nombre" />
                     <label>Segundo Nombre</label>
-                    {% if form.errors %}
-                        <p style="color: red;">{{ form.errors }}</p>
-                        {% comment %} TODO: make validations {% endcomment %}
-                    {% endif %}
                 </div>
                 <div class="username">
-                    <input type="text" required />
+                    <input type="text" required name="apellido" />
                     <label>Apellido</label>
-                    {% if form.errors %}
-                        <p style="color: red;">{{ form.errors }}</p>
-                        {% comment %} TODO: make validations {% endcomment %}
-                    {% endif %}
                 </div>
+                {% if form.errors %}
+                    <p style="color: red;">{{ form.errors }}</p>
+                    {% comment %} TODO: make validations {% endcomment %}
+                {% endif %}
                 <div class="username">
-                    <input type="text" />
+                    <input type="text" name="segundo_apellido" />
                     <label>Segundo Apellido</label>
-                    {% if form.errors %}
-                        <p style="color: red;">{{ form.errors }}</p>
-                        {% comment %} TODO: make validations {% endcomment %}
-                    {% endif %}
                 </div>
                 <div class="birthdate-box">
-                    <input type="date" required>Fecha de Nacimiento</input>
-                    {% if form.errors %}
-                        <p style="color: red;">{{ form.errors }}</p>
-                        {% comment %} TODO: make validations {% endcomment %}
-                    {% endif %}
+                    <input type="date" required name="fecha_nacimiento" />
+                    <label>Fecha de Nacimiento</label>
                 </div>
+                {% if form.errors %}
+                    <p style="color: red;">{{ form.errors }}</p>
+                    {% comment %} TODO: make validations {% endcomment %}
+                {% endif %}
                 <div class="username">
-                    <input type="password" required />
+                    <input type="text" required name="numero_identificacion" />
+                    <label>Número de Identificación</label>
+                </div>
+                {% if form.errors %}
+                    <p style="color: red;">{{ form.errors }}</p>
+                    {% comment %} TODO: make validations {% endcomment %}
+                {% endif %}
+                <div class="username">
+                    <input type="password" required name="password1" />
                     <label>Contraseña</label>
-                    {% if form.errors %}
-                        <p style="color: red;">{{ form.errors }}</p>
-                        {% comment %} TODO: make validations {% endcomment %}
-                    {% endif %}
                 </div>
+                {% if form.errors %}
+                    <p style="color: red;">{{ form.errors }}</p>
+                    {% comment %} TODO: make validations {% endcomment %}
+                {% endif %}
                 <div class="username">
-                    <input type="password" required />
+                    <input type="password" required name="password2" />
                     <label>Validar Contraseña</label>
-                    {% if form.errors %}
-                        <p style="color: red;">{{ form.errors }}</p>
-                        {% comment %} TODO: make validations {% endcomment %}
-                    {% endif %}
                 </div>
-                <div class="username">
+                {% if form.errors %}
+                    <p style="color: red;">{{ form.errors }}</p>
+                    {% comment %} TODO: make validations {% endcomment %}
+                {% endif %}
+                <div class="username" name="tipo_identificacion" >
                     {{ form.tipo_identificacion }}
-                    {% if form.errors %}
-                        <p style="color: red;">{{ form.errors }}</p>
-                        {% comment %} TODO: make validations {% endcomment %}
-                    {% endif %}
                 </div>
+                {% if form.errors %}
+                    <p style="color: red;">{{ form.errors }}</p>
+                    {% comment %} TODO: make validations {% endcomment %}
+                {% endif %}
                 <button type="submit" class="btnCC">Crear Cuenta</button>
             </form>
         </div>
