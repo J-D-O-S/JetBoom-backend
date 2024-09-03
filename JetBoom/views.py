@@ -1,5 +1,11 @@
 from django.shortcuts import render
+from django.views.generic.base import View
 
 
-def home(request):
-    return render(request, "index.html")
+class IndexView(View):
+    def get(self, request):
+        return render(request, "index.html")
+
+
+# def home(request):
+#     return render(request, "index.html")

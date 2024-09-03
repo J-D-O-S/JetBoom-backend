@@ -15,7 +15,7 @@ Login | JetBooms
   </div>
   <div class="formulario">
     <h1>INICIAR SESION</h1>
-    <form method="post" autocomplete="off">
+    <form method="post" action="iniciar sesion" autocomplete="off">
       {% csrf_token %}
       <div class="username">
         <input type="email" required id="id_username" name="email" />
@@ -36,6 +36,20 @@ Login | JetBooms
           <br />
       </div>
     </form>
+    {% if form.errors %}
+      <div style="color: red;">
+        {% for field in form %}
+          {{ field }}
+          {{ field.label_tag }}
+          {% for error in field.errors %}
+            <p>{{ error }}</p>
+          {% endfor %}
+        {% endfor %}
+        {% for error in form.non_field_errors %}
+          <p>{{ error }}</p>
+        {% endfor %}
+      </div>
+    {% endif %}
   </div>
 </main>
 {% endblock main_content %}

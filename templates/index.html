@@ -29,10 +29,10 @@
 			<header class="centrado header">
 		{% endif %}
 			<div class="logoContainer">
-				<a href="{% url "home" %}" class="logo logoLink">
+				<a href="{% url "index" %}" class="logo logoLink">
 					<img src="{% static "img/jbLogo_N.webp" %}" alt="Logo JetBoom" />
 				</a>
-				<a href="{% url "home" %}" class="title logoLink">
+				<a href="{% url "index" %}" class="title logoLink">
 					<img src="{% static "img/jbText_B.webp" %}" class="temaOscuro" alt="Texto JetBoom oscuro" />
 					<img src="{% static "img/jbText_N.webp" %}" class="temaClaro" alt="Texto JetBoom claro" />
 				</a>
@@ -41,7 +41,7 @@
 				<nav class="barNav">
 					<ul>
 						<li class="underline nav-links">
-							<a href="{% url "home" %}">Inicio</a>
+							<a href="{% url "index" %}">Inicio</a>
 						</li>
 						<li class="underline nav-links">
 							<a href="./html/sobreNosotros.html">Sobre Nosotros</a>
@@ -293,7 +293,7 @@
 			<section class="content-footer">
 				<div class="items-content-footer">
 					<ul class="list-items">
-						<li class="dot-style"><a href="{% url "home" %}">Inicio</a></li>
+						<li class="dot-style"><a href="{% url "index" %}">Inicio</a></li>
 						<li class="dot-style">
 							<a href="html/sobreNosotros.html">Sobre Nosotros</a> 
 							{% comment %} <a href="{% url "html/sobreNosotros.html" %}">Sobre Nosotros</a>  {% endcomment %}
@@ -305,8 +305,8 @@
 						<li class="dot-style"><a href="html/album.html">Álbum</a></li>
 					</ul>
 					<div class="logo-footer">
-						<a href="{% url "home" %}"><img src="{% static "img/jbLogo_B.webp" %}" alt="Logo JetBoom" /></a>
-						<a href="{% url "home" %}"><img src="{% static "img/jbText_B.webp" %}" alt="Texto JetBoom" /></a>
+						<a href="{% url "index" %}"><img src="{% static "img/jbLogo_B.webp" %}" alt="Logo JetBoom" /></a>
+						<a href="{% url "index" %}"><img src="{% static "img/jbText_B.webp" %}" alt="Texto JetBoom" /></a>
 					</div>
 					<ul class="list-items">
 						<li><p class="dot-style">Síguenos en:</p></li>

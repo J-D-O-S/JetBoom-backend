@@ -1,6 +1,9 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from Usuarios.models import Usuario
+from django.contrib.auth import get_user_model, authenticate
+
+User = get_user_model()
 
 
 class CustomUserCreationForm(UserCreationForm):
@@ -31,3 +34,8 @@ class CustomUserChangeForm(UserChangeForm):
             "tipo_identificacion",
             "fecha_nacimiento",
         )
+
+
+class LoginForm(forms.Form):
+    email = forms.EmailField()
+    password = forms.CharField(widget=forms.PasswordInput)
