@@ -1,0 +1,70 @@
+{% extends "index.html" %} 
+{% block title %}
+Sobre Nosotros | JetBoom
+{% endblock title%}
+{% block styles_apply %} 
+  {% load static %}
+  <link rel="stylesheet" href="{% static "css/sobreNosotros.css" %}" /> 
+{% endblock styles_apply %} 
+
+
+{% block main_content %}
+<main class="main">
+    <section class="main-section">
+      <div class="contenedor-texto-sobre-imagen">
+        <img class="img-section" src="{% static "img/imgSobreN.webp" %}" alt="" />
+        <div class="texto-sobre-imagen">
+          <h1 class="titulo-sobre-imagen"> Sobre<br>Nosotros</h1>
+        </div>
+      </div>
+    </section>
+
+    <section class="rectangulo-jet">
+        <div class="contenido-jet">
+          <h1 class="titulo-jet">JetBoom</h1>
+          <p class="texto-jet">Es una plataforma innovadora que combina la emoción de viajar con el desafío de completar un álbum fotográfico único. Nuestro software está diseñado para motivar a los usuarios a explorar diversos sitios turísticos de la ciudad de BOGOTÁ, capturando momentos inolvidables y compartiendo sus experiencias con nosotros. 
+          </p>
+        </div>
+    </section>
+
+    <section id='pantalla-dividida'>
+      <div class="ladoizquierdo">
+        <div class="cuadradoi">
+          <h1 class="titulo-i">Nuestro Objetivo</h1>
+          <p class="texto-i">JetBoom tiene como objetivo impulsar la exploración de Bogotá al combinar servicios turísticos con emocionantes retos fotográficos. Además de facilitar la planificación de viajes y resalta la riqueza cultural local, ofreciendo a los usuarios una experiencia única y enriquecedora en la ciudad.
+          </p>
+          <p class="texto">
+            </p>
+        </div>
+      </div>
+      <div class="ladoderecho">
+        <div class="cuadradod">
+          <p class="texto-d"><br> Para consultar las preguntas frecuentes o presentar una PQRS, haz clic en este botón.</p>
+          <a href="{% url "iniciar_sesion" %}" class="button-container">
+            <button class="btn-pqrs">
+              PQRS
+            </button>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-MV">
+      <h2 class="title-MV">Misión y Visión</h2>
+      <div class="container-MV">
+        <div class="container-vision">
+          <h3 class="titles-v">Misión</h3>
+          <p class="text-v">
+            Brindar una plataforma innovadora que facilite a los usuarios explorar Bogotá mediante servicios turísticos, retos y un álbum fotográfico, motivando a otros a descubrir la ciudad y compartir sus experiencias.
+          </p>
+        </div>
+        <div class="container-mision">
+          <h3 class="titles-m">Visión</h3>
+          <p class="text-m">
+            Convertirnos en la plataforma líder para explorar Bogotá, fusionando tecnología y cultura para transformar cada viaje en una experiencia única, inspiradorando a los visitantes a descubrir y apreciar la ciudad de una manera fresca y emocionante.   
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+{% endblock main_content %}

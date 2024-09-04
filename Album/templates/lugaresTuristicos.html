@@ -1,0 +1,126 @@
+{% extends "index.html" %} 
+{% block title %}
+Lugares Turísticos | JetBoom
+{% endblock title%}
+{% block styles_apply %} 
+  {% load static %}
+  <link rel="stylesheet" href="{% static "css/lugaresTuristicos.css" %}" /> 
+{% endblock styles_apply %} 
+
+
+{% block main_content %}
+<main>
+    <section id="pantalla-dividida">
+        <div class="izquierda">
+            <h1>BOGOTA IT'S</h1>
+        </div>
+
+        <div class="derecha">
+            <div class="imgcard">
+                <img src="{% url "/img/cardMuseoOro.webp" %}" />
+                <p>Museo del Oro</p>
+                <br />
+                <a href="desclugaresturisticos.html" class="btn-link">
+                    <button class="btn-base">Saber más</button>
+                </a>
+            </div>
+
+            <div class="imgcard">
+                <img src="{% url "/img/cardCentroHistorico.webp" %}" />
+                <p>Centro Historico</p>
+                <br />
+                <a href="descripcionsitiosturisticos.html" class="btn-link">
+                    <button class="btn-base">Saber mas</button>
+                </a>
+            </div>
+
+            <div class="imgcard">
+                <img src="{% url "/img/cardMonserrate.webp" %}" />
+                <p>Monserrate</p>
+                <br />
+                <a href="hola.html" class="btn-link">
+                    <button class="btn-base">Saber mas</button>
+                </a>
+            </div>
+
+            <div class="imgcard">
+                <img src="{% url "/img/cardMBotero.webp" %}" />
+                <p>Museo de Botero</p>
+                <br />
+                <a href="hola.html" class="btn-link">
+                    <button class="btn-base">Saber mas</button>
+                </a>
+            </div>
+
+            <div class="imgcard">
+                <img src="{% url "/img/cardSalitreM.webp" %}" />
+                <p>Saltire Magico</p>
+                <br />
+                <a href=" hola.html" class="btn-link">
+                    <button class="btn-base">Saber mas</button>
+                </a>
+            </div>
+
+            <div class="imgcard">
+                <img src="{% url "/img/cardChorroQuevedo.webp" %}" />
+                <p>Chorro de Quevedo</p>
+                <a href="hola.html" class="btn-link">
+                    <button class="btn-base">Saber mas</button>
+                </a>
+            </div>
+
+            <div class="imgcard">
+                <img src="{% url "/img/cardMundoAventura.webp" %}" />
+                <p>Mundo Aventura</p>
+                <br />
+                <a href="hola.html" class="btn-link">
+                    <button class="btn-base">Saber mas</button>
+                </a>
+            </div>
+
+            <div class="imgcard">
+                <img src="{% url "/img/cardParqueTunal.webp" %}" />
+                <p>Parque Tunal<br /></p>
+                <br />
+                <a href="hola.html" class="btn-link">
+                    <button class="btn-base">Saber mas</button>
+                </a>
+            </div>
+
+            <div class="imgcard">
+                <img src="{% url "/img/cardMNacionalC.webp" %}" />
+                <p>Museo Nacional Colombia</p>
+                <a href="hola.html" class="btn-link">
+                    <button class="btn-base">Saber mas</button>
+                </a>
+            </div>
+
+            <div class="imgcard">
+                <img src="{% url "/img/cardPSimonBolivar.webp" %}" />
+                <p>Parque Simón Bolívar</p>
+                <a href="hola.html" class="btn-link">
+                    <button class="btn-base">Saber mas</button>
+                </a>
+            </div>
+
+            <div class="imgcard">
+                <img src="{% url "/img/cardPlazaBolivar.webp" %}" />
+                <p>Plaza de Bolivar</p>
+                <br />
+                <a href="hola.html" class="btn-link">
+                    <button class="btn-base">Saber mas</button>
+                </a>
+            </div>
+
+            <div class="imgcard">
+                <img src="{% url "/img/cardJardinBotanico.webp" %}" />
+                <p>Jardín Botánico</p>
+                <br />
+                <a href="hola.html" class="btn-link">
+                    <button class="btn-base">Saber mas</button>
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock main_content %}
