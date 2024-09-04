@@ -50,7 +50,7 @@
 							<a href="{% url "lugares_turisticos" %}">Lugares Turísticos</a>
 						</li>
 						<li class="underline nav-links">
-							<a href="./html/album.html">Álbum</a>
+							<a href="{% url "album" %}">Álbum</a>
 						</li>
 						{% if user.is_authenticated %}
 							<li class="user-info">

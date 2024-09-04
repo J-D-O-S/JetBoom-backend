@@ -2,7 +2,7 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 
-from .views import LugaresTuristicosView
+from .views import LugaresTuristicosView, AlbumFotosView
 
 urlpatterns = (
     [
@@ -11,11 +11,11 @@ urlpatterns = (
             LugaresTuristicosView.as_view(),
             name="lugares_turisticos",
         ),
-        # path(
-        #     "registrarse/",
-        #     RegistroView.as_view(),
-        #     name="registrarse",
-        # ),
+        path(
+            "album_fotos/",
+            AlbumFotosView.as_view(),
+            name="album",
+        ),
         # path(
         #     "cerrar_sesion/",
         #     LogoutUsuarioView.as_view(),

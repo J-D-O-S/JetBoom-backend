@@ -1,0 +1,92 @@
+.contenedorprincipal {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+#pantalla-dividida {
+    display: flex;
+    margin: 2% 0;
+}
+
+.ladoizquierdo {
+    flex: 1;
+    display: flex;
+    justify-content: right;
+    align-items: right;
+}
+
+.cuadradoi {
+    width: 38rem;
+    height: auto;
+    margin: 0 5%;
+    align-content: center;
+}
+
+.titulo {
+    font-family: "titulos-especiales";
+    font-size: 4rem;
+    text-align: center;
+    color: var(--negro);
+}
+
+.texto {
+    font-size: 1.4rem;
+    color: var(--oscuro);
+    padding: 2% 0 2% 3%;
+}
+
+.ladoderecho {
+    flex: 1;
+    display: flex;
+    justify-content: left;
+    align-items: left;
+}
+
+.cuadradod {
+    width: 36rem;
+    height: auto;
+    margin: 0 5%;
+    align-content: center;
+}
+
+.cuadradod .img-section {
+    width: 100%;
+    border-radius: var(--border-radius);
+    box-shadow: 0px 4px 9px rgba(0, 0, 1, 1);
+    object-fit: contain;
+    padding: 1% 1%;
+}
+
+@media (max-width: 1200px) {
+    .contenedorprincipal {
+        flex-direction: column;
+    }
+
+    #pantalla-dividida {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .ladoizquierdo,
+    .ladoderecho {
+        padding: 4% 0;
+    }
+
+    .cuadradoi,
+    .cuadradod {
+        width: 100%;
+        height: 50%;
+    }
+
+    .titulo {
+        font-size: 7rem;
+    }
+
+    .texto {
+        font-size: 2.8rem;
+    }
+}

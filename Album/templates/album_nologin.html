@@ -1,0 +1,34 @@
+{% extends "index.html" %} 
+{% block title %}
+Álbum | JetBooms
+{% endblock title%}
+
+{% block styles_apply %} 
+{% load static %}
+    <link rel="stylesheet" href="{% static "css/albumSinLoguear.css" %}" /> 
+{% endblock styles_apply %}
+ 
+{% block main_content %}
+    <main class="contenedorprincipal">
+        <section id='pantalla-dividida'>
+        <div class="ladoizquierdo">
+            <div class="cuadradoi">
+            <h1 class="titulo">¡Hola!</h1>
+            <h2 class="texto">Para acceder al área de álbum, primero debes iniciar sesión.</h2>
+            <a href="{% url "iniciar_sesion" %}" class="btn-base">
+                Iniciar sesión
+            </a>
+            <h2 class="texto">Si aún no tienes una cuenta, puedes crear una haciendo clic en el siguiente botón:</h2>
+            <a href="{% url "registrarse" %}" class="btn-base">
+                Regístrate
+            </a>
+            </div>
+        </div>
+        <div class="ladoderecho">
+            <div class="cuadradod">
+            <img class="img-section" src="{% static "img/collageAlbum.webp" %}" alt="" />
+            </div>
+        </div>
+        </section>
+    </main>
+{% endblock main_content %}
