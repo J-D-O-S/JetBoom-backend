@@ -1,0 +1,211 @@
+{% extends "index.html" %} 
+{% block title %}
+Perfil | JetBooms
+{% endblock title%}
+{% block styles_apply %} 
+  {% load static %}
+  <link rel="stylesheet" href="{% static "css/galeria.css" %}" /> 
+{% endblock styles_apply %} 
+
+{% block main_content %}
+<main class="main">
+    <div class="imgfotoperfil">
+        <span class="material-symbols-rounded">photo_camera</span>
+        <img src="{% static "img/imgFondoPerfil.webp" %}" />
+        <div class="fotodeperfil">
+            <span class="material-symbols-rounded">photo_camera</span>
+            <img src="{% static "img/imgFotoPerfil.webp" %}" alt="Perfil"/>
+        </div>
+        <div class="nombreperfil">
+            Cony Quiroga
+        </div>
+        <div class="nacionalidadperfil">
+            Guapuchera
+        </div>
+    </div>
+
+    <div class="contenedorcuadradorojo">  
+        <div class="cuadradorojo">
+            <h1>7</h1>
+            <p>
+                publicaciones
+            </p>
+        </div>
+    </div>
+    <section class="botones-seccion">
+        <a class="dot-style" href="galeria.html">
+            <button class="btn-base">
+                Álbum
+            </button>
+        </a>
+        <a class="dot-style" href="puntos.html">
+            <button class="btn-base">
+                Puntos
+            </button>
+        </a>
+        <a class="dot-style" href="hola.html">
+            <button class="btn-base">
+                <span class="material-symbols-rounded">add_a_photo</span>
+            </button>
+        </a>
+        <a class="dot-style" href="reservasSinContenido.html">
+            <button class="btn-base">
+                Reserva
+            </button>
+        </a>
+        <a class="dot-style" href="reservasContenido.html">
+            <button class="btn-base">
+                Compras
+            </button>
+        </a>
+        
+    </section>
+
+    <section class="galeria">
+        <a href="#image1">
+            <img src="{% static "img/cardCentroHistorico.webp" %}">
+        </a>
+        <a href="#image2">
+            <img src="{% static "img/cardChorroQuevedo.webp" %}">
+        </a>
+        <a href="#image3">
+            <img src="{% static "img/cardJardinBotanico.webp" %}">
+        </a>
+        <a href="#image4">
+            <img src="{% static "img/cardMBotero.webp" %}">
+        </a>
+        <a href="#image5">
+            <img src="{% static "img/cardMNacionalC.webp" %}">
+        </a>
+        <a href="#image6">
+            <img src="{% static "img/cardMonserrate.webp" %}">
+        </a>
+        <a href="#image7">
+            <img src="{% static "img/cardMundoAventura.webp" %}">
+        </a>
+        <a href="#image8">
+            <img src="{% static "img/cardMuseoOro.webp" %}">
+        </a>
+        <a href="#image9">
+            <img src="{% static "img/cardParqueTunal.webp" %}">
+        </a>
+    </section>
+
+    <article class="ligth-box" id="image1">
+        <a href="#image9" class="next">
+            <span class="material-symbols-rounded">arrow_back_ios</span>
+        </a>
+        <img src="{% static "img/cardCentroHistorico.webp" %}">
+        <a href="#image2" class="next">
+            <span class="material-symbols-rounded">arrow_forward_ios </span>
+        </a>
+        <a href="#" class="close">
+            X
+        </a>
+    </article>
+
+    <article class="ligth-box" id="image2">
+        <a href="#image1" class="next">
+            <span class="material-symbols-rounded">arrow_back_ios </span>
+        </a>
+        <img src="{% static "img/cardChorroQuevedo.webp" %}">
+        <a href="#image3" class="next">
+            <span class="material-symbols-rounded">arrow_forward_ios </span>
+        </a>
+        <a href="#" class="close">
+            X
+        </a>
+    </article>
+
+    <article class="ligth-box" id="image3">
+        <a href="#image2" class="next">
+            <span class="material-symbols-rounded">arrow_back_ios </span>
+        </a>
+        <img src="{% static "img/cardJardinBotanico.webp" %}">
+        <a href="#image4" class="next">
+            <span class="material-symbols-rounded">arrow_forward_ios </span>
+        </a>
+        <a href="#" class="close">
+            X
+        </a>
+    </article>
+
+    <article class="ligth-box" id="image4">
+        <a href="#image3" class="next">
+            <span class="material-symbols-rounded">arrow_back_ios </span>
+        </a>
+        <img src="{% static "img/cardMBotero.webp" %}">
+        <a href="#image5" class="next">
+            <span class="material-symbols-rounded">arrow_forward_ios </span>
+        </a>
+        <a href="#" class="close">
+            X
+        </a>
+    </article>
+
+    <article class="ligth-box" id="image5">
+        <a href="#image4" class="next">
+            <span class="material-symbols-rounded">arrow_back_ios </span>
+        </a>
+        <img src="{% static "img/cardMNacionalC.webp" %}">
+        <a href="#image6" class="next">
+            <span class="material-symbols-rounded">arrow_forward_ios </span>
+        </a>
+        <a href="#" class="close">
+            X
+        </a>
+    </article>
+
+    <article class="ligth-box" id="image6">
+        <a href="#image5" class="next">
+            <span class="material-symbols-rounded">arrow_back_ios </span>
+        </a>
+        <img src="{% static "img/cardMonserrate.webp" %}">
+        <a href="#image7" class="next">
+            <span class="material-symbols-rounded">arrow_forward_ios </span>
+        </a>
+        <a href="#" class="close">
+            X
+        </a>
+    </article>
+
+    <article class="ligth-box" id="image7">
+        <a href="#image6" class="next">
+            <span class="material-symbols-rounded">arrow_back_ios </span>
+        </a>
+        <img src="{% static "img/cardMundoAventura.webp" %}">
+        <a href="#image8" class="next">
+            <span class="material-symbols-rounded">arrow_forward_ios </span>
+        </a>
+        <a href="#" class="close">
+            X
+        </a>
+    </article>
+
+    <article class="ligth-box" id="image8">
+        <a href="#image7" class="next">
+            <span class="material-symbols-rounded">arrow_back_ios </span>
+        </a>
+        <img src="{% static "img/cardMuseoOro.webp" %}">
+        <a href="#image9" class="next">
+            <span class="material-symbols-rounded">arrow_forward_ios </span>
+        </a>
+        <a href="#" class="close">
+            X
+        </a>
+    </article>
+
+    <article class="ligth-box" id="image9">
+        <a href="#image8" class="next">
+            <span class="material-symbols-rounded">arrow_back_ios </span>
+        </a>
+        <img src="{% static "img/cardParqueTunal.webp" %}">
+        <a href="#image1" class="next">
+            <span class="material-symbols-rounded">arrow_forward_ios </span>
+        </a>
+        <a href="#" class="close">
+            X
+        </a>
+    </article>
+</main>
+{% endblock main_content %}
