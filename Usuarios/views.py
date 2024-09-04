@@ -45,3 +45,8 @@ class LogoutUsuarioView(View):
     def post(self, request):
         logout(request)
         return redirect("index")
+
+
+class PerfilView(View):
+    def get(self, request):
+        return render(request, "perfil/perfil.html")
