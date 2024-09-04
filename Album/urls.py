@@ -7,9 +7,9 @@ from .views import LugaresTuristicosView
 urlpatterns = (
     [
         path(
-            "iniciar_sesion/",
+            "lugares_turisticos/",
             LugaresTuristicosView.as_view(),
-            name="iniciar_sesion",
+            name="lugares_turisticos",
         ),
         # path(
         #     "registrarse/",
