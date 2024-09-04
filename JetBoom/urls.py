@@ -18,10 +18,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from .views import IndexView
+from Fidelizacion.views import AboutUsView
 
 urlpatterns = [
     path("", IndexView.as_view(), name="index"),
     path("admin/", admin.site.urls),
     path("usuarios/", include("Usuarios.urls")),
-    path("ventas/", include("Ventas.urls")),
+    # path("ventas/", include("Ventas.urls")),
+    path("sobre_nosotros/", AboutUsView.as_view(), name="sobre_nosotros"),
 ]

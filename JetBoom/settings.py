@@ -38,6 +38,10 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "Fidelizacion",
+    "Album",
+    "Servicios",
+    "Ventas",
     "Usuarios",
 ]
 
@@ -132,5 +136,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+# auth
+LOGIN_URL = "iniciar_sesion"
 # LOGIN_REDIRECT_URL = "index"
 # LOGOUT_REDIRECT_URL = "index"
