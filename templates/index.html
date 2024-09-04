@@ -44,7 +44,7 @@
 							<a href="{% url "index" %}">Inicio</a>
 						</li>
 						<li class="underline nav-links">
-							<a href="./html/sobreNosotros.html">Sobre Nosotros</a>
+							<a href="{% url "sobre_nosotros" %}">Sobre Nosotros</a>
 						</li>
 						<li class="underline nav-links">
 							<a href="./html/lugaresTuristicos.html">Lugares Turísticos</a>
@@ -96,12 +96,15 @@
 												</small>
 											</li>
 											<li class="li-items-config-nav">
-												<button class="btn-user-info" type="button">
-													<span class="material-symbols-rounded">
-														person
-													</span>
-													Ver Perfil
-												</button>
+												<form action="{% url "perfil" %}" method="get">
+													{% csrf_token %}
+													<button class="btn-user-info" type="submit">
+														<span class="material-symbols-rounded">
+															person
+														</span>
+														Ver Perfil
+													</button>
+												</form>
 											</li>
 											<li class="li-items-config-nav">
 												<button class="btn-user-info" type="button">
@@ -295,9 +298,7 @@
 					<ul class="list-items">
 						<li class="dot-style"><a href="{% url "index" %}">Inicio</a></li>
 						<li class="dot-style">
-							<a href="html/sobreNosotros.html">Sobre Nosotros</a> 
-							{% comment %} <a href="{% url "html/sobreNosotros.html" %}">Sobre Nosotros</a>  {% endcomment %}
-							{% comment %} TODO: Revisar esta URL más tarde para cambiarla por el url:name {% endcomment %}
+							<a href="{% url "sobre_nosotros" %}">Sobre Nosotros</a>
 						</li>
 						<li class="dot-style">
 							<a href="html/lugaresTuristicos.html">Lugares Turísticos</a>
@@ -305,8 +306,12 @@
 						<li class="dot-style"><a href="html/album.html">Álbum</a></li>
 					</ul>
 					<div class="logo-footer">
-						<a href="{% url "index" %}"><img src="{% static "img/jbLogo_B.webp" %}" alt="Logo JetBoom" /></a>
-						<a href="{% url "index" %}"><img src="{% static "img/jbText_B.webp" %}" alt="Texto JetBoom" /></a>
+						<a href="{% url "index" %}">
+							<img src="{% static "img/jbLogo_B.webp" %}" alt="Logo JetBoom" />
+						</a>
+						<a href="{% url "index" %}">
+							<img src="{% static "img/jbText_B.webp" %}" alt="Texto JetBoom" />
+						</a>
 					</div>
 					<ul class="list-items">
 						<li><p class="dot-style">Síguenos en:</p></li>

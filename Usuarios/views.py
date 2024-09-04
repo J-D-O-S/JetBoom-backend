@@ -1,10 +1,14 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
+from django.views.generic import TemplateView
 from django.views.generic.base import View
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 from .forms import LoginForm, CustomUserCreationForm
 
 
+# uso el View para poder hacer el get y post en la misma vista
 class RegistroView(View):
     def get(self, request):
         form = CustomUserCreationForm()
@@ -47,6 +51,5 @@ class LogoutUsuarioView(View):
         return redirect("index")
 
 
-class PerfilView(View):
-    def get(self, request):
-        return render(request, "perfil/perfil.html")
+class PerfilView(LoginRequiredMixin, TemplateView):
+    template_name = "perfil/perfil.html"
