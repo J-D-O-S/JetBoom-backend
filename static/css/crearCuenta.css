@@ -1,123 +1,122 @@
-/* body {
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  font-family: Brother1816-Book;
-} */
-
-#pantalla-dividida {
+.main {
   display: flex;
-}
-
-.izquierda {
-  /*imagen de fondo y tamaño para el contenido ubicado en el div derecho*/
-  /* background-image: url(/img/fondoCrearCuenta.jpg); */
-  /* background-size: cover; */
-  /* background-position: center; */
-  height: 100vh;
-  width: 50%;
-}
-
-.derecha {
-  /*color y tamaño para el contenido ubicado en el div derecho*/
-  height: 100vh;
-  width: 50%;
-  margin-left: 5%;
-}
-
-.formulariocrear {
-  /* el contenido del formulario*/
-  position: absolute;
-  top: 10%;
-  border-radius: 10px;
-}
-
-.formulariocrear h1 {
-  /*tipo y tamaño de la letra del titulo del formulario*/
-  text-align: center;
-  font-size: 40px;
-  font-family: "titulos";
-  padding: 0 0 20px 0;
-  border-bottom: 1px solid #fff;
-}
-
-.formulariocrear form {
-  /*forma y espacio para el form de la caja*/
-  padding: 0 40px;
-  box-sizing: border-box;
-}
-
-form .username {
-  /*diseño de los espacios del form de la caja*/
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   position: relative;
-  border-bottom: 2px solid #0c0e0c;
-  margin: 30px 0;
+  margin-top: 2%;
 }
 
-.username input {
-  /*Diseño y tamaño del espacio para los campos que solicitan informacion*/
+.formulario {
+  background-color: var(--rojo);
+  padding: 3%;
+  border-radius: var(--border-radius);
+  max-width: 700px;
   width: 100%;
-  padding: 0 5px;
-  height: 40px;
-  font-size: 16 px;
-  border: none;
-  background: none;
+}
+
+.formulario h1 {
+  font-family: "titulos-especiales";
+  font-size: 3rem;
+  color: var(--amarillo);
+  margin-bottom: 4%;
+}
+
+.container-correo {
+  margin-bottom: 5%;
+
+}
+
+/* Estilos de los campos de entrada */
+.username,
+.birthdate-box,
+.tipoDoc-box {
+  margin-bottom: 2%;
+  position: relative;
+}
+
+.username input,
+.birthdate-box input,
+.tipoDoc-box select {
+  width: 100%;
+  height: 3.3rem;
+  padding: 12px;
+  background-color: var(--gris);
+  border-radius: var(--border-radius);
+  font-size: 1.2rem;
+  color: var(--oscuro);
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="date"]:focus,
+select:focus {
+  border-color: var(--gris);
   outline: none;
 }
 
+.birthdate-box,
+.tipoDoc-box {
+  color: var(--gris);
+}
+
+.texto-label {
+  font-size: 1.2rem;
+  text-align: left;
+}
+
+/* Estilos para las etiquetas de correo y contraseña con animaciones */
 .username label {
-  /*Diseño y tamaño de la letra del espacio para los campos que solicitan informacion*/
   position: absolute;
-  top: 50%;
-  left: 5px;
+  top: 65%;
+  left: 3%;
   color: var(--negro);
-  transform: translateY(-50%);
-  font-size: 16px;
+  transform: translateY(-75%);
+  font-size: 1.2rem;
   pointer-events: none;
-  transition: .5s;
+  transition: 0.5s;
 }
 
 .username span::before {
-  /*Animacion de los espacios para correo y contraseña*/
+  /*Animación de los espacios para correo y contraseña*/
   content: '';
   position: absolute;
-  top: 40px;
   left: 0;
   width: 100%;
   height: 2px;
-  background: #000;
-  transition: .5s;
+  background: var(--negro);
+  transition: 0.5s;
 }
 
 .username input:focus~label,
 .username input:valid~label {
+  /*Animación de los espacios para correo y contraseña después de agregar el contenido*/
   top: -5px;
-  color: #e4032e;
-  font-family: Brother1816-Medium;
+  color: var(--gris);
+  font-family: "textos";
   transition: top 0.3s ease, color 0.3s ease;
 }
 
-
-
-/*diseñpo del boton*/
-button[type="submit"] {
-  /*tamaño del boton y de sus bordes*/
-  width: 100%;
-  height: 50px;
-  border: 2px solid;
-  /*tipo, tamaño y color de letra y el color del fondo para el boton*/
-  font-family: Brother1816-Book;
-  font-size: 20px;
-  color: #fff;
-  ;
-  background: #e4032e;
-  /*se establece el redondeo de las esquinas del boton*/
-  border-radius: 15px;
-  /*Cambia el cursor al estar cerca o sobre el boton*/
-  cursor: pointer;
+.button-container {
+  /*Contenedor del boton de registrarse*/
+  margin-top: 5%;
 }
 
-button[type="submit"]:hover {
-  border-color: #e4032e;
-  transition: .5s;
+.btn-base {
+  /*Diseño del boton de registrarse*/
+  background-color: var(--amarillo);
+  color: var(--oscuro);
+  padding: 2% 20%;
+}
+
+.btn-base:hover {
+  color: var(--rojo);
+  background-color: var(--amarillo);
+}
+
+.text-columns {
+  /* Estilos para dos columnas */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 25px;
 }

@@ -1,3 +1,4 @@
+from django import forms
 from django.db import models
 from django.contrib.auth.models import (
     AbstractBaseUser,
@@ -87,7 +88,7 @@ class Usuario(AbstractBaseUser, PermissionsMixin):
     fecha_modificacion = models.DateTimeField(auto_now=True, verbose_name="Modificado")
     foto_perfil = models.ImageField(
         "Foto de Perfil",
-        upload_to="fotos_perfil/",
+        upload_to="Usuarios/fotos_perfil/",
         max_length=200,
         blank=True,
         null=True,
@@ -97,6 +98,7 @@ class Usuario(AbstractBaseUser, PermissionsMixin):
     )
 
     TIPO_IDENTIFICACION_CHOICES = [
+        ("", "Seleccione su identificación"),
         ("CC", "Cédula de Ciudadanía"),
         ("CE", "Cédula de Extranjería"),
         ("PA", "Pasaporte"),
