@@ -3,73 +3,77 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
+/*diseño del titulo*/
 .container-titulo {
-  color: var(--font-color-negro);
-  margin: 2% 10%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 1rem;
+  color: var(--negro);
+  margin: 1% 0 2%;
 }
 
 .container-titulo h1 {
+  /*tipo y tamaño de la letra del titulo*/
   font-family: "titulos-especiales";
   font-size: 45px;
 }
 
-.texto {
+.container-titulo h2 {
+  /*tipo y tamaño de la letra del titulo 2*/
   font-family: "titulos";
   font-size: 35px;
 }
 
 .formulario {
+  /*diseño de la caja con el contenido de iniciar sesion*/
+  width: 35%;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  width: 30rem;
-  padding: 1rem;
+  justify-content: center;
+  align-items: center;
   background: var(--rojo);
-  border-radius: 30px;
+  border-radius: var(--border-radius);
 }
 
 .formulario h1 {
-  margin: 4% 0;
-  text-align: center;
+  /*tipo y tamaño de la letra del titulo de la caja*/
+  margin: 5% 0 3%;
   font-family: "titulos-especiales";
-  font-size: 40px;
-  color: var(--gris);
-  margin: 7% 0;
-  border-bottom: 1px solid var(--rojo);
+  font-size: 2.8rem;
+  color: var(--amarillo);
 }
 
 .formulario form {
-  padding: 0 15%;
+  /*forma y espacio para el form de la caja*/
+  width: 30rem;
+  padding: 0 10%;
   box-sizing: border-box;
 }
 
 form .username {
+  /*diseño de los espacios del form de la caja*/
   position: relative;
   background-color: var(--gris);
-  border-radius: 10px;
-  margin: 7% 0;
+  border-radius: var(--border-radius);
+  margin: 7.5% 0;
+  padding: 0 2%;
+  width: 100%;
 }
 
 .username input {
+  /*Diseño y tamaño del espacio para correo y contraseña*/
   width: 100%;
-  padding: 3% 5%;
+  padding: 4%;
   border: none;
   background: none;
   outline: none;
 }
 
 .username label {
+  /*Diseño y tamaño de la letra del espacio para correo y contraseña*/
   position: absolute;
-  top: 60%;
-  left: 2%;
+  top: 70%;
+  left: 4%;
   color: var(--negro);
   font-family: "textos";
   transform: translateY(-75%);
@@ -79,6 +83,7 @@ form .username {
 }
 
 .username span::before {
+  /*Animacion de los espacios para correo y contraseña*/
   content: '';
   position: absolute;
   left: 0;
@@ -90,58 +95,180 @@ form .username {
 
 .username input:focus~label,
 .username input:valid~label {
+  /*Animacion de los espacios para correo y contraseña despues de agregar el contenido*/
   top: -5px;
   color: var(--gris);
   font-family: "textos";
   transition: top 0.3s ease, color 0.3s ease;
 }
 
-.recordar {
-  margin: 20px 0;
-}
-
-.recordar a {
-  font-size: 14px;
-  font-family: "textos";
-  color: #fff;
+.recordar-a {
+  /*Diseño de la letra del ¿Olvidaste tu contraseña?*/
+  margin-bottom: 5%;
+  font-size: 1rem;
+  color: var(--gris);
   text-decoration: none;
 }
 
-.recordar a:hover {
-  text-decoration: underline;
-  color: var(--rojo);
-}
-
-input[type="submit"] {
+.ligth-box {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, .4);
+  transition: transform .3s ease-in-out;
   width: 100%;
-  height: 50px;
-  border: 2px solid;
-  font-size: 18px;
-  font-family: "textos";
-  color: var(--negro);
-  border-color: var(--amarillo);
-  background: var(--amarillo);
-  border-radius: var(--border-radius);
-  cursor: pointer;
+  height: 100vh;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: scale(0);
 }
 
-input[type="submit"]:hover {
-  border-color: var(--amarillo);
+.ligth-box img {
+  width: 75vw;
+  max-height: 70vh;
+}
+
+.ligth-box:target {
+  transform: scale(1);
+}
+
+.formulario-modal2 {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: var(--rojo);
+  border-radius: var(--border-radius);
+}
+
+.formulario-modal2 h2 {
+  margin: 8% 5% 4%;
+  font-family: "titulos-especiales";
+  font-size: 1.6rem;
+  color: var(--amarillo);
+}
+
+.formulario-modal2 p {
+  margin: 2% 10% 4%;
+  font-size: 1.5rem;
+  color: var(--gris);
+}
+
+form .username2 {
+  /*diseño de los espacios del form de la caja del modal*/
+  position: relative;
+  background-color: var(--gris);
+  border-radius: var(--border-radius);
+  margin: 1% 0 6%;
+  padding: 1.5% 2%;
+  width: 50%;
+}
+
+.username2 input {
+  /*Diseño y tamaño del espacio para correo*/
+  width: 100%;
+  padding: 2%;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+.username2 label {
+  /*Diseño y tamaño de la letra del espacio para correo*/
+  position: absolute;
+  top: 70%;
+  left: 5%;
+  color: var(--negro);
+  border: none;
+  font-family: "textos";
+  transform: translateY(-75%);
+  font-size: 20px;
+  pointer-events: none;
   transition: .5s;
 }
 
+.username2 span::before {
+  /*Animacion de los espacios para correo*/
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--negro);
+  transition: .5s;
+}
+
+.username2 input:focus~label,
+.username2 input:valid~label {
+  /*Animacion de los espacios para correo despues de agregar el contenido*/
+  top: -5px;
+  color: var(--gris);
+  font-family: "textos";
+  transition: top 0.3s ease, color 0.3s ease;
+}
+
+.close {
+  /*simbolo cerrar el modal*/
+  display: block;
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  background: var(--rojo);
+  color: var(--oscuro);
+  text-decoration: none;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+}
+
+.button-container {
+  /*contenedor para el boton*/
+  margin: 0% 0 5%;
+  width: 70%;
+}
+
+.btn-base {
+  /*Diseño del boton de continuar*/
+  background-color: var(--amarillo);
+  color: var(--oscuro);
+  padding: 2% 20%;
+  transition: all 0.5s ease-in-out;
+}
+
+.btn-base:hover {
+  color: var(--oscuro);
+  background-color: var(--amarillo);
+  outline: none;
+  box-shadow:
+    /* Primera capa */
+    0 0 0 2px var(--amarillo),
+    /* Segunda capa */
+    0 0 0 5px var(--rojo),
+    /* Tercera capa */
+    0 0 0 8px var(--amarillo);
+  transition: all 0.5s ease-in-out;
+  transform: scale(1.05);
+}
+
 .registrarse {
-  margin-top: 20px;
+  /*Diseño del espacio de registrase y iniciar sesion*/
+  padding: 5%;
   text-align: center;
 }
 
 .registrarse a {
-  font-size: 14px;
-  font-family: "textos";
-  color: #0c0e0c;
+  /*Diseño de la letra del registrase y iniciar sesion*/
+  font-size: 1rem;
+  color: var(--gris);
   text-decoration: none;
 }
 
 .registrarse a:hover {
+  /*Linia inferior cuando el mouse pasa sobre el texto del registrase y iniciar sesion*/
   text-decoration: underline;
 }

@@ -23,11 +23,6 @@ class RegistroView(View):
             user.save()
             AlbumFoto.objects.create(usuario=user)
 
-            print(f"\n\nusername: {form.cleaned_data.get("username")}\n\n")
-            print(f"\n\nemail: {form.cleaned_data.get("email")}\n\n")
-            print(f"\n\npassword1: {form.cleaned_data.get("password1")}\n\n")
-            print(f"\n\npassword: {form.cleaned_data.get("password")}\n\n")
-
             username = form.cleaned_data.get("email")
             password = form.cleaned_data.get("password1")
             user = authenticate(username=username, password=password)
@@ -35,7 +30,6 @@ class RegistroView(View):
                 print("\n\nUsuario autenticado\n\n")
                 login(request, user)
                 return redirect("perfil")
-            # return redirect("iniciar_sesion")  # TODO: Redirect to perfil page
         else:
             print(form.errors)
 
