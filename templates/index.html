@@ -277,11 +277,11 @@
 						tiene para ti! Si tienes alguna pregunta o inquietud, no dudes en
 						contactarnos.
 					</p>
-					<a href="html/sobreNosotros.html" class="btn-base" type="button">
+					<a href="{% url "sobre_nosotros" %}" class="btn-base" type="button">
 						<span class="material-symbols-rounded"> contact_support </span>
 						Sobre nosotros
 					</a>
-					<a href="html/crearCuenta.html" class="btn-base" type="button">
+					<a href="{% url "registrarse" %}" class="btn-base" type="button">
 						<span class="material-symbols-rounded">person_add</span>
 						Registrarse
 					</a>
@@ -315,9 +315,10 @@
 					</div>
 					<ul class="list-items">
 						<li><p class="dot-style">Síguenos en:</p></li>
-						<li><a class="dot-style" href="html/error404.html">Facebook</a></li>
-						<li><a class="dot-style" href="html/error500.html">Instagram</a></li>
-						<li><a class="dot-style" href="#">Contáctanos</a></li>
+						<li><a class="dot-style" target="blank" href="https://www.facebook.com/profile.php?id=61564307011381">Facebook</a></li>
+						<li><a class="dot-style" target="blank" href="https://www.instagram.com/jetboom_oficial?utm_source=qr&igsh=MXR4cDN0MHQweXRlNQ%3D%3D">Instagram</a></li>
+						<li><a class="dot-style" href="{% url "contactanos" %}">Contáctanos</a></li>
+						{% comment %} arriba enviar al formulario si esta logueado {% endcomment %}
 					</ul>
 				</div>
 			</section>

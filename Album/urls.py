@@ -2,15 +2,10 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 
-from .views import LugaresTuristicosView, AlbumFotosView
+from .views import AlbumFotosView
 
 urlpatterns = (
     [
-        path(
-            "lugares_turisticos/",
-            LugaresTuristicosView.as_view(),
-            name="lugares_turisticos",
-        ),
         path(
             "album_fotos/",
             AlbumFotosView.as_view(),

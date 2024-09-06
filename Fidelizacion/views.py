@@ -6,3 +6,7 @@ from django.views.generic import TemplateView
 
 class AboutUsView(TemplateView):
     template_name = "sobreNosotros/sobreNosotros.html"
+
+
+class ContactanosView(TemplateView):
+    template_name = "atencion_usuario/contactanos.html"

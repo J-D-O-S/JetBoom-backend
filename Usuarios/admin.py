@@ -9,7 +9,7 @@ class CustomUserAdmin(UserAdmin):
     form = CustomUserChangeForm
     model = Usuario
     list_display = ["email", "nombre", "apellido", "is_staff", "is_active"]
-    list_filter = ["is_staff", "is_active"]
+    list_filter = ["is_staff", "is_active", "is_superuser"]
     fieldsets = (
         (None, {"fields": ("email", "password")}),
         (
@@ -26,7 +26,7 @@ class CustomUserAdmin(UserAdmin):
                 )
             },
         ),
-        ("Permisos", {"fields": ("is_staff", "is_active")}),
+        ("Permisos", {"fields": ("is_staff", "is_active", "is_superuser")}),
         ("Fechas Importantes", {"fields": ("last_login", "date_joined")}),
     )
     add_fieldsets = (
@@ -42,6 +42,7 @@ class CustomUserAdmin(UserAdmin):
                     "password2",
                     "is_staff",
                     "is_active",
+                    "is_superuser",
                 ),
             },
         ),

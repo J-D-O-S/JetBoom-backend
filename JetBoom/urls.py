@@ -27,4 +27,6 @@ urlpatterns = [
     # path("ventas/", include("Ventas.urls")),
     path("sobre_nosotros/", AboutUsView.as_view(), name="sobre_nosotros"),
     path("album/", include("Album.urls")),
+    path("servicios/", include("Servicios.urls")),
+    path("fidelizacion/", include("Fidelizacion.urls")),
 ]
