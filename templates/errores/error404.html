@@ -1,0 +1,21 @@
+{% extends "index.html" %} 
+{% block title %}
+    Error 404 | JetBoom
+{% endblock title%}
+{% block styles_apply %} 
+  {% load static %}
+  <link rel="stylesheet" href="{% static "css/error404-500.css" %}" /> 
+{% endblock styles_apply %} 
+
+{% block main_content %}
+<main class="main">
+    <img class="img404" src="{% static "/img/404.webp" %}" alt="Se muestra la imagen del error 404 (NO se encontro la página buscada)" />
+      <h1 class="titulo404">ERROR PAGE NOT FOUND</h1>
+      <p class="texto-404-500">
+          Oops, parece que te has perdido. La página que buscas no ha sido encontrada.
+          Pero no te preocupes, estamos aquí para ayudarte a encontrar el camino de
+          vuelta. ¿Quizás quieras explorar nuestras otras secciones emocionantes mientras
+          tanto?
+      </p>
+</main>
+{% endblock main_content %}
