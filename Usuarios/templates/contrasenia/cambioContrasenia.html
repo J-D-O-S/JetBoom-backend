@@ -1,0 +1,36 @@
+{% extends "index.html" %} 
+{% block title %}
+Recuperación cuenta | JetBooms
+{% endblock title%}
+{% block styles_apply %} 
+  {% load static %}
+  <link rel="stylesheet" href="{% static "css/cambioContrasenia.css" %}" /> 
+{% endblock styles_apply %}
+
+{% block main_content %}
+<main class="main">
+    <div class="container-titulo">
+        <p>
+            Has solicitado cambiar tu contraseña. Para completar el proceso, por favor,
+            rellena el siguiente formulario.
+        </p>
+    </div>
+
+    <div class="formulario">
+        <h1>Cambio de Contraseña</h1>
+        <form method="post">
+            <div class="username">
+                <input type="password" required />
+                <label>Nueva Contraseña*</label>
+            </div>
+            <div class="username">
+                <input type="password" required />
+                <label>Confirma la nueva Contraseña*</label>
+            </div>
+            <div class="button-container">
+                <a href="#" class="btn-base" type="button"> Guardar Contraseña </a>
+            </div>
+        </form>
+    </div>
+</main>
+{% endblock main_content %}
