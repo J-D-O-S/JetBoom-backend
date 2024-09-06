@@ -15,7 +15,7 @@
             {% csrf_token %}
             <div class="container-correo">
                 <div class="username">
-                    <input type="text" required>
+                    <input type="email" name="email" required>
                     <label>Correo</label>
                 </div>
             </div>    
@@ -48,7 +48,7 @@
                     <label class="texto-label">Tipo de Documento</label>
                     <br>
                     {{ form.tipo_identificacion }}
-                    {{ form.tipo_identificacion.errors }}
+                    {{ form.errors }}
                 </div>
                 <div class="username">
                     <input type="text" name="numero_identificacion" required>

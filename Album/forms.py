@@ -1,17 +1,28 @@
 # formulario para admin para poder hacer la creación del album de fotos
 from django import forms
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm
-from .models import Album, Foto
-from django.contrib.auth import get_user_model
+from .models import AlbumFoto, Foto
 
-User = get_user_model()
+# from django.contrib.auth import get_user_model
+
+# User = get_user_model()
 
 
-class CustomAlbumForm(UserCreationForm):
-    class Meta(UserCreationForm):
-        model = Album
+class CustomAlbumForm(forms.ModelForm):
+    class Meta(forms.ModelForm):
+        model = AlbumFoto
         fields = (
             "usuario",
             "nombre_album",
             "descripcion",
+        )
+
+
+class CustomFotoForm(forms.ModelForm):
+    class Meta(forms.ModelForm):
+        model = Foto
+        fields = (
+            "album",
+            "descripcion",
+            "imagen",
+            "comentario_publico",
         )

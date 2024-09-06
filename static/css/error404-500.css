@@ -11,14 +11,14 @@
   min-height: 100%;
   /* transform: translateY(50%); */
 }
-  
- .img404 {
+
+.img404 {
   /* Tamaño y posición del numero 404 */
   width: 65%;
   height: auto;
 }
 
- .img500 {
+.img500 {
   /* Tamaño y posición del numero 500 */
   margin-top: -2%;
   width: 60%;
@@ -54,15 +54,15 @@
   .main {
     padding: 10%;
   }
-  
-  .img404{
+
+  .img404 {
     width: 100%;
   }
 
   .img500 {
     width: 90%;
   }
-  
+
   .titulo404 {
     font-size: 3.5em;
   }
@@ -71,12 +71,9 @@
     font-size: 3.5em;
     margin-top: -4%;
   }
-  
+
   .texto-404-500 {
     font-size: 1.2em;
     margin-top: 2%;
   }
 }
-
-
-

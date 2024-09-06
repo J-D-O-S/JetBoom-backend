@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
-from Usuarios.models import Usuario
+from .models import Usuario
 
 # from django.contrib.auth import get_user_model
 

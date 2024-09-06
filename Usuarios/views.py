@@ -1,11 +1,11 @@
 from django.shortcuts import render, redirect
-from django.urls import reverse_lazy
 from django.views.generic import TemplateView
 from django.views.generic.base import View
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .forms import LoginForm, CustomUserCreationForm
+from Album.models import AlbumFoto
 
 
 # uso el View para poder hacer el get y post en la misma vista
@@ -16,11 +16,28 @@ class RegistroView(View):
 
     def post(self, request):
         form = CustomUserCreationForm(request.POST)
-        # print(form.is_valid())
-        # print(form.errors)
         if form.is_valid():
-            form.save()
-            return redirect("iniciar_sesion")  # TODO: Redirect to perfil page
+            user = form.save(commit=False)
+            user.set_password(form.cleaned_data["password1"])
+
+            user.save()
+            AlbumFoto.objects.create(usuario=user)
+
+            print(f"\n\nusername: {form.cleaned_data.get("username")}\n\n")
+            print(f"\n\nemail: {form.cleaned_data.get("email")}\n\n")
+            print(f"\n\npassword1: {form.cleaned_data.get("password1")}\n\n")
+            print(f"\n\npassword: {form.cleaned_data.get("password")}\n\n")
+
+            username = form.cleaned_data.get("email")
+            password = form.cleaned_data.get("password1")
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                print("\n\nUsuario autenticado\n\n")
+                login(request, user)
+                return redirect("perfil")
+            # return redirect("iniciar_sesion")  # TODO: Redirect to perfil page
+        else:
+            print(form.errors)
 
         form = CustomUserCreationForm()
         return render(request, "usuarios/crearCuenta.html", {"form": form})
@@ -33,7 +50,6 @@ class LoginUsuarioView(View):
 
     def post(self, request):
         form = LoginForm(request.POST)
-        # print(form)
         if form.is_valid():
             email = form.cleaned_data["email"]
             password = form.cleaned_data["password"]

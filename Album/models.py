@@ -1,5 +1,7 @@
 from django.db import models
-from Usuarios.models import Usuario
+from django.conf import settings
+
+# from Usuarios.models import Usuario
 
 
 # class Album(models.Model):
@@ -20,21 +22,24 @@ from Usuarios.models import Usuario
 #         return self.descripcion
 
 
-class Album(models.Model):
-    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
-    nombre_album = models.CharField(max_length=100)
-    descripcion = models.TextField()
+class AlbumFoto(models.Model):
+    usuario = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    nombre_album = models.CharField(max_length=50, default="JetBoom")
+    descripcion = models.TextField(
+        max_length=500,
+        default="Este es tú album de fotos, dónde podras almacenar todas mis historias. ¡Disfrútalo!",
+    )
 
     def __str__(self):
-        return self.nombre_album
+        return f"{self.id} {self.nombre_album}"
 
 
 class Foto(models.Model):
+    album = models.ForeignKey(AlbumFoto, on_delete=models.CASCADE)
     descripcion = models.CharField(max_length=255)
     imagen = models.ImageField(upload_to="Usuarios/fotos/")
     fecha = models.DateTimeField(auto_now_add=True)
     comentario_publico = models.CharField(max_length=500, blank=True)
-    album = models.ForeignKey(Album, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.descripcion

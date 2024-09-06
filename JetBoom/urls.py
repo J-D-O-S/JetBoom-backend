@@ -17,8 +17,13 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
+
 from .views import IndexView
 from Fidelizacion.views import AboutUsView
+from django.conf.urls import handler404
+from .views import MyCustomPageNotFoundView
+
+handler404 = MyCustomPageNotFoundView.as_view()
 
 urlpatterns = [
     path("", IndexView.as_view(), name="index"),

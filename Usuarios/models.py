@@ -128,7 +128,7 @@ class Usuario(AbstractBaseUser, PermissionsMixin):
     ]
 
     def __str__(self):
-        return f"Nombre completo: {self.nombre} {self.segundo_nombre} {self.apellido} {self.segundo_apellido}\n Email: {self.email}\n Fecha de Nacimiento: {self.fecha_nacimiento}\n Número de Identificación: {self.numero_identificacion}\n Tipo de Identificación: {self.tipo_identificacion}"
+        return f"Nombre completo: {self.nombre} {self.segundo_nombre} {self.apellido} {self.segundo_apellido}\nEmail: {self.email}"
 
     def has_perm(self, perm, obj=None):
         return True
