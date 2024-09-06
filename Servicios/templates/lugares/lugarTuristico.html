@@ -1,0 +1,74 @@
+{% extends "index.html" %} 
+{% block title %}
+    Detalle 
+    {% comment %} {{ nombre sitios }} {% endcomment %}
+     | JetBoom
+{% endblock title%}
+{% block styles_apply %} 
+  {% load static %}
+  <link rel="stylesheet" href="{% static "css/desclugaresturisticos.css" %}" /> 
+{% endblock styles_apply %}
+
+{% block main_content %}
+<main class="contenedorprincipal">
+    <section id="pantalla-dividida">
+        <div class="ladoizquierdo">
+            <div class="cuadradoi">
+                <img class="img" src="{% static "img/barcadeoro.webp" %}" />
+                <p>Museo del oro</p>
+            </div>
+        </div>
+        <div class="ladoderecho">
+            <div class="cuadradod">
+                <h1>MUSEO DEL ORO</h1>
+                <p>
+                    Sumérgete en la riqueza cultural de Colombia visitando el icónico Museo
+                    del Oro en Bogotá, un verdadero tesoro de la humanidad. Este museo
+                    alberga la mayor colección de piezas de oro prehispánico en el mundo,
+                    con más de 34,000 objetos que narran la historia milenaria de las
+                    culturas indígenas de Colombia.<br />
+                    Explora sus fascinantes salas, donde cada objeto cuenta una historia de
+                    misticismo, rituales sagrados y la maestría artesanal de los antiguos
+                    habitantes del territorio. Admira la famosa "Balsa Muisca", una pieza
+                    que encarna la leyenda de El Dorado, y deja que tu imaginación vuele
+                    mientras descubres cómo estas civilizaciones se relacionaban con el
+                    cosmos y la naturaleza a través del oro.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rectángulo con el mapa-->
+    <section class="rectangulomapa">
+        <input type="checkbox" id="toggle-map" />
+        <label for="toggle-map" class="map-toggle">
+            <span class="material-symbols-rounded">location_on</span>
+            <p id="map-text">MAPA</p>
+            <p id="map-description">Click aquí para ver la ubicación del sitio</p>
+        </label>
+        <div class="contenido-adicional">
+            <div class="map-container">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.9559161369007!2d-74.07461602596335!3d4.60191814250795!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f99a6c60f7ccd%3A0xc18fcd6091a051ed!2sMuseo%20del%20Oro!5e0!3m2!1ses!2sco!4v1723501886552!5m2!1ses!2sco"
+                    width="600"
+                    height="450"
+                    style="border: 0"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                >
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- contenedor que tiene el texto y el botón de reserva tu plan turístico -->
+    <section id="map-text" class="texto-adicional">
+        <h2>
+            Al hacer clic en el botón de "Comprar," se mostrará el valor específico del
+            servicio y se solicitará la información necesaria para completar la compra.
+        </h2>
+        <a href="pagoSinLoguear.html" class="btn-base"> Comprar este plan turístico </a>
+    </section>
+</main>
+{% endblock main_content %}

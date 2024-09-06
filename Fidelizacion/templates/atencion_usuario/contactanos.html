@@ -1,0 +1,40 @@
+{% extends "index.html" %} 
+{% block title %}
+Contáctanos | JetBoom
+{% endblock title%}
+{% block styles_apply %} 
+  {% load static %}
+  <link rel="stylesheet" href="{% static "css/contactanos.css" %}" /> 
+{% endblock styles_apply %} 
+
+{% block main_content %}
+<main class="main">
+    <section id='pantalla-dividida'>
+        <div class="ladoizquierdo">
+            <div class="cuadradoi">
+                <img class="img-section" src="{% static "img/collageContactanos.webp" %}" alt="" />
+        </div>
+        <div class="ladoderecho">
+            <div class="cuadradod">
+                <h1 class="titulo">Contáctanos</h1>
+            <hr>
+            <h2 class="texto">¡Nos encantaría saber de ti! Estamos aquí para ayudarte y responder a cualquier consulta que puedas tener. Puedes comunicarte con nosotros a través de los siguientes medios:</h2>
+            <p class="texto2">
+                <span class="titulo_texto2">Correo electrónico:</span>
+                <span class="correo">jetboomColombia@outlook.com</span>
+                <br><br>
+                Envíanos un mensaje y te responderemos lo antes posible.
+                <br><br>
+                <span class="titulo_texto2">Facebook: </span>
+                   <a class="link-RS" href="https://www.facebook.com/profile.php?id=61564307011381" target="_blank">Visítanos en Facebook JetBoom</a>
+                <br><br>
+                <span class="titulo_texto2">Instagram: </span>
+                <a class="link-RS"  href="https://www.instagram.com/jetboom_oficial?utm_source=qr&igsh=MXR4cDN0MHQweXRlNQ==" target="_blank">Visítanos en Instagram JetBoom</a>
+                <br><br>
+                Síguenos y envíanos un mensaje directo en nuestras redes sociales.
+            </p>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock main_content %}
