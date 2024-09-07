@@ -43,7 +43,7 @@ share/python-wheels/
 *.egg
 MANIFEST
 # */migrations/
-/migrations/000*_*.py
+/migrations/000*.py
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
