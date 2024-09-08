@@ -1,6 +1,6 @@
 {% extends "index.html" %} 
 {% block title %}
-Login | JetBooms
+Iniciar Sesión | JetBoom
 {% endblock title%}
 {% block styles_apply %} 
   {% load static %}
@@ -10,46 +10,30 @@ Login | JetBooms
 {% block main_content %}
 <main class="main">
   <div class="container-titulo">
-    <h1>¡HOLA!</h1>
-    <h2>Colecciona tus mejores recuerdos</h2>
+      <h1>¡HOLA!</h1>
+      <h2>Colecciona tus mejores recuerdos</h2>
   </div>
   <div class="formulario">
-    <h1>INICIAR SESION</h1>
-    <form method="post" autocomplete="off">
-      {% csrf_token %}
-      <div class="username">
-        <input type="email" required id="id_username" name="email" />
-        <label>&nbsp;&nbsp;&nbsp;Correo</label>
-      </div>
-      <div class="username">
-        <input type="password" required id="id_password" name="password" />
-        <label>&nbsp;&nbsp;&nbsp;Contraseña</label>
-      </div>
-      <div class="recordar">
-        <a>¿Olvidaste tu contraseña?</a>
-      </div>
-      <input type="submit" value="Continuar" />
-      <div class="registrarse">
-        <a href="{% url "registrarse" %}">
-          ¿No tienes cuenta? <br />Resgistrate AQUI
-        </a>
-          <br />
-      </div>
-    </form>
-    {% if form.errors %}
-      <div style="color: red;">
-        {% for field in form %}
-          {{ field }}
-          {{ field.label_tag }}
-          {% for error in field.errors %}
-            <p>{{ error }}</p>
-          {% endfor %}
-        {% endfor %}
-        {% for error in form.non_field_errors %}
-          <p>{{ error }}</p>
-        {% endfor %}
-      </div>
-    {% endif %}
+      <h1>INICIAR SESION</h1>
+      <form method="post" autocomplete="off">
+          {% csrf_token %}
+          <div class="username">
+              <input type="text" name="email" id="id_username" required>
+              <label>Correo*</label>
+          </div>
+          <div class="username">
+              <input type="password" name="password" id="id_password" required>
+              <label>Contraseña*</label>
+          </div>
+          
+          <a class="recordar-a " href="{% url "password_reset" %}">¿Olvidaste tu contraseña?</a>
+
+          <input type="submit" class="btn-base" value="Continuar" />
+          <div class="registrarse">
+              <a href="{% url "registrarse" %}">¿No tienes cuenta?<br>Regístrate AQUI</a>
+          </div>
+      </form>
   </div>
-</main>
+</main> 
+
 {% endblock main_content %}

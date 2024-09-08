@@ -1,3 +1,4 @@
+from django import forms
 from django.db import models
 from django.contrib.auth.models import (
     AbstractBaseUser,
@@ -87,7 +88,7 @@ class Usuario(AbstractBaseUser, PermissionsMixin):
     fecha_modificacion = models.DateTimeField(auto_now=True, verbose_name="Modificado")
     foto_perfil = models.ImageField(
         "Foto de Perfil",
-        upload_to="fotos_perfil/",
+        upload_to="Usuarios/fotos_perfil/",
         max_length=200,
         blank=True,
         null=True,
@@ -97,6 +98,7 @@ class Usuario(AbstractBaseUser, PermissionsMixin):
     )
 
     TIPO_IDENTIFICACION_CHOICES = [
+        ("", "Seleccione su identificación"),
         ("CC", "Cédula de Ciudadanía"),
         ("CE", "Cédula de Extranjería"),
         ("PA", "Pasaporte"),
@@ -126,10 +128,144 @@ class Usuario(AbstractBaseUser, PermissionsMixin):
     ]
 
     def __str__(self):
-        return f"Nombre completo: {self.nombre} {self.segundo_nombre} {self.apellido} {self.segundo_apellido}\n Email: {self.email}\n Fecha de Nacimiento: {self.fecha_nacimiento}\n Número de Identificación: {self.numero_identificacion}\n Tipo de Identificación: {self.tipo_identificacion}"
+        return f"Nombre completo: {self.nombre} {self.segundo_nombre} {self.apellido} {self.segundo_apellido}\nEmail: {self.email}"
 
     def has_perm(self, perm, obj=None):
         return True
 
     def has_module_perms(self, app_label):
         return True
+
+
+# codigo de ChatGPT
+
+
+# Modelo para EstadoFoto
+# class EstadoFoto(models.Model):
+#     nombreEstado = models.CharField(max_length=20)
+
+
+# # Modelo para Foto
+# class Foto(models.Model):
+#     descripcionFoto = models.CharField(max_length=100)
+#     foto = models.ImageField(upload_to="fotos/")
+#     comentarioAdmin = models.CharField(max_length=500)
+#     fechaCreacion = models.DateTimeField(auto_now_add=True)
+#     usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+#     estadoFoto = models.ForeignKey(EstadoFoto, on_delete=models.CASCADE)
+
+
+# # Modelo para EstadoReto
+# class EstadoReto(models.Model):
+#     idEstadoReto = models.AutoField(primary_key=True)
+#     nombreEstado = models.CharField(max_length=20)
+
+
+# # Modelo para Reto
+# class Reto(models.Model):
+#     idReto = models.AutoField(primary_key=True)
+#     nombreReto = models.CharField(max_length=45)
+#     descripcionReto = models.CharField(max_length=1000)
+#     fechaInicioReto = models.DateTimeField()
+#     fechaFinReto = models.DateTimeField()
+#     fotoReto = models.ForeignKey(Foto, on_delete=models.CASCADE)
+#     estadoReto = models.ForeignKey(EstadoReto, on_delete=models.CASCADE)
+
+
+# # Modelo para TipoDocumento
+# class TipoDocumento(models.Model):
+#     idTipoDocumento = models.AutoField(primary_key=True)
+#     tipoDocumento = models.CharField(max_length=2)
+
+
+# # Modelo para UsuarioReto
+# class UsuarioReto(models.Model):
+#     usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+#     reto = models.ForeignKey(Reto, on_delete=models.CASCADE)
+#     fecha = models.DateTimeField(auto_now_add=True)
+
+
+# # Modelo para GuiaTuristico
+# class GuiaTuristico(models.Model):
+#     idGuiaTuristico = models.AutoField(primary_key=True)
+#     nombrePrimario = models.CharField(max_length=45)
+#     nombreSecundario = models.CharField(max_length=45)
+#     numeroDocumento = models.CharField(max_length=20)
+#     tipoDocumento = models.ForeignKey(TipoDocumento, on_delete=models.CASCADE)
+#     disponibilidadGuia = models.BooleanField()
+
+
+# # Modelo para MedioContacto
+# class MedioContacto(models.Model):
+#     idMedioContacto = models.AutoField(primary_key=True)
+#     email = models.EmailField()
+#     nombre = models.CharField(max_length=45)
+#     usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+#     guiaTuristico = models.ForeignKey(GuiaTuristico, on_delete=models.CASCADE)
+
+
+# # Modelo para Servicio
+# class Servicio(models.Model):
+#     idServicio = models.AutoField(primary_key=True)
+#     nombreServicio = models.CharField(max_length=100)
+#     descripcionServicio = models.CharField(max_length=1000)
+#     fechaCreacion = models.DateTimeField(auto_now_add=True)
+#     usuarioCreador = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+#     guiaTuristico = models.ForeignKey(GuiaTuristico, on_delete=models.CASCADE)
+
+
+# # Modelo para DisponibilidadServicio
+# class DisponibilidadServicio(models.Model):
+#     idDisponibilidadServicio = models.AutoField(primary_key=True)
+#     disponibilidad = models.CharField(max_length=45)
+#     servicio = models.ForeignKey(Servicio, on_delete=models.CASCADE)
+
+
+# # Modelo para EstadoReserva
+# class EstadoReserva(models.Model):
+#     idEstadoReserva = models.AutoField(primary_key=True)
+#     nombreEstado = models.CharField(max_length=20)
+
+
+# # Modelo para Reserva
+# class Reserva(models.Model):
+#     idReserva = models.AutoField(primary_key=True)
+#     fechaHoraReserva = models.DateTimeField()
+#     estadoReserva = models.ForeignKey(EstadoReserva, on_delete=models.CASCADE)
+#     disponibilidadServicio = models.ForeignKey(
+#         DisponibilidadServicio, on_delete=models.CASCADE
+#     )
+
+
+# # Modelo para FormasPago
+# class FormasPago(models.Model):
+#     idFormasPago = models.AutoField(primary_key=True)
+#     nombreFormaPago = models.CharField(max_length=45)
+
+
+# # Modelo para Venta
+# class Venta(models.Model):
+#     idVenta = models.AutoField(primary_key=True)
+#     fechaVenta = models.DateField()
+#     pagosServicio = models.FloatField()
+#     registrosVentas = models.CharField(max_length=45)
+#     usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+#     guiaTuristico = models.ForeignKey(GuiaTuristico, on_delete=models.CASCADE)
+#     formasPago = models.ForeignKey(FormasPago, on_delete=models.CASCADE)
+
+
+# # Modelo para ComprobantePago
+# class ComprobantePago(models.Model):
+#     idComprobantePago = models.AutoField(primary_key=True)
+#     fechaHoraEmision = models.DateTimeField()
+#     venta = models.ForeignKey(Venta, on_delete=models.CASCADE)
+#     reserva = models.ForeignKey(Reserva, on_delete=models.CASCADE)
+#     formasPago = models.ForeignKey(FormasPago, on_delete=models.CASCADE)
+
+
+# # Modelo para DetalleComprobantePago
+# class DetalleComprobantePago(models.Model):
+#     idDetalleComprobantePago = models.AutoField(primary_key=True)
+#     cantidadServicios = models.IntegerField()
+#     valorUnitario = models.FloatField()
+#     comprobantePago = models.ForeignKey(ComprobantePago, on_delete=models.CASCADE)

@@ -1,9 +1,10 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
-from Usuarios.models import Usuario
-from django.contrib.auth import get_user_model, authenticate
+from .models import Usuario
 
-User = get_user_model()
+# from django.contrib.auth import get_user_model
+
+# User = get_user_model()
 
 
 class CustomUserCreationForm(UserCreationForm):

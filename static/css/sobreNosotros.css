@@ -8,7 +8,7 @@
 }
 
 /* Estilos de la imagen y titulo principal*/
-.container-rectangulo {
+.contenedor-texto-sobre-imagen {
   margin-bottom: 20px;
   display: flex;
   justify-content: center;
@@ -20,11 +20,6 @@
   height: auto;
   display: block;
   margin: 3rem 0;
-}
-
-.contenedor-texto-sobre-imagen {
-  position: relative;
-  display: inline-block;
 }
 
 .texto-sobre-imagen {
@@ -82,11 +77,11 @@
   height: 20rem;
   border-radius: var(--border-radius);
   background-color: var(--amarillo);
-  align-content:center;
-  
+  align-content: center;
+
 }
 
-.titulo-i{
+.titulo-i {
   font-size: 2.5rem;
   font-family: "titulos";
 }
@@ -97,7 +92,7 @@
   font-size: 1.2rem;
 }
 
-/* lado derecho*/ 
+/* lado derecho*/
 .ladoderecho {
   flex: 1;
   display: flex;
@@ -108,13 +103,13 @@
 .cuadradod {
   width: 20rem;
   height: 20rem;
-  box-shadow: 0px 4px 9px rgba(0,0,1, 1);
+  box-shadow: 0px 4px 9px rgba(0, 0, 1, 1);
   border-radius: 50%;
   display: flex;
   flex-direction: column;
-  justify-content: center; 
-  align-items: center;    
-  text-align: center;   
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .texto-d {
@@ -133,7 +128,8 @@
   border-radius: 10px;
   cursor: pointer;
   transition: background 0.7s ease, color 0.7s ease;
-  margin-top: 20px; /* Espacio entre el texto y el botón */
+  margin-top: 20px;
+  /* Espacio entre el texto y el botón */
 }
 
 .btn-pqrs:hover {
@@ -220,6 +216,7 @@
 
 /*Media queries para pantallas más pequeñas (móviles)*/
 @media (max-width: 1200px) {
+
   /* Estilos de la imagen y titulo principal*/
   .img-section {
     width: 95%;
@@ -246,11 +243,11 @@
   /* Estilos para los lados izquierdo y derecho */
   #pantalla-dividida {
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     justify-content: center;
     align-items: center;
   }
-  
+
   /* lado izquierdo */
   .ladoizquierdo {
     flex: none;
@@ -265,7 +262,7 @@
     height: 35rem;
   }
 
-  .titulo-i{
+  .titulo-i {
     margin: 3rem 0 1.5rem 0;
     font-size: 4rem;
   }
@@ -275,7 +272,7 @@
     font-size: 2rem;
   }
 
-  /* lado derecho*/ 
+  /* lado derecho*/
   .ladoderecho {
     flex: none;
     flex-direction: column;
@@ -286,7 +283,7 @@
 
   .cuadradod {
     width: 38rem;
-    height: 38rem; 
+    height: 38rem;
   }
 
   .texto-d {
@@ -298,7 +295,7 @@
   .cuadradod .btn-pqrs {
     padding: 10px 60px;
     font-size: 40px;
-    margin-top: 30px; 
+    margin-top: 30px;
   }
 
   /* Estilos para la misión y la visión*/
@@ -330,7 +327,5 @@
 
   .text-m {
     font-size: 1.5rem;
-  } 
+  }
 }
-
-

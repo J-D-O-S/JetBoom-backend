@@ -25,7 +25,9 @@ SECRET_KEY = "django-insecure-!ns$os31#k_!=*@=s#+42=h9+692266tp^l(xkyxeawft!6&v7
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+# DEBUG = False
 
+# ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
 ALLOWED_HOSTS = []
 
 
@@ -38,6 +40,10 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "Fidelizacion",
+    "Album",
+    "Servicios",
+    "Ventas",
     "Usuarios",
 ]
 
@@ -132,5 +138,16 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+# auth
+LOGIN_URL = "iniciar_sesion"
 # LOGIN_REDIRECT_URL = "index"
 # LOGOUT_REDIRECT_URL = "index"
+
+
+# Sending email configuration
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = "jetboomcolombia@gmail.com"
+EMAIL_HOST_PASSWORD = "hklizwvdmnmpxfkd"

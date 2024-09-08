@@ -1,7 +1,9 @@
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from .views import LoginUsuarioView, LogoutUsuarioView, RegistroView
+# from .views import LoginUsuario
+from .views import LoginUsuarioView, LogoutUsuarioView, RegistroView, PerfilView, PuntosView, CustomResetPasswordView
+
 
 urlpatterns = (
     [
@@ -20,6 +22,17 @@ urlpatterns = (
             LogoutUsuarioView.as_view(),
             name="cerrar_sesion",
         ),
+        path(
+            "perfil/",
+            PerfilView.as_view(),
+            name="perfil",
+        ),
+        path("perfil_puntos/", PuntosView.as_view(), name="puntos"),
+        # path(
+        #     "recuperar_contrasena/",
+        #     CustomResetPasswordView.as_view(),
+        #     name="reset_password",
+        # ),
     ]
     + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

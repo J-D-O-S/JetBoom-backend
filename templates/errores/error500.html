@@ -1,0 +1,20 @@
+{% extends "index.html" %} 
+{% block title %}
+    Error 500 | JetBoom
+{% endblock title%}
+{% block styles_apply %} 
+  {% load static %}
+  <link rel="stylesheet" href="{% static "css/error404-500.css" %}" /> 
+{% endblock styles_apply %} 
+
+{% block main_content %}
+<main class="main">
+    <img class="img500" src="{% static "img/500.webp" %} "alt="Se muestra la imagen del error 500" />  
+    <h1 class="titulo500">INTERNAL SERVER ERROR</h1>
+    <p class="texto-404-500">
+      ¡Error 500! Algo no salió como estaba planeado en nuestro servidor. Nuestro equipo técnico está en ello para
+      solucionarlo. Mientras tanto, ¿por qué no revisas otras secciones?
+      Agradecemos tu comprensión y paciencia.
+    </p>
+</main>
+{% endblock main_content %}
