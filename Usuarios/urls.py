@@ -1,7 +1,7 @@
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from .views import LoginUsuarioView, LogoutUsuarioView, RegistroView, PerfilView
+from .views import LoginUsuarioView, LogoutUsuarioView, RegistroView, PerfilView, PuntosView
 
 urlpatterns = (
     [
@@ -25,6 +25,11 @@ urlpatterns = (
             PerfilView.as_view(),
             name="perfil",
         ),
+        path(
+            "perfil_puntos/",
+            PuntosView.as_view(),
+            name="puntos"
+        )
     ]
     + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

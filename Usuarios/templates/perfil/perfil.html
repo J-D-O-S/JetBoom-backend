@@ -4,7 +4,7 @@ Perfil | JetBooms
 {% endblock title%}
 {% block styles_apply %} 
   {% load static %}
-  <link rel="stylesheet" href="{% static "css/galeria.css" %}" /> 
+  <link rel="stylesheet" href="{% static "css/perfilGaleria.css" %}" /> 
 {% endblock styles_apply %} 
 
 {% block main_content %}
@@ -32,24 +32,34 @@ Perfil | JetBooms
     </div>
 
     <section class="botones-seccion">
-        <a class="dot-style" href="perfilGaleria.html">
-            <button class="btn-base">Álbum</button>
+        <a class="dot-style" href="{% url "perfil" %}">
+            <button class="btn-base">
+                Álbum
+            </button>
         </a>
-        <a class="dot-style" href="perfilPuntos.html">
-            <button class="btn-base">Puntos</button>
+        <a class="dot-style" href="{% url "puntos" %}">
+            <button class="btn-base">
+                Puntos
+            </button>
         </a>
         <a class="dot-style" href="#">
             <button class="btn-redondo">
             <span class="material-symbols-rounded">add_a_photo</span>
             </button>
         </a>
-        <a class="dot-style" href="perfilReservasSinContenido.html">
-            <button class="btn-base">Reserva</button>
+        <a class="dot-style" href="#">
+            <button class="btn-base">
+                Reserva
+            </button>
         </a>
-        <a class="dot-style" href="perfilCompras.html">
-            <button class="btn-base">Compras</button>
+        <a class="dot-style" href="perfilReservasContenido.html">
+            <button class="btn-base">
+                Compras
+            </button>
         </a>
     </section>
+
+    {% block perfil_content %}
 
     <section class="galeria">
         <a href="#image1">
@@ -179,5 +189,6 @@ Perfil | JetBooms
         >
         <a href="#" class="close">X</a>
     </article>
+    {% endblock perfil_content %}
 </main>
 {% endblock main_content %}
