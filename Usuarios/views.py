@@ -67,5 +67,13 @@ class LogoutUsuarioView(View):
 class PerfilView(LoginRequiredMixin, TemplateView):
     template_name = "perfil/perfil.html"
 
+
 class PuntosView(LoginRequiredMixin, TemplateView):
     template_name = "perfil/perfilPuntos.htm"
+
+
+class CustomResetPasswordView(TemplateView, View):
+    template_name = "registrations/password_reset_form.html"
+
+    def post(self, request):
+        pass

@@ -24,28 +24,8 @@ Iniciar Sesión | JetBoom
               <input type="password" name="password" required>
               <label>Contraseña*</label>
           </div>
-         
-          <a class="recordar-a " href="#olvidaste_contra">¿Olvidaste tu contraseña?</a>
-
-              <!-- modal ¿Olvidaste tu contraseña? -->
-              <article class="ligth-box" id="olvidaste_contra">
-                <div class="formulario-modal2">
-                  <h2>¿Olvidaste tu contraseña?</h2>
-                  <p>Ingresa tu correo electrónico para enviarte el enlace de restablecimiento de contraseña.</p>
-                  <form method="post">
-                      <div class="username2">
-                          <input type="text" required>
-                          <label>Correo</label>
-                      </div>
-                      <div class="button-container">
-                          <button href="#" class="btn-base" type="submit">
-                              Restablecer
-                          </button>
-                      </div>
-                  </form>
-              </div>
-                <a href="#" class="close">X</a>
-              </article>
+          
+          <a class="recordar-a " href="{% url "password_reset" %}">¿Olvidaste tu contraseña?</a>
 
           <a href="{% url "index" %}" class="btn-base">
             Continuar
