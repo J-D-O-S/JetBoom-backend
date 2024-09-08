@@ -16,6 +16,8 @@ class RegistroView(View):
 
     def post(self, request):
         form = CustomUserCreationForm(request.POST)
+        print("\n impresión del formulario")
+        print(form)
         if form.is_valid():
             user = form.save(commit=False)
             user.set_password(form.cleaned_data["password1"])
@@ -44,7 +46,6 @@ class LoginUsuarioView(View):
 
     def post(self, request):
         form = LoginForm(request.POST)
-        print(form)
         if form.is_valid():
             email = form.cleaned_data["email"]
             password = form.cleaned_data["password"]
