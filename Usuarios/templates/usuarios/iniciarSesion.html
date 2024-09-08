@@ -16,20 +16,19 @@ Iniciar Sesión | JetBoom
   <div class="formulario">
       <h1>INICIAR SESION</h1>
       <form method="post" autocomplete="off">
+          {% csrf_token %}
           <div class="username">
-              <input type="text" name="email" required>
+              <input type="text" name="email" id="id_username" required>
               <label>Correo*</label>
           </div>
           <div class="username">
-              <input type="password" name="password" required>
+              <input type="password" name="password" id="id_password" required>
               <label>Contraseña*</label>
           </div>
           
           <a class="recordar-a " href="{% url "password_reset" %}">¿Olvidaste tu contraseña?</a>
 
-          <a href="{% url "index" %}" class="btn-base">
-            Continuar
-          </a>
+          <input type="submit" class="btn-base" value="Continuar" />
           <div class="registrarse">
               <a href="{% url "registrarse" %}">¿No tienes cuenta?<br>Regístrate AQUI</a>
           </div>
