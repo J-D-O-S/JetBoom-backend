@@ -8,6 +8,7 @@
 }
 
 .formulario {
+  /*diseño de la caja con el contenido del formulario*/
   background-color: var(--rojo);
   padding: 3%;
   border-radius: var(--border-radius);
@@ -16,6 +17,7 @@
 }
 
 .formulario h1 {
+  /*tipo y tamaño de la letra del titulo de la caja*/
   font-family: "titulos-especiales";
   font-size: 3rem;
   color: var(--amarillo);
@@ -23,21 +25,24 @@
 }
 
 .container-correo {
+  /* contenedor del campo para el correo*/
   margin-bottom: 5%;
-
 }
 
-/* Estilos de los campos de entrada */
 .username,
+.username2,
 .birthdate-box,
 .tipoDoc-box {
+  /* Estilos de los campos de entrada */
   margin-bottom: 2%;
   position: relative;
 }
 
 .username input,
+.username2 input,
 .birthdate-box input,
 .tipoDoc-box select {
+  /* Diseño de los campos de entrada */
   width: 100%;
   height: 3.3rem;
   padding: 12px;
@@ -65,8 +70,63 @@ select:focus {
   text-align: left;
 }
 
-/* Estilos para las etiquetas de correo y contraseña con animaciones */
 .username label {
+  /* Animación de las etiquetas */
+  position: absolute;
+  top: 65%;
+  left: 3%;
+  color: var(--negro);
+  transform: translateY(-75%);
+  font-size: 1.2rem;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.username input:focus~label,
+.username input:valid~label {
+  /* Animación después de completar el campo */
+  top: -5px;
+  color: var(--gris);
+  font-family: "textos";
+  transition: top 0.3s ease, color 0.3s ease;
+}
+
+.username2 label {
+  /* Animación de las etiquetas */
+  position: absolute;
+  top: 65%;
+  left: 3%;
+  color: var(--negro);
+  transform: translateY(-75%);
+  font-size: 1.2rem;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.username2 input:focus~label,
+/* Cuando el input recibe foco */
+.username2 input:not(:placeholder-shown)~label {
+  /* Cuando hay texto en el input */
+  top: -5px;
+  color: var(--gris);
+  font-family: "textos";
+  transition: top 0.3s ease, color 0.3s ease;
+}
+
+.birthdate-box,
+.tipoDoc-box {
+  /* Estilos de los campos de entrada */
+  color: var(--gris);
+}
+
+.texto-label {
+  /* Estilos de los campos de entrada */
+  font-size: 1.2rem;
+  text-align: left;
+}
+
+.username label {
+  /* Estilos para las etiquetas con animaciones */
   position: absolute;
   top: 65%;
   left: 3%;
@@ -78,7 +138,7 @@ select:focus {
 }
 
 .username span::before {
-  /*Animación de los espacios para correo y contraseña*/
+  /*Animación de los espacios para los campos de entrada */
   content: '';
   position: absolute;
   left: 0;
@@ -90,7 +150,7 @@ select:focus {
 
 .username input:focus~label,
 .username input:valid~label {
-  /*Animación de los espacios para correo y contraseña después de agregar el contenido*/
+  /*Animación de los espacios para los campos de entrada después de agregar el contenido*/
   top: -5px;
   color: var(--gris);
   font-family: "textos";
@@ -107,11 +167,23 @@ select:focus {
   background-color: var(--amarillo);
   color: var(--oscuro);
   padding: 2% 20%;
+  margin-top: 2rem;
+  transition: all 0.3s ease-in-out;
 }
 
 .btn-base:hover {
-  color: var(--rojo);
+  color: var(--oscuro);
   background-color: var(--amarillo);
+  outline: none;
+  box-shadow:
+    /* Primera capa */
+    0 0 0 2px var(--amarillo),
+    /* Segunda capa */
+    0 0 0 5px var(--rojo),
+    /* Tercera capa */
+    0 0 0 8px var(--amarillo);
+  transition: all 0.3s ease-in-out;
+  transform: scale(1.05);
 }
 
 .text-columns {
