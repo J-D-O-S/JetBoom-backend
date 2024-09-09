@@ -1,8 +1,16 @@
-from django.urls import path
+from django.urls import include, path
 from django.conf import settings
 from django.conf.urls.static import static
+
 # from .views import LoginUsuario
-from .views import LoginUsuarioView, LogoutUsuarioView, RegistroView, PerfilView, PuntosView, CustomResetPasswordView
+from .views import (
+    LoginUsuarioView,
+    LogoutUsuarioView,
+    RegistroView,
+    PerfilView,
+    PuntosView,
+    CustomResetPasswordView,
+)
 
 
 urlpatterns = (
@@ -24,10 +32,9 @@ urlpatterns = (
         ),
         path(
             "perfil/",
-            PerfilView.as_view(),
-            name="perfil",
+            include("Usuarios.urls_perfil"),
         ),
-        path("perfil_puntos/", PuntosView.as_view(), name="puntos"),
+        # path("perfil_puntos/", PuntosView.as_view(), name="puntos"),
         # path(
         #     "recuperar_contrasena/",
         #     CustomResetPasswordView.as_view(),

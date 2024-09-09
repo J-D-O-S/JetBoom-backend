@@ -7,18 +7,36 @@ Perfil | JetBooms
   <link rel="stylesheet" href="{% static "css/perfilGaleria.css" %}" /> 
 {% endblock styles_apply %} 
 
+{% block specials_scripts %}
+    <script src="{% static "js/perfilGaleria.js" %}"></script>
+{% endblock specials_scripts %}
+
 {% block main_content %}
 
 <main class="main">
     <div class="imgfotoperfil">
-        <button class="btn-editar">
-            <span class="material-symbols-rounded">add_a_photo</span>
-        </button>
+        {% comment %}  {% endcomment %}
+        {% comment %} <form method="post" enctype="multipart/form-data" action="{% url "album" %}" > album need to add a field where I can safe the image
+            {% csrf_token %}
+            <button class="btn-editar" type="submit">
+                <span class="material-symbols-rounded">add_a_photo</span>
+                <input type="hidden" name="form_type" value="portada">
+                <input type="file" name="foto_perfil" id="id_foto_perfil" accept="image/" style="display: none;">
+            </button>
+        </form> {% endcomment %}
+        {% comment %}  {% endcomment %}
         <img src="{% static "img/imgFondoPerfil.webp" %}" alt="fondo-perfil" />
         <div class="fotodeperfil">
-            <button class="btn-editar">
-                <span class="material-symbols-rounded">add_a_photo</span>
-            </button>
+            <form method="post" enctype="multipart/form-data" action="{% url "imagen_perfil" %}">
+                {% csrf_token %}
+                <div class="seleccion_foto_perfil">
+                    <span class="material-symbols-rounded">add_a_photo</span>
+                    <input type="hidden" name="form_type" value="perfil">
+                    <input type="file" name="foto_perfil" id="id_foto_perfil" accept="image/png, image/jpeg" style="display: none;">
+                </div>
+                <button class="btn-editar" type="submit">
+                </button>
+            </form>
             <img src="{% static "img/imgFotoPerfil.webp" %}" alt="Perfil" />
         </div>
         <div class="nombreperfil">Cony Quiroga</div>

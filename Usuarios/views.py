@@ -4,7 +4,7 @@ from django.views.generic.base import View
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-from .forms import LoginForm, CustomUserCreationForm
+from .forms import LoginForm, CustomUserCreationForm, ImagenUploadForm
 from Album.models import AlbumFoto
 
 
@@ -79,3 +79,30 @@ class CustomResetPasswordView(TemplateView, View):
 
     def post(self, request):
         pass
+
+
+class CustomUploadImageView(LoginRequiredMixin, View):
+
+    def get(self, request, *args, **kwargs):
+        form = ImagenUploadForm()
+        return render(request, "perfil/perfil.html", {"form": form})
+
+    def post(self, request):
+        form_type = request.POST.get("form_type")
+
+        if form_type == "perfil":
+            form = ImagenUploadForm(request.POST, request.FILES)
+            self._save_image(request.user, form)
+        elif form_type == "portada":
+            self._save_image(request.user, ImagenUploadForm)
+        return redirect("perfil")
+
+    def _save_image(self, user, form):
+        if form.is_valid():
+            user.foto_perfil = form.cleaned_data["foto_perfil"]
+            user.save()
+
+            return redirect("perfil")
+        else:
+            print(form.errors)
+            return render(self.request, "perfil/perfil.html", {"form": form})
