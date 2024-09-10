@@ -1,0 +1,80 @@
+{% extends "index.html" %} 
+{% block title %}
+Sobre Nosotros | JetBoom
+{% endblock title%}
+{% block styles_apply %} 
+  {% load static %}
+  <link rel="stylesheet" href="{% static "css/sobreNosotros.css" %}" /> 
+{% endblock styles_apply %} 
+
+
+{% block main_content %}
+<main class="main">
+    <div class="titulo">
+        <h1>Comprobante de pago</h1>
+    </div>
+
+    <section class="cuadrados-section">
+        <div class="cuadradoContainer">
+            <div class="cuadradorojo">
+                <img src="../img/imgFotoPerfil.webp" />
+            </div>
+            <p class="texto-cuadradorojo">Tu guía: Juan Olaya</p>
+        </div>
+        <div class="cuadradoContainer">
+            <div class="cuadradoamarillo">
+                <img src="../img/cardMuseoOro.webp" />
+            </div>
+            <p class="texto-cuadradoamarillo">Museo del Oro</p>
+        </div>
+    </section>
+
+    <section class="tabla">
+        <table>
+            <tbody>
+                <tr>
+                <td class="calvet">LUGAR TURISTICO</td>
+                <td>Museo del ORO</td>
+                </tr>
+                <tr>
+                <td class="calvet">DIRECCION</td>
+                <td>Cra. 6 #15-88</td>
+                </tr>
+                <tr>
+                <td class="calvet">CANTIDAD DE PERSONAS</td>
+                <td>5</td>
+                </tr>
+                <tr>
+                <td class="calvet">VALOR TOTAL BOLETOS</td>
+                <td>$25.000</td>
+                </tr>
+                <tr>
+                <td class="calvet">VALOR GUIA</td>
+                <td>$100.000</td>
+                </tr>
+                <tr>
+                <td class="calvet">FECHA VISITA</td>
+                <td>10-12-2024</td>
+                </tr>
+                <tr>
+                <td class="calvet">DATOS GUIA</td>
+                <td>
+                    <li>NOMBRE: Juan Olaya</li>
+                    <li>TELEFONO: 3178637768</li>
+                    <li>EMAIL: JUANOLAYA@GMAIL.COM</li>
+                </td>
+                </tr>
+                <tr>
+                <td class="calvet">VALOR TOTAL PAGADO</td>
+                <td>125.000</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <a href="./../html/cambioContrasenia.html" class="btn-base" type="button" >
+        Ir a Mis Reservas
+    </a> 
+
+</main>
+{% endblock main_content %}
