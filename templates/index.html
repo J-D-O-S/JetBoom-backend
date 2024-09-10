@@ -68,11 +68,19 @@
 										</span>
 									</li>
 									<li>
-										<img
-											class="user-photo"
-											src="{% static "img/fondoCC.webp" %}"
-											alt="Foto de perfil del usuario"
-										/>
+										{% if user.foto_perfil.url %}
+											<img
+												class="user-photo"
+												src="{{ user.foto_perfil.url }}"
+												alt="Foto de perfil del usuario"
+											/>
+										{% else %}
+											<img
+												class="user-photo"
+												src="{% static "/img/fondoCC.webp" %}"
+												alt="Foto de perfil del usuario"
+											/>
+										{% endif %}
 									</li>
 								</ul>
 								<div class="user-info-brief">
