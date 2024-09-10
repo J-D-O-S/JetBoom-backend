@@ -19,9 +19,9 @@
         {% block styles_apply %}
         	<link rel="stylesheet" href="{% static "css/index.css" %}" />
         {% endblock styles_apply %}
-		<script src="{% static "js/script.js" %}"></script>
 		{% block specials_scripts %}
 		{% endblock specials_scripts %}
+		<script src="{% static "js/script.js" %}"></script>
 	</head>
 
 	<body class="body">
@@ -148,7 +148,7 @@
 											</div>
 											<img
 												class="imgUser"
-												src="#"
+												src="{{ user.foto_perfil.url }}"
 												alt="Imagen de perfil del usuario"
 											/>
 										</section>

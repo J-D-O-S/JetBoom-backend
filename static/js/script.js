@@ -8,6 +8,7 @@ window.onload = function () {
 
 	if (userInfo) {
 		userInfo.addEventListener("click", function () {
+			console.log("click");
 			userInfo.classList.add("info-show");
 
 			btn_close_userInfo = document.querySelector(".close-user-info");
