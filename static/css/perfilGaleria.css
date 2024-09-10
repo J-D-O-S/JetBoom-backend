@@ -151,19 +151,7 @@
   justify-content: center;
 }
 
-.btn-redondo .material-symbols-rounded {
-  /* estilos de los iconos del boton */
-  font-size: 2.7rem;
-  color: var(--gris);
-  background-color: var(--rojo);
-  border-radius: 50%;
-  padding: 5px;
-}
 
-.btn-redondo .material-symbols-rounded:hover {
-  /* animacion de los iconos del boton */
-  background-color: var(--rojo-claro);
-}
 
 /* ------------------------------------ contenido galeria ------------------------------------ */
 
