@@ -5,6 +5,8 @@ Perfil | JetBooms
 {% block styles_apply %} 
   {% load static %}
   <link rel="stylesheet" href="{% static "css/perfilGaleria.css" %}" /> 
+  {% block other_styles %}
+  {% endblock other_styles %}
 {% endblock styles_apply %} 
 
 {% block specials_scripts %}
@@ -56,27 +58,32 @@ Perfil | JetBooms
     </div>
 
     <section class="botones-seccion">
-        <a class="dot-style" href="{% url "perfil" %}">
+        <a class="" href="{% url "perfil" %}">
             <button class="btn-base">
                 Álbum
             </button>
         </a>
-        <a class="dot-style" href="{% url "puntos" %}">
+        <a class="" href="{% url "puntos" %}">
             <button class="btn-base">
                 Puntos
             </button>
         </a>
-        <a class="dot-style" href="#">
-            <button class="btn-redondo">
-            <span class="material-symbols-rounded">add_a_photo</span>
-            </button>
-        </a>
-        <a class="dot-style" href="{% url "reservas" %}">
+        <div class="">
+            <form method="post" enctype="multipart/form-data" action="{% url "imagen_galeria" %}">
+                {% csrf_token %}
+                <div class="btn-redondo seleccion_foto_galeria">
+                    <span class="material-symbols-rounded">add_a_photo</span>
+                    <input type="hidden" name="form_type" value="galeria">
+                    <input type="file" name="imagen" id="id_foto_galeria" accept="image/png, image/jpeg" style="display: none;">
+                </div>
+            </form>
+        </div>
+        <a class="" href="{% url "reservas" %}">
             <button class="btn-base">
                 Reserva
             </button>
         </a>
-        <a class="dot-style" href="{% url "compras" %}">
+        <a class="" href="{% url "compras" %}">
             <button class="btn-base">
                 Compras
             </button>
@@ -85,50 +92,38 @@ Perfil | JetBooms
 
     {% block perfil_content %}
 
-    <section class="galeria">
-        <a href="#image1">
-            <img src="{% static "img/cardCentroHistorico.webp" %}" />
-        </a>
-        <a href="#image2">
-            <img src="{% static "img/cardChorroQuevedo.webp" %}" />
-        </a>
-        <a href="#image3">
-            <img src="{% static "img/cardJardinBotanico.webp" %}" />
-        </a>
-        <a href="#image4">
-            <img src="{% static "img/cardMBotero.webp" %}" />
-        </a>
-        <a href="#image5">
-            <img src="{% static "img/cardMNacionalC.webp" %}" />
-        </a>
-        <a href="#image6">
-            <img src="{% static "img/cardMonserrate.webp" %}" />
-        </a>
-        <a href="#image7">
-            <img src="{% static "img/cardMundoAventura.webp" %}" />
-        </a>
-        <a href="#image8">
-            <img src="{% static "img/cardMuseoOro.webp" %}" />
-        </a>
-        <a href="#image9">
-            <img src="{% static "img/cardParqueTunal.webp" %}" />
-        </a>
-    </section>
-
-    <article class="ligth-box" id="image1">
-        <a href="#image9" class="next"
-            ><span class="material-symbols-outlined">arrow_back_ios </span></a
-        >
-        <img src="{% static "img/cardCentroHistorico.webp" %}" />
-        <a href="#image2" class="next"
-            ><span class="material-symbols-outlined">arrow_forward_ios </span></a
-        >
-        <a href="#" class="close">X</a>
-    </article>
-
-    <article class="ligth-box" id="image2">
+    {% if imagenes|length %}
+    {{ imagenes|length }}
+        <section class="galeria">
+            {% for img in imagenes %}
+            <a href="#{{img.id}}">
+                {% comment %} <img src="{% static "img/cardCentroHistorico.webp" %}" /> {% endcomment %}
+                <img src="{{ img.imagen.url }}" />
+            </a>
+            {% endfor %}
+        </section>
+        
+        {% for img in imagenes %}
+        <article class="ligth-box" id="{{ img.id }}">
+            {% if not forloop.first %}
+            <a href="#{{ forloop.counter|add:'-1' }}" class="next">
+                <span class="material-symbols-rounded">arrow_back_ios</span>
+            </a>
+            {% endif %}
+            <img src="{{ img.imagen.url }}" />
+            {% if not forloop.last %}
+            <a href="#{{ forloop.counter|add:'1' }}" class="next">
+                <span class="material-symbols-rounded">arrow_forward_ios</span>
+            </a>
+            {% endif %}
+            <a href="{% url 'perfil' %}" class="close">X</a>
+        </article>
+        {% endfor %}
+    {% endif %}
+    
+    {% comment %} <article class="ligth-box" id="image2">
         <a href="#image1" class="next"
-            ><span class="material-symbols-outlined">arrow_back_ios </span></a
+        ><span class="material-symbols-outlined">arrow_back_ios </span></a
         >
         <img src="{% static "img/cardChorroQuevedo.webp" %}" />
         <a href="#image3" class="next"
@@ -212,7 +207,7 @@ Perfil | JetBooms
             ><span class="material-symbols-outlined">arrow_forward_ios </span></a
         >
         <a href="#" class="close">X</a>
-    </article>
+    </article> {% endcomment %}
     {% endblock perfil_content %}
 </main>
 {% endblock main_content %}

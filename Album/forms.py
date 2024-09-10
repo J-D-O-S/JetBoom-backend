@@ -21,7 +21,6 @@ class CustomFotoForm(forms.ModelForm):
     class Meta(forms.ModelForm):
         model = Foto
         fields = (
-            "album",
             "descripcion",
             "imagen",
             "comentario_publico",

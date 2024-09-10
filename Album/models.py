@@ -2,26 +2,6 @@ import os
 from django.db import models
 from django.conf import settings
 
-# from Usuarios.models import Usuario
-
-
-# class Album(models.Model):
-#     descripcion = models.CharField(max_length=1000)
-#     portada = models.ImageField(upload_to="portadas/", null=True, blank=True)
-
-#     def __str__(self):
-#         return self.descripcion
-
-
-# class Foto(models.Model):
-#     descripcion = models.CharField(max_length=1000)
-#     imagen = models.ImageField(upload_to="Usuarios/fotos/")
-#     comentario = models.CharField(max_length=500)
-#     album = models.ForeignKey(Album, on_delete=models.CASCADE)
-
-#     def __str__(self):
-#         return self.descripcion
-
 
 class AlbumFoto(models.Model):
     foto_portada = models.ImageField(
@@ -52,10 +32,10 @@ class AlbumFoto(models.Model):
 
 class Foto(models.Model):
     album = models.ForeignKey(AlbumFoto, on_delete=models.CASCADE)
-    descripcion = models.CharField(max_length=255)
-    imagen = models.ImageField(upload_to="static/images/photos/")
+    descripcion = models.CharField(max_length=255, default="Imagen para el album", blank=True, null=True)
+    imagen = models.ImageField(upload_to="static/images/galeria/")
     fecha = models.DateTimeField(auto_now_add=True)
-    comentario_publico = models.CharField(max_length=500, blank=True)
+    comentario_publico = models.CharField(max_length=500, blank=True, null=True)
 
     def __str__(self):
-        return self.descripcion
+        return f"Album: {self.album} imagen_id: {self.id}"

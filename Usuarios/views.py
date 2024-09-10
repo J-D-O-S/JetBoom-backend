@@ -5,8 +5,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .forms import LoginForm, CustomUserCreationForm, ImagenUploadForm
-from Album.forms import ImagenUploadForm as AlbumImagenUploadForm
-from Album.models import AlbumFoto
+from Album.forms import ImagenUploadForm as AlbumImagenUploadForm, CustomFotoForm
+from Album.models import AlbumFoto, Foto
 
 
 # uso el View para poder hacer el get y post en la misma vista
@@ -70,6 +70,11 @@ class LogoutUsuarioView(View):
 class PerfilView(LoginRequiredMixin, TemplateView):
     template_name = "perfil/perfil.html"
 
+    def get(self, request):
+        album = AlbumFoto.objects.get(usuario=request.user)
+        fotos = album.foto_set.all()
+        return render(request, "perfil/perfil.html", {"album": album, "imagenes": fotos})
+
 
 class PuntosView(LoginRequiredMixin, TemplateView):
     template_name = "perfil/perfilPuntos.html"
@@ -78,17 +83,17 @@ class PuntosView(LoginRequiredMixin, TemplateView):
 class ReservasView(LoginRequiredMixin, TemplateView):
     # hacer query para saber si hay reservas y renderizar la vista correspondiente
     # con la información de las reservas
-    template_name = "perfil/perfilReservasContenido.html"
+    # template_name = "perfil/perfilReservasContenido.html"
     # sin la información de las reservas
-    # template_name = "perfil/perfilReservasSinContenido.html"
+    template_name = "perfil/perfilReservasSinContenido.html"
 
 
 class ComprasView(LoginRequiredMixin, TemplateView):
     # hacer query para saber si hay compras y renderizar la vista correspondiente
     # con la información de las compras
-    template_name = "perfil/perfilCompras.html"
+    # template_name = "perfil/perfilCompras.html"
     # sin la información de las compras
-    # template_name = "perfil/perfilSinCompras.html"
+    template_name = "perfil/perfilSinCompras.html"
 
 
 class CustomResetPasswordView(TemplateView, View):
@@ -107,6 +112,7 @@ class CustomUploadImageView(LoginRequiredMixin, View):
     def post(self, request):
         form_type = request.POST.get("form_type")
 
+        print(form_type)
         if form_type == "perfil":
             form = ImagenUploadForm(request.POST, request.FILES)
             self._save_image(request.user, form, "foto_perfil")
@@ -114,13 +120,30 @@ class CustomUploadImageView(LoginRequiredMixin, View):
             form = AlbumImagenUploadForm(request.POST, request.FILES)
             user_album = request.user.albumfoto
             self._save_image(user_album, form, "foto_portada")
+        elif form_type == "galeria":
+            form = CustomFotoForm(request.POST, request.FILES)
+            
+            self._save_image_to_album(request.user, form)
         return redirect("perfil")
 
     def _save_image(self, user, form, field_name):
         if form.is_valid():
             setattr(user, field_name, form.cleaned_data[field_name])
-            # user = self._validate_image_url(user, field_name)
             user.save()
+            return redirect("perfil")
+        else:
+            print(form.errors)
+            return render(self.request, "perfil/perfil.html", {"form": form})
+    
+    def _save_image_to_album(self, user, form):
+        if form.is_valid():
+            album = user.albumfoto
+            
+            image = form.cleaned_data["imagen"]
+            img = Foto.objects.create(album = album, imagen=image)
+            # img = form.save(commit=False)
+            # img.album = album
+            img.save()
             return redirect("perfil")
         else:
             print(form.errors)

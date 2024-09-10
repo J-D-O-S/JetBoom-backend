@@ -1,202 +1,201 @@
 {% extends "index.html" %} 
 {% block title %}
-Álbum | JetBooms
+    Álbum | JetBooms
 {% endblock title%}
 
 {% block styles_apply %} 
-{% load static %}
-{% if user.is_authenticated %}
-    <link rel="stylesheet" href="{% static "css/albumLogueado.css" %}" /> 
-{% else %}
-    <link rel="stylesheet" href="{% static "css/albumSinLoguear.css" %}" /> 
-{% endif %}
+    {% load static %}
+    {% if user.is_authenticated %}
+        <link rel="stylesheet" href="{% static "css/albumLogueado.css" %}" /> 
+    {% else %}
+        <link rel="stylesheet" href="{% static "css/albumSinLoguear.css" %}" /> 
+    {% endif %}
 {% endblock styles_apply %}
  
 {% block main_content %}
     {% if user.is_authenticated %}
-    <main class="main">
-        <div class="tabs">
-            <input type="radio" name="tab-group" id="tab1" checked>
-            <label for="tab1" class="tab-label">Álbumes</label>
-        
-            <input type="radio" name="tab-group" id="tab2">
-            <label for="tab2" class="tab-label">Retos</label>
-        
-            <div class="tab-content">
-                <div class="tab-panel" id="content1">
-                    <div class="contenedor-temporal"> 
-                        <div class="container-album">
-                            <div class="slider-frame">
-                                <ul>
-                                    <li><img src="{% static "img/cardJardinBotanico.webp" %} "alt="Imagen 1" /></li>
-                                    <li><img src="{% static "img/cardPlazaBolivar.webp" %} "alt="Imagen 2" /></li>
-                                    <li><img src="{% static "img/cardMNacionalC.webp" %} "alt="Imagen 3" /></li>
-                                    <li><img src="{% static "img/cardPSimonBolivar.webp" %} "alt="Imagen 4" /></li>
-                                </ul>
-                            </div>
-                                    
-                            <div class="circlePicture">
-                                <figure class="userCirclePicture">
-                                    <img class="avatarImg" src="{% static "img/imgFotoPerfil.webp" %} "alt="Imagen de Colombia" />
-                                </figure>
-                            </div>
+        <main class="main">
+            <div class="tabs">
+                <input type="radio" name="tab-group" id="tab1" checked>
+                <label for="tab1" class="tab-label">Álbumes</label>
             
-                            <div class="contenedor-texto">
-                                <h3>
-                                    Cony Quiroga
-                                </h3>
-                                <a href="html/crearCuenta.html" class="btn-base" type="button" >
-                                    <span class="material-symbols-rounded">collections_bookmark</span>
-                                    Ver álbum
-                                </a>
-                            </div>
-                        </div>
-                        
-                        <div class="container-album">
-                            <div class="slider-frame">
-                                <ul>
-                                    <li><img src="{% static "img/cardJardinBotanico.webp" %} "alt="Imagen 1" /></li>
-                                    <li><img src="{% static "img/cardPlazaBolivar.webp" %} "alt="Imagen 2" /></li>
-                                    <li><img src="{% static "img/cardMNacionalC.webp" %} "alt="Imagen 3" /></li>
-                                    <li><img src="{% static "img/cardPSimonBolivar.webp" %} "alt="Imagen 4" /></li>
-                                </ul>
-                            </div>
-                                    
-                            <div class="circlePicture">
-                                <figure class="userCirclePicture">
-                                    <img class="avatarImg" src="{% static "img/imgFotoPerfil.webp" %} "alt="Imagen de Colombia" />
-                                </figure>
-                            </div>
+                <input type="radio" name="tab-group" id="tab2">
+                <label for="tab2" class="tab-label">Retos</label>
             
-                            <div class="contenedor-texto">
-                                <h3>
-                                    Cony Quiroga
-                                </h3>
-                                <a href="html/crearCuenta.html" class="btn-base" type="button" >
-                                    <span class="material-symbols-rounded">collections_bookmark</span>
-                                    Ver álbum
-                                </a>
+                <div class="tab-content">
+                    <div class="tab-panel" id="content1">
+                        <div class="contenedor-temporal"> 
+                            <div class="container-album">
+                                <div class="slider-frame">
+                                    <ul>
+                                        <li><img src="{% static "img/cardJardinBotanico.webp" %} "alt="Imagen 1" /></li>
+                                        <li><img src="{% static "img/cardPlazaBolivar.webp" %} "alt="Imagen 2" /></li>
+                                        <li><img src="{% static "img/cardMNacionalC.webp" %} "alt="Imagen 3" /></li>
+                                        <li><img src="{% static "img/cardPSimonBolivar.webp" %} "alt="Imagen 4" /></li>
+                                    </ul>
+                                </div>
+                                        
+                                <div class="circlePicture">
+                                    <figure class="userCirclePicture">
+                                        <img class="avatarImg" src="{% static "img/imgFotoPerfil.webp" %} "alt="Imagen de Colombia" />
+                                    </figure>
+                                </div>
+                
+                                <div class="contenedor-texto">
+                                    <h3>
+                                        Cony Quiroga
+                                    </h3>
+                                    <a href="html/crearCuenta.html" class="btn-base" type="button" >
+                                        <span class="material-symbols-rounded">collections_bookmark</span>
+                                        Ver álbum
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="container-album">
-                            <div class="slider-frame">
-                                <ul>
-                                    <li><img src="{% static "img/cardJardinBotanico.webp" %} "alt="Imagen 1" /></li>
-                                    <li><img src="{% static "img/cardPlazaBolivar.webp" %} "alt="Imagen 2" /></li>
-                                    <li><img src="{% static "img/cardMNacionalC.webp" %} "alt="Imagen 3" /></li>
-                                    <li><img src="{% static "img/cardPSimonBolivar.webp" %} "alt="Imagen 4" /></li>
-                                </ul>
+                            
+                            <div class="container-album">
+                                <div class="slider-frame">
+                                    <ul>
+                                        <li><img src="{% static "img/cardJardinBotanico.webp" %} "alt="Imagen 1" /></li>
+                                        <li><img src="{% static "img/cardPlazaBolivar.webp" %} "alt="Imagen 2" /></li>
+                                        <li><img src="{% static "img/cardMNacionalC.webp" %} "alt="Imagen 3" /></li>
+                                        <li><img src="{% static "img/cardPSimonBolivar.webp" %} "alt="Imagen 4" /></li>
+                                    </ul>
+                                </div>
+                                        
+                                <div class="circlePicture">
+                                    <figure class="userCirclePicture">
+                                        <img class="avatarImg" src="{% static "img/imgFotoPerfil.webp" %} "alt="Imagen de Colombia" />
+                                    </figure>
+                                </div>
+                
+                                <div class="contenedor-texto">
+                                    <h3>
+                                        Cony Quiroga
+                                    </h3>
+                                    <a href="html/crearCuenta.html" class="btn-base" type="button" >
+                                        <span class="material-symbols-rounded">collections_bookmark</span>
+                                        Ver álbum
+                                    </a>
+                                </div>
                             </div>
-                                    
-                            <div class="circlePicture">
-                                <figure class="userCirclePicture">
-                                    <img class="avatarImg" src="{% static "img/imgFotoPerfil.webp" %} "alt="Imagen de Colombia" />
-                                </figure>
+                            <div class="container-album">
+                                <div class="slider-frame">
+                                    <ul>
+                                        <li><img src="{% static "img/cardJardinBotanico.webp" %} "alt="Imagen 1" /></li>
+                                        <li><img src="{% static "img/cardPlazaBolivar.webp" %} "alt="Imagen 2" /></li>
+                                        <li><img src="{% static "img/cardMNacionalC.webp" %} "alt="Imagen 3" /></li>
+                                        <li><img src="{% static "img/cardPSimonBolivar.webp" %} "alt="Imagen 4" /></li>
+                                    </ul>
+                                </div>
+                                        
+                                <div class="circlePicture">
+                                    <figure class="userCirclePicture">
+                                        <img class="avatarImg" src="{% static "img/imgFotoPerfil.webp" %} "alt="Imagen de Colombia" />
+                                    </figure>
+                                </div>
+                
+                                <div class="contenedor-texto">
+                                    <h3>
+                                        Cony Quiroga
+                                    </h3>
+                                    <a href="html/crearCuenta.html" class="btn-base" type="button" >
+                                        <span class="material-symbols-rounded">collections_bookmark</span>
+                                        Ver álbum
+                                    </a>
+                                </div>
                             </div>
-            
-                            <div class="contenedor-texto">
-                                <h3>
-                                    Cony Quiroga
-                                </h3>
-                                <a href="html/crearCuenta.html" class="btn-base" type="button" >
-                                    <span class="material-symbols-rounded">collections_bookmark</span>
-                                    Ver álbum
-                                </a>
+                            <div class="container-album">
+                                <div class="slider-frame">
+                                    <ul>
+                                        <li><img src="{% static "img/cardJardinBotanico.webp" %} "alt="Imagen 1" /></li>
+                                        <li><img src="{% static "img/cardPlazaBolivar.webp" %} "alt="Imagen 2" /></li>
+                                        <li><img src="{% static "img/cardMNacionalC.webp" %} "alt="Imagen 3" /></li>
+                                        <li><img src="{% static "img/cardPSimonBolivar.webp" %} "alt="Imagen 4" /></li>
+                                    </ul>
+                                </div>
+                                        
+                                <div class="circlePicture">
+                                    <figure class="userCirclePicture">
+                                        <img class="avatarImg" src="{% static "img/imgFotoPerfil.webp" %} "alt="Imagen de Colombia" />
+                                    </figure>
+                                </div>
+                
+                                <div class="contenedor-texto">
+                                    <h3>
+                                        Cony Quiroga
+                                    </h3>
+                                    <a href="html/crearCuenta.html" class="btn-base" type="button" >
+                                        <span class="material-symbols-rounded">collections_bookmark</span>
+                                        Ver álbum
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="container-album">
-                            <div class="slider-frame">
-                                <ul>
-                                    <li><img src="{% static "img/cardJardinBotanico.webp" %} "alt="Imagen 1" /></li>
-                                    <li><img src="{% static "img/cardPlazaBolivar.webp" %} "alt="Imagen 2" /></li>
-                                    <li><img src="{% static "img/cardMNacionalC.webp" %} "alt="Imagen 3" /></li>
-                                    <li><img src="{% static "img/cardPSimonBolivar.webp" %} "alt="Imagen 4" /></li>
-                                </ul>
+                            <div class="container-album">
+                                <div class="slider-frame">
+                                    <ul>
+                                        <li><img src="{% static "img/cardJardinBotanico.webp" %} "alt="Imagen 1" /></li>
+                                        <li><img src="{% static "img/cardPlazaBolivar.webp" %} "alt="Imagen 2" /></li>
+                                        <li><img src="{% static "img/cardMNacionalC.webp" %} "alt="Imagen 3" /></li>
+                                        <li><img src="{% static "img/cardPSimonBolivar.webp" %} "alt="Imagen 4" /></li>
+                                    </ul>
+                                </div>
+                                        
+                                <div class="circlePicture">
+                                    <figure class="userCirclePicture">
+                                        <img class="avatarImg" src="{% static "img/imgFotoPerfil.webp" %} "alt="Imagen de Colombia" />
+                                    </figure>
+                                </div>
+                
+                                <div class="contenedor-texto">
+                                    <h3>
+                                        Cony Quiroga
+                                    </h3>
+                                    <a href="html/crearCuenta.html" class="btn-base" type="button" >
+                                        <span class="material-symbols-rounded">collections_bookmark</span>
+                                        Ver álbum
+                                    </a>
+                                </div>
                             </div>
-                                    
-                            <div class="circlePicture">
-                                <figure class="userCirclePicture">
-                                    <img class="avatarImg" src="{% static "img/imgFotoPerfil.webp" %} "alt="Imagen de Colombia" />
-                                </figure>
-                            </div>
-            
-                            <div class="contenedor-texto">
-                                <h3>
-                                    Cony Quiroga
-                                </h3>
-                                <a href="html/crearCuenta.html" class="btn-base" type="button" >
-                                    <span class="material-symbols-rounded">collections_bookmark</span>
-                                    Ver álbum
-                                </a>
-                            </div>
-                        </div>
-                        <div class="container-album">
-                            <div class="slider-frame">
-                                <ul>
-                                    <li><img src="{% static "img/cardJardinBotanico.webp" %} "alt="Imagen 1" /></li>
-                                    <li><img src="{% static "img/cardPlazaBolivar.webp" %} "alt="Imagen 2" /></li>
-                                    <li><img src="{% static "img/cardMNacionalC.webp" %} "alt="Imagen 3" /></li>
-                                    <li><img src="{% static "img/cardPSimonBolivar.webp" %} "alt="Imagen 4" /></li>
-                                </ul>
-                            </div>
-                                    
-                            <div class="circlePicture">
-                                <figure class="userCirclePicture">
-                                    <img class="avatarImg" src="{% static "img/imgFotoPerfil.webp" %} "alt="Imagen de Colombia" />
-                                </figure>
-                            </div>
-            
-                            <div class="contenedor-texto">
-                                <h3>
-                                    Cony Quiroga
-                                </h3>
-                                <a href="html/crearCuenta.html" class="btn-base" type="button" >
-                                    <span class="material-symbols-rounded">collections_bookmark</span>
-                                    Ver álbum
-                                </a>
-                            </div>
-                        </div>
-                        <div class="container-album">
-                            <div class="slider-frame">
-                                <ul>
-                                    <li><img src="{% static "img/cardJardinBotanico.webp" %} "alt="Imagen 1" /></li>
-                                    <li><img src="{% static "img/cardPlazaBolivar.webp" %} "alt="Imagen 2" /></li>
-                                    <li><img src="{% static "img/cardMNacionalC.webp" %} "alt="Imagen 3" /></li>
-                                    <li><img src="{% static "img/cardPSimonBolivar.webp" %} "alt="Imagen 4" /></li>
-                                </ul>
-                            </div>
-                                    
-                            <div class="circlePicture">
-                                <figure class="userCirclePicture">
-                                    <img class="avatarImg" src="{% static "img/imgFotoPerfil.webp" %} "alt="Imagen de Colombia" />
-                                </figure>
-                            </div>
-            
-                            <div class="contenedor-texto">
-                                <h3>
-                                    Cony Quiroga
-                                </h3>
-                                <a href="html/crearCuenta.html" class="btn-base" type="button" >
-                                    <span class="material-symbols-rounded">collections_bookmark</span>
-                                    Ver álbum
-                                </a>
+                            <div class="container-album">
+                                <div class="slider-frame">
+                                    <ul>
+                                        <li><img src="{% static "img/cardJardinBotanico.webp" %} "alt="Imagen 1" /></li>
+                                        <li><img src="{% static "img/cardPlazaBolivar.webp" %} "alt="Imagen 2" /></li>
+                                        <li><img src="{% static "img/cardMNacionalC.webp" %} "alt="Imagen 3" /></li>
+                                        <li><img src="{% static "img/cardPSimonBolivar.webp" %} "alt="Imagen 4" /></li>
+                                    </ul>
+                                </div>
+                                        
+                                <div class="circlePicture">
+                                    <figure class="userCirclePicture">
+                                        <img class="avatarImg" src="{% static "img/imgFotoPerfil.webp" %} "alt="Imagen de Colombia" />
+                                    </figure>
+                                </div>
+                
+                                <div class="contenedor-texto">
+                                    <h3>
+                                        Cony Quiroga
+                                    </h3>
+                                    <a href="html/crearCuenta.html" class="btn-base" type="button" >
+                                        <span class="material-symbols-rounded">collections_bookmark</span>
+                                        Ver álbum
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                
-                <div class="tab-panel" id="content2">
-                    <h2>Contenido de Tab 2</h2>
                     
-        
-                           
+                    <div class="tab-panel" id="content2">
+                        <h2>Contenido de Tab 2</h2>
+                        
+            
                             
+                                
+                    </div>
                 </div>
             </div>
-        </div>
 
-    </main>
-        {% comment %} Cómo puedo saber si estoy logueado desde otro template antes de inyectar la sección que deseo al base.html? {% endcomment %}
+        </main>
     {% else %}
         <main class="contenedorprincipal">
             <section id='pantalla-dividida'>
