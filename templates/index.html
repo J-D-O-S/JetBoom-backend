@@ -68,17 +68,17 @@
 										</span>
 									</li>
 									<li>
-										{% if user.foto_perfil.url %}
+										{% if user.foto_perfil and user.foto_perfil.url %}
 											<img
 												class="user-photo"
-												src="{{ user.foto_perfil.url }}"
+												src="{{ user.foto_perfil.url }}?{{ user.foto_perfil.last_modified|date:'U' }}"
 												alt="Foto de perfil del usuario"
 											/>
 										{% else %}
 											<img
 												class="user-photo"
-												src="{% static "/img/fondoCC.webp" %}"
-												alt="Foto de perfil del usuario"
+												src="{% static "/img/default_perfil.webp" %}"
+												alt="Foto de perfil del usuario por defecto"
 											/>
 										{% endif %}
 									</li>
@@ -154,11 +154,15 @@
 													/>
 												</button>
 											</div>
-											<img
-												class="imgUser"
-												src="{{ user.foto_perfil.url }}"
-												alt="Imagen de perfil del usuario"
-											/>
+											{% if user.foto_perfil and user.foto_perfil.url %}
+												<img
+													class="imgUser"
+													src="{{ user.foto_perfil.url }}?{{ user.foto_perfil.last_modified|date:'U' }}"
+													alt="Imagen de perfil del usuario"
+												/>
+											{% else %}
+												<img class="imgUser" src="{% static 'img/default_perfil.webp' %}" alt="Imagen por defecto de Perfil" />
+											{% endif %}
 										</section>
 									</div>
 									<p class="text-jb">JetBoom</p>

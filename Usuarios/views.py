@@ -109,8 +109,3 @@ class CustomUploadImageView(LoginRequiredMixin, View):
         else:
             print(form.errors)
             return render(self.request, "perfil/perfil.html", {"form": form})
-
-    # def _validate_image_url(self, user, field_name):
-    #     if not user.field_name:
-    #         user.field_name = "img/imgFotoPerfil.webp"
-    #     return user

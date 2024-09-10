@@ -20,6 +20,11 @@
   scale: 1.1;
 }
 
+.portada {
+  opacity: .8;
+  object-position: center;
+}
+
 /* ------------------------------------ contenido verperfil ------------------------------------ */
 .imgfotoperfil {
   /* tamaño y estilos del contenedor de la imagen de perfil */
@@ -32,8 +37,9 @@
 .imgfotoperfil img {
   /* tamaño de la imagen de perfil */
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
+  object-position: center center;
 }
 
 .fotodeperfil {

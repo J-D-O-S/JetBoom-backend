@@ -15,8 +15,12 @@ Perfil | JetBooms
 
 <main class="main">
     <div class="imgfotoperfil">
+        {% if user.albumfoto.foto_portada and user.albumfoto.foto_portada.url %}
+            <img src="{{ user.albumfoto.foto_portada.url }}?{{ user.albumfoto.foto_portada.last_modified|date:'U' }}" alt="Foto de Portada" />
+        {% else %}
+            <img class="portada" src="{% static "img/bogota0.webp" %}" alt="Imagen de portada por defecto" />
+        {% endif %}
         <div class="fotodeportada">
-            {% comment %}  {% endcomment %}
             <form method="post" enctype="multipart/form-data" action="{% url "imagen_portada" %}">
                 {% csrf_token %}
                 <div class="seleccion_foto seleccion_foto_portada">
@@ -24,10 +28,8 @@ Perfil | JetBooms
                     <input type="hidden" name="form_type" value="portada">
                     <input type="file" name="foto_portada" id="id_foto_portada" accept="image/png, image/jpeg" style="display: none;">
                 </div>
-                {% comment %} <button class="btn-editar" type="submit"></button> {% endcomment %}
             </form>
         </div>
-        <img src="{% static "img/imgFondoPerfil.webp" %}" alt="fondo portada" />
         <div class="fotodeperfil">
             <form method="post" enctype="multipart/form-data" action="{% url "imagen_perfil" %}">
                 {% csrf_token %}
@@ -40,16 +42,10 @@ Perfil | JetBooms
             {% if user.foto_perfil and user.foto_perfil.url %}
                 <img src="{{ user.foto_perfil.url }}?{{ user.foto_perfil.last_modified|date:'U' }}" alt="Foto de Perfil" />
             {% else %}
-                <img src="{% static 'img/imgFotoPerfil.webp' %}" alt="Imagen por defecto de Perfil" />
+                <img src="{% static 'img/default_perfil.webp' %}" alt="Imagen por defecto de Perfil" />
             {% endif %}
-            {% comment %} {% if user.foto_perfil and user.foto_perfil.url %}
-                {{ user.foto_perfil.url }}
-                <img src="{{ user.foto_perfil.url }}" alt="Foto de Perfil" />
-            {% else %}
-                <img src="{% static 'img/imgFotoPerfil.webp' %}" alt="Imagen por defecto de Perfil" />
-            {% endif %} {% endcomment %}
         </div>
-        <div class="nombreperfil">Cony Quiroga</div>
+        <div class="nombreperfil">{{ user.nombre }} {{ user.apellido }}</div>
     </div>
 
     <div class="contenedorcuadradorojo">
