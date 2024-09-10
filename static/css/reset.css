@@ -59,6 +59,7 @@
     --font-color-blanco: var(--negro);
     --font-color-gris: var(--oscuro);
     --font-color-oscuro: var(--gris);
+
 }
 
 [data-theme="light"] {
@@ -245,12 +246,12 @@ svg {
     display: inline-flex;
     align-items: center;
     top: 5px;
-    transition: background-color 0.3s;
+    transition: all 0.5s ease-in-out;
 }
-
+/*
 .btn-base:hover {
     background-color: var(--rojo-claro);
-}
+}*/
 
 .btn-base .material-symbols-rounded {
     display: flex;
@@ -258,4 +259,23 @@ svg {
     justify-content: center;
     margin-right: 0.5rem;
     font-size: 1.8rem;
+}
+
+[data-theme="light"] .btn-base:hover{
+    background-color: var(--rojo-claro);
+}
+
+[data-theme="dark"] .btn-base:hover{
+  color: var(--gris);
+  background-color: var(--rojo);
+  outline: none;
+  box-shadow:
+    /* Primera capa */
+    0 0 0 2px var(--rojo),
+    /* Segunda capa */
+    0 0 0 5px var(--amarillo),
+    /* Tercera capa */
+    0 0 0 8px var(--rojo);
+  transition: all 0.5s ease-in-out;
+  transform: scale(1.05);
 }
