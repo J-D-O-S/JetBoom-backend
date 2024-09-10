@@ -252,7 +252,13 @@ $RECYCLE.BIN/
 
 # End of https://www.toptal.com/developers/gitignore/api/django,macos,windows,visualstudiocode
 
+# Avoid adding migrations to the git repository
 **/migrations/**
 !**/migrations
 !**/migrations/__init__.py
+
+# Avoid adding secrets to the git repository
 credentials.json
+
+# Avoid adding images to the git repository
+**/images/**
