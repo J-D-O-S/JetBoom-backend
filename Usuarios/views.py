@@ -72,7 +72,23 @@ class PerfilView(LoginRequiredMixin, TemplateView):
 
 
 class PuntosView(LoginRequiredMixin, TemplateView):
-    template_name = "perfil/perfilPuntos.htm"
+    template_name = "perfil/perfilPuntos.html"
+
+
+class ReservasView(LoginRequiredMixin, TemplateView):
+    # hacer query para saber si hay reservas y renderizar la vista correspondiente
+    # con la información de las reservas
+    template_name = "perfil/perfilReservasContenido.html"
+    # sin la información de las reservas
+    # template_name = "perfil/perfilReservasSinContenido.html"
+
+
+class ComprasView(LoginRequiredMixin, TemplateView):
+    # hacer query para saber si hay compras y renderizar la vista correspondiente
+    # con la información de las compras
+    template_name = "perfil/perfilCompras.html"
+    # sin la información de las compras
+    # template_name = "perfil/perfilSinCompras.html"
 
 
 class CustomResetPasswordView(TemplateView, View):

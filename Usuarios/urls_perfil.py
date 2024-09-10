@@ -6,6 +6,8 @@ from .views import (
     PerfilView,
     PuntosView,
     CustomUploadImageView,
+    ReservasView,
+    ComprasView,
 )
 
 
@@ -17,6 +19,8 @@ urlpatterns = (
             name="perfil",
         ),
         path("puntos/", PuntosView.as_view(), name="puntos"),
+        path("reservas/", ReservasView.as_view(), name="reservas"),
+        path("compras/", ComprasView.as_view(), name="compras"),
         path("imagen_perfil/", CustomUploadImageView.as_view(), name="imagen_perfil"),
         path("imagen_portada/", CustomUploadImageView.as_view(), name="imagen_portada"),
     ]
