@@ -1,4 +1,4 @@
-from django import forms
+import os
 from django.db import models
 from django.contrib.auth.models import (
     AbstractBaseUser,
@@ -88,7 +88,7 @@ class Usuario(AbstractBaseUser, PermissionsMixin):
     fecha_modificacion = models.DateTimeField(auto_now=True, verbose_name="Modificado")
     foto_perfil = models.ImageField(
         "Foto de Perfil",
-        upload_to="Usuarios/fotos_perfil/",
+        upload_to="static/images/perfil/",
         max_length=200,
         blank=True,
         null=True,
@@ -135,6 +135,18 @@ class Usuario(AbstractBaseUser, PermissionsMixin):
 
     def has_module_perms(self, app_label):
         return True
+
+    def save(self, *args, **kwargs):
+        if self.pk and self.foto_perfil:
+            try:
+                old_foto = Usuario.objects.get(pk=self.pk).foto_perfil
+                if old_foto and old_foto.url != self.foto_perfil.url:
+                    if os.path.isfile(old_foto.path):
+                        os.remove(old_foto.path)
+            except Usuario.DoesNotExist:
+                pass  # El objeto es nuevo, por lo que no hay foto antigua para eliminar
+
+        super(Usuario, self).save(*args, **kwargs)
 
 
 # codigo de ChatGPT

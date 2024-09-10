@@ -15,29 +15,39 @@ Perfil | JetBooms
 
 <main class="main">
     <div class="imgfotoperfil">
-        {% comment %}  {% endcomment %}
-        {% comment %} <form method="post" enctype="multipart/form-data" action="{% url "album" %}" > album need to add a field where I can safe the image
-            {% csrf_token %}
-            <button class="btn-editar" type="submit">
-                <span class="material-symbols-rounded">add_a_photo</span>
-                <input type="hidden" name="form_type" value="portada">
-                <input type="file" name="foto_perfil" id="id_foto_perfil" accept="image/" style="display: none;">
-            </button>
-        </form> {% endcomment %}
-        {% comment %}  {% endcomment %}
-        <img src="{% static "img/imgFondoPerfil.webp" %}" alt="fondo-perfil" />
+        <div class="fotodeportada">
+            {% comment %}  {% endcomment %}
+            <form method="post" enctype="multipart/form-data" action="{% url "imagen_portada" %}">
+                {% csrf_token %}
+                <div class="seleccion_foto seleccion_foto_portada">
+                    <span class="material-symbols-rounded">add_a_photo</span>
+                    <input type="hidden" name="form_type" value="portada">
+                    <input type="file" name="foto_portada" id="id_foto_portada" accept="image/png, image/jpeg" style="display: none;">
+                </div>
+                {% comment %} <button class="btn-editar" type="submit"></button> {% endcomment %}
+            </form>
+        </div>
+        <img src="{% static "img/imgFondoPerfil.webp" %}" alt="fondo portada" />
         <div class="fotodeperfil">
             <form method="post" enctype="multipart/form-data" action="{% url "imagen_perfil" %}">
                 {% csrf_token %}
-                <div class="seleccion_foto_perfil">
+                <div class="seleccion_foto seleccion_foto_perfil">
                     <span class="material-symbols-rounded">add_a_photo</span>
                     <input type="hidden" name="form_type" value="perfil">
                     <input type="file" name="foto_perfil" id="id_foto_perfil" accept="image/png, image/jpeg" style="display: none;">
                 </div>
-                <button class="btn-editar" type="submit">
-                </button>
             </form>
-            <img src="{% static "img/imgFotoPerfil.webp" %}" alt="Perfil" />
+            {% if user.foto_perfil and user.foto_perfil.url %}
+                <img src="{{ user.foto_perfil.url }}?{{ user.foto_perfil.last_modified|date:'U' }}" alt="Foto de Perfil" />
+            {% else %}
+                <img src="{% static 'img/imgFotoPerfil.webp' %}" alt="Imagen por defecto de Perfil" />
+            {% endif %}
+            {% comment %} {% if user.foto_perfil and user.foto_perfil.url %}
+                {{ user.foto_perfil.url }}
+                <img src="{{ user.foto_perfil.url }}" alt="Foto de Perfil" />
+            {% else %}
+                <img src="{% static 'img/imgFotoPerfil.webp' %}" alt="Imagen por defecto de Perfil" />
+            {% endif %} {% endcomment %}
         </div>
         <div class="nombreperfil">Cony Quiroga</div>
     </div>

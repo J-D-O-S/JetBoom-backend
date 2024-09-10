@@ -23,6 +23,9 @@ from django.conf import settings
 
 
 class AlbumFoto(models.Model):
+    foto_portada = models.ImageField(
+        upload_to="static/images/portada/", null=True, blank=True
+    )
     usuario = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     nombre_album = models.CharField(max_length=50, default="JetBoom")
     descripcion = models.TextField(
@@ -37,7 +40,7 @@ class AlbumFoto(models.Model):
 class Foto(models.Model):
     album = models.ForeignKey(AlbumFoto, on_delete=models.CASCADE)
     descripcion = models.CharField(max_length=255)
-    imagen = models.ImageField(upload_to="Usuarios/fotos/")
+    imagen = models.ImageField(upload_to="static/images/photos/")
     fecha = models.DateTimeField(auto_now_add=True)
     comentario_publico = models.CharField(max_length=500, blank=True)
 

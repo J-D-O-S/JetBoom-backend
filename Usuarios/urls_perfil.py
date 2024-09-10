@@ -18,6 +18,7 @@ urlpatterns = (
         ),
         path("puntos/", PuntosView.as_view(), name="puntos"),
         path("imagen_perfil/", CustomUploadImageView.as_view(), name="imagen_perfil"),
+        path("imagen_portada/", CustomUploadImageView.as_view(), name="imagen_portada"),
     ]
     + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

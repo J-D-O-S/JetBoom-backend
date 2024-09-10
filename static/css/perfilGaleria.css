@@ -1,22 +1,22 @@
 /* estilos prueba Olaya */
 
-.seleccion_foto_perfil {
+.seleccion_foto {
   position: absolute;
   background: var(--amarillo);
-  width: 20%;
-  height: 20%;
+  width: 44px;
+  height: 44px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
   bottom: 5%;
   right: 5%;
-  border: 3px solid var(--negro);
+  border: 2px solid var(--negro);
   transition: all 0.3s cubic-bezier(0.47, 0.37, 0.25, 1.29);
   cursor: pointer;
 }
 
-.seleccion_foto_perfil:hover {
+.seleccion_foto:hover {
   scale: 1.1;
 }
 

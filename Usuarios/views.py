@@ -5,6 +5,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .forms import LoginForm, CustomUserCreationForm, ImagenUploadForm
+from Album.forms import ImagenUploadForm as AlbumImagenUploadForm
 from Album.models import AlbumFoto
 
 
@@ -92,17 +93,24 @@ class CustomUploadImageView(LoginRequiredMixin, View):
 
         if form_type == "perfil":
             form = ImagenUploadForm(request.POST, request.FILES)
-            self._save_image(request.user, form)
+            self._save_image(request.user, form, "foto_perfil")
         elif form_type == "portada":
-            self._save_image(request.user, ImagenUploadForm)
+            form = AlbumImagenUploadForm(request.POST, request.FILES)
+            user_album = request.user.albumfoto
+            self._save_image(user_album, form, "foto_portada")
         return redirect("perfil")
 
-    def _save_image(self, user, form):
+    def _save_image(self, user, form, field_name):
         if form.is_valid():
-            user.foto_perfil = form.cleaned_data["foto_perfil"]
+            setattr(user, field_name, form.cleaned_data[field_name])
+            # user = self._validate_image_url(user, field_name)
             user.save()
-
             return redirect("perfil")
         else:
             print(form.errors)
             return render(self.request, "perfil/perfil.html", {"form": form})
+
+    # def _validate_image_url(self, user, field_name):
+    #     if not user.field_name:
+    #         user.field_name = "img/imgFotoPerfil.webp"
+    #     return user

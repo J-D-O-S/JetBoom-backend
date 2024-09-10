@@ -11,4 +11,17 @@ window.onload = function () {
 			this.form.submit();
 		});
 	}
+
+	const containerPortadaPicture = document.querySelector(".seleccion_foto_portada");
+	const btnUploadImagePortada = document.getElementById("id_foto_portada");
+
+	if (containerPortadaPicture && btnUploadImagePortada) {
+		containerPortadaPicture.addEventListener("click", function () {
+			btnUploadImagePortada.click();
+		});
+
+		btnUploadImagePortada.addEventListener("change", function () {
+			this.form.submit();
+		});
+	}
 };

@@ -26,3 +26,9 @@ class CustomFotoForm(forms.ModelForm):
             "imagen",
             "comentario_publico",
         )
+
+
+class ImagenUploadForm(forms.ModelForm):
+    class Meta:
+        model = AlbumFoto
+        fields = ["foto_portada"]
