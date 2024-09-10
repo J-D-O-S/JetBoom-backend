@@ -102,4 +102,17 @@ window.onload = function () {
 			this.form.submit();
 		});
 	}
+
+	const containerGaleriaPicture = document.querySelector(".seleccion_foto_galeria");
+	const btnUploadImageGaleria = document.getElementById("id_foto_galeria");
+
+	if (containerGaleriaPicture && btnUploadImageGaleria) {
+		containerGaleriaPicture.addEventListener("click", function () {
+			btnUploadImageGaleria.click();
+		});
+
+		btnUploadImageGaleria.addEventListener("change", function () {
+			this.form.submit();
+		});
+	}
 };

@@ -1,41 +1,45 @@
 {% extends "perfil/perfil.html" %} 
 
+{% block other_styles %} 
+    {% load static %}
+    <link href="{% static "/css/perfilPuntos.css" %}" rel="stylesheet" /> 
+{% endblock other_styles %}
+
 {% block perfil_content %}
-        <section class="puntos">
-            <div class="container-puntos">
-                <h1>300</h1>
-                <p>PUNTOS</p>
-            </div>
-            <div class="descripcion-puntos">
-            <p>
-                ¡Prepárate para disfrutar de experiencias inolvidables con descuentos que te espe-</br>
-                ran en cada destino! Participa ahora y convierte tus logros en millas que te llevarán</br>
-                más lejos. ¡Tu próximo viaje está a punto de ser aún más extraordinario!
-            </p>
-            </div>
-            <div class="tabla-puntos">
-                <div class="detalle-puntos">
-                    <h2>Detalle</h2>
-                    <p class="fecha-obtenidos">Fecha de obtención</p>
-                    <p class="fecha-vencidos">Fecha de vencimiento</p>
-                    <p class="valor-puntos">Valor por reto</p>
-                </div>
-                <div class="modal-puntos">
-                    <p><a href="#modal"><span class="material-symbols-rounded">info</span></a></p>
-                </div>
-            </div>
-        </section>
-        
-        <div id="modal" class="modalmask">
-            <div class="modalbox resize">
-                <a href="#close" title="Close" class="btn-base">X</a>
-                <h2>Puntos</h2>
-                <p>2500 puntos = 50%</p>
-                <p>2000 puntos = 40%</p>
-                <p>1500 puntos = 30%</p>
-                <p>1000 puntos = 20%</p>
-                <p>500 puntos = 10%</p>
-            </div>
+<section class="puntos">
+    <div class="container-puntos">
+        <h1>300</h1>
+        <p>PUNTOS</p>
+    </div>
+    <div class="descripcion-puntos">
+    <p>
+        ¡Prepárate para disfrutar de experiencias inolvidables con descuentos que te espe-</br>
+        ran en cada destino! Participa ahora y convierte tus logros en millas que te llevarán</br>
+        más lejos. ¡Tu próximo viaje está a punto de ser aún más extraordinario!
+    </p>
+    </div>
+    <div class="tabla-puntos">
+        <div class="detalle-puntos">
+            <h2>Detalle</h2>
+            <p class="fecha-obtenidos">Fecha de obtención</p>
+            <p class="fecha-vencidos">Fecha de vencimiento</p>
+            <p class="valor-puntos">Valor por reto</p>
         </div>
-    </main>    
+        <div class="modal-puntos">
+            <p><a href="#modal"><span class="material-symbols-rounded">info</span></a></p>
+        </div>
+    </div>
+</section>
+
+<div id="modal" class="modalmask">
+    <div class="modalbox resize">
+        <a href="#close" title="Close" class="btn-base">X</a>
+        <h2>Puntos</h2>
+        <p>2500 puntos = 50%</p>
+        <p>2000 puntos = 40%</p>
+        <p>1500 puntos = 30%</p>
+        <p>1000 puntos = 20%</p>
+        <p>500 puntos = 10%</p>
+    </div>
+</div>
 {% endblock perfil_content %}
