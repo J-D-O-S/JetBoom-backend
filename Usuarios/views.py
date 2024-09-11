@@ -1,11 +1,17 @@
 from django.shortcuts import render, redirect
+
 from django.views.generic import TemplateView
 from django.views.generic.base import View
+
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.mixins import LoginRequiredMixin
 
+from django.db.models import Window
+from django.db.models.functions import RowNumber
+
 from .forms import LoginForm, CustomUserCreationForm, ImagenUploadForm
 from Album.forms import ImagenUploadForm as AlbumImagenUploadForm, CustomFotoForm
+
 from Album.models import AlbumFoto, Foto
 
 
@@ -72,7 +78,11 @@ class PerfilView(LoginRequiredMixin, TemplateView):
 
     def get(self, request):
         album = AlbumFoto.objects.get(usuario=request.user)
-        fotos = album.foto_set.all()
+        fotos = album.foto_set.all().annotate(
+            order=Window(
+                expression=RowNumber()
+            )
+        )
         return render(request, "perfil/perfil.html", {"album": album, "imagenes": fotos})
 
 

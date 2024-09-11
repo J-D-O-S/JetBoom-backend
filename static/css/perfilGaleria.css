@@ -84,6 +84,7 @@
 }
 
 .btn-editar .material-symbols-rounded {
+
   /* estilos de los iconos del contenedor */
   font-size: 2rem;
   color: var(--gris);
@@ -131,21 +132,24 @@
 
 /* contenedor de los botones */
 .botones-seccion {
-  padding-top: 3rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr auto 1fr 1fr; 
+  justify-items: center; 
+  align-items: center;
+  width: 100%;
+  padding: .8rem;
+  max-width: 1200px; 
+  margin: 5rem auto 2rem;
+}
+
+.btn-center {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 3rem;
-  margin: 2rem 0;
+  cursor: pointer;
 }
 
-.dot-style {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.dot-style .btn-base {
+.btn-base {
   width: 10rem;
   display: flex;
   justify-content: center;
@@ -252,5 +256,23 @@
   .close {
     top: 20px;
     right: 20px;
+  }
+}
+
+.icon-add-picture {
+  font-size: 5rem;
+  animation: arrow-up-down 1.5s ease-in-out infinite;
+}
+
+.text {
+  font-size: 1.5rem;
+}
+
+@keyframes arrow-up-down {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-1rem);
   }
 }
