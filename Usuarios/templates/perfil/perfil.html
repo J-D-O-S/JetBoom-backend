@@ -9,10 +9,6 @@ Perfil | JetBooms
   {% endblock other_styles %}
 {% endblock styles_apply %} 
 
-{% block specials_scripts %}
-    <script src="{% static "js/perfilGaleria.js" %}"></script>
-{% endblock specials_scripts %}
-
 {% block main_content %}
 
 <main class="main">
@@ -85,7 +81,7 @@ Perfil | JetBooms
     {% block perfil_content %}
 
     {% if imagenes|length > 0 %}
-    <section class="galeria">
+    <section class="galeria" id="galeria">
         {% for img in imagenes %}
             <a href="#{{ img.order }}">
                 <img src="{{ img.imagen.url }}" />
@@ -106,7 +102,7 @@ Perfil | JetBooms
                 <span class="material-symbols-rounded">arrow_forward_ios</span>
             </a>
             {% endif %}
-            <a href="{% url 'perfil' %}" class="close">X</a>
+            <a href="#galeria" class="close">X</a>
         </article>
         {% endfor %}
     

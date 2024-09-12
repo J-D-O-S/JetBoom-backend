@@ -11,7 +11,7 @@ class AlbumFoto(models.Model):
     nombre_album = models.CharField(max_length=50, default="JetBoom")
     descripcion = models.TextField(
         max_length=500,
-        default="Este es tú album de fotos, dónde podras almacenar todas mis historias. ¡Disfrútalo!",
+        default="Este es tú album de fotos, dónde podras almacenar todas tus historias. ¡Disfrútalo!",
     )
 
     def __str__(self):
@@ -32,7 +32,9 @@ class AlbumFoto(models.Model):
 
 class Foto(models.Model):
     album = models.ForeignKey(AlbumFoto, on_delete=models.CASCADE)
-    descripcion = models.CharField(max_length=255, default="Imagen para el album", blank=True, null=True)
+    descripcion = models.CharField(
+        max_length=255, default="Imagen para el album", blank=True, null=True
+    )
     imagen = models.ImageField(upload_to="static/images/galeria/")
     fecha = models.DateTimeField(auto_now_add=True)
     comentario_publico = models.CharField(max_length=500, blank=True, null=True)
