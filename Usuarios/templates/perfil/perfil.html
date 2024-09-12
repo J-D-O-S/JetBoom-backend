@@ -16,7 +16,7 @@ Perfil | JetBooms
         {% if user.albumfoto.foto_portada and user.albumfoto.foto_portada.url %}
             <img src="{{ user.albumfoto.foto_portada.url }}?{{ user.albumfoto.foto_portada.last_modified|date:'U' }}" alt="Foto de Portada" />
         {% else %}
-            <img class="portada" src="{% static "img/bogota0.webp" %}" alt="Imagen de portada por defecto" />
+            <img class="portada" src="{% static "img/portada-bogota.webp" %}" alt="Imagen de portada por defecto" />
         {% endif %}
         <div class="fotodeportada">
             <form method="post" enctype="multipart/form-data" action="{% url "imagen_portada" %}">

@@ -78,16 +78,24 @@ class PerfilView(LoginRequiredMixin, TemplateView):
 
     def get(self, request):
         album = AlbumFoto.objects.get(usuario=request.user)
-        fotos = album.foto_set.all().annotate(
-            order=Window(
-                expression=RowNumber()
-            )
+        fotos = album.foto_set.all().annotate(order=Window(expression=RowNumber()))
+        return render(
+            request, "perfil/perfil.html", {"album": album, "imagenes": fotos}
         )
-        return render(request, "perfil/perfil.html", {"album": album, "imagenes": fotos})
 
 
 class PuntosView(LoginRequiredMixin, TemplateView):
     template_name = "perfil/perfilPuntos.html"
+
+    def get(self, request):
+        album = AlbumFoto.objects.get(usuario=request.user)
+        fotos = album.foto_set.all().annotate(order=Window(expression=RowNumber()))
+        user = request.user
+        return render(
+            request,
+            template_name=self.template_name,
+            context={"album": album, "imagenes": fotos, "user": user},
+        )
 
 
 class ReservasView(LoginRequiredMixin, TemplateView):
@@ -97,6 +105,15 @@ class ReservasView(LoginRequiredMixin, TemplateView):
     # sin la información de las reservas
     template_name = "perfil/perfilReservasSinContenido.html"
 
+    def get(self, request):
+        album = AlbumFoto.objects.get(usuario=request.user)
+        fotos = album.foto_set.all().annotate(order=Window(expression=RowNumber()))
+        return render(
+            request,
+            template_name=self.template_name,
+            context={"album": album, "imagenes": fotos},
+        )
+
 
 class ComprasView(LoginRequiredMixin, TemplateView):
     # hacer query para saber si hay compras y renderizar la vista correspondiente
@@ -105,12 +122,54 @@ class ComprasView(LoginRequiredMixin, TemplateView):
     # sin la información de las compras
     template_name = "perfil/perfilSinCompras.html"
 
+    def get(self, request):
+        album = AlbumFoto.objects.get(usuario=request.user)
+        fotos = album.foto_set.all().annotate(order=Window(expression=RowNumber()))
+        return render(
+            request,
+            template_name=self.template_name,
+            context={"album": album, "imagenes": fotos},
+        )
+
 
 class CustomResetPasswordView(TemplateView, View):
     template_name = "registrations/password_reset_form.html"
 
     def post(self, request):
         pass
+
+
+# from django.contrib.auth import update_session_auth_hash
+# from django.contrib.auth.forms import PasswordChangeForm
+# from django.contrib.auth.models import User
+# from django.contrib.sessions.models import Session
+# from django.shortcuts import redirect
+# from django.utils.decorators import method_decorator
+# from django.views import View
+# from django.contrib.auth.decorators import login_required
+
+
+# @method_decorator(login_required, name="dispatch")
+# class PasswordChangeView(View):
+#     def get(self, request):
+#         form = PasswordChangeForm(user=request.user)
+#         return render(request, "password_change.html", {"form": form})
+
+#     def post(self, request):
+#         form = PasswordChangeForm(request.user, request.POST)
+#         if form.is_valid():
+#             user = form.save()
+#             update_session_auth_hash(request, user)  # Mantener la sesión actual
+#             self.logout_all_sessions(user)  # Cerrar todas las sesiones
+#             return redirect("password_change_done")
+#         return render(request, "password_change.html", {"form": form})
+
+#     def logout_all_sessions(self, user):
+#         # Eliminar todas las sesiones del usuario
+#         Session.objects.filter(
+#             expire_date__gte=timezone.now(),
+#             session_key__in=user.session_set.values_list("session_key", flat=True),
+#         ).delete()
 
 
 class CustomUploadImageView(LoginRequiredMixin, View):
@@ -132,7 +191,7 @@ class CustomUploadImageView(LoginRequiredMixin, View):
             self._save_image(user_album, form, "foto_portada")
         elif form_type == "galeria":
             form = CustomFotoForm(request.POST, request.FILES)
-            
+
             self._save_image_to_album(request.user, form)
         return redirect("perfil")
 
@@ -144,15 +203,13 @@ class CustomUploadImageView(LoginRequiredMixin, View):
         else:
             print(form.errors)
             return render(self.request, "perfil/perfil.html", {"form": form})
-    
+
     def _save_image_to_album(self, user, form):
         if form.is_valid():
             album = user.albumfoto
-            
+
             image = form.cleaned_data["imagen"]
-            img = Foto.objects.create(album = album, imagen=image)
-            # img = form.save(commit=False)
-            # img.album = album
+            img = Foto.objects.create(album=album, imagen=image)
             img.save()
             return redirect("perfil")
         else:

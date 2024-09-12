@@ -151,3 +151,4 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = "jetboomcolombia@gmail.com"
 EMAIL_HOST_PASSWORD = "hklizwvdmnmpxfkd"
+DEFAULT_FROM_EMAIL = "jetboomcolombia@gmail.com"

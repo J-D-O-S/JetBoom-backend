@@ -117,21 +117,24 @@
 												</form>
 											</li>
 											<li class="li-items-config-nav">
-												<button class="btn-user-info" type="button">
-													<span class="material-symbols-rounded"> lock </span>
-													Cambiar Contraseña
-												</button>
+												<form action="{% url "password_reset" %}" method="get">
+													{% csrf_token %}
+													<button class="btn-user-info" type="submit">
+														<span class="material-symbols-rounded"> lock </span>
+														Cambiar Contraseña
+													</button>
+												</form>
 											</li>
 											<li class="li-items-config-nav">
 												<form action="{% url "cerrar_sesion" %}" method="post">
 													{% csrf_token %}
-												<button class="btn-user-info" type="submit">
-													<span class="material-symbols-rounded">
-														logout
-													</span>
-													Cerrar Sesión
-												</button>
-											</form>
+													<button class="btn-user-info" type="submit">
+														<span class="material-symbols-rounded">
+															logout
+														</span>
+														Cerrar Sesión
+													</button>
+												</form>
 											</li>
 										</ul>
 										<section class="section-controlers">
