@@ -248,7 +248,7 @@ svg {
     display: inline-flex;
     align-items: center;
     top: 5px;
-    transition: background-color 0.3s;
+    transition: all 0.3s ease-in-out;
 }
 
 /* Hover en modo oscuro */
@@ -257,11 +257,8 @@ svg {
     background-color: var(--rojo);
     outline: none;
     box-shadow:
-        /* Primera capa */
         0 0 0 2px var(--amarillo),
-        /* Segunda capa */
         0 0 0 5px var(--rojo),
-        /* Tercera capa */
         0 0 0 8px var(--amarillo);
     transition: all 0.3s ease-in-out;
     transform: scale(1.05);
@@ -322,7 +319,7 @@ svg {
     cursor: pointer;
     display: inline-flex;
     align-items: center;
-    transition: background-color 0.3s;
+    transition: all 0.3s ease-in-out;
 }   
 
 /* Hover en modo oscuro */

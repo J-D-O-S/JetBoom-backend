@@ -35,4 +35,5 @@ urlpatterns = [
     path("servicios/", include("Servicios.urls")),
     path("fidelizacion/", include("Fidelizacion.urls")),
     path("recuperar_contrasenia/", include("Usuarios.urls_password")),
+    path("pago/", include("Ventas.urls")),
 ]
