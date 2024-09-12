@@ -1,26 +1,31 @@
-  /* ------------------------------------ contenido puntos ------------------------------------ */  
+/* ------------------------------------ contenido puntos ------------------------------------ */  
   
   .container-puntos{
     padding: 2rem;
   }
+
   .container-puntos h1{
     font-size: 3.5rem;
     font-weight: 600;
   }
+
   .container-puntos p{
     font-size: 1.5rem;
   }
+
   .descripcion-puntos{
     font-size: 1.5rem;
-    margin-bottom: 5%;
+    margin: 0 15% 3%;
   }
+
   .tabla-puntos{
     margin: 0 auto;
-    border: 3px solid var(--amarillo);
-    border-radius: 3%;
-    width: 60%;
+    border: 3.5px solid var(--amarillo);
+    border-radius: var(--border-radius);
+    width: 50%;
     padding: 4rem;
   }
+  
   .detalle-puntos{
     display:flex;
     flex-direction: column;
@@ -32,6 +37,7 @@
     font-weight: 600;
     color: var(--rojo);
   }
+
   .fecha-obtenidos,
   .fecha-vencidos,
   .valor-puntos{
@@ -127,4 +133,3 @@
     text-align: left;
     padding: 1.5%;
   }
-  

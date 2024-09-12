@@ -236,7 +236,7 @@ svg {
 }
 
 
-/* boton basico */
+/* -------------------------------- Botón base -------------------------------- */
 .btn-base {
     background-color: var(--rojo);
     color: var(--gris);
@@ -248,14 +248,33 @@ svg {
     display: inline-flex;
     align-items: center;
     top: 5px;
-    transition: all 0.5s ease-in-out;
+    transition: background-color 0.3s;
 }
-/*
-.btn-base:hover {
+
+/* Hover en modo oscuro */
+[data-theme="dark"] .btn-base:hover {
+    color: var(--gris);
+    background-color: var(--rojo);
+    outline: none;
+    box-shadow:
+        /* Primera capa */
+        0 0 0 2px var(--amarillo),
+        /* Segunda capa */
+        0 0 0 5px var(--rojo),
+        /* Tercera capa */
+        0 0 0 8px var(--amarillo);
+    transition: all 0.3s ease-in-out;
+    transform: scale(1.05);
+}
+
+/* Hover en modo claro */
+[data-theme="light"] .btn-base:hover {
     background-color: var(--rojo-claro);
-}*/
+}
+
 
 .btn-base .material-symbols-rounded {
+    /* estilos de los iconos del boton */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -263,23 +282,127 @@ svg {
     font-size: 1.8rem;
 }
 
-/* boton formularios */
+/* -------------------------------- Botón cards -------------------------------- */
+.btn-cards {
+    background-color: var(--rojo);
+    color: var(--gris);
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    top: 5px;
+    transition: background-color 0.3s;
+}
 
-/* boton redondo rojo */
+.btn-cards:hover {
+    background-color: var(--rojo-claro);
+}
 
+.btn-cards .material-symbols-rounded {
+    /* estilos de los iconos del boton */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.5rem;
+    font-size: 1.8rem;
+}
+
+/* -------------------------------- boton redondo rojo -------------------------------- */
+.btn-redondo {
+    /* estilos de los iconos del boton */
+    background-color: var(--rojo);
+    color: var(--gris);
+    border: none;
+    padding: 0.6rem;
+    font-size: 2.5rem;
+    border-radius: 50%; 
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    transition: background-color 0.3s;
+}   
+
+/* Hover en modo oscuro */
+[data-theme="dark"] .btn-redondo:hover {
+    color: var(--oscuro);
+    background-color: var(--rojo);
+    outline: none;
+    box-shadow:
+        /* Primera capa */
+        0 0 0 2px var(--amarillo),
+        /* Segunda capa */
+        0 0 0 5px var(--rojo),
+        /* Tercera capa */
+        0 0 0 8px var(--amarillo);
+    transition: all 0.3s ease-in-out;
+    transform: scale(1.05);
+}
+
+/* Hover en modo claro */
+[data-theme="light"] .btn-redondo:hover {
+    background-color: var(--rojo-claro);
+}
 
 .btn-redondo .material-symbols-rounded {
     /* estilos de los iconos del boton */
     font-size: 2.5rem;
     color: var(--gris);
-    background-color: var(--rojo);
     border-radius: 50%;
     padding: 0.6rem;
 }
   
-.btn-redondo .material-symbols-rounded:hover {
-    /* animacion de los iconos del boton */
-    background-color: var(--rojo-claro);
+/* -------------------------------- boton formularios -------------------------------- */
+.btn-formulario {
+    /*Diseño del boton de registrarse*/
+    background-color: var(--amarillo);
+    color: var(--oscuro);
+    border: none;
+    padding: 1% 10%;
+    font-size: 1.5rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    margin-top: 2rem;
+    transition: all 0.3s ease-in-out;
+}
+  
+.btn-formulario:hover {
+    color: var(--oscuro);
+    background-color: var(--amarillo);
+    outline: none;
+    box-shadow:
+      /* Primera capa */
+      0 0 0 2px var(--amarillo),
+      /* Segunda capa */
+      0 0 0 5px var(--rojo),
+      /* Tercera capa */
+      0 0 0 8px var(--amarillo);
+    transition: all 0.3s ease-in-out;
+    transform: scale(1.05);
 }
 
-/* boton redondo amarillo */
+/* -------------------------------- boton redondo amarillo -------------------------------- */
+.seleccion_foto {
+    position: absolute;
+    background: var(--amarillo);
+    width: 44px;
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    bottom: 5%;
+    right: 5%;
+    border: 2px solid var(--negro);
+    transition: all 0.3s cubic-bezier(0.47, 0.37, 0.25, 1.29);
+    cursor: pointer;
+}
+  
+.seleccion_foto:hover {
+    scale: 1.1;
+}
+  
