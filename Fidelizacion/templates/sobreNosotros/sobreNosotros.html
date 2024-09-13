@@ -214,15 +214,15 @@ Sobre Nosotros | JetBoom
                   <h1>Formulario de Peticiones, Quejas, Reclamos, Sugerencias y Felicitaciones</h1>
                   <form method="post" autocomplete="off">     
                     {% csrf_token %}
+                      <label class="texto-label">Correo</label>
                       <div class="username">
                           {{ form.email.error }}
-                          <input type="email" name="email" value="{{ user.email }}" required>
-                          <label>Correo*</label>
+                          <input type="email" name="email" value="{{ user.email }}" disabled>
                       </div>
-                        
+
+                      <label class="texto-label">Nombre Completo</label>
                       <div class="username">
-                          <input type="text" name="nombre" value="{{ user.nombre }} {{ user.apellido }}" required>
-                          <label>Nombre Completo*</label>
+                          <input type="text" name="nombre" value="{{ user.nombre }} {{ user.apellido }}" disabled>
                       </div>
 
                       <div class="tipoDoc-box">
@@ -233,9 +233,9 @@ Sobre Nosotros | JetBoom
                         {% endif %}
                     </div>
                     
+                    <label class="text-label">Mensaje*</label>
                     <div class="username2">
                         <input type="text" name="opinion_servicio" required>
-                        <label>Mensaje:</label>
                         {% if form.opinion_servicio.errors %}
                             <div class="errorlist" style="color: blue;">{{ form.opinion_servicio.errors }}</div>
                         {% endif %}

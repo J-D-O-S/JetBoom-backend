@@ -434,13 +434,6 @@ input[type="checkbox"]:checked+label .pregunta-icon {
   color: var(--oscuro);
 }
 
-input[type="text"]:focus,
-input[type="date"]:focus,
-select:focus {
-  border-color: var(--gris);
-  outline: none;
-}
-
 .tipoDoc-box {
   color: var(--gris);
 }
@@ -453,66 +446,20 @@ select:focus {
   text-align: left;
 }
 
-.username label {
-  /* Animación de las etiquetas */
-  position: absolute;
-  top: 65%;
-  left: 3%;
-  color: var(--negro);
-  transform: translateY(-75%);
-  font-size: 1.2rem;
-  pointer-events: none;
-  transition: 0.5s;
-}
-
-.username input:focus~label,
-.username input:valid~label {
-  /* Animación después de completar el campo */
-  top: -5px;
-  color: var(--gris);
-  font-family: "textos";
-  transition: top 0.3s ease, color 0.3s ease;
-}
-
-.username2 label {
-  /* Animación de las etiquetas */
-  position: absolute;
-  top: 15%;
-  left: 3%;
-  color: var(--negro);
-  transform: translateY(-75%);
-  font-size: 1.2rem;
-  pointer-events: none;
-  transition: 0.5s;
-}
-
-.username2 input:focus~label,
-.username2 input:valid~label {
-  /* Cuando hay texto en el input */
-  top: -5px;
-  color: var(--gris);
-  font-family: "textos";
-  transition: top 0.3s ease, color 0.3s ease;
-}
-
-.username span::before {
-  /*Animación de los espacios para los campos de entrada */
-  content: '';
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: var(--negro);
-  transition: 0.5s;
-}
-
-.pqrsf-group {
+.btn-archivo {
   color: var(--gris);
   font-size: 1.5rem;
+  text-decoration: underline;
+}
+
+.btn-archivo:hover {
+  color: var(--amarillo);
+  text-decoration: underline;
 }
 
 .pqrsf-group .material-symbols-rounded {
   font-size: 1.5rem;
+  text-decoration: underline;
 }
 
 input[type="file"] {
