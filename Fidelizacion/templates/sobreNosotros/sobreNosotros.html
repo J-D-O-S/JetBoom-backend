@@ -219,17 +219,17 @@ Sobre Nosotros | JetBoom
                   <form method="post" autocomplete="off">
           
                     {% csrf_token %}
+                      <label class="texto-label">Correo</label>
                       <div class="username">
                           {{ form.email.error }}
-                          <input type="email" name="email" required>
-                          <label>Correo*</label>
-                      </div>
-                        
-                      <div class="username">
-                          <input type="text" name="nombre" required>
-                          <label>Nombre Completo*</label>
+                          <input type="email" name="email" disabled>
                       </div>
 
+                      <label class="texto-label">Nombre Completo</label>
+                      <div class="username">
+                          <input type="text" name="nombre" disabled>
+                      </div>
+                      
                       <div class="tipoDoc-box" name="tipo_pqrsf">
                         <label class="texto-label">Tipo de PQRSF*</label>
                           <select id="tipo" name="tipo" required>
@@ -242,9 +242,9 @@ Sobre Nosotros | JetBoom
                           </select>
                       </div>
           
+                      <label class="texto-label">Mensaje*</label>
                       <div class="username2">
-                          <input type="password" name="password1" required>
-                          <label>Mensaje:</label>
+                          <input type="text" name="text" required>
                       </div>
 
                       <div class="pqrsf-group">
