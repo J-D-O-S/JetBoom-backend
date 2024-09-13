@@ -20,6 +20,12 @@ class FidelizacionModel(models.Model):
         max_length=1,
         choices=TIPOS_SOLICITUD,
         verbose_name="Tipo de solicitud",
+        default="",
     )
-
+    archivo_adjunto = models.FileField(
+        upload_to="Fidelizacion/archivos_adjuntos/",
+        verbose_name="Archivo adjunto",
+        blank=True,
+        null=True,
+    )
     usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)

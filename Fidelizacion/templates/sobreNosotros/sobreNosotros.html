@@ -212,7 +212,7 @@ Sobre Nosotros | JetBoom
 
                 <div class="formulario">
                   <h1>Formulario de Peticiones, Quejas, Reclamos, Sugerencias y Felicitaciones</h1>
-                  <form method="post" autocomplete="off">     
+                  <form method="post" autocomplete="off" enctype="multipart/form-data">     
                     {% csrf_token %}
                       <label class="texto-label">Correo</label>
                       <div class="username">
@@ -233,7 +233,7 @@ Sobre Nosotros | JetBoom
                         {% endif %}
                     </div>
                     
-                    <label class="text-label">Mensaje*</label>
+                    <label class="texto-label">Mensaje*</label>
                     <div class="username2">
                         <input type="text" name="opinion_servicio" required>
                         {% if form.opinion_servicio.errors %}
@@ -241,18 +241,18 @@ Sobre Nosotros | JetBoom
                         {% endif %}
                     </div>
 
-                      <div class="pqrsf-group">
-                          <label class="texto-label">Adjuntar archivo (opcional)</label>
-                          <label class="btn-archivo" for="adjunto">
-                            <span class="material-symbols-rounded">upload_file</span> 
-                            Subir archivo
-                          </label>
-                          <input type="file" id="adjunto" name="adjunto" accept=".jpg, .png, .pdf, .docx">
-                      </div>
+                    <div class="pqrsf-group">
+                        <label class="texto-label">Adjuntar archivo (opcional)</label>
+                        <label class="btn-archivo" for="adjunto">
+                          <span class="material-symbols-rounded">upload_file</span> 
+                          Subir archivo
+                        </label>
+                        <input type="file" id="adjunto" name="archivo_adjunto" accept=".jpg, .png, .pdf, .docx">
+                    </div>
                     
-                      <button class="btn-formulario" type="submit" >
-                          Enviar
-                      </button>
+                    <button class="btn-formulario" type="submit" >
+                        Enviar
+                    </button>
                   </form>
                 </div> 
               </div>
