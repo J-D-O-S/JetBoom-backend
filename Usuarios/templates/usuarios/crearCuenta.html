@@ -51,7 +51,7 @@
                     <label class="texto-label">Tipo de Documento*</label>
                     <br>
                     {{ form.tipo_identificacion }}
-                    {{ form.errors }}
+                    {{ form.tipo_identificacion.errors.as_widget({"class": "color: blue;"}) }}
                 </div>
                 <div class="username">
                     <input type="text" name="numero_identificacion" required>

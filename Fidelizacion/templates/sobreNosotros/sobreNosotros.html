@@ -204,48 +204,42 @@ Sobre Nosotros | JetBoom
                          de "Contáctanos" o presentando una PQRSF directamente en la plataforma.</p>
                     </div>
                   </div>
-                 
-                 
               </div>
-
             </div>
-            
-            
+
             {% if user.is_authenticated %}
               <div class="tab-panel" id="content2">
 
                 <div class="formulario">
                   <h1>Formulario de Peticiones, Quejas, Reclamos, Sugerencias y Felicitaciones</h1>
-                  <form method="post" autocomplete="off">
-          
+                  <form method="post" autocomplete="off">     
                     {% csrf_token %}
                       <div class="username">
                           {{ form.email.error }}
-                          <input type="email" name="email" required>
+                          <input type="email" name="email" value="{{ user.email }}" required>
                           <label>Correo*</label>
                       </div>
                         
                       <div class="username">
-                          <input type="text" name="nombre" required>
+                          <input type="text" name="nombre" value="{{ user.nombre }} {{ user.apellido }}" required>
                           <label>Nombre Completo*</label>
                       </div>
 
-                      <div class="tipoDoc-box" name="tipo_pqrsf">
+                      <div class="tipoDoc-box">
                         <label class="texto-label">Tipo de PQRSF*</label>
-                          <select id="tipo" name="tipo" required>
-                            <option value="" disabled selected>Seleccione una opción</option>
-                            <option value="peticion">Petición</option>
-                            <option value="queja">Queja</option>
-                            <option value="reclamo">Reclamo</option>
-                            <option value="sugerencia">Sugerencia</option>
-                            <option value="felicitacion">Felicitación</option>
-                          </select>
-                      </div>
-          
-                      <div class="username2">
-                          <input type="password" name="password1" required>
-                          <label>Mensaje:</label>
-                      </div>
+                        {{ form.tipo_solicitud }}
+                        {% if form.tipo_solicitud.errors %}
+                            <div class="errorlist">{{ form.tipo_solicitud.errors }}</div>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="username2">
+                        <input type="text" name="opinion_servicio" required>
+                        <label>Mensaje:</label>
+                        {% if form.opinion_servicio.errors %}
+                            <div class="errorlist" style="color: blue;">{{ form.opinion_servicio.errors }}</div>
+                        {% endif %}
+                    </div>
 
                       <div class="pqrsf-group">
                           <label class="texto-label">Adjuntar archivo (opcional)</label>
@@ -261,8 +255,7 @@ Sobre Nosotros | JetBoom
                       </button>
                   </form>
                 </div> 
-
-              </div>                              
+              </div>
             {% else %}
               <div class="tab-panel" id="content2">
                   
@@ -282,7 +275,6 @@ Sobre Nosotros | JetBoom
         </div>
       </div>
 
-    </section>  
-
+    </section>
   </main>
 {% endblock main_content %}
