@@ -263,3 +263,5 @@ credentials.json
 # Avoid adding images to the git repository
 **/images/**
 Fidelizacion/archivos_adjuntos
+
+requirements_dev.txt
