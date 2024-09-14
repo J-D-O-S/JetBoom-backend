@@ -24,3 +24,6 @@ class AboutUsView(View):
 
 class ContactanosView(TemplateView):
     template_name = "atencion_usuario/contactanos.html"
+
+class terminosCondicionesView(TemplateView):
+    template_name = "atencion_usuario/terminosCondiciones.html"    
