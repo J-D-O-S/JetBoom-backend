@@ -503,13 +503,20 @@ select:focus {
   transition: 0.5s;
 }
 
-.pqrsf-group {
-  color: var(--gris);
+.btn-archivo{
   font-size: 1.5rem;
+  color: var(--gris);
+  text-decoration: underline;
+}
+
+.btn-archivo:hover {
+  color: var(--amarillo);
+  text-decoration: underline;
 }
 
 .pqrsf-group .material-symbols-rounded {
   font-size: 1.5rem;
+  text-decoration: underline;
 }
 
 input[type="file"] {
