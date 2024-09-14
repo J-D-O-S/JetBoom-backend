@@ -8,7 +8,7 @@
 
 /*diseño del titulo*/
 .container-titulo {
-  color: var(--negro);
+  color: var(--font-color-negro);
   margin: 1% 0 2%;
 }
 
@@ -37,7 +37,7 @@
 
 .formulario h1 {
   /*tipo y tamaño de la letra del titulo de la caja*/
-  margin: 5% 0 3%;
+  margin: 8% 0 5%;
   font-family: "titulos-especiales";
   font-size: 2.8rem;
   color: var(--amarillo);
@@ -46,7 +46,7 @@
 .formulario form {
   /*forma y espacio para el form de la caja*/
   width: 30rem;
-  padding: 0 10%;
+  padding: 0 5%;
   box-sizing: border-box;
 }
 
@@ -55,7 +55,7 @@ form .username {
   position: relative;
   background-color: var(--gris);
   border-radius: var(--border-radius);
-  margin: 7.5% 0;
+  margin: 3% 0;
   padding: 0 2%;
   width: 100%;
 }
@@ -104,7 +104,6 @@ form .username {
 
 .recordar-a {
   /*Diseño de la letra del ¿Olvidaste tu contraseña?*/
-  margin-bottom: 5%;
   font-size: 1rem;
   color: var(--gris);
   text-decoration: none;
@@ -236,32 +235,15 @@ form .username2 {
   width: 70%;
 }
 
-.btn-base {
+.btn-formulario {
   /*Diseño del boton de continuar*/
-  background-color: var(--amarillo);
-  color: var(--oscuro);
+  margin-top: 0.5%;
   padding: 2% 20%;
-  transition: all 0.5s ease-in-out;
-}
-
-.btn-base:hover {
-  color: var(--oscuro);
-  background-color: var(--amarillo);
-  outline: none;
-  box-shadow:
-    /* Primera capa */
-    0 0 0 2px var(--amarillo),
-    /* Segunda capa */
-    0 0 0 5px var(--rojo),
-    /* Tercera capa */
-    0 0 0 8px var(--amarillo);
-  transition: all 0.5s ease-in-out;
-  transform: scale(1.05);
 }
 
 .registrarse {
   /*Diseño del espacio de registrase y iniciar sesion*/
-  padding: 5%;
+  padding: 1% 0 8%;
   text-align: center;
 }
 

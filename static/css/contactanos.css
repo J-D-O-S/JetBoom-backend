@@ -52,7 +52,7 @@
   font-family: "titulos-especiales";
   font-size: 4rem;
   margin-bottom: 2%;
-  color: var(--negro);
+  color: var(--font-color-negro);
   text-transform: uppercase;
 }
 
@@ -60,14 +60,14 @@
   /*estilos del texto*/
   font-size: 1.3rem;
   line-height: 1.6;
-  color: var(--oscuro);
+  color: var(--font-color-oscuro);
   margin-bottom: 2%;
 }
 
 .texto2 {
   /*estilos del texto 2*/
   font-size: 1.3rem;
-  color: var(--oscuro);
+  color: var(--font-color-oscuro);
   margin-bottom: 1.5%;
 }
 
@@ -106,7 +106,7 @@
 
 .link-RS:hover {
   /*estilos del a de las redes sociales*/
-  color: var(--oscuro);
+  color: var(---font-color-oscuro);
 }
 
 .link-RS:hover::after {
@@ -117,7 +117,7 @@
 hr {
   /*estilos del hr*/
   margin-bottom: 20px;
-  border: 2px solid var(--negro);
+  border: 2px solid var(--font-color-negro);
 }
 
 /* Media queries para pantallas más pequeñas (móviles) */

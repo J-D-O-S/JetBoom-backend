@@ -93,7 +93,7 @@
 }
 
 /* simbolo del mapa */
-.material-symbols-rounded {
+.rectangulomapa .material-symbols-rounded {
   font-size: 6rem;
   color: var(--oscuro);
 }

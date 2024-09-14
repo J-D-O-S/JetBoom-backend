@@ -1,157 +1,333 @@
 .main{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ------------------------------------ tabs de navegacion ------------------------------------ */  
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  width: 85%;
+  align-items: flex-start;
+  border-bottom: none; 
+}
+  
+.tab-label {
+  display: inline-block;
+  padding: 1% 2%;
+  color: var(--oscuro);
+  cursor: pointer;
+  margin-right: 1%;
+  border-radius: 10px 10px 0 0;
+  border: 1.5px solid var(--oscuro); 
+  border-bottom: none; 
+  transition: background-color 0.3s;
+}
+  
+.tab-label:hover {
+  background-color: var(--blanco);
+}
+  
+.tab-content {
+  width: 100%;
+  border-top: 4px solid var(--oscuro); 
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+.tab-content { 
+  width: 100%;
+  padding: 20px;
+    
+}
+
+.tab-panel {
+  display: none;
+}
+
+#tab1:checked ~ .tab-content #content1,
+#tab2:checked ~ .tab-content #content2 {
+  display: block;
+}
+
+.tab-label:before {
+  content: '';
+  display: inline-block;
+}
+
+#tab1:checked + .tab-label,
+#tab2:checked + .tab-label {
+  border-bottom: none;
+  background-color: #fff;
+  z-index: 1;
+}
+
+/* ------------------------------------ contenido album ------------------------------------ */
+
+.contenedor-temporal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.container-album {
+  margin: 0.5rem 2rem;
+  position: relative;
+  width: 25%;
+  border-radius: var(--border-radius);
+}
+
+.slider-frame {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8); 
+  width: 100%;
+  height: auto;
+  margin: 50px auto 0;
+  overflow: hidden;
+  border-radius: 10px 10px 0 0;
+}
+
+.slider-frame ul {
+  display: flex;
+  padding: 0;
+  width: 400%;
+  animation: slide 20s infinite alternate ease-in-out;
+}
+
+.slider-frame li {
+  width: 100%;
+  list-style: none;
+}
+
+.slider-frame img {
+  width: 100%;
+  height: 15rem;
+  object-fit: cover;
+}
+
+@keyframes slide {
+  0% {
+    margin-left: 0;
   }
-  
-  /* ------------------------------------ tabs de navegacion ------------------------------------ */  
-  
-  .tabs {
-    display: flex;
-    flex-wrap: wrap;
-    width: 85%;
-    align-items: flex-start;
+
+  20% {
+    margin-left: 0;
   }
-  
-  .tab-label {
-    display: inline-block;
-    padding: 1% 2%;
-    color: var(--oscuro);
-    cursor: pointer;
-    margin-right: 5px;
-    border-radius: 5px 5px 0 0;
-    transition: background-color 0.3s;
+
+  25% {
+    margin-left: -100%;
   }
-  
-  .tab-label:hover {
-    background-color: var(--blanco);
+
+  45% {
+    margin-left: -100%;
   }
-  
-  input[type="radio"] {
-    display: none;
+
+  50% {
+    margin-left: -200%;
   }
-  
-  .tab-content { 
-    width: 100%;
-    padding: 20px;
-      
+
+  70% {
+    margin-left: -200%;
   }
-  
-  .tab-panel {
-    display: none;
+
+  75% {
+    margin-left: -300%;
   }
-  
-  #tab1:checked ~ .tab-content #content1,
-  #tab2:checked ~ .tab-content #content2 {
-    display: block;
+
+  100% {
+    margin-left: -300%;
   }
+}
+
+.circlePicture {
+  position: absolute;
+  top: 55%;
+  left: 0;
+  transform: translate(-40%, -50%);
+  width: clamp(80px, 100%, 150px);
+  height: clamp(80px, 100%, 150px);
+  background-color: var(--oscuro);
+  border-radius: 50%;
+  border: 5px solid rgb(33, 37, 41);
+  overflow: hidden;
+  z-index: 1;
+}
+
+.circlePicture img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  object-position: center center;
+}
+
+.contenedor-texto {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8); 
+  background-color: var(--blanco);
+  border-radius: 0 0 20px 20px;
+  padding: 10% 5%;
+}
+
+.contenedor-texto h3 {
+  margin: 5%;
+  font-family: "titulos-especiales";
+  font-size: 1.5rem;
+  color: var(--negro);
+}
+
+.btn-base {
+  font-size: 1.2rem;
+}
+
+.btn-base .material-symbols-rounded {
+  font-size: 1.5rem;
+}
+
+/* ------------------------------------ contenido retos ------------------------------------ */  
+
+.container-reto {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: auto;
+  margin: 2%;
+}
+
+.container-img {
+  width:45%;
+}
+
+.container-img img {
+  border-radius: var(--border-radius);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8); 
+  width: 100%;
+  height: auto;
+}
+
+.contenido-reto {
+  width: 55%;
+  padding: 3.5%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+}
+
+.contenido-reto h1 {
+  width: 55%;
+  font-family: "titulos-especiales";
+  font-size: 2.8rem;
+  margin: 10%;
+  transition: opacity 0.5s ease; 
+  opacity: 1; 
+  position: absolute; 
+}
+
+.contenido-reto:hover h1 {
+  opacity: 0; 
+}
+
+.texto-reto {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  margin: 2%;
+}
+
+.texto-reto p {
+  font-size: 1.2rem;
+  margin-bottom: 2%;
+}
+
+.texto-reto span{
+  font-size: 1.5rem;
+}
+
+.contenido-reto:hover .texto-reto {
+  opacity: 1; 
+  position: relative;
+  z-index: 1;
+}
+
+/* modal */
+
+.ligth-box{
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,.4);
+  transition: transform .3s ease-in-out;
+  width: 100%;
+  height: 100vh;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: scale(0);
+}
   
-  .tab-label:before {
-    content: '';
-    display: inline-block;
-  }
-  
-  #tab1:checked + .tab-label,
-  #tab2:checked + .tab-label {
-    border-bottom: none;
-    background-color: #fff;
-    z-index: 1;
-  }
-  
-  /* ------------------------------------ contenido album ------------------------------------ */  
-  
-  .contenedor-temporal{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-  }
-  
-  .container-album{
-    margin: 0.5rem 2rem;
-    position: relative;
-    width: 25%;
-    border-radius: var(--border-radius);
-  }
-  
-  .slider-frame {
-    width: 100%;
-    height: auto;
-    margin:50px auto 0;
-    overflow: hidden;
-    border-radius: 20px 20px 0 0;
-  }
-  
-  .slider-frame ul {
-    display: flex;
-    padding: 0;
-    width: 400%;
-    animation: slide 20s infinite alternate ease-in-out;
-  }
-  
-  .slider-frame li {
-    width: 100%;
-    list-style: none;
-  }
-  
-  .slider-frame img {
-    width: 100%;
-    height: 15rem;
-    object-fit: cover;
-  }
-  
-  @keyframes slide {
-    0% {margin-left: 0;}
-    20% {margin-left: 0;}
-      
-    25% {margin-left: -100%;}
-    45% {margin-left: -100%;}
-      
-    50% {margin-left: -200%;}
-    70% {margin-left: -200%;}
-      
-    75% {margin-left: -300%;}
-    100% {margin-left: -300%;}
-  }
-  
-  .circlePicture {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translate(-40%, -50%);
-    width: clamp(80px, 100%, 150px);
-    height: clamp(80px, 100%, 150px);
-    background-color: var(--oscuro);
-    border-radius: 50%;
-    border: 5px solid rgb(33, 37, 41);
-    overflow: hidden;
-    z-index: 2;
-  }
-  
-  .circlePicture img {
-    width: 100%;
-    height: 100%;
-    object-fit: fill;
-    object-position: center center;
-  }
-  
-  .contenedor-texto{
-    background-color: var(--blanco);
-    border-radius: 0 0 20px 20px;
-    padding: 10% 5%;
-  }
-  
-  .contenedor-texto h3{
-    margin: 5%;
-    font-family: "titulos-especiales";
-    font-size: 1.5rem;
-    color: var(--negro);
-  }
-  
-  .btn-base{
-    font-size: 1.2rem;
-  }
-  
-  .btn-base .material-symbols-rounded{
-      font-size: 1.5rem;
-  }
+.ligth-box:target{
+  transform: scale(1);
+}
+
+/* Estilos del contenido del modal */
+.condiciones-reto {
+  width: 60%;
+  height: 38rem;
+  padding: 4%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--amarillo);
+  border-radius: var(--border-radius);
+}
+
+/* Estilos del título del reto */
+.condiciones-reto h2 {
+  font-family: "titulos-especiales";
+  font-size: 1.5rem;
+  color: var(--rojo);
+}
+
+/* Imagen del reto */
+.condiciones-reto img {
+  margin: 2%;
+  width: 50%;
+  border-radius: var(--border-radius);
+}
+
+/* Estilos del texto de la descripción */
+.condiciones-reto p {
+  margin-bottom: 2%;
+  font-size: 1rem;
+  color: var(--oscuro);
+}
+
+/* Estilos del subtítulo */
+.condiciones-reto h3 {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.close{
+  /*simbolo cerrar el modal*/
+  display: block;
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  background: var(--rojo);
+  color: var(--oscuro);
+  text-decoration: none;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+}

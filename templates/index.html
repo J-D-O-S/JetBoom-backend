@@ -19,6 +19,8 @@
         {% block styles_apply %}
         	<link rel="stylesheet" href="{% static "css/index.css" %}" />
         {% endblock styles_apply %}
+		{% block specials_scripts %}
+		{% endblock specials_scripts %}
 		<script src="{% static "js/script.js" %}"></script>
 	</head>
 
@@ -66,11 +68,19 @@
 										</span>
 									</li>
 									<li>
-										<img
-											class="user-photo"
-											src="{% static "img/fondoCC.webp" %}"
-											alt="Foto de perfil del usuario"
-										/>
+										{% if user.foto_perfil and user.foto_perfil.url %}
+											<img
+												class="user-photo"
+												src="{{ user.foto_perfil.url }}?{{ user.foto_perfil.last_modified|date:'U' }}"
+												alt="Foto de perfil del usuario"
+											/>
+										{% else %}
+											<img
+												class="user-photo"
+												src="{% static "/img/default_perfil.webp" %}"
+												alt="Foto de perfil del usuario por defecto"
+											/>
+										{% endif %}
 									</li>
 								</ul>
 								<div class="user-info-brief">
@@ -107,21 +117,24 @@
 												</form>
 											</li>
 											<li class="li-items-config-nav">
-												<button class="btn-user-info" type="button">
-													<span class="material-symbols-rounded"> lock </span>
-													Cambiar Contraseña
-												</button>
+												<form action="{% url "password_reset" %}" method="get">
+													{% csrf_token %}
+													<button class="btn-user-info" type="submit">
+														<span class="material-symbols-rounded"> lock </span>
+														Cambiar Contraseña
+													</button>
+												</form>
 											</li>
 											<li class="li-items-config-nav">
 												<form action="{% url "cerrar_sesion" %}" method="post">
 													{% csrf_token %}
-												<button class="btn-user-info" type="submit">
-													<span class="material-symbols-rounded">
-														logout
-													</span>
-													Cerrar Sesión
-												</button>
-											</form>
+													<button class="btn-user-info" type="submit">
+														<span class="material-symbols-rounded">
+															logout
+														</span>
+														Cerrar Sesión
+													</button>
+												</form>
 											</li>
 										</ul>
 										<section class="section-controlers">
@@ -144,11 +157,15 @@
 													/>
 												</button>
 											</div>
-											<img
-												class="imgUser"
-												src="#"
-												alt="Imagen de perfil del usuario"
-											/>
+											{% if user.foto_perfil and user.foto_perfil.url %}
+												<img
+													class="imgUser"
+													src="{{ user.foto_perfil.url }}?{{ user.foto_perfil.last_modified|date:'U' }}"
+													alt="Imagen de perfil del usuario"
+												/>
+											{% else %}
+												<img class="imgUser" src="{% static 'img/default_perfil.webp' %}" alt="Imagen por defecto de Perfil" />
+											{% endif %}
 										</section>
 									</div>
 									<p class="text-jb">JetBoom</p>
@@ -277,11 +294,11 @@
 						tiene para ti! Si tienes alguna pregunta o inquietud, no dudes en
 						contactarnos.
 					</p>
-					<a href="{% url "sobre_nosotros" %}" class="btn-base" type="button">
+					<a href="{% url "sobre_nosotros" %}" class="btn-cards" type="button">
 						<span class="material-symbols-rounded"> contact_support </span>
 						Sobre nosotros
 					</a>
-					<a href="{% url "registrarse" %}" class="btn-base" type="button">
+					<a href="{% url "registrarse" %}" class="btn-cards" type="button">
 						<span class="material-symbols-rounded">person_add</span>
 						Registrarse
 					</a>

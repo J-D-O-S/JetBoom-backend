@@ -39,12 +39,11 @@ Sobre Nosotros | JetBoom
       </div>
       <div class="ladoderecho">
         <div class="cuadradod">
+          <br>
           <p class="texto-d"><br> Para consultar las preguntas frecuentes o presentar una PQRS, haz clic en este botón.</p>
-          <a href="{% url "iniciar_sesion" %}" class="button-container">
-            <button class="btn-pqrs">
-              PQRS
-            </button>
-          </a>
+          <a href="#titulo-tabs" class="btn-show-more">
+						<span class="material-symbols-rounded"> keyboard_arrow_down </span>
+					</a>
         </div>
       </div>
     </section>
@@ -65,6 +64,217 @@ Sobre Nosotros | JetBoom
           </p>
         </div>
       </div>
+    </section>
+
+    <section class="section-PQRSF">
+      <h1 id="titulo-tabs" >Preguntas frecuentes y PQRSF</h1>
+
+      <div class="tabs">
+        <input type="radio" name="tab-group" id="tab1" checked>
+        <label for="tab1" class="tab-label">Preguntas frecuentes</label>
+    
+        <input type="radio" name="tab-group" id="tab2">
+        <label for="tab2" class="tab-label">PQRSF</label>
+    
+        <div class="tab-content">
+            <div class="tab-panel" id="content1">
+
+              <div class="preguntas-container">
+                  <!-- Pregunta 1 -->
+                  <div class="preguntas-item">
+                      <input type="checkbox" id="pregunta1">
+                      <label for="pregunta1" class="pregunta">
+                          ¿Qué es JetBoom?
+                          <span class="pregunta-icon">+</span>
+                      </label>
+                      <div class="respuesta">
+                          <p>JetBoom es una plataforma innovadora que fusiona el turismo con un álbum fotográfico único y retos fotográficos, con el objetivo de incentivar a los usuarios a explorar Bogotá.</p>
+                      </div>
+                  </div>
+                  <!-- Pregunta 2 -->
+                  <div class="preguntas-item">
+                    <input type="checkbox" id="pregunta2">
+                    <label for="pregunta2" class="pregunta">
+                      ¿Es necesario registrarse en JetBoom?
+                        <span class="pregunta-icon">+</span>
+                    </label>
+                    <div class="respuesta">
+                      <p>Sí, es necesario crear una cuenta para acceder a nuestros servicios. Al hacerlo, podrás comprar, 
+                        gestionar tu propio álbum fotográfico, participar en retos y recibir recompensas. 
+                        El proceso de registro es rápido y completamente gratuito.</p>
+                    </div>
+                  </div>
+                  <!-- Pregunta 3 -->
+                  <div class="preguntas-item">
+                    <input type="checkbox" id="pregunta3">
+                    <label for="pregunta3" class="pregunta">
+                      ¿Qué tipo de lugares turísticos puedo encontrar en JetBoom? 
+                        <span class="pregunta-icon">+</span>
+                    </label>
+                    <div class="respuesta">
+                      <p>En JetBoom encontrarás una variedad de lugares turísticos de Bogotá, como parques, museos, monumentos históricos 
+                        y sitios culturales, todos diseñados para ofrecerte experiencias únicas mientras completas retos fotográficos.</p>
+                    </div>
+                  </div>
+                  <!-- Pregunta 4 -->
+                  <div class="preguntas-item">
+                    <input type="checkbox" id="pregunta4">
+                    <label for="pregunta4" class="pregunta">
+                      ¿Puedo acceder a información detallada sobre los lugares turísticos antes de visitarlos?
+                        <span class="pregunta-icon">+</span>
+                    </label>
+                    <div class="respuesta">
+                      <p>Sí, en JetBoom ofrecemos descripciones completas de cada lugar turístico, que incluyen dirección, horarios 
+                        y otros detalles importantes. Además, todos nuestros servicios cuentan con un guía turístico que te acompañará 
+                        durante todo tu recorrido..</p>
+                    </div>
+                  </div>
+                  <!-- Pregunta 5 -->
+                  <div class="preguntas-item">
+                    <input type="checkbox" id="pregunta5">
+                    <label for="pregunta5" class="pregunta">
+                      ¿Puedo usar JetBoom si no estoy en Bogotá?
+                        <span class="pregunta-icon">+</span>
+                    </label>
+                    <div class="respuesta">
+                      <p>Aunque lugares turísticos y los retos fotográficos actuales están enfocados en Bogotá,
+                         la plataforma está disponible para usuarios en todo el mundo. Puedes descubrir lo que ofrece 
+                         Bogotá desde cualquier parte del planeta.</p>
+                    </div>
+                  </div>
+                  <!-- Pregunta 6 -->
+                  <div class="preguntas-item">
+                    <input type="checkbox" id="pregunta6">
+                    <label for="pregunta6" class="pregunta">
+                      ¿Cómo subo mis fotos a mi álbum en JetBoom?
+                        <span class="pregunta-icon">+</span>
+                    </label>
+                    <div class="respuesta">
+                      <p>Para agregar fotos a tu álbum en JetBoom, simplemente visita los lugares turísticos en Bogotá. Luego, 
+                        ve a tu perfil y haz clic en el ícono de la cámara. Selecciona la foto de tu preferencia y súbela para 
+                        añadirla a tu colección, completando tu álbum de recuerdos..</p>
+                    </div>
+                  </div>
+                  <!-- Pregunta 7 -->
+                  <div class="preguntas-item">
+                    <input type="checkbox" id="pregunta7">
+                    <label for="pregunta7" class="pregunta">
+                      ¿Cómo puedo participar en los retos fotográficos?
+                        <span class="pregunta-icon">+</span>
+                    </label>
+                    <div class="respuesta">
+                      <p>Para participar, inicia sesión y selecciona el reto que desees completar. Sigue las instrucciones proporcionadas,
+                         sube tu foto según las indicaciones y recibe los puntos por completar el desafío.</p>
+                    </div>
+                  </div>
+                  <!-- Pregunta 8 -->
+                  <div class="preguntas-item">
+                    <input type="checkbox" id="pregunta8">
+                    <label for="pregunta8" class="pregunta">
+                      ¿Qué tipo de recompensa puedo ganar al completar un reto?
+                        <span class="pregunta-icon">+</span>
+                    </label>
+                    <div class="respuesta">
+                      <p>Nuestro sistema de recompensas está basado en puntos. Cada reto te otorga una cantidad específica de puntos,
+                        que podrás canjear por descuentos en tus compras. ¡Aprovecha tus puntos para obtener increíbles beneficios</p>
+                    </div>
+                  </div>
+                  <!-- Pregunta 9 -->
+                  <div class="preguntas-item">
+                    <input type="checkbox" id="pregunta8">
+                    <label for="pregunta8" class="pregunta">
+                      ¿Puedo participar en más de un reto a la vez?
+                        <span class="pregunta-icon">+</span>
+                    </label>
+                    <div class="respuesta">
+                      <p>ASí, puedes participar en varios retos al mismo tiempo. Solo asegúrate de cumplir con las condiciones de cada
+                        reto y subir las fotos correspondientes antes de la fecha límite.</p>
+                    </div>
+                  </div>
+                  
+                  <!-- Pregunta 10 -->
+                  <div class="preguntas-item">
+                    <input type="checkbox" id="pregunta10">
+                    <label for="pregunta10" class="pregunta">
+                      ¿Qué hago si tengo problemas con la plataforma o con un reto?
+                        <span class="pregunta-icon">+</span>
+                    </label>
+                    <div class="respuesta">
+                      <p>Si tienes algún inconveniente, puedes ponerte en contacto con nuestro equipo de soporte a través de la sección
+                         de "Contáctanos" o presentando una PQRSF directamente en la plataforma.</p>
+                    </div>
+                  </div>
+              </div>
+            </div>
+
+            {% if user.is_authenticated %}
+              <div class="tab-panel" id="content2">
+
+                <div class="formulario">
+                  <h1>Formulario de Peticiones, Quejas, Reclamos, Sugerencias y Felicitaciones</h1>
+                  <form method="post" autocomplete="off" enctype="multipart/form-data">     
+                    {% csrf_token %}
+                      <label class="texto-label">Correo</label>
+                      <div class="username">
+                          {{ form.email.error }}
+                          <input type="email" name="email" value="{{ user.email }}" disabled>
+                      </div>
+
+                      <label class="texto-label">Nombre Completo</label>
+                      <div class="username">
+                          <input type="text" name="nombre" value="{{ user.nombre }} {{ user.apellido }}" disabled>
+                      </div>
+
+                      <div class="tipoDoc-box">
+                        <label class="texto-label">Tipo de PQRSF*</label>
+                        {{ form.tipo_solicitud }}
+                        {% if form.tipo_solicitud.errors %}
+                            <div class="errorlist">{{ form.tipo_solicitud.errors }}</div>
+                        {% endif %}
+                    </div>
+                    
+                    <label class="texto-label">Mensaje*</label>
+                    <div class="username2">
+                        <input type="text" name="opinion_servicio" required>
+                        {% if form.opinion_servicio.errors %}
+                            <div class="errorlist" style="color: blue;">{{ form.opinion_servicio.errors }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="pqrsf-group">
+                        <label class="texto-label">Adjuntar archivo (opcional)</label>
+                        <label class="btn-archivo" for="adjunto">
+                          <span class="material-symbols-rounded">upload_file</span> 
+                          Subir archivo
+                        </label>
+                        <input type="file" id="adjunto" name="archivo_adjunto" accept=".jpg, .png, .pdf, .docx">
+                    </div>
+                    
+                    <button class="btn-formulario" type="submit" >
+                        Enviar
+                    </button>
+                  </form>
+                </div> 
+              </div>
+            {% else %}
+              <div class="tab-panel" id="content2">
+                  
+                  <h1 class="titulo">¡Hola!</h1>
+                  <h2 class="texto">Para presentar una PQRSF, primero debes iniciar sesión en tu cuenta.</h2>
+                  <a href="{% url "iniciar_sesion" %}" class="btn-base">
+                      Iniciar sesión
+                  </a>
+                  <h2 class="texto">Si aún no tienes una cuenta, puedes crear una haciendo clic en el siguiente botón:</h2>
+                  <a href="{% url "registrarse" %}" class="btn-base">
+                      Regístrate
+                  </a>
+                      
+              </div> 
+            {% endif %}
+
+        </div>
+      </div>
+
     </section>
   </main>
 {% endblock main_content %}
