@@ -110,6 +110,9 @@ class Usuario(AbstractBaseUser, PermissionsMixin):
         verbose_name="Tipo de Identificación",
     )
 
+    valida_politicas = models.BooleanField(
+        default=False, verbose_name="Acepta políticas de tratamiento de datos"
+    )
     is_active = models.BooleanField(default=True, verbose_name="Activo")
     is_staff = models.BooleanField(default=False, verbose_name="Staff")
     is_superuser = models.BooleanField(default=False, verbose_name="Superusuario")

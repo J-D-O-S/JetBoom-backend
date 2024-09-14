@@ -8,6 +8,19 @@ class Ventas(models.Model):
     total = models.DecimalField(
         max_digits=10, decimal_places=2, verbose_name="Total de la venta"
     )
+    OPCIONES_FORMAS_PAGO = [
+        ("", "Seleccine una forma de pago"),
+        ("pse", "PSE"),
+        ("pyu", "PayU"),
+    ]
+
+    forma_pago = models.CharField(
+        max_length=3,
+        choices=OPCIONES_FORMAS_PAGO,
+        default="",
+        verbose_name="Forma de pago",
+    )
+
     usuario = models.ForeignKey("Usuarios.Usuario", on_delete=models.CASCADE)
 
     def __str__(self):
@@ -30,8 +43,8 @@ class DetalleComprobantePago(models.Model):
     valor_total_servicio = models.DecimalField(
         max_digits=20, decimal_places=2, verbose_name="Valor total del servicio"
     )
-    ventas = models.ForeignKey(Ventas, on_delete=models.CASCADE)
-    servicios = models.OneToOneField("Servicios.Servicios", on_delete=models.CASCADE)
+    ventas = models.OneToOneField(Ventas, on_delete=models.CASCADE)
+    servicios = models.ManyToOneRel("Servicios.Servicios", on_delete=models.CASCADE)
 
     def __str__(self):
         return f"{self.servicios} {self.ventas}"
@@ -44,7 +57,7 @@ class Reserva(models.Model):
     )
 
     OPCIONES_ESTADO_RESERVA = [
-        ("a", "Activa"),
+        ("p", "pendiente"),
         ("e", "Ejecutada"),
     ]
 
@@ -56,6 +69,7 @@ class Reserva(models.Model):
     )
 
     ventas = models.OneToOneField(Ventas, on_delete=models.CASCADE)
+    servicios = models.ForeignKey("Servicios.Servicios", on_delete=models.CASCADE)
 
     def __str__(self):
         return (
