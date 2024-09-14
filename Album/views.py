@@ -3,7 +3,6 @@ from django.urls import reverse_lazy
 from django.views import generic
 
 from .models import AlbumFoto
-
 from Usuarios.forms import CustomUserCreationForm
 
 

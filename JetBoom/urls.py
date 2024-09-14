@@ -20,9 +20,9 @@ from django.urls import path, include
 
 from .views import IndexView
 from Fidelizacion.views import AboutUsView
-from django.conf.urls import handler404
-from django.contrib.auth import views as auth_views
 from .views import MyCustomPageNotFoundView
+
+# from django.conf.urls import handler404
 
 handler404 = MyCustomPageNotFoundView.as_view()
 
@@ -34,33 +34,6 @@ urlpatterns = [
     path("album/", include("Album.urls")),
     path("servicios/", include("Servicios.urls")),
     path("fidelizacion/", include("Fidelizacion.urls")),
-    path(
-        "recuperar_contrasenia/",
-        auth_views.PasswordResetView.as_view(
-            template_name="registrations/password_reset_form.html",
-            email_template_name="registrations/password_reset_email.html",
-        ),
-        name="password_reset",
-    ),
-    path(
-        "recuperar_contrasenia/completado/",
-        auth_views.PasswordResetDoneView.as_view(
-            template_name="registrations/password_reset_done.html",
-        ),
-        name="password_reset_done",
-    ),
-    path(
-        "recuperar_contrasenia/confirmar/<uidb64>/<token>/",
-        auth_views.PasswordResetConfirmView.as_view(
-            template_name="registrations/password_reset_confirm.html",
-        ),
-        name="password_reset_confirm",
-    ),
-    path(
-        "recuperar_contrasenia/exitoso/",
-        auth_views.PasswordResetCompleteView.as_view(
-            template_name="registrations/password_reset_complete.html",
-        ),
-        name="password_reset_complete",
-    ),
+    path("recuperar_contrasenia/", include("Usuarios.urls_password")),
+    path("pago/", include("Ventas.urls")),
 ]
