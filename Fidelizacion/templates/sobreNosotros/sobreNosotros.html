@@ -40,7 +40,7 @@ Sobre Nosotros | JetBoom
       <div class="ladoderecho">
         <div class="cuadradod">
           <br>
-          <p class="texto-d"><br> Para consultar las preguntas frecuentes o presentar una PQRS, haz clic en este botón.</p>
+          <p class="texto-d"><br> Para consultar las preguntas frecuentes o presentar una PQRSF, haz clic en este botón.</p>
           <a href="#titulo-tabs" class="btn-show-more">
 						<span class="material-symbols-rounded"> keyboard_arrow_down </span>
 					</a>
@@ -219,15 +219,15 @@ Sobre Nosotros | JetBoom
                   <form method="post" autocomplete="off">
           
                     {% csrf_token %}
+                    <label class="texto-label">Correo</label>
                       <div class="username">
                           {{ form.email.error }}
-                          <input type="email" name="email" required>
-                          <label>Correo*</label>
+                          <input type="email" name="email" disabled>
                       </div>
-                        
+                      
+                      <label class="texto-label">Nombre Completo</label>
                       <div class="username">
-                          <input type="text" name="nombre" required>
-                          <label>Nombre Completo*</label>
+                          <input type="text" name="nombre" disabled>
                       </div>
 
                       <div class="tipoDoc-box" name="tipo_pqrsf">
@@ -242,18 +242,18 @@ Sobre Nosotros | JetBoom
                           </select>
                       </div>
           
+                      <label class="texto-label">Mensaje*</label>
                       <div class="username2">
                           <input type="password" name="password1" required>
-                          <label>Mensaje:</label>
                       </div>
 
                       <div class="pqrsf-group">
-                          <label class="texto-label">Adjuntar archivo (opcional)</label>
-                          <label class="btn-archivo" for="adjunto">
-                            <span class="material-symbols-rounded">upload_file</span> 
-                            Subir archivo
-                          </label>
-                          <input type="file" id="adjunto" name="adjunto" accept=".jpg, .png, .pdf, .docx">
+                        <label class="texto-label">Adjuntar archivo (opcional)</label>
+                        <label class="btn-archivo" for="adjunto">
+                          <span class="material-symbols-rounded">upload_file</span> 
+                          Subir archivo
+                        </label>
+                        <input type="file" id="adjunto" name="adjunto" accept=".jpg, .png, .pdf, .docx">
                       </div>
                     
                       <button class="btn-formulario" type="submit" >
