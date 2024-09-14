@@ -204,20 +204,15 @@ Sobre Nosotros | JetBoom
                          de "Contáctanos" o presentando una PQRSF directamente en la plataforma.</p>
                     </div>
                   </div>
-                 
-                 
               </div>
-
             </div>
-            
-            
+
             {% if user.is_authenticated %}
               <div class="tab-panel" id="content2">
 
                 <div class="formulario">
                   <h1>Formulario de Peticiones, Quejas, Reclamos, Sugerencias y Felicitaciones</h1>
-                  <form method="post" autocomplete="off" enctype="multipart/form-data">   
-          
+                  <form method="post" autocomplete="off" enctype="multipart/form-data">     
                     {% csrf_token %}
                     <label class="texto-label">Correo</label>
                       <div class="username">
@@ -232,10 +227,10 @@ Sobre Nosotros | JetBoom
 
                       <label class="texto-label">Nombre Completo</label>
                       <div class="username">
-                          <input type="text" name="nombre" disabled>
+                          <input type="text" name="nombre" value="{{ user.nombre }} {{ user.apellido }}" disabled>
                       </div>
-                      
-                      <div class="tipoDoc-box" name="tipo_pqrsf">
+
+                      <div class="tipoDoc-box">
                         <label class="texto-label">Tipo de PQRSF*</label>
                         {{ form.tipo_solicitud }}
                         {% if form.tipo_solicitud.errors %}
@@ -257,13 +252,12 @@ Sobre Nosotros | JetBoom
                         <input type="file" id="adjunto" name="archivo_adjunto" accept=".jpg, .png, .pdf">
                       </div>
                     
-                      <button class="btn-formulario" type="submit" >
-                          Enviar
-                      </button>
+                    <button class="btn-formulario" type="submit" >
+                        Enviar
+                    </button>
                   </form>
                 </div> 
-
-              </div>                              
+              </div>
             {% else %}
               <div class="tab-panel" id="content2">
                   
@@ -283,7 +277,6 @@ Sobre Nosotros | JetBoom
         </div>
       </div>
 
-    </section>  
-
+    </section>
   </main>
 {% endblock main_content %}

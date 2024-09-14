@@ -1,49 +1,63 @@
-# from django.db import models
-# from Servicios.models import Servicios
+from django.db import models
 
 
-# class Ventas(models.Model):
-#     fecha = models.DateField()
-#     monto = models.DecimalField(max_digits=10, decimal_places=2)
-#     servicio = models.CharField(max_length=100)
-#     cantidad = models.IntegerField()
-#     total = models.DecimalField(max_digits=10, decimal_places=2)
-#     cliente = models.CharField(max_length=100)
+class Ventas(models.Model):
+    fecha_hora_venta = models.DateTimeField(
+        auto_now_add=True, verbose_name="Fecha de venta"
+    )
+    total = models.DecimalField(
+        max_digits=10, decimal_places=2, verbose_name="Total de la venta"
+    )
+    usuario = models.ForeignKey("Usuarios.Usuario", on_delete=models.CASCADE)
 
-#     def __str__(self):
-#         return self.cliente
-
-
-# class ComprobantePago(models.Model):
-#     fecha = models.DateField()
-#     monto = models.DecimalField(max_digits=10, decimal_places=2)
-#     # servicios = models.ForeignKey(
-#     #     "Servicios.Servicios", verbose_name=_(""), on_delete=models.CASCADE
-#     # )
-#     # servicios = models.ForeignKey(Servicios, on_delete=models.CASCADE)
-
-#     TIPO_FORMAS_PAGO = [
-#         ("Efectivo", "Efectivo"),
-#         ("Tarjeta", "Tarjeta"),
-#         ("Transferencia", "Transferencia"),
-#     ]
-
-#     formas_pago = models.CharField(
-#         choices=TIPO_FORMAS_PAGO,
-#         verbose_name="Tipo de Identificación",
-#     )
-#     # comprobante = models.ImageField(upload_to="comprobantes/")
-
-#     def __str__(self):
-#         return self.cliente
+    def __str__(self):
+        return f"{self.usuario} {self.total}"
 
 
-# class DetalleComprobantePago(models.Model):
-#     comprobante_pago = models.ForeignKey(ComprobantePago, on_delete=models.CASCADE)
-#     # venta = models.ForeignKey(Ventas, on_delete=models.CASCADE)
-#     cantidad_personas = models.IntegerField(default=1)
-#     valor_unitario = models.DecimalField(max_digits=10, decimal_places=2)
-#     total = models.DecimalField(max_digits=10, decimal_places=2)
+class DetalleComprobantePago(models.Model):
+    cantidad_personas = models.IntegerField(
+        default=1, verbose_name="Cantidad de personas que beneficiarias del servicio"
+    )
+    valor_unitario_servicio = models.DecimalField(
+        max_digits=20, decimal_places=2, verbose_name="Valor unitario del servicio"
+    )
+    valor_guia = models.DecimalField(
+        max_digits=20, decimal_places=2, default=60000, verbose_name="Valor del guía"
+    )
+    comision_servicio = models.DecimalField(
+        max_digits=20, decimal_places=2, verbose_name="Comisión del servicio"
+    )
+    valor_total_servicio = models.DecimalField(
+        max_digits=20, decimal_places=2, verbose_name="Valor total del servicio"
+    )
+    ventas = models.ForeignKey(Ventas, on_delete=models.CASCADE)
+    servicios = models.OneToOneField("Servicios.Servicios", on_delete=models.CASCADE)
 
-#     def __str__(self):
-#         return self.comprobante_pago.cliente
+    def __str__(self):
+        return f"{self.servicios} {self.ventas}"
+
+
+class Reserva(models.Model):
+    fecha_hora_reserva = models.DateTimeField(verbose_name="Fecha y hora de reserva")
+    cantidad_personas = models.IntegerField(
+        default=1, verbose_name="Cantidad de personas"
+    )
+
+    OPCIONES_ESTADO_RESERVA = [
+        ("a", "Activa"),
+        ("e", "Ejecutada"),
+    ]
+
+    estado_reserva = models.CharField(
+        max_length=1,
+        choices=OPCIONES_ESTADO_RESERVA,
+        default="a",
+        verbose_name="Estado de reserva",
+    )
+
+    ventas = models.OneToOneField(Ventas, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return (
+            f"{self.estado_reserva} {self.fecha_hora_reserva} {self.cantidad_personas}"
+        )

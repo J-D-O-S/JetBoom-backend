@@ -1,4 +1,4 @@
-.main{
+.main {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -14,7 +14,7 @@
   text-align: center;
 }
 
-/* ------------------------------------ Estilos de la imagen y titulo principal ------------------------------------ */  
+/* ------------------------------------ Estilos de la imagen y titulo principal ------------------------------------ */
 .contenedor-texto-sobre-imagen {
   margin-bottom: 20px;
   display: flex;
@@ -43,7 +43,7 @@
   font-family: "titulos-especiales";
 }
 
-/* ------------------------------------ Estilos del texto JetBoom ------------------------------------ */  
+/* ------------------------------------ Estilos del texto JetBoom ------------------------------------ */
 .rectangulo-jet {
   background-color: var(--rojo);
   padding: 2rem 0;
@@ -65,7 +65,7 @@
   font-size: 1.4rem;
 }
 
-/* ------------------------------------ Estilos para los lados izquierdo y derecho ------------------------------------ */  
+/* ------------------------------------ Estilos para los lados izquierdo y derecho ------------------------------------ */
 #pantalla-dividida {
   display: flex;
   justify-content: right;
@@ -73,7 +73,7 @@
   padding: 4rem 4rem 2rem;
 }
 
-/* -------------------- lado izquierdo -------------------- */  
+/* -------------------- lado izquierdo -------------------- */
 .ladoizquierdo {
   flex: 1;
   display: flex;
@@ -103,7 +103,7 @@
   font-size: 1.2rem;
 }
 
-/* -------------------- lado derecho -------------------- */  
+/* -------------------- lado derecho -------------------- */
 .ladoderecho {
   flex: 1;
   display: flex;
@@ -156,15 +156,18 @@
 }
 
 @keyframes jumpBtn {
-  0%, 100% {
-      transform: translateY(0);
+
+  0%,
+  100% {
+    transform: translateY(0);
   }
+
   50% {
-      transform: translateY(-10px);
+    transform: translateY(-10px);
   }
 }
 
-/* ------------------------------------ Estilos para la misión y la visión ------------------------------------ */  
+/* ------------------------------------ Estilos para la misión y la visión ------------------------------------ */
 .section-MV {
   display: flex;
   flex-direction: column;
@@ -232,12 +235,12 @@
   text-align: center;
 }
 
-/* ------------------------------------ Estilos para Preguntas fecuentes y PQRS ------------------------------------ */  
-.section-PQRSF{
+/* ------------------------------------ Estilos para Preguntas fecuentes y PQRS ------------------------------------ */
+.section-PQRSF {
   margin: 0 15%;
 }
 
-#titulo-tabs{
+#titulo-tabs {
   color: var(--font-color-negro);
   font-size: 3.5rem;
   font-family: "titulos";
@@ -245,15 +248,15 @@
 
 }
 
-/* -------------------- tabs de navegacion -------------------- */  
+/* -------------------- tabs de navegacion -------------------- */
 .tabs {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
   align-items: flex-start;
-  border-bottom: none; 
+  border-bottom: none;
 }
-  
+
 .tab-label {
   display: inline-block;
   padding: 1% 2%;
@@ -262,36 +265,36 @@
   cursor: pointer;
   margin-right: 1%;
   border-radius: 10px 10px 0 0;
-  border: 1.5px solid var(--font-color-oscuro); 
-  border-bottom: none; 
+  border: 1.5px solid var(--font-color-oscuro);
+  border-bottom: none;
   transition: background-color 0.3s;
 }
-  
+
 .tab-label:hover {
   background-color: var(--amarillo);
 }
-  
+
 .tab-content {
   width: 100%;
-  border-top: 4px solid var(--font-color-oscuro); 
+  border-top: 4px solid var(--font-color-oscuro);
 }
 
 input[type="radio"] {
   display: none;
 }
 
-.tab-content { 
+.tab-content {
   width: 100%;
   padding: 20px;
-    
+
 }
 
 .tab-panel {
   display: none;
 }
 
-#tab1:checked ~ .tab-content #content1,
-#tab2:checked ~ .tab-content #content2 {
+#tab1:checked~.tab-content #content1,
+#tab2:checked~.tab-content #content2 {
   display: block;
 }
 
@@ -300,15 +303,15 @@ input[type="radio"] {
   display: inline-block;
 }
 
-#tab1:checked + .tab-label,
-#tab2:checked + .tab-label {
+#tab1:checked+.tab-label,
+#tab2:checked+.tab-label {
   border-bottom: none;
   background-color: var(--rojo);
   color: var(--blanco);
   z-index: 1;
 }
 
-/* -------------------- preguntas frecuentes -------------------- */  
+/* -------------------- preguntas frecuentes -------------------- */
 .preguntas-container {
   width: 100%;
 }
@@ -359,15 +362,15 @@ input[type="checkbox"] {
   display: none;
 }
 
-input[type="checkbox"]:checked ~ .respuesta {
-  max-height: 200px; 
+input[type="checkbox"]:checked~.respuesta {
+  max-height: 200px;
 }
 
-input[type="checkbox"]:checked + label .pregunta-icon {
+input[type="checkbox"]:checked+label .pregunta-icon {
   transform: rotate(45deg);
 }
 
-/* -------------------- Pqrsf sin loguear -------------------- */  
+/* -------------------- Pqrsf sin loguear -------------------- */
 .titulo {
   padding: 2rem 0 0;
   font-family: "titulos-especiales";
@@ -382,7 +385,7 @@ input[type="checkbox"]:checked + label .pregunta-icon {
   padding: 2rem;
 }
 
-/* -------------------- Pqrsf logueada -------------------- */  
+/* -------------------- Pqrsf logueada -------------------- */
 .formulario {
   /*diseño de la caja con el contenido del formulario*/
   background-color: var(--rojo);
@@ -636,7 +639,3 @@ input[type="file"] {
     font-size: 1.5rem;
   }
 }
-
-
-
-

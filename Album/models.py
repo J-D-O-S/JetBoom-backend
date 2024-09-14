@@ -5,13 +5,19 @@ from django.conf import settings
 
 class AlbumFoto(models.Model):
     foto_portada = models.ImageField(
-        upload_to="static/images/portada/", null=True, blank=True
+        upload_to="static/images/portada/",
+        null=True,
+        blank=True,
+        verbose_name="Foto de portada",
     )
     usuario = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    nombre_album = models.CharField(max_length=50, default="JetBoom")
+    nombre_album = models.CharField(
+        max_length=50, default="JetBoom", verbose_name="Nombre del album"
+    )
     descripcion = models.TextField(
         max_length=500,
         default="Este es tú album de fotos, dónde podras almacenar todas tus historias. ¡Disfrútalo!",
+        verbose_name="Descripción del album",
     )
 
     def __str__(self):
@@ -33,11 +39,19 @@ class AlbumFoto(models.Model):
 class Foto(models.Model):
     album = models.ForeignKey(AlbumFoto, on_delete=models.CASCADE)
     descripcion = models.CharField(
-        max_length=255, default="Imagen para el album", blank=True, null=True
+        max_length=255,
+        default="Imagen para el album",
+        blank=True,
+        null=True,
+        verbose_name="Descripción de la imagen",
     )
-    imagen = models.ImageField(upload_to="static/images/galeria/")
-    fecha = models.DateTimeField(auto_now_add=True)
-    comentario_publico = models.CharField(max_length=500, blank=True, null=True)
+    imagen = models.ImageField(
+        upload_to="static/images/galeria/", verbose_name="Imagen"
+    )
+    fecha = models.DateTimeField(auto_now_add=True, verbose_name="Fecha de subida")
+    comentario_publico = models.CharField(
+        max_length=500, blank=True, null=True, verbose_name="Comentario público"
+    )
 
     def __str__(self):
         return f"Album: {self.album} imagen_id: {self.id}"
