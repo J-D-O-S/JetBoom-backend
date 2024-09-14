@@ -216,7 +216,7 @@ Sobre Nosotros | JetBoom
 
                 <div class="formulario">
                   <h1>Formulario de Peticiones, Quejas, Reclamos, Sugerencias y Felicitaciones</h1>
-                  <form method="post" autocomplete="off">
+                  <form method="post" autocomplete="off" enctype="multipart/form-data">   
           
                     {% csrf_token %}
                     <label class="texto-label">Correo</label>
@@ -244,12 +244,12 @@ Sobre Nosotros | JetBoom
                       </div>
 
                       <div class="pqrsf-group">
-                        <label class="texto-label">Adjuntar archivo (opcional)</label>
+                        <p class="texto-label">Adjuntar archivo (opcional)</p>
                         <label class="btn-archivo" for="adjunto">
                           <span class="material-symbols-rounded">upload_file</span> 
                           Subir archivo
                         </label>
-                        <input type="file" id="adjunto" name="adjunto" accept=".jpg, .png, .pdf, .docx">
+                        <input type="file" id="adjunto" name="archivo_adjunto" accept=".jpg, .png, .pdf">
                       </div>
                     
                       <button class="btn-formulario" type="submit" >
