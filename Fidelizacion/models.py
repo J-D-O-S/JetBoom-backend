@@ -21,7 +21,6 @@ class FidelizacionModel(models.Model):
         choices=TIPOS_SOLICITUD,
         default="",
         verbose_name="Tipo de solicitud",
-        default="",
     )
     archivo_adjunto = models.FileField(
         upload_to="Fidelizacion/archivos_adjuntos/",
