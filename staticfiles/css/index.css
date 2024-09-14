@@ -1,0 +1,297 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+
+.min-section-width {
+    max-width: 80%;
+}
+
+/* ================================= Main Section ================================= */
+.main-section {
+    overflow: hidden;
+}
+
+.img-main-section {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60%;
+    min-height: 102%;
+    object-position: top center;
+    opacity: 0.8;
+    mask-image: linear-gradient(to left, black 60%, transparent);
+    z-index: -1;
+}
+
+.container-call-action {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    padding: 20dvh 0 5dvh;
+}
+
+.h1-main {
+    font-family: "titulos";
+    max-width: 50%;
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--font-color-oscuro);
+    margin-bottom: 1rem;
+}
+
+.h1-main span {
+    max-width: 60%;
+    font-size: 5rem;
+    font-weight: 900;
+    color: var(--rojo);
+}
+
+.p-main {
+    max-width: 50%;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--font-color-oscuro);
+}
+
+.btn-show-more {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left: 25%;
+    width: 5rem;
+    height: 5rem;
+    border: 5px double var(--font-color-oscuro);
+    border-radius: 50%;
+    outline: 5px dotted var(--font-color-oscuro);
+    outline-offset: 5px;
+    animation: jumpBtn 1.8s ease-in-out infinite;
+    margin-top: 5rem;
+    color: var(--font-color-oscuro);
+}
+
+.material-symbols-rounded {
+    font-size: 3rem;
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+}
+
+@keyframes jumpBtn {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* ================================= invitation Text Section ================================= */
+.invitation-text-section {
+    background: var(--rojo);
+    color: var(--gris);
+}
+
+.container-invitation-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 5rem 0;
+}
+
+.h2-title {
+    font-family: "titulos";
+    font-size: 3rem;
+    font-weight: 900;
+}
+
+.p-text-content {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 80%;
+    font-size: 1.5rem;
+}
+
+/* ================================= Fin invitation Text Section ================================= */
+
+
+/* ================================= Why Us ================================= */
+.why-us-section {
+    display: flex;
+    flex-direction: column;
+    margin: 5rem 0 2rem;
+}
+
+.container-why-us {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 5rem 0;
+}
+
+.why-us-section .h2-title {
+    color: var(--font-color-oscuro);
+}
+
+.why-us {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    width: 80%;
+    padding: 3rem;
+    background-color: var(--amarillo);
+    border-radius: 20px;
+}
+
+.why-us:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.why-us .material-symbols-rounded {
+    color: var(--rojo);
+    transform: translateY(4px);
+}
+
+.h3-titles {
+    font-family: "titulos-especiales";
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--rojo)
+}
+
+.p-text-why-us {
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+/* ================================= Fin Why Us ================================= */
+
+
+/* ================================= Comments Section ================================= */
+.comments-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    gap: 2rem;
+    padding-bottom: 3rem;
+}
+
+.container-comments {
+    display: flex;
+    max-width: 80%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 1rem;
+    padding-bottom: 1rem;
+}
+
+.container-comments::-webkit-scrollbar {
+    height: 10px;
+    border-radius: 20px;
+}
+
+.container-comments::-webkit-scrollbar-thumb {
+    /* Color de la barra de desplazamiento */
+    background: var(--rojo);
+    border-radius: 20px;
+}
+
+.container-comments::-webkit-scrollbar-track {
+    /* Color de fondo de la pista de desplazamiento */
+    background: var(--amarillo);
+    border-radius: 10px;
+}
+
+.comment {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 50%;
+    scroll-snap-align: center;
+    box-sizing: border-box;
+    background-color: var(--blanco);
+    margin: 0 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    gap: 1rem;
+    padding: 1.5rem 1.8rem;
+}
+
+.comment img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.comment p {
+    font-size: 1.5rem;
+    color: var(--negro);
+}
+
+.comment h3 {
+    font-family: "titulos";
+    font-size: 2rem;
+    margin-top: 1rem;
+    color: var(--rojo);
+}
+
+.comments-section h2 {
+    font-family: "titulos";
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--font-color-oscuro)
+}
+
+/* ================================= Fin Comments Section ================================= */
+
+
+/* ================================= Contact Section ================================= */
+.contact-section {
+    background-color: var(--amarillo);
+    color: var(--oscuro);
+    padding: 40px 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+}
+
+.contact-section h2 {
+    font-family: "titulos";
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.contact-section p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/* ================================= Fin Contact Section ================================= */

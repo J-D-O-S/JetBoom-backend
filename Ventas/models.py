@@ -44,7 +44,7 @@ class DetalleComprobantePago(models.Model):
         max_digits=20, decimal_places=2, verbose_name="Valor total del servicio"
     )
     ventas = models.OneToOneField(Ventas, on_delete=models.CASCADE)
-    servicios = models.ManyToOneRel("Servicios.Servicios", on_delete=models.CASCADE)
+    servicios = models.ForeignKey("Servicios.Servicios", on_delete=models.CASCADE)
 
     def __str__(self):
         return f"{self.servicios} {self.ventas}"

@@ -1,0 +1,100 @@
+body {
+  background-color: var(--gris);
+  margin: 0;
+  padding: 0;
+}
+
+.contenido-principal {
+  flex: 4;
+  padding: 0px;
+}
+
+#pantalla-dividida {
+  display: flex;
+}
+
+/*Diseño del div izquierdo en el que se encuentra el texto h1*/
+.izquierda {
+  margin-left: 8%;
+}
+
+/*Diseño del h1 del div izquierdo*/
+.izquierda h1 {
+  font-family: "titulos-especiales";
+  font-size: 5.5rem;
+  /* Ajusta el tamaño con respecto al ancho de la pantalla */
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  color: var(--rojo);
+  position: -webkit-sticky; /* Para soporte en Safari */
+  position: sticky;
+  top: 7%;
+  white-space: nowrap;
+  /* Asegura que el texto se mantenga en una sola línea */
+  overflow: hidden;
+  /* Previene que el texto se desborde */
+}
+
+/*Diseño del div derecho en el que se encuentra el contenido de la pagina*/
+.derecha {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  margin-left: 30px;
+  gap: 1rem;
+}
+
+/*Diseño de los card*/
+.imgcard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 20px;
+  width: 200px;
+}
+
+/*Diseño de las imagenes que se encuentran en los card*/
+.imgcard img {
+  border-radius: 10px;
+  width: 100%;
+  height: 300px;
+}
+
+/*Diseño del texto que se encuentran en los card*/
+.imgcard p {
+  font-size: 25px;
+  color: var(--font-color-negro);
+  margin-top: 10px;
+}
+
+/*Boton*/
+.imgcard .btn-saber-mas {
+  background: var(--rojo);
+  color: var(--gris);
+  border: none;
+  padding: 10px 20px;
+  font-size: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.7s ease, color 0.7s ease;
+  margin-top: auto;
+  align-self: center;
+  outline: 0px solid transparent;
+}
+
+.btn-saber-mas:hover {
+  background: var(--amarillo);
+  outline: 2px solid var(--rojo);
+  color: var(--negro);
+  transition: all 0.5s ease-in-out;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}

@@ -16,7 +16,6 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
@@ -28,8 +27,8 @@ SECRET_KEY = "django-insecure-!ns$os31#k_!=*@=s#+42=h9+692266tp^l(xkyxeawft!6&v7
 DEBUG = False
 
 # ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
-# ALLOWED_HOSTS = [".vercel.app", "localhost", "127.0.0.1"]
-ALLOWED_HOSTS = [".vercel.app"]
+ALLOWED_HOSTS = [".vercel.app", "localhost", "127.0.0.1"]
+# ALLOWED_HOSTS = [".vercel.app"]
 
 
 # Application definition
@@ -141,8 +140,6 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # auth
 LOGIN_URL = "iniciar_sesion"
-# LOGIN_REDIRECT_URL = "index"
-# LOGOUT_REDIRECT_URL = "index"
 
 
 # Sending email configuration
