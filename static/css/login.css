@@ -105,6 +105,7 @@ form .username {
 .recordar-a {
   /*Diseño de la letra del ¿Olvidaste tu contraseña?*/
   font-size: 1rem;
+  margin: 4%;
   color: var(--gris);
   text-decoration: none;
 }
@@ -112,7 +113,6 @@ form .username {
 .button-container {
   /*contenedor para el boton*/
   margin: 0% 0 5%;
-  width: 70%;
 }
 
 .btn-formulario {
