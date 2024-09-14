@@ -8,16 +8,23 @@
 				"maxLambdaSize": "15mb",
 				"runtime": "python3.12"
 			}
+		},
+		{
+			"src": "build_files.sh",
+			"use": "@vercel/static-build",
+			"config": {
+				"distDir": "staticfiles"
+			}
 		}
 	],
 	"routes": [
 		{
-			"src": "/(.*)",
-			"dest": "JetBoom/wsgi.py"
+			"src": "/static/(.*)",
+			"dest": "/static/$1"
 		},
 		{
-			"src": "/static/(.*)",
-			"dest": "JetBoom/static/$1"
+			"src": "/(.*)",
+			"dest": "JetBoom/wsgi.py"
 		}
 	],
 	"env": {
