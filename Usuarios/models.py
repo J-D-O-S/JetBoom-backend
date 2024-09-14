@@ -110,12 +110,9 @@ class Usuario(AbstractBaseUser, PermissionsMixin):
         verbose_name="Tipo de Identificación",
     )
 
-    # valido_politica_privacidad = models.BooleanField(
-    #     default=False, verbose_name="Acepto Política de Privacidad"
-    # )
-    is_active = models.BooleanField(default=True)
-    is_staff = models.BooleanField(default=False)
-    is_superuser = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True, verbose_name="Activo")
+    is_staff = models.BooleanField(default=False, verbose_name="Staff")
+    is_superuser = models.BooleanField(default=False, verbose_name="Superusuario")
 
     objects = CustomUserManager()
 
@@ -150,6 +147,90 @@ class Usuario(AbstractBaseUser, PermissionsMixin):
                 pass  # El objeto es nuevo, por lo que no hay foto antigua para eliminar
 
         super(Usuario, self).save(*args, **kwargs)
+
+
+"""
+class Usuario(AbstractBaseUser, PermissionsMixin):
+    email = models.EmailField(unique=True, verbose_name="Correo Electrónico")
+    nombre = models.CharField(max_length=20, verbose_name="Nombre")
+    segundo_nombre = models.CharField(
+        max_length=20, blank=True, null=True, verbose_name="Segundo Nombre"
+    )
+    apellido = models.CharField(max_length=20, verbose_name="Apellido")
+    segundo_apellido = models.CharField(
+        max_length=20, blank=True, null=True, verbose_name="Segundo Apellido"
+    )
+    contrasena = models.CharField(max_length=100, verbose_name="Contraseña")
+    puntos_ganados = models.IntegerField(default=0, verbose_name="Puntos Ganados")
+    fecha_nacimiento = models.DateField(verbose_name="Fecha de Nacimiento")
+    fecha_creacion = models.DateTimeField(auto_now_add=True, verbose_name="Creado")
+    fecha_modificacion = models.DateTimeField(auto_now=True, verbose_name="Modificado")
+    foto_perfil = models.ImageField(
+        "Foto de Perfil",
+        upload_to="static/images/perfil/",
+        max_length=200,
+        blank=True,
+        null=True,
+        verbose_name="Foto de Perfil",
+    )
+    numero_identificacion = models.CharField(
+        max_length=20, verbose_name="Número de Identificación"
+    )
+
+    TIPO_IDENTIFICACION_CHOICES = [
+        ("", "Seleccione su identificación"),
+        ("CC", "Cédula de Ciudadanía"),
+        ("CE", "Cédula de Extranjería"),
+        ("PA", "Pasaporte"),
+    ]
+
+    tipo_identificacion = models.CharField(
+        max_length=2,
+        choices=TIPO_IDENTIFICACION_CHOICES,
+        verbose_name="Tipo de Identificación",
+    )
+
+    valido_politica_privacidad = models.BooleanField(
+        default=False, verbose_name="Acepto Política de Privacidad"
+    )
+    is_active = models.BooleanField(default=True, verbose_name="Activo")
+    is_staff = models.BooleanField(default=False, verbose_name="Staff")
+    is_superuser = models.BooleanField(default=False, verbose_name="Superusuario")
+
+    objects = CustomUserManager()
+
+    USERNAME_FIELD = "email"
+    REQUIRED_FIELDS = [
+        "nombre",
+        "segundo_nombre",
+        "apellido",
+        "segundo_apellido",
+        "fecha_nacimiento",
+        "numero_identificacion",
+        "tipo_identificacion",
+    ]
+
+    def __str__(self):
+        return f"Nombre completo: {self.nombre} {self.segundo_nombre} {self.apellido} {self.segundo_apellido}\nEmail: {self.email}"
+
+    def has_perm(self, perm, obj=None):
+        return True
+
+    def has_module_perms(self, app_label):
+        return True
+
+    def save(self, *args, **kwargs):
+        if self.pk and self.foto_perfil:
+            try:
+                old_foto = Usuario.objects.get(pk=self.pk).foto_perfil
+                if old_foto and old_foto.url != self.foto_perfil.url:
+                    if os.path.isfile(old_foto.path):
+                        os.remove(old_foto.path)
+            except Usuario.DoesNotExist:
+                pass  # El objeto es nuevo, por lo que no hay foto antigua para eliminar
+
+        super(Usuario, self).save(*args, **kwargs)
+"""
 
 
 # codigo de ChatGPT
