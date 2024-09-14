@@ -113,31 +113,31 @@ Pago | JetBooms
     
         {% comment %} Cómo puedo saber si estoy logueado desde otro template antes de inyectar la sección que deseo al base.html? {% endcomment %}
     {% else %}
-    <main class="contenedorprincipal">
-        <section id='pantalla-dividida'>
-            <div class="ladoizquierdo">
-                <div class="cuadradoi">
-                    <h1 class="titulo">¡Hola!</h1>
-                    <h2 class="texto">Para proceder con la compra del servicio, primero debes iniciar sesión:</h2>
-                    <a href="./../html/login.html" class="btn-base">
-                        Iniciar sesión
-                    </a>
-                    <h2 class="texto">Si aún no tienes una cuenta, puedes crear una haciendo clic en el siguiente botón:</h2>
-                    <a href="./../html/crearCuenta.html" class="btn-base">
-                        Regístrate
-                    </a>
-                    <h2 class="texto">Si deseas explorar nuevamente los lugares turísticos que ofrecemos, puedes hacerlo haciendo clic en el siguiente botón:</h2>
-                    <a href="./../html/lugaresTuristicos.html" class="btn-base">
-                        Lugares turísticos
-                    </a>
-                </div>
-            </div>
-            <div class="ladoderecho">
-                <div class="cuadradod">
-                    <img class="img-section" src="./../img/collageAlbum.webp" alt="" />
-                </div>
-            </div>
-        </section>
-    </main>
+      <main class="contenedorprincipal">
+          <section id='pantalla-dividida'>
+              <div class="ladoizquierdo">
+                  <div class="cuadradoi">
+                      <h1 class="titulo">¡Hola!</h1>
+                      <h2 class="texto">Para proceder con la compra del servicio, primero debes iniciar sesión:</h2>
+                      <a href="{% url "iniciar_sesion" %}" class="btn-base">
+                          Iniciar sesión
+                      </a>
+                      <h2 class="texto">Si aún no tienes una cuenta, puedes crear una haciendo clic en el siguiente botón:</h2>
+                      <a href="{% url "registrarse" %}" class="btn-base">
+                          Regístrate
+                      </a>
+                      <h2 class="texto">Si deseas explorar nuevamente los lugares turísticos que ofrecemos, puedes hacerlo haciendo clic en el siguiente botón:</h2>
+                      <a href="{% url "lugares_turisticos" %}" class="btn-base">
+                          Lugares turísticos
+                      </a>
+                  </div>
+              </div>
+              <div class="ladoderecho">
+                  <div class="cuadradod">
+                      <img class="img-section" src="{% static "img/collageAlbum.webp" %} " alt="" />
+                  </div>
+              </div>
+          </section>
+      </main>
     {% endif %}
 {% endblock main_content %}
