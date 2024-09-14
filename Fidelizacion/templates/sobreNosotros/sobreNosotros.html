@@ -222,29 +222,25 @@ Sobre Nosotros | JetBoom
                     <label class="texto-label">Correo</label>
                       <div class="username">
                           {{ form.email.error }}
-                          <input type="email" name="email" disabled>
+                          <input type="email" name="email" value="{{user.email}}" disabled>
                       </div>
                       
                       <label class="texto-label">Nombre Completo</label>
                       <div class="username">
-                          <input type="text" name="nombre" disabled>
+                          <input type="text" name="nombre" value="{{user.nombre}} {{user.apellido}}" disabled>
                       </div>
 
                       <div class="tipoDoc-box" name="tipo_pqrsf">
                         <label class="texto-label">Tipo de PQRSF*</label>
-                          <select id="tipo" name="tipo" required>
-                            <option value="" disabled selected>Seleccione una opción</option>
-                            <option value="peticion">Petición</option>
-                            <option value="queja">Queja</option>
-                            <option value="reclamo">Reclamo</option>
-                            <option value="sugerencia">Sugerencia</option>
-                            <option value="felicitacion">Felicitación</option>
-                          </select>
+                        {{ form.tipo_solicitud }}
+                        {% if form.tipo_solicitud.errors %}
+                            <div class="errorlist">{{ form.tipo_solicitud.errors }}</div>
+                        {% endif %}
                       </div>
           
                       <label class="texto-label">Mensaje*</label>
                       <div class="username2">
-                          <input type="password" name="password1" required>
+                          <input type="texto" name="opinion_servicio" required>
                       </div>
 
                       <div class="pqrsf-group">

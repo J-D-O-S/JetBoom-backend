@@ -2,7 +2,7 @@ from django.db import models
 from Usuarios.models import Usuario
 
 
-class Fidelizacion(models.Model):
+class FidelizacionModel(models.Model):
     opinion_servicio = models.CharField(
         max_length=1000, verbose_name="Opinion del servicio"
     )
