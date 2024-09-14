@@ -17,7 +17,7 @@ import environ
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-env = environ.Env(DEBUG=(bool, True))
+env = environ.Env(DEBUG=(bool, False))
 
 environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 
@@ -35,8 +35,13 @@ SECRET_KEY = "django-insecure-!ns$os31#k_!=*@=s#+42=h9+692266tp^l(xkyxeawft!6&v7
 # DEBUG = False
 
 # ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
-ALLOWED_HOSTS = [".vercel.app", "localhost", "127.0.0.1"]
-# ALLOWED_HOSTS = [".vercel.app"]
+# ALLOWED_HOSTS = [
+#     ".vercel.app",
+#     "jetboom-ed9ry2z1g-jetbooms-projects.vercel.app",
+#     "localhost",
+#     "127.0.0.1",
+# ]
+ALLOWED_HOSTS = [".vercel.app", "jetboom-ed9ry2z1g-jetbooms-projects.vercel.app"]
 
 
 # Application definition
