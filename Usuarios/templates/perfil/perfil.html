@@ -10,197 +10,107 @@ Perfil | JetBooms
 {% endblock styles_apply %} 
 
 {% block main_content %}
-
-<main class="main">
-    <div class="imgfotoperfil">
-        {% if user.albumfoto.foto_portada and user.albumfoto.foto_portada.url %}
-            <img src="{{ user.albumfoto.foto_portada.url }}?{{ user.albumfoto.foto_portada.last_modified|date:'U' }}" alt="Foto de Portada" />
-        {% else %}
-            <img class="portada" src="{% static "img/portada-bogota.webp" %}" alt="Imagen de portada por defecto" />
-        {% endif %}
-        <div class="fotodeportada">
-            <form method="post" enctype="multipart/form-data" action="{% url "imagen_portada" %}">
-                {% csrf_token %}
-                <div class="seleccion_foto seleccion_foto_portada">
-                    <span class="material-symbols-rounded">add_a_photo</span>
-                    <input type="hidden" name="form_type" value="portada">
-                    <input type="file" name="foto_portada" id="id_foto_portada" accept="image/png, image/jpeg" style="display: none;">
-                </div>
-            </form>
-        </div>
-        <div class="fotodeperfil">
-            <form method="post" enctype="multipart/form-data" action="{% url "imagen_perfil" %}">
-                {% csrf_token %}
-                <div class="seleccion_foto seleccion_foto_perfil">
-                    <span class="material-symbols-rounded">add_a_photo</span>
-                    <input type="hidden" name="form_type" value="perfil">
-                    <input type="file" name="foto_perfil" id="id_foto_perfil" accept="image/png, image/jpeg" style="display: none;">
-                </div>
-            </form>
-            {% if user.foto_perfil and user.foto_perfil.url %}
-                <img src="{{ user.foto_perfil.url }}?{{ user.foto_perfil.last_modified|date:'U' }}" alt="Foto de Perfil" />
+    <main class="main">
+        <div class="imgfotoperfil">
+            {% if user.albumfoto.foto_portada and user.albumfoto.foto_portada.url %}
+                <img src="{{ user.albumfoto.foto_portada.url }}?{{ user.albumfoto.foto_portada.last_modified|date:'U' }}" alt="Foto de Portada" />
             {% else %}
-                <img src="{% static 'img/default_perfil.webp' %}" alt="Imagen por defecto de Perfil" />
+                <img class="portada" src="{% static "img/portada-bogota.webp" %}" alt="Imagen de portada por defecto" />
             {% endif %}
+            <div class="fotodeportada">
+                <form method="post" enctype="multipart/form-data" action="{% url "imagen_portada" %}">
+                    {% csrf_token %}
+                    <div class="seleccion_foto seleccion_foto_portada">
+                        <span class="material-symbols-rounded">add_a_photo</span>
+                        <input type="hidden" name="form_type" value="portada">
+                        <input type="file" name="foto_portada" id="id_foto_portada" accept="image/png, image/jpeg" style="display: none;">
+                    </div>
+                </form>
+            </div>
+            <div class="fotodeperfil">
+                <form method="post" enctype="multipart/form-data" action="{% url "imagen_perfil" %}">
+                    {% csrf_token %}
+                    <div class="seleccion_foto seleccion_foto_perfil">
+                        <span class="material-symbols-rounded">add_a_photo</span>
+                        <input type="hidden" name="form_type" value="perfil">
+                        <input type="file" name="foto_perfil" id="id_foto_perfil" accept="image/png, image/jpeg" style="display: none;">
+                    </div>
+                </form>
+                {% if user.foto_perfil and user.foto_perfil.url %}
+                    <img src="{{ user.foto_perfil.url }}?{{ user.foto_perfil.last_modified|date:'U' }}" alt="Foto de Perfil" />
+                {% else %}
+                    <img src="{% static 'img/default_perfil.webp' %}" alt="Imagen por defecto de Perfil" />
+                {% endif %}
+            </div>
+            <div class="nombreperfil">{{ user.nombre }} {{ user.apellido }}</div>
         </div>
-        <div class="nombreperfil">{{ user.nombre }} {{ user.apellido }}</div>
-    </div>
 
-    <div class="contenedorcuadradorojo">
-        <div class="cuadradorojo">
-            <h1>{{ imagenes|length }}</h1>
-            <p>Publicaciones</p>
+        <div class="contenedorcuadradorojo">
+            <div class="cuadradorojo">
+                <h1>{{ imagenes|length }}</h1>
+                <p>Publicaciones</p>
+            </div>
         </div>
-    </div>
 
-    <section class="botones-seccion">
-        <a class="btn-size btn-base" href="{% url "perfil" %}">
-            Álbum
-        </a>
-        <a class="btn-size btn-base" href="{% url "puntos" %}">
-            Puntos
-        </a>
-        <div class="btn-center">
-            <form method="post" enctype="multipart/form-data" action="{% url "imagen_galeria" %}">
-                {% csrf_token %}
-                <div class="btn-redondo seleccion_foto_galeria">
-                    <span class="material-symbols-rounded">add_a_photo</span>
-                    <input type="hidden" name="form_type" value="galeria">
-                    <input type="file" name="imagen" id="id_foto_galeria" accept="image/png, image/jpeg" style="display: none;">
-                </div>
-            </form>
-        </div>
-        <a class="btn-size btn-base" href="{% url "reservas" %}">
-            Reserva
-        </a>
-        <a class="btn-size btn-base" href="{% url "compras" %}">
-            Compras
-        </a>
-    </section>
-
-    {% block perfil_content %}
-
-    {% if imagenes|length > 0 %}
-    <section class="galeria" id="galeria">
-        {% for img in imagenes %}
-            <a href="#{{ img.order }}">
-                <img src="{{ img.imagen.url }}" />
+        <section class="botones-seccion">
+            <a class="btn-size btn-base" href="{% url "perfil" %}">
+                Álbum
             </a>
-            {% endfor %}
+            <a class="btn-size btn-base" href="{% url "puntos" %}">
+                Puntos
+            </a>
+            <div class="btn-center">
+                <form method="post" enctype="multipart/form-data" action="{% url "imagen_galeria" %}">
+                    {% csrf_token %}
+                    <div class="btn-redondo seleccion_foto_galeria">
+                        <span class="material-symbols-rounded">add_a_photo</span>
+                        <input type="hidden" name="form_type" value="galeria">
+                        <input type="file" name="imagen" id="id_foto_galeria" accept="image/png, image/jpeg" style="display: none;">
+                    </div>
+                </form>
+            </div>
+            <a class="btn-size btn-base" href="{% url "reservas" %}">
+                Reserva
+            </a>
+            <a class="btn-size btn-base" href="{% url "compras" %}">
+                Compras
+            </a>
         </section>
-        
-        {% for img in imagenes %}
-        <article class="ligth-box" id="{{ img.order }}">
-            {% if not forloop.first %}
-            <a href="#{{ forloop.counter|add:'-1' }}" class="next">
-                <span class="material-symbols-rounded">arrow_back_ios</span>
-            </a>
+
+        {% block perfil_content %}
+            {% if imagenes|length > 0 %}
+            <section class="galeria" id="galeria">
+                {% for img in imagenes %}
+                    <a href="#{{ img.order }}">
+                        <img src="{{ img.imagen.url }}" />
+                    </a>
+                    {% endfor %}
+                </section>
+                
+                {% for img in imagenes %}
+                <article class="ligth-box" id="{{ img.order }}">
+                    {% if not forloop.first %}
+                    <a href="#{{ forloop.counter|add:'-1' }}" class="next">
+                        <span class="material-symbols-rounded">arrow_back_ios</span>
+                    </a>
+                    {% endif %}
+                    <img src="{{ img.imagen.url }}" />
+                    {% if not forloop.last %}
+                    <a href="#{{ forloop.counter|add:'1' }}" class="next">
+                        <span class="material-symbols-rounded">arrow_forward_ios</span>
+                    </a>
+                    {% endif %}
+                    <a href="#galeria" class="close">X</a>
+                </article>
+                {% endfor %}
+            
+            {% else %}
+                <span class="material-symbols-rounded icon-add-picture">
+                    arrow_upward
+                </span>
+                <p class="text">Agrega imágenes a tu galería para verlas aquí.</p>	
+                <p class="text">No hay imágenes en tu galería.</p>
             {% endif %}
-            <img src="{{ img.imagen.url }}" />
-            {% if not forloop.last %}
-            <a href="#{{ forloop.counter|add:'1' }}" class="next">
-                <span class="material-symbols-rounded">arrow_forward_ios</span>
-            </a>
-            {% endif %}
-            <a href="#galeria" class="close">X</a>
-        </article>
-        {% endfor %}
-    
-    {% else %}
-        <span class="material-symbols-rounded icon-add-picture">
-            arrow_upward
-        </span>
-        <p class="text">Agrega imágenes a tu galería para verlas aquí.</p>	
-        <p class="text">No hay imágenes en tu galería.</p>
-    {% endif %}
-    
-    {% comment %} <article class="ligth-box" id="image2">
-        <a href="#image1" class="next"
-        ><span class="material-symbols-outlined">arrow_back_ios </span></a
-        >
-        <img src="{% static "img/cardChorroQuevedo.webp" %}" />
-        <a href="#image3" class="next"
-            ><span class="material-symbols-outlined">arrow_forward_ios </span></a
-        >
-        <a href="#" class="close">X</a>
-    </article>
-
-    <article class="ligth-box" id="image3">
-        <a href="#image2" class="next"
-            ><span class="material-symbols-outlined">arrow_back_ios </span></a
-        >
-        <img src="{% static "img/cardJardinBotanico.webp" %}" />
-        <a href="#image4" class="next"
-            ><span class="material-symbols-outlined">arrow_forward_ios </span></a
-        >
-        <a href="#" class="close">X</a>
-    </article>
-
-    <article class="ligth-box" id="image4">
-        <a href="#image3" class="next"
-            ><span class="material-symbols-outlined">arrow_back_ios </span></a
-        >
-        <img src="{% static "img/cardMBotero.webp" %}" />
-        <a href="#image5" class="next"
-            ><span class="material-symbols-outlined">arrow_forward_ios </span></a
-        >
-        <a href="#" class="close">X</a>
-    </article>
-
-    <article class="ligth-box" id="image5">
-        <a href="#image4" class="next"
-            ><span class="material-symbols-outlined">arrow_back_ios </span></a
-        >
-        <img src="{% static "img/cardMNacionalC.webp" %}" />
-        <a href="#image6" class="next"
-            ><span class="material-symbols-outlined">arrow_forward_ios </span></a
-        >
-        <a href="#" class="close">X</a>
-    </article>
-
-    <article class="ligth-box" id="image6">
-        <a href="#image5" class="next"
-            ><span class="material-symbols-outlined">arrow_back_ios </span></a
-        >
-        <img src="{% static "img/cardMonserrate.webp" %}" />
-        <a href="#image7" class="next"
-            ><span class="material-symbols-outlined">arrow_forward_ios </span></a
-        >
-        <a href="#" class="close">X</a>
-    </article>
-
-    <article class="ligth-box" id="image7">
-        <a href="#image6" class="next"
-            ><span class="material-symbols-outlined">arrow_back_ios </span></a
-        >
-        <img src="{% static "img/cardMundoAventura.webp" %}" />
-        <a href="#image8" class="next"
-            ><span class="material-symbols-outlined">arrow_forward_ios </span></a
-        >
-        <a href="#" class="close">X</a>
-    </article>
-
-    <article class="ligth-box" id="image8">
-        <a href="#image7" class="next"
-            ><span class="material-symbols-outlined">arrow_back_ios </span></a
-        >
-        <img src="{% static "img/cardMuseoOro.webp" %}" />
-        <a href="#image9" class="next"
-            ><span class="material-symbols-outlined">arrow_forward_ios </span></a
-        >
-        <a href="#" class="close">X</a>
-    </article>
-
-    <article class="ligth-box" id="image9">
-        <a href="#image8" class="next"
-            ><span class="material-symbols-outlined">arrow_back_ios </span></a
-        >
-        <img src="{% static "img/cardParqueTunal.webp" %}" />
-        <a href="#image1" class="next"
-            ><span class="material-symbols-outlined">arrow_forward_ios </span></a
-        >
-        <a href="#" class="close">X</a>
-    </article> {% endcomment %}
-    {% endblock perfil_content %}
-</main>
+        {% endblock perfil_content %}
+    </main>
 {% endblock main_content %}

@@ -12,17 +12,17 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 import os
 from pathlib import Path
-import environ
+
+# import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-env = environ.Env(DEBUG=(bool, True))
+# env = environ.Env(DEBUG=(bool, True))
+# environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 
-environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
-
-DEBUG = env("DEBUG")
-SECRET_KEY = env("SECRET_KEY")
+# DEBUG = env("DEBUG")
+# SECRET_KEY = env("SECRET_KEY")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
@@ -31,8 +31,8 @@ SECRET_KEY = env("SECRET_KEY")
 SECRET_KEY = "django-insecure-!ns$os31#k_!=*@=s#+42=h9+692266tp^l(xkyxeawft!6&v7"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-# DEBUG = False
+# DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
 # ALLOWED_HOSTS = [".vercel.app", "localhost", "127.0.0.1"]
@@ -91,10 +91,17 @@ WSGI_APPLICATION = "JetBoom.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.sqlite3",
+#         "NAME": BASE_DIR / env("SQLITE_DB_NAME", default="db.sqlite3"),
+#     }
+# }
+
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / env("SQLITE_DB_NAME", default="db.sqlite3"),
+        "NAME": BASE_DIR / "db.sqlite3",
     }
 }
 
@@ -141,16 +148,10 @@ STATICFILES_DIRS = [
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-# auth
 LOGIN_URL = "iniciar_sesion"
 
-
-# Sending email configuration
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
