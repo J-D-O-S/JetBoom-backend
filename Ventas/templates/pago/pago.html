@@ -14,103 +14,102 @@ Pago | JetBooms
  
 {% block main_content %}
     {% if user.is_authenticated %}
-    <div class="section-pago">
-      <h1>Pago</h1>
-      <div class="container-usuario">
-        <label for="usuario" class="usuario">Sesion iniciada como:</label>
-        <input disabled type="text" id="usuario" class="input-correo-usuario" placeholder=" ">
-      </div>
-    </div>
-  
-    <hr>
-  
-    
-    <div class="detalle-pago">
-      <h1 class="title">Información de la cuenta</h1>
-      <div class="info-personal">
-        <div class="container">
-          <input type="text" id="nombre" class="input" placeholder=" " />
-          <label for="nombre" class="label">Nombre <span class="requerido">*</span></label>
-        </div>
-  
-        <div class="container">
-          <input type="text" id="apellido" class="input" placeholder=" " />
-          <label for="apellido" class="label">Apellido <span class="requerido">*</span></label>
-        </div>
-      </div>
-    </div>
-  
-    <hr>
-  
-    <form class="form">
-      <!--Calendario-->
-      <div class="calendario">
-        <h2>Elige la fecha de tu visita</h2>
-        <input type="date" id="fecha-visita" name="fecha-visita">
-      </div>
-  
-      <!--Cantidad personas-->
-      <div class="cantidad-personas">
-        <h2>¿Cuántas personas van?</h2>
-        <div class="counter-container">
-          <button class="counter-btn" id="decrement">-</button>
-          <input type="text" class="counter-input" id="counter" value="1" readonly>
-          <button class="counter-btn" id="increment">+</button>
-        </div>
-        <script>
-          document.addEventListener('DOMContentLoaded', () => {
-            const incrementButton = document.getElementById('increment');
-            const decrementButton = document.getElementById('decrement');
-            const counterInput = document.getElementById('counter');
-            let count = parseInt(counterInput.value, 10); // Usa el valor inicial del input
-  
-            incrementButton.addEventListener('click', () => {
-              if (count < 5) { // Establece el límite máximo
-                count++;
-                counterInput.value = count;
-              }
-            });
-  
-            decrementButton.addEventListener('click', () => {
-              if (count > 1) { // Establece el límite mínimo
-                count--;
-                counterInput.value = count;
-              }
-            });
-          });
-        </script>
-      </div>
-    </form>
-  
-    <hr>
-  
-    <section class="dos-columnas">
-      <div class="columna izquierda">
-          <div class="detalle-item">
-            <p class="descripcion">Descripción del pago:</p>
-            <div class="container-pago">
-              <label for="lugar" class="lugar">Lugar Turístico</label>
-              <input disabled type="text" id="lugar" class="input-pago-lugar" placeholder=" ">
-            </div>
-  
-            <!--Opcional-->
-            <div class="container-pago">
-              <label for="guia" class="guia">Valor añadido por persona</label>
-              <input disabled type="text" id="guia" class="input-pago-guia" placeholder=" ">
-            </div>
-            <div class="container-pago-total">
-              <label for="total" class="total">TOTAL:</label>
-              <input disabled type="text" id="total" class="input-pago-total" placeholder=" ">
+    <main class="main">
+        <div class="section-pago">
+            <h1>Pago</h1>
+            <div class="container-usuario">
+              <label for="usuario" class="usuario">Sesion iniciada como:</label>
+              <input disabled type="text" id="usuario" class="input-correo-usuario" placeholder=" ">
             </div>
           </div>
-      </div>
-  
-      <div class="columna derecha">
-        <section>
-          <a href="pago.html"><button>COMPRA AHORA!!</button></a>
-        </section>
-      </div>
-    </section>
+        
+          <hr>
+        
+          <div class="detalle-pago">
+            <h1 class="title">Información de la cuenta</h1>
+            <div class="info-personal">
+              <div class="container">
+                <input type="text" id="nombre" class="input" placeholder=" " />
+                <label for="nombre" class="label">Nombre <span class="requerido">*</span></label>
+              </div>
+        
+              <div class="container">
+                <input type="text" id="apellido" class="input" placeholder=" " />
+                <label for="apellido" class="label">Apellido <span class="requerido">*</span></label>
+              </div>
+            </div>
+          </div>
+        
+          <hr>
+        
+          <form class="form">
+            <!--Calendario-->
+            <div class="calendario">
+              <h2>Elige la fecha de tu visita</h2>
+              <input type="date" id="fecha-visita" name="fecha-visita">
+            </div>
+        
+            <!--Cantidad personas-->
+            <div class="cantidad-personas">
+              <h2>¿Cuántas personas van?</h2>
+              <div class="counter-container">
+                <button class="counter-btn" id="decrement">-</button>
+                <input type="text" class="counter-input" id="counter" value="1" readonly>
+                <button class="counter-btn" id="increment">+</button>
+              </div>
+              <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                  const incrementButton = document.getElementById('increment');
+                  const decrementButton = document.getElementById('decrement');
+                  const counterInput = document.getElementById('counter');
+                  let count = parseInt(counterInput.value, 10); // Usa el valor inicial del input
+        
+                  incrementButton.addEventListener('click', () => {
+                    if (count < 5) { // Establece el límite máximo
+                      count++;
+                      counterInput.value = count;
+                    }
+                  });
+        
+                  decrementButton.addEventListener('click', () => {
+                    if (count > 1) { // Establece el límite mínimo
+                      count--;
+                      counterInput.value = count;
+                    }
+                  });
+                });
+              </script>
+            </div>
+          </form>
+        
+          <hr>
+        
+          <section class="dos-columnas">
+            <div class="columna izquierda">
+                <div class="detalle-item">
+                  <p class="descripcion">Descripción del pago:</p>
+                  <div class="container-pago">
+                    <label for="lugar" class="lugar">Museo Botero</label>
+                    <input disabled type="text" id="lugar" class="input-pago-lugar" placeholder=" ">
+                  </div>
+                  <div class="container-pago">
+                    <label for="guia" class="guia">Guia</label>
+                    <input disabled type="text" id="guia" class="input-pago-guia" placeholder=" ">
+                  </div>
+                  <div class="container-pago-total">
+                    <label for="total" class="total">TOTAL:</label>
+                    <input disabled type="text" id="total" class="input-pago-total" placeholder=" ">
+                  </div>
+                </div>
+            </div>
+        
+            <div class="columna derecha">
+              <section>
+                <a href="pago.html"><button>COMPRA AHORA!!</button></a>
+              </section>
+            </div>
+          </section>
+    </main>
     
         {% comment %} Cómo puedo saber si estoy logueado desde otro template antes de inyectar la sección que deseo al base.html? {% endcomment %}
     {% else %}
