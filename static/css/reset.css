@@ -257,9 +257,10 @@ svg {
     background-color: var(--rojo);
     outline: none;
     box-shadow:
-        0 0 0 2px var(--amarillo),
-        0 0 0 5px var(--rojo),
-        0 0 0 8px var(--amarillo);
+        0 0 0 2px var(--rojo),
+        0 0 0 5px var(--amarillo),
+        0 0 0 8px var(--rojo),
+        0 0 0 11px var(--amarillo);
     transition: all 0.3s ease-in-out;
     transform: scale(1.05);
 }

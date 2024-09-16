@@ -40,7 +40,7 @@ Sobre Nosotros | JetBoom
       <div class="ladoderecho">
         <div class="cuadradod">
           <br>
-          <p class="texto-d"><br> Para consultar las preguntas frecuentes o presentar una PQRS, haz clic en este botón.</p>
+          <p class="texto-d"><br> Para consultar las preguntas frecuentes o presentar una PQRSF, haz clic en este botón.</p>
           <a href="#titulo-tabs" class="btn-show-more">
 						<span class="material-symbols-rounded"> keyboard_arrow_down </span>
 					</a>
@@ -214,10 +214,15 @@ Sobre Nosotros | JetBoom
                   <h1>Formulario de Peticiones, Quejas, Reclamos, Sugerencias y Felicitaciones</h1>
                   <form method="post" autocomplete="off" enctype="multipart/form-data">     
                     {% csrf_token %}
-                      <label class="texto-label">Correo</label>
+                    <label class="texto-label">Correo</label>
                       <div class="username">
                           {{ form.email.error }}
-                          <input type="email" name="email" value="{{ user.email }}" disabled>
+                          <input type="email" name="email" value="{{user.email}}" disabled>
+                      </div>
+                      
+                      <label class="texto-label">Nombre Completo</label>
+                      <div class="username">
+                          <input type="text" name="nombre" value="{{user.nombre}} {{user.apellido}}" disabled>
                       </div>
 
                       <label class="texto-label">Nombre Completo</label>
@@ -231,24 +236,21 @@ Sobre Nosotros | JetBoom
                         {% if form.tipo_solicitud.errors %}
                             <div class="errorlist">{{ form.tipo_solicitud.errors }}</div>
                         {% endif %}
-                    </div>
-                    
-                    <label class="texto-label">Mensaje*</label>
-                    <div class="username2">
-                        <input type="text" name="opinion_servicio" required>
-                        {% if form.opinion_servicio.errors %}
-                            <div class="errorlist" style="color: blue;">{{ form.opinion_servicio.errors }}</div>
-                        {% endif %}
-                    </div>
+                      </div>
+          
+                      <label class="texto-label">Mensaje*</label>
+                      <div class="username2">
+                          <input type="texto" name="opinion_servicio" required>
+                      </div>
 
-                    <div class="pqrsf-group">
-                        <label class="texto-label">Adjuntar archivo (opcional)</label>
+                      <div class="pqrsf-group">
+                        <p class="texto-label">Adjuntar archivo (opcional)</p>
                         <label class="btn-archivo" for="adjunto">
                           <span class="material-symbols-rounded">upload_file</span> 
                           Subir archivo
                         </label>
-                        <input type="file" id="adjunto" name="archivo_adjunto" accept=".jpg, .png, .pdf, .docx">
-                    </div>
+                        <input type="file" id="adjunto" name="archivo_adjunto" accept=".jpg, .png, .pdf">
+                      </div>
                     
                     <button class="btn-formulario" type="submit" >
                         Enviar

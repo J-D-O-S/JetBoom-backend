@@ -10,7 +10,7 @@
 {% block main_content %}
 <main class="main">
     <div class="formulario">
-        <h1>Crear cuenta</h1>
+        <h1>Regístrate</h1>
         <form method="post" autocomplete="off">
             {% csrf_token %}
             <div class="container-correo">
@@ -79,9 +79,15 @@
                             {{ form.password2.errors }}
                         </div>
                     {% endif %}
-                </div>
+                </div>   
             </section>
-            <button class="btn-base" type="submit" >
+            <div class="terms-container">
+                <input type="checkbox" id="terms" name="terms" required>
+                <label for="terms" class="custom-checkbox">
+                  Acepto los &nbsp; <a href="{% url "terminos" %}" target="_blank">términos y condiciones</a>
+                </label>
+              </div>
+            <button class="btn-formulario" type="submit" >
                 Crear Cuenta
             </button>
         </form>

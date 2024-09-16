@@ -2,7 +2,7 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 
-from .views import AboutUsView, ContactanosView
+from .views import AboutUsView, ContactanosView, terminosCondicionesView
 
 urlpatterns = (
     [
@@ -15,6 +15,11 @@ urlpatterns = (
             "contactanos/",
             ContactanosView.as_view(),
             name="contactanos",
+        ),
+        path(
+            "terminos_condiciones/",
+            terminosCondicionesView.as_view(),
+            name="terminos",
         ),
         # path(
         #     "cerrar_sesion/",

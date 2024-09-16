@@ -1,0 +1,123 @@
+{% extends "index.html" %} 
+{% block title %}
+Términos y condiciones | JetBoom
+{% endblock title%}
+{% block styles_apply %} 
+  {% load static %}
+  <link rel="stylesheet" href="{% static "css/terminosCondiciones.css" %}" /> 
+{% endblock styles_apply %} 
+ 
+{% block main_content %} 
+
+<main class="main">
+    
+    <div class="container">
+        <h1>Políticas y Condiciones del Tratamiento de Datos</h1>
+        <img class="img-section" src="{% static "img/collageCHorizontal.webp" %}" alt="" />
+        <p>En JetBoom, valoramos la privacidad de nuestros usuarios y estamos comprometidos con la protección de sus datos personales. 
+            Esta política describe cómo recopilamos, utilizamos, almacenamos y protegemos la información que obtenemos de nuestros usuarios 
+            al interactuar con nuestra plataforma de reservas y guías turísticas.
+        </p>
+
+        <h2>1. Información que Recopilamos</h2>
+        <p>Recopilamos diferentes tipos de información para mejorar su experiencia, 
+            la cual puede incluir:</p>
+        <ul class="list">
+            <li><span class="material-symbols-rounded">arrow_forward</span>
+                <strong>Datos Personales:</strong> Nombre, correo electrónico, fecha de nacimiento, información de identificación.
+            </li>
+            <li><span class="material-symbols-rounded">arrow_forward</span>
+                <strong>Datos de Viaje:</strong> Historial de reservas, preferencias de destinos, opiniones y comentarios sobre los servicios contratados.
+            </li>
+            <li><span class="material-symbols-rounded">arrow_forward</span>
+                <strong>Datos Técnicos:</strong> Duración de las sesiones en el sitio.
+            </li>
+            <li><span class="material-symbols-rounded">arrow_forward</span>
+                <strong>Contenido Generado por el Usuario:</strong> Fotografías y comentarios subidos al módulo de Álbum o como parte de los retos de fidelización.
+            </li>
+        </ul>
+
+        <h2>2. Uso de la Información</h2>
+        <p>Utilizamos la información recopilada para los siguientes fines:</p>
+        <ul class="list">
+            <li><span class="material-symbols-rounded">arrow_forward</span>
+                Procesar y gestionar sus reservas, pagos y servicios adicionales.</li>
+            <li><span class="material-symbols-rounded">arrow_forward</span>
+                Facilitar la comunicación sobre servicios turísticos, promociones, descuentos y retos.</li>
+            <li><span class="material-symbols-rounded">arrow_forward</span>
+                Mejorar la experiencia del usuario en la plataforma JetBoom y optimizar nuestros servicios.</li>
+            <li><span class="material-symbols-rounded">arrow_forward</span>
+                Cumplir con requisitos legales y fiscales.</li>
+            <li><span class="material-symbols-rounded">arrow_forward</span>
+                Administrar la participación de los usuarios en los retos del módulo de Fidelización.</li>
+        </ul>
+
+        <h2>3. Retos y Contenido Generado por el Usuario</h2>
+        <ul class="list">
+            <li><span class="material-symbols-rounded">arrow_forward</span>
+                <strong>Participación en Retos:</strong>Los usuarios pueden participar en retos a través del módulo de Fidelización, 
+                subiendo fotos relacionadas con sus experiencias de viaje para ganar puntos, premios y descuentos.
+            </li>
+            <li><span class="material-symbols-rounded">arrow_forward</span>
+                <strong>Eliminación de Fotografías:</strong> Nos reservamos el derecho de eliminar cualquier fotografía que infrinja nuestras 
+                políticas o normas de conducta, como contenido inapropiado o que viole derechos de terceros. Los usuarios serán notificados si es 
+                posible cuando su contenido sea eliminado.
+            </li>
+        </ul>
+
+        <h2>4. Compartición de Información</h2>
+        <p>No vendemos ni alquilamos sus datos personales a terceros. Sin embargo, podemos compartir su información con:</p>
+        <ul class="list">
+            <li><span class="material-symbols-rounded">arrow_forward</span>
+                Proveedores de servicios (hoteles, aerolíneas, etc.) para la gestión de reservas y servicios contratados.</li>
+            <li><span class="material-symbols-rounded">arrow_forward</span>
+                Autoridades competentes si es necesario cumplir con las leyes aplicables.</li>
+            <li><span class="material-symbols-rounded">arrow_forward</span>
+                Socios comerciales que ofrezcan servicios turísticos adicionales, siempre con su consentimiento previo.</li>
+        </ul>
+
+        <h2>5. Seguridad de la Información</h2>
+        <p>En JetBoom implementamos medidas de seguridad adecuadas para proteger sus datos personales contra el acceso no autorizado, 
+            la alteración, la divulgación o la destrucción. No obstante, aunque trabajamos para garantizar la seguridad, no podemos 
+            asegurar protección total contra posibles vulneraciones.
+        </p>
+
+        <h2>6. Derechos del Usuario</h2>
+        <p>Usted tiene los siguientes derechos en relación con sus datos personales:</p>
+        <ul class="list">
+            <li><span class="material-symbols-rounded">arrow_forward</span>
+                Acceso a sus datos personales en cualquier momento.</li>
+            <li><span class="material-symbols-rounded">arrow_forward</span>
+                Rectificación de información inexacta o incompleta.</li>
+            <li><span class="material-symbols-rounded">arrow_forward</span>
+                Solicitud de eliminación de sus datos personales bajo ciertas condiciones.</li>
+            <li><span class="material-symbols-rounded">arrow_forward</span>
+                Oposición al tratamiento de sus datos personales.</li>
+            <li><span class="material-symbols-rounded">arrow_forward</span>
+                Solicitar la portabilidad de sus datos para que le sean entregados en un formato accesible o transferidos a otro responsable del tratamiento.</li>
+        </ul>
+
+        <h2>7. Retención de Datos</h2>
+        <p>Conservaremos sus datos personales solo durante el tiempo necesario para cumplir con los fines para los que fueron recopilados,
+             incluyendo los requisitos legales y fiscales.</p>
+
+        <h2>8. Cambios en la Política</h2>
+        <p>Nos reservamos el derecho de modificar esta política en cualquier momento.  Los cambios serán publicados en nuestra plataforma JetBoom con la 
+            correspondiente fecha de entrada en vigor.
+        </p>
+
+        <h2>9. Contacto </h2>
+        <p>Si tiene preguntas o inquietudes sobre nuestras políticas de tratamiento de datos, puede ponerse en contacto con nosotros a través de:</p>
+        <ul class="list">
+            <li><span class="material-symbols-rounded">arrow_forward</span>
+                <strong>Correo Electrónico: </strong> jetboomcolombia@gmail.com
+            </li>
+            <li><span class="material-symbols-rounded">arrow_forward</span>
+                <strong>Teléfono:</strong> +57 3178637768
+            </li>
+        </ul>
+    </div>
+
+  </main>            
+
+{% endblock main_content %}
