@@ -55,7 +55,7 @@ form .username {
   position: relative;
   background-color: var(--gris);
   border-radius: var(--border-radius);
-  margin: 3% 0;
+  margin: 8% 0;
   padding: 0 2%;
   width: 100%;
 }
