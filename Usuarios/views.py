@@ -215,3 +215,6 @@ class CustomUploadImageView(LoginRequiredMixin, View):
         else:
             print(form.errors)
             return render(self.request, "perfil/perfil.html", {"form": form})
+        
+class actualizarDatosView(TemplateView):
+    template_name = "usuarios/actualizarDatos.html"            
