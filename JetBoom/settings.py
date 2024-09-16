@@ -13,10 +13,11 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 import os
 import dj_database_url
 from pathlib import Path
-import environ
 
-env = environ.Env()
-environ.Env.read_env()
+# import environ
+
+# env = environ.Env()
+# environ.Env.read_env()
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -27,12 +28,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-#SECRET_KEY = "django-insecure-!ns$os31#k_!=*@=s#+42=h9+692266tp^l(xkyxeawft!6&v7"
-SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'unsafe-default-key')
+SECRET_KEY = "django-insecure-!ns$os31#k_!=*@=s#+42=h9+692266tp^l(xkyxeawft!6&v7"
+# SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'unsafe-default-key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = True
-DEBUG = False
+DEBUG = True
+# DEBUG = False
 
 # ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
 ALLOWED_HOSTS = ["*"]
@@ -86,30 +87,29 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "JetBoom.wsgi.application"
 
-
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 
-#DATABASES = {
-#    "default": {
-#        "ENGINE": "django.db.backends.sqlite3",
-#        "NAME": BASE_DIR / "db.sqlite3",
-#    }
-#}
-
 DATABASES = {
-    'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
+    }
 }
 
-DATABASES["default"].update({
-    'CONN_MAX_AGE': 600,
-    'OPTIONS': {
-        'sslmode': 'require',
-    }
-})
+# DATABASES = {"default": dj_database_url.config(default=os.environ.get("DATABASE_URL"))}
 
-#DATABASES = {
+# DATABASES["default"].update(
+#     {
+#         "CONN_MAX_AGE": 600,
+#         "OPTIONS": {
+#             "sslmode": "require",
+#         },
+#     }
+# )
+
+# DATABASES = {
 #    'default': {
 #        'ENGINE': 'django.db.backends.postgresql',
 #        'NAME': 'jetboomDB',
@@ -118,7 +118,7 @@ DATABASES["default"].update({
 #        'HOST': '',
 #        'PORT': '5432',
 #    }
-#}
+# }
 
 
 # Password validation

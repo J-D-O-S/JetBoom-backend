@@ -1,1 +1,0 @@
-web: gunicorn JetBoom.wsgi --log-file -
