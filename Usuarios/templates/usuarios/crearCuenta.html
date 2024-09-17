@@ -9,7 +9,7 @@
             color: var(--amarillo);
         }
         .error-outline {
-            border: 3px solid var(--amarillo);
+            border: 3px dashed var(--oscuro);
         }
     </style>
     <link rel="stylesheet" href="{% static "css/crearCuenta.css" %}" /> 
@@ -23,7 +23,7 @@
             {% csrf_token %}
             <div class="container-correo">
                 <div class="username">
-                    <input type="email" name="mail" required>
+                    <input type="email" name="email" required>
                     <label>Correo*</label>
                 </div>
             {% if form.email.errors %}

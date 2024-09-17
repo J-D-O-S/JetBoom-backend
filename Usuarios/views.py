@@ -38,9 +38,9 @@ class RegistroView(View):
                 return redirect("perfil")
         else:
             print(form.errors)
-        #     return render(request, "usuarios/crearCuenta.html", {"form": form})
+            return render(request, "usuarios/crearCuenta.html", {"form": form})
 
-        # form = CustomUserCreationForm()
+        form = CustomUserCreationForm()
         return render(request, "usuarios/crearCuenta.html", {"form": form})
 
 
