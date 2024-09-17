@@ -25,7 +25,7 @@ class GuiaTuristico(models.Model):
         verbose_name="Correo electrónico del guía turístico",
     )
     imagen = models.ImageField(
-        upload_to="Servicios/guia_turistico/", verbose_name="Imagen del guía turístico"
+        upload_to="guia_turistico_img/", verbose_name="Imagen del guía turístico"
     )
     disponibilidad = models.BooleanField(
         default=True, verbose_name="Disponibilidad del guía turístico"
@@ -51,7 +51,7 @@ class Servicios(models.Model):
         max_digits=20, decimal_places=2, verbose_name="Precio del servicio"
     )
     imagen = models.ImageField(
-        upload_to="Servicios/lugares_turisticos/", verbose_name="Imagen del servicio"
+        upload_to="lugares_turisticos_img/", verbose_name="Imagen del servicio"
     )
     estado_disponibilidad = models.BooleanField(
         default=True, verbose_name="Estado de disponibilidad"

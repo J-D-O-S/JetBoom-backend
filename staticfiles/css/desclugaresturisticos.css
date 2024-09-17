@@ -23,6 +23,7 @@
 .cuadradoi {
   width: 36rem;
   height: 35rem;
+  background-color: var(--blanco);
   border-radius: var(--border-radius);
   box-shadow: 0px 4px 9px rgba(0, 0, 1, 1);
   align-content: center;
@@ -180,6 +181,7 @@
 }
 
 .texto-adicional h2 {
+  color: var(--font-color-oscuro);
   font-size: 2rem;
   margin: 3% 10% 5%;
 }

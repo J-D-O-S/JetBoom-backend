@@ -30,12 +30,12 @@
     font-family: "titulos-especiales";
     font-size: 4rem;
     text-align: center;
-    color: var(--negro);
+    color: var(--font-color-negro);
   }
     
   .texto {
     font-size: 1.4rem;
-    color: var(--oscuro);
+    color: var(--font-color-oscuro);
     padding: 2% 0 2% 3%;
   }
   

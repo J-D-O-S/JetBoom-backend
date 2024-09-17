@@ -71,30 +71,9 @@ body {
 }
 
 /*Boton*/
-.imgcard .btn-saber-mas {
-  background: var(--rojo);
-  color: var(--gris);
-  border: none;
-  padding: 10px 20px;
-  font-size: 20px;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background 0.7s ease, color 0.7s ease;
-  margin-top: auto;
-  align-self: center;
-  outline: 0px solid transparent;
-}
-
-.btn-saber-mas:hover {
-  background: var(--amarillo);
-  outline: 2px solid var(--rojo);
-  color: var(--negro);
-  transition: all 0.5s ease-in-out;
-}
-
 .button-container {
+  margin: 5% 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
 }

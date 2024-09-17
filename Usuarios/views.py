@@ -29,7 +29,6 @@ class RegistroView(View):
 
             user.save()
             AlbumFoto.objects.create(usuario=user)
-            print(form)
 
             username = form.cleaned_data.get("email")
             password = form.cleaned_data.get("password1")
@@ -39,8 +38,9 @@ class RegistroView(View):
                 return redirect("perfil")
         else:
             print(form.errors)
+        #     return render(request, "usuarios/crearCuenta.html", {"form": form})
 
-        form = CustomUserCreationForm()
+        # form = CustomUserCreationForm()
         return render(request, "usuarios/crearCuenta.html", {"form": form})
 
 
@@ -75,11 +75,14 @@ class PerfilView(LoginRequiredMixin, TemplateView):
     template_name = "perfil/perfil.html"
 
     def get(self, request):
-        album = AlbumFoto.objects.get(usuario=request.user)
+        # print(request.user)
+        # print(request.user.albumfoto)
+        album, created = AlbumFoto.objects.get_or_create(usuario=request.user)
+        # album = AlbumFoto.objects.get(usuario=request.user)
+        print(album)
         fotos = album.foto_set.all().annotate(order=Window(expression=RowNumber()))
-        return render(
-            request, "perfil/perfil.html", {"album": album, "imagenes": fotos}
-        )
+        print(fotos)
+        return render(request, self.template_name, {"album": album, "imagenes": fotos})
 
 
 class PuntosView(LoginRequiredMixin, TemplateView):

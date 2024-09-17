@@ -3,8 +3,16 @@
     Crear Cuenta | JetBoom
 {% endblock title%}
 {% block styles_apply %} 
-  {% load static %}
-  <link rel="stylesheet" href="{% static "css/crearCuenta.css" %}" /> 
+    {% load static %}
+    <style>
+        .error {
+            color: var(--amarillo);
+        }
+        .error-outline {
+            border: 3px solid var(--amarillo);
+        }
+    </style>
+    <link rel="stylesheet" href="{% static "css/crearCuenta.css" %}" /> 
 {% endblock styles_apply %} 
 
 {% block main_content %}
@@ -15,19 +23,24 @@
             {% csrf_token %}
             <div class="container-correo">
                 <div class="username">
-                    {% if form.email.error %}
-                        <div class="error">
-                            {{ form.email.error }}
-                        </div>
-                    {% endif %}
-                    <input type="email" name="email" required>
+                    <input type="email" name="mail" required>
                     <label>Correo*</label>
                 </div>
+            {% if form.email.errors %}
+                <div class="error">
+                    {{ form.email.errors }}
+                </div>
+            {% endif %}
             </div>    
             <section class="text-columns">    
                 <div class="username">
                     <input type="text" name="nombre" required>
                     <label>Nombre*</label>
+                    {% if form.nombre.errors %}
+                        <div class="error">
+                            {{ form.email.errors }}
+                        </div>
+                    {% endif %}
                 </div>
                 <div class="username2">
                     <input type="text" name="segundo_nombre" placeholder=" " />
@@ -51,11 +64,6 @@
                     <label class="texto-label">Tipo de Documento*</label>
                     <br>
                     {{ form.tipo_identificacion }}
-                    {% if form.tipo_identificacion.errors %}
-                        <div class="error">
-                            {{ form.tipo_identificacion.errors }}
-                        </div>
-                    {% endif %}
                 </div>
                 <div class="username">
                     <input type="text" name="numero_identificacion" required>
@@ -63,18 +71,22 @@
                 </div>
 
                 <div class="username">
-                    <input type="password" name="password1" required>
+                    {% if form.password2.errors %}
+                        <input type="password" class="error-outline" name="password1" required>
+                    {% else %}
+                        <input type="password" name="password1" required>
+                    {% endif %}
                     <label>Contraseña*</label>
-                    {% if form.password1.errors %}
+                    {% if form.email.errors %}
                         <div class="error">
-                            {{ form.password1.errors }}
+                            {{ form.password2.errors }}
                         </div>
                     {% endif %}
                 </div>
                 <div class="username">
                     <input type="password" name="password2" required>
                     <label>Validar Contraseña*</label>
-                    {% if form.password2.errors %}
+                    {% if form.email.errors %}
                         <div class="error">
                             {{ form.password2.errors }}
                         </div>
