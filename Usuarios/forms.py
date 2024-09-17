@@ -19,6 +19,7 @@ class CustomUserCreationForm(UserCreationForm):
             "numero_identificacion",
             "tipo_identificacion",
             "fecha_nacimiento",
+            "valida_politicas",
         )
 
 
@@ -34,6 +35,7 @@ class CustomUserChangeForm(UserChangeForm):
             "numero_identificacion",
             "tipo_identificacion",
             "fecha_nacimiento",
+            "valida_politicas",
         )
 
 

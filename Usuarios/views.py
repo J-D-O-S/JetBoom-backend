@@ -29,12 +29,12 @@ class RegistroView(View):
 
             user.save()
             AlbumFoto.objects.create(usuario=user)
+            print(form)
 
             username = form.cleaned_data.get("email")
             password = form.cleaned_data.get("password1")
             user = authenticate(username=username, password=password)
             if user is not None:
-                print("\n\nUsuario autenticado\n\n")
                 login(request, user)
                 return redirect("perfil")
         else:

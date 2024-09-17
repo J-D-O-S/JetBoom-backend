@@ -128,6 +128,7 @@ class Usuario(AbstractBaseUser, PermissionsMixin):
         "fecha_nacimiento",
         "numero_identificacion",
         "tipo_identificacion",
+        "valida_politicas",
     ]
 
     def __str__(self):
