@@ -127,6 +127,7 @@ hr {
   margin-top: 4vh;
 }
 .counter-btn {
+  border-radius: 50%;
   background-color: var(--rojo); /* Color de fondo del botón */
   color: white; /* Color del texto del botón */
   border: none; /* Elimina el borde predeterminado */
@@ -150,7 +151,7 @@ hr {
   margin-bottom: 5vh;
 }
 
-button {
+.btn-base {
   width: 12rem; /* Tamaño del botón, ajusta según sea necesario */
   height: 12rem; /* Debe ser igual al ancho para mantener la forma circular */
   border-radius: 50%; /* Hace que el botón sea redondo */
@@ -162,7 +163,7 @@ button {
   cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
   outline: none; /* Elimina el contorno del botón cuando está enfocado */
 }
-button:hover {
+.btn-base:hover {
   background: var(--amarillo);
   outline: 2px solid var(--rojo);
   color: var(--negro);

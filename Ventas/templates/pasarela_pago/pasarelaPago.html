@@ -1,0 +1,75 @@
+{% extends "index.html" %} 
+{% block title %}
+Pasarela de Pago | JetBoom
+{% endblock title%}
+{% block styles_apply %} 
+  {% load static %}
+  <link rel="stylesheet" href="{% static "css/pasarelaPago.css" %}" /> 
+{% endblock styles_apply %} 
+
+
+{% block main_content %}
+<main class="main">
+
+    <div class="container-titulo">
+        <h2>Formas de pago</h2>
+    </div>
+    
+    <!-- Contenedor de pestañas -->
+    <div class="tabs">
+        <input type="radio" name="tab" id="pse">
+        <label for="pse">PSE</label>
+
+        <input type="radio" name="tab" id="payu">
+        <label for="payu">PayU</label>
+
+        <!-- Contenido para Tarjeta de Crédito -->
+        <div class="tab-content credit-content">
+            <form method="post" action="/process_credit">
+                <label for="card_number">Número de la tarjeta:</label>
+                <input type="text" id="card_number" name="card_number" placeholder="1234 5678 9101 1121" required>
+
+                <label for="expiry_date">Fecha de vencimiento:</label>
+                <input type="text" id="expiry_date" name="expiry_date" placeholder="MM/AA" required>
+
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" name="cvv" placeholder="123" required>
+
+                <button type="submit">Confirmar pago</button>
+            </form>
+        </div>
+
+        <!-- Contenido para PSE -->
+        <div class="tab-content pse-content">
+            <form method="post" action="/process_pse">
+                <label for="bank">Selecciona tu banco:</label>
+                <select id="bank" name="bank" required>
+                    <option value="bancolombia">Bancolombia</option>
+                    <option value="davivienda">Davivienda</option>
+                    <option value="banco_agrario">Banco Agrario</option>
+                </select>
+
+                <label for="document">Número de documento:</label>
+                <input type="text" id="document" name="document" placeholder="123456789" required>
+
+                <button type="submit">Confirmar pago</button>
+            </form>
+        </div>
+
+        <!-- Contenido para PayU -->
+        <div class="tab-content payu-content">
+            <form method="post" action="/process_payu">
+                <label for="email">Correo electrónico:</label>
+                <input type="email" id="email" name="email" placeholder="ejemplo@correo.com" required>
+
+                <button type="submit">Pagar con PayU</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+    
+    
+
+</main>
+{% endblock main_content %}

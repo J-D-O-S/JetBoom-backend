@@ -18,8 +18,8 @@ Pago | JetBooms
         <div class="section-pago">
             <h1>Pago</h1>
             <div class="container-usuario">
-              <label for="usuario" class="usuario">Sesion iniciada como:</label>
-              <input disabled type="text" id="usuario" class="input-correo-usuario" placeholder=" ">
+              <label class="usuario">Sesion iniciada como:</label>
+              <input type="email"  class="input-correo-usuario" name="email" value="{{user.email}}" disabled>
             </div>
           </div>
         
@@ -28,14 +28,16 @@ Pago | JetBooms
           <div class="detalle-pago">
             <h1 class="title">Información de la cuenta</h1>
             <div class="info-personal">
+              
+
               <div class="container">
-                <input type="text" id="nombre" class="input" placeholder=" " />
-                <label for="nombre" class="label">Nombre <span class="requerido">*</span></label>
+                <label class="usuario">Nombre:</label>
+                <input type="text"  class="input-correo-usuario" name="nombre" value="{{user.nombre}}" disabled>
               </div>
-        
+
               <div class="container">
-                <input type="text" id="apellido" class="input" placeholder=" " />
-                <label for="apellido" class="label">Apellido <span class="requerido">*</span></label>
+                <label class="usuario">Apellido:</label>
+                <input type="text"  class="input-correo-usuario" name="nombre" value="{{user.apellido}}" disabled>
               </div>
             </div>
           </div>
@@ -105,7 +107,7 @@ Pago | JetBooms
         
             <div class="columna derecha">
               <section>
-                <a href="pago.html"><button>COMPRA AHORA!!</button></a>
+                <a class=btn-base href="{% url "pasarela_pago" %}">COMPRA AHORA!!</a>
               </section>
             </div>
           </section>
