@@ -37,7 +37,6 @@ class RegistroView(View):
                 login(request, user)
                 return redirect("perfil")
         else:
-            print(form.errors)
             return render(request, "usuarios/crearCuenta.html", {"form": form})
 
         form = CustomUserCreationForm()
@@ -62,6 +61,8 @@ class LoginUsuarioView(View):
                 return redirect("index")
             else:
                 form.add_error(None, "Correo electrónico o contraseña incorrectos")
+                return render(request, "usuarios/iniciarSesion.html", {"form": form})
+        form = LoginForm()
         return render(request, "usuarios/iniciarSesion.html", {"form": form})
 
 

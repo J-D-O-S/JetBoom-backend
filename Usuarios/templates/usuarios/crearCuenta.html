@@ -4,14 +4,6 @@
 {% endblock title%}
 {% block styles_apply %} 
     {% load static %}
-    <style>
-        .error {
-            color: var(--amarillo);
-        }
-        .error-outline {
-            border: 3px dashed var(--oscuro);
-        }
-    </style>
     <link rel="stylesheet" href="{% static "css/crearCuenta.css" %}" /> 
 {% endblock styles_apply %} 
 
@@ -23,7 +15,11 @@
             {% csrf_token %}
             <div class="container-correo">
                 <div class="username">
-                    <input type="email" name="email" required>
+                    {% if form.password2.errors %}
+                        <input type="email" class="error-outline" name="email" required>
+                    {% else %}
+                        <input type="email" name="email" required>
+                    {% endif %}
                     <label>Correo*</label>
                 </div>
             {% if form.email.errors %}
@@ -34,11 +30,15 @@
             </div>    
             <section class="text-columns">    
                 <div class="username">
-                    <input type="text" name="nombre" required>
+                    {% if form.password2.errors %}
+                        <input type="text" class="error-outline" name="nombre" required>
+                    {% else %}
+                        <input type="text" name="nombre" required>
+                    {% endif %}
                     <label>Nombre*</label>
                     {% if form.nombre.errors %}
                         <div class="error">
-                            {{ form.email.errors }}
+                            {{ form.nombre.errors }}
                         </div>
                     {% endif %}
                 </div>
@@ -47,8 +47,17 @@
                     <label>Segundo Nombre</label>
                 </div>
                 <div class="username">
-                    <input type="text" name="apellido" required>
+                    {% if form.password2.errors %}
+                        <input type="text" class="error-outline" name="apellido" required>
+                    {% else %}
+                        <input type="text" name="apellido" required>
+                    {% endif %}
                     <label>Apellido*</label>
+                    {% if form.apellido.errors %}
+                        <div class="error">
+                            {{ form.apellido.errors }}
+                        </div>
+                    {% endif %}
                 </div>
                 <div class="username2">
                     <input type="text"  name="segundo_apellido" placeholder=" " />
@@ -58,16 +67,39 @@
                 <div class="birthdate-box">
                     <label class="texto-label">Fecha de Nacimiento*</label>
                     <br>
-                    <input type="date" class="calendario" placeholder="AAAA-MM-DD" min="1924-01-01" max="2006-12-31" name="fecha_nacimiento" />
+                    {% if form.password2.errors %}
+                        <input type="date" class="calendario error-outline" placeholder="AAAA-MM-DD" min="1924-01-01" max="2006-12-31" name="fecha_nacimiento" />
+                    {% else %}
+                        <input type="date" class="calendario" placeholder="AAAA-MM-DD" min="1924-01-01" max="2006-12-31" name="fecha_nacimiento" />
+                    {% endif %}
+                    {% if form.fecha_nacimiento.errors %}
+                        <div class="error">
+                            {{ form.fecha_nacimiento.errors }}
+                        </div>
+                    {% endif %}
                 </div>
                 <div class="tipoDoc-box" name="tipo_identificacion">
                     <label class="texto-label">Tipo de Documento*</label>
                     <br>
                     {{ form.tipo_identificacion }}
+                    {% if form.tipo_identificacion.errors %}
+                        <div class="error">
+                            {{ form.tipo_identificacion.errors }}
+                        </div>
+                    {% endif %}
                 </div>
                 <div class="username">
-                    <input type="text" name="numero_identificacion" required>
+                    {% if form.password2.errors %}
+                        <input type="text" class="error-outline" name="numero_identificacion" required>
+                    {% else %}
+                        <input type="text" name="numero_identificacion" required>
+                    {% endif %}
                     <label>Número de Identificación*</label>
+                    {% if form.numero_identificacion.errors %}
+                        <div class="error">
+                            {{ form.numero_identificacion.errors }}
+                        </div>
+                    {% endif %}
                 </div>
 
                 <div class="username">
@@ -77,16 +109,20 @@
                         <input type="password" name="password1" required>
                     {% endif %}
                     <label>Contraseña*</label>
-                    {% if form.email.errors %}
+                    {% if form.password2.errors %}
                         <div class="error">
                             {{ form.password2.errors }}
                         </div>
                     {% endif %}
                 </div>
                 <div class="username">
-                    <input type="password" name="password2" required>
+                    {% if form.password2.errors %}
+                        <input type="password" class="error-outline" name="password2" required>
+                    {% else %}
+                        <input type="password" name="password2" required>
+                    {% endif %}
                     <label>Validar Contraseña*</label>
-                    {% if form.email.errors %}
+                    {% if form.password2.errors %}
                         <div class="error">
                             {{ form.password2.errors }}
                         </div>
@@ -98,6 +134,11 @@
                 <label for="terms" class="custom-checkbox">
                   Acepto los &nbsp; <a href="{% url "terminos" %}" target="_blank">términos y condiciones</a>
                 </label>
+                {% if form.valida_politicas.errors %}
+                    <div class="error">
+                        {{ form.valida_politicas.errors }}
+                    </div>
+                {% endif %}
               </div>
             <button class="btn-formulario" type="submit" >
                 Crear Cuenta

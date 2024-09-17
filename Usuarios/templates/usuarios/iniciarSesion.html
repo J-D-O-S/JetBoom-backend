@@ -25,7 +25,13 @@ Iniciar Sesión | JetBoom
               <input type="password" name="password" id="id_password" required>
               <label>Contraseña*</label>
           </div>
-          
+          {% if form.non_field_errors %}
+              <div class="error">
+                  {% for error in form.non_field_errors %}
+                      <div>{{ error }}</div>
+                  {% endfor %}
+              </div>
+          {% endif %}
           <a class="recordar-a " href="{% url "password_reset" %}">¿Olvidaste tu contraseña?</a>
           <div class="button-container">
             <input type="submit" class="btn-formulario" value="Continuar" />
