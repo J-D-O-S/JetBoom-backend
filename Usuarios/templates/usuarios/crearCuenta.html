@@ -10,12 +10,16 @@
 {% block main_content %}
 <main class="main">
     <div class="formulario">
-        <h1>Crear cuenta</h1>
+        <h1>Regístrate</h1>
         <form method="post" autocomplete="off">
             {% csrf_token %}
             <div class="container-correo">
                 <div class="username">
-                    {{ form.email.error }}
+                    {% if form.email.error %}
+                        <div class="error">
+                            {{ form.email.error }}
+                        </div>
+                    {% endif %}
                     <input type="email" name="email" required>
                     <label>Correo*</label>
                 </div>
@@ -47,6 +51,11 @@
                     <label class="texto-label">Tipo de Documento*</label>
                     <br>
                     {{ form.tipo_identificacion }}
+                    {% if form.tipo_identificacion.errors %}
+                        <div class="error">
+                            {{ form.tipo_identificacion.errors }}
+                        </div>
+                    {% endif %}
                 </div>
                 <div class="username">
                     <input type="text" name="numero_identificacion" required>
@@ -56,13 +65,29 @@
                 <div class="username">
                     <input type="password" name="password1" required>
                     <label>Contraseña*</label>
+                    {% if form.password1.errors %}
+                        <div class="error">
+                            {{ form.password1.errors }}
+                        </div>
+                    {% endif %}
                 </div>
                 <div class="username">
                     <input type="password" name="password2" required>
                     <label>Validar Contraseña*</label>
-                </div>
+                    {% if form.password2.errors %}
+                        <div class="error">
+                            {{ form.password2.errors }}
+                        </div>
+                    {% endif %}
+                </div>   
             </section>
-            <button class="btn-base" type="submit" >
+            <div class="terms-container">
+                <input type="checkbox" id="terms" name="terms" required>
+                <label for="terms" class="custom-checkbox">
+                  Acepto los &nbsp; <a href="{% url "terminos" %}" target="_blank">términos y condiciones</a>
+                </label>
+              </div>
+            <button class="btn-formulario" type="submit" >
                 Crear Cuenta
             </button>
         </form>

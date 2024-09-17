@@ -9,7 +9,7 @@ class FidelizacionModel(models.Model):
 
     TIPOS_SOLICITUD = [
         ("", "Seleccione su solicitud"),
-        ("p", "Pregunta"),
+        ("p", "Petición"),
         ("q", "Queja"),
         ("r", "Reclamo"),
         ("s", "Sugerencia"),
@@ -21,6 +21,12 @@ class FidelizacionModel(models.Model):
         choices=TIPOS_SOLICITUD,
         default="",
         verbose_name="Tipo de solicitud",
+    )
+    archivo_adjunto = models.FileField(
+        upload_to="Fidelizacion/archivos_adjuntos/",
+        verbose_name="Archivo adjunto",
+        blank=True,
+        null=True,
     )
     archivo_adjunto = models.FileField(
         upload_to="Fidelizacion/archivos_adjuntos/",

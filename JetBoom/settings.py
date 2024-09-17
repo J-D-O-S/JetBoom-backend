@@ -12,17 +12,15 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 import os
 from pathlib import Path
-import environ
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+# import environ
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-env = environ.Env(DEBUG=(bool, False))
+# env = environ.Env(DEBUG=(bool, True))
+# environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 
-environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
-
-DEBUG = env("DEBUG")
-SECRET_KEY = env("SECRET_KEY")
+# DEBUG = env("DEBUG")
+# SECRET_KEY = env("SECRET_KEY")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
@@ -30,21 +28,13 @@ SECRET_KEY = env("SECRET_KEY")
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "django-insecure-!ns$os31#k_!=*@=s#+42=h9+692266tp^l(xkyxeawft!6&v7"
 
-# SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
-# DEBUG = False
+DEBUG = False
 
-# ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
-# ALLOWED_HOSTS = [
-#     ".vercel.app",
-#     "jetboom-ed9ry2z1g-jetbooms-projects.vercel.app",
-#     "localhost",
-#     "127.0.0.1",
-# ]
-ALLOWED_HOSTS = [".vercel.app", "jetboom-ed9ry2z1g-jetbooms-projects.vercel.app"]
-
-
-# Application definition
+ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
+# ALLOWED_HOSTS = [".vercel.app", "localhost", "127.0.0.1"]
+# ALLOWED_HOSTS = [".vercel.app"]
+# ALLOWED_HOSTS = ["*"]
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -68,6 +58,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 ROOT_URLCONF = "JetBoom.urls"
@@ -92,7 +83,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "JetBoom.wsgi.application"
 
-
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
@@ -103,20 +93,12 @@ WSGI_APPLICATION = "JetBoom.wsgi.application"
 #     }
 # }
 
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.postgresql",
-#         "NAME": "jetboom",
-#         "USER": "postgres",
-#         "PASSWORD": "jetboomPassword",
-#         "HOST": "127.0.0.1",
-#         "PORT": "5432",
-#     }
-# }
-
-
-# Password validation
-# https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
+    }
+}
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -135,10 +117,6 @@ AUTH_PASSWORD_VALIDATORS = [
 
 AUTH_USER_MODEL = "Usuarios.Usuario"
 
-
-# Internationalization
-# https://docs.djangoproject.com/en/5.1/topics/i18n/
-
 LANGUAGE_CODE = "es-co"
 
 TIME_ZONE = "UTC-5"
@@ -147,26 +125,18 @@ USE_I18N = True
 
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.1/howto/static-files/
-
 STATIC_URL = "/static/"
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles", "static")
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-# auth
 LOGIN_URL = "iniciar_sesion"
 
-
-# Sending email configuration
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
