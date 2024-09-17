@@ -15,14 +15,13 @@ import dj_database_url
 from pathlib import Path
 
 # import environ
-
-# env = environ.Env()
-# environ.Env.read_env()
-
-
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# env = environ.Env(DEBUG=(bool, True))
+# environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
+
+# DEBUG = env("DEBUG")
+# SECRET_KEY = env("SECRET_KEY")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
@@ -31,15 +30,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-!ns$os31#k_!=*@=s#+42=h9+692266tp^l(xkyxeawft!6&v7"
 # SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'unsafe-default-key')
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-# DEBUG = False
+# DEBUG = True
+DEBUG = False
 
-# ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
-ALLOWED_HOSTS = ["*"]
-
-
-# Application definition
+ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
+# ALLOWED_HOSTS = [".vercel.app", "localhost", "127.0.0.1"]
+# ALLOWED_HOSTS = [".vercel.app"]
+# ALLOWED_HOSTS = ["*"]
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -63,6 +60,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 ROOT_URLCONF = "JetBoom.urls"
@@ -90,6 +88,12 @@ WSGI_APPLICATION = "JetBoom.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.sqlite3",
+#         "NAME": BASE_DIR / env("SQLITE_DB_NAME", default="db.sqlite3"),
+#     }
+# }
 
 DATABASES = {
     "default": {
@@ -97,32 +101,6 @@ DATABASES = {
         "NAME": BASE_DIR / "db.sqlite3",
     }
 }
-
-# DATABASES = {"default": dj_database_url.config(default=os.environ.get("DATABASE_URL"))}
-
-# DATABASES["default"].update(
-#     {
-#         "CONN_MAX_AGE": 600,
-#         "OPTIONS": {
-#             "sslmode": "require",
-#         },
-#     }
-# )
-
-# DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.postgresql',
-#        'NAME': 'jetboomDB',
-#        'USER': 'postgresql',
-#        'PASSWORD': 'password',
-#        'HOST': '',
-#        'PORT': '5432',
-#    }
-# }
-
-
-# Password validation
-# https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -141,10 +119,6 @@ AUTH_PASSWORD_VALIDATORS = [
 
 AUTH_USER_MODEL = "Usuarios.Usuario"
 
-
-# Internationalization
-# https://docs.djangoproject.com/en/5.1/topics/i18n/
-
 LANGUAGE_CODE = "es-co"
 
 TIME_ZONE = "UTC"
@@ -153,28 +127,18 @@ USE_I18N = True
 
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.1/howto/static-files/
-
 STATIC_URL = "/static/"
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-# auth
 LOGIN_URL = "iniciar_sesion"
-# LOGIN_REDIRECT_URL = "index"
-# LOGOUT_REDIRECT_URL = "index"
 
-
-# Sending email configuration
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587

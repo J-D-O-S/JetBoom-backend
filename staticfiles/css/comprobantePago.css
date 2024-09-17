@@ -1,0 +1,132 @@
+.main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  
+  .titulo h1 {
+    /* estilos para el titulo */
+    padding: 2% 0 5%;
+    font-size: 3.7rem;
+    font-family: "titulos-especiales";
+    color: var(--negro);
+  }
+  
+  .cuadrados-section {
+    /* estilos del contenedor de los cuadrados y su texto */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+  }
+  
+  .cuadradoContainer {
+    /* estilos del contenedor de los cuadrados */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .cuadradorojo {
+    /* estilos del cuadrado rojo */
+    background-color: var(--rojo);
+    width: 18rem;
+    height: 18rem;
+    color: var(--oscuro);
+    text-align: center;
+    border-radius: var(--border-radius);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .cuadradorojo img {
+    /* estilos de la imagen del cuadrado rojo */
+    max-width: 80%;
+    max-height: 80%;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  .cuadradoamarillo {
+    /* estilos del cuadrado amarillo */
+    background-color: var(--amarillo);
+    width: 18rem;
+    height: 18rem;
+    color: var(--oscuro);
+    text-align: center;
+    border-radius: var(--border-radius);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .cuadradoamarillo img {
+    /* estilos de la imagen del cuadrado amarilllo */
+    max-width: 80%;
+    max-height: 80%;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+  
+  .texto-cuadradorojo,
+  .texto-cuadradoamarillo {
+    /* estilos de los textos de los cuadrado */
+    margin: 0;
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 2%;
+  }
+  
+  .tabla {
+    /* estilos del contenedor de la tabla */
+    padding: 2.5rem;
+    width: 85%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .tabla table {
+    /* estilos de la tabla */
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 8px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 0 auto;
+    border: 4px solid var(--oscuro);
+    background-color: var(--blanco);
+  }
+  
+  .tabla th, .tabla td {
+    /* estilos de los espacios de la tabla */
+    border: 2px solid var(--negro);
+    padding: 1%;
+    text-align: left;
+    background-color: var(--blanco);
+    font-size: 1.2rem;
+  }
+  
+  .tabla thead th {
+    /* color de fondo de los espacios de la tabla */
+    background-color: var(--gris);
+  }
+  
+  .tabla tr:nth-child(odd) td {
+      /* color de fondo de los espacios de la tabla */
+    background-color: var(--gris);
+  }
+  
+  .calvet {
+    font-family: "titulos";
+    font-size: 1.8rem;
+    font-weight: 700;
+  }
+  
+  .btn-base{
+    font-size: 2rem;
+    width: 30rem;
+    justify-content: center;
+  }

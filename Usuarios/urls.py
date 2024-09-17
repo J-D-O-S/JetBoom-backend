@@ -13,34 +13,34 @@ from .views import (
 )
 
 
-urlpatterns = (
-    [
-        path(
-            "iniciar_sesion/",
-            LoginUsuarioView.as_view(),
-            name="iniciar_sesion",
-        ),
-        path(
-            "registrarse/",
-            RegistroView.as_view(),
-            name="registrarse",
-        ),
-        path(
-            "cerrar_sesion/",
-            LogoutUsuarioView.as_view(),
-            name="cerrar_sesion",
-        ),
-        path(
-            "perfil/",
-            include("Usuarios.urls_perfil"),
-        ),
-        # path("perfil_puntos/", PuntosView.as_view(), name="puntos"),
-        # path(
-        #     "recuperar_contrasena/",
-        #     CustomResetPasswordView.as_view(),
-        #     name="reset_password",
-        # ),
-    ]
-    + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-    + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-)
+urlpatterns = [
+    path(
+        "iniciar_sesion/",
+        LoginUsuarioView.as_view(),
+        name="iniciar_sesion",
+    ),
+    path(
+        "registrarse/",
+        RegistroView.as_view(),
+        name="registrarse",
+    ),
+    path(
+        "cerrar_sesion/",
+        LogoutUsuarioView.as_view(),
+        name="cerrar_sesion",
+    ),
+    path(
+        "perfil/",
+        include("Usuarios.urls_perfil"),
+    ),
+    # path("perfil_puntos/", PuntosView.as_view(), name="puntos"),
+    # path(
+    #     "recuperar_contrasena/",
+    #     CustomResetPasswordView.as_view(),
+    #     name="reset_password",
+    # ),
+]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

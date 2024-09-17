@@ -23,20 +23,18 @@ class RegistroView(View):
 
     def post(self, request):
         form = CustomUserCreationForm(request.POST)
-        print("\n impresión del formulario")
-        print(form)
         if form.is_valid():
             user = form.save(commit=False)
             user.set_password(form.cleaned_data["password1"])
 
             user.save()
             AlbumFoto.objects.create(usuario=user)
+            print(form)
 
             username = form.cleaned_data.get("email")
             password = form.cleaned_data.get("password1")
             user = authenticate(username=username, password=password)
             if user is not None:
-                print("\n\nUsuario autenticado\n\n")
                 login(request, user)
                 return redirect("perfil")
         else:

@@ -1,0 +1,214 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-top: 2%;
+}
+
+.formulario {
+  /*diseño de la caja con el contenido del formulario*/
+  background-color: var(--rojo);
+  padding: 3%;
+  border-radius: var(--border-radius);
+  max-width: 700px;
+  width: 100%;
+}
+
+.formulario h1 {
+  /*tipo y tamaño de la letra del titulo de la caja*/
+  font-family: "titulos-especiales";
+  font-size: 3rem;
+  color: var(--amarillo);
+  margin-bottom: 4%;
+}
+
+.container-correo {
+  /* contenedor del campo para el correo*/
+  margin-bottom: 5%;
+}
+
+.username,
+.username2,
+.birthdate-box,
+.tipoDoc-box {
+  /* Estilos de los campos de entrada */
+  margin-bottom: 2%;
+  position: relative;
+}
+
+.username input,
+.username2 input,
+.birthdate-box input,
+.tipoDoc-box select {
+  /* Diseño de los campos de entrada */
+  width: 100%;
+  height: 3.3rem;
+  padding: 12px;
+  background-color: var(--gris);
+  border-radius: var(--border-radius);
+  font-size: 1.2rem;
+  color: var(--oscuro);
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="date"]:focus,
+select:focus {
+  border-color: var(--gris);
+  outline: none;
+}
+
+.birthdate-box,
+.tipoDoc-box {
+  color: var(--gris);
+}
+
+.texto-label {
+  font-size: 1.2rem;
+  text-align: left;
+}
+
+.username label {
+  /* Animación de las etiquetas */
+  position: absolute;
+  top: 65%;
+  left: 3%;
+  color: var(--negro);
+  transform: translateY(-75%);
+  font-size: 1.2rem;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.username input:focus~label,
+.username input:valid~label {
+  /* Animación después de completar el campo */
+  top: -5px;
+  color: var(--gris);
+  font-family: "textos";
+  transition: top 0.3s ease, color 0.3s ease;
+}
+
+.username2 label {
+  /* Animación de las etiquetas */
+  position: absolute;
+  top: 65%;
+  left: 3%;
+  color: var(--negro);
+  transform: translateY(-75%);
+  font-size: 1.2rem;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.username2 input:focus~label,
+/* Cuando el input recibe foco */
+.username2 input:not(:placeholder-shown)~label {
+  /* Cuando hay texto en el input */
+  top: -5px;
+  color: var(--gris);
+  font-family: "textos";
+  transition: top 0.3s ease, color 0.3s ease;
+}
+
+.username span::before {
+  /*Animación de los espacios para los campos de entrada */
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--negro);
+  transition: 0.5s;
+}
+
+.username input:focus~label,
+.username input:valid~label {
+  /*Animación de los espacios para los campos de entrada después de agregar el contenido*/
+  top: -5px;
+  color: var(--gris);
+  font-family: "textos";
+  transition: top 0.3s ease, color 0.3s ease;
+}
+
+/* estilos de checkbox de terminos y condiciones*/
+.terms-container {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.custom-checkbox {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  color: var(--gris);
+  cursor: pointer;
+  position: relative;
+}
+
+.custom-checkbox input[type="checkbox"] {
+  /* Ocultar el checkbox original */
+  position: absolute;
+  opacity: 0;
+}
+
+.custom-checkbox::before {
+  /* Caja del checkbox personalizado */
+  content: '';
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 2px solid var(--oscuro);
+  border-radius: 4px;
+  margin-right: 10px;
+  background-color: var(--blanco);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+input[type="checkbox"]:checked + .custom-checkbox::before {
+  /* Cambiar el estilo cuando esté seleccionado */
+  background-color: var(--blanco);
+  border-color: var(--oscuro);
+}
+
+.custom-checkbox::after {
+  /* Checkmark personalizado (✓) */
+  content: '✓';
+  position: absolute;
+  font-size: 1.5rem;
+  color: var(--negro);
+  top: 0px;
+  left: 4px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+input[type="checkbox"]:checked + .custom-checkbox::after {
+  /* Mostrar el checkmark cuando esté seleccionado */
+  opacity: 1;
+}
+
+.custom-checkbox a {
+  color: var(--gris); /* Color del enlace */
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.custom-checkbox a:hover {
+  color: var(--amarillo); /* Color del enlace al hacer hover */
+  text-decoration: underline;
+}
+
+.button-container {
+  /*Contenedor del boton de registrarse*/
+  margin-top: 5%;
+}
+
+.text-columns {
+  /* Estilos para dos columnas */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 25px;
+}
