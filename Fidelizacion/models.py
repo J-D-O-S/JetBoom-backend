@@ -23,16 +23,10 @@ class FidelizacionModel(models.Model):
         verbose_name="Tipo de solicitud",
     )
     archivo_adjunto = models.FileField(
-        upload_to="Fidelizacion/archivos_adjuntos/",
+        upload_to="archivos_adjuntos/",
         verbose_name="Archivo adjunto",
         blank=True,
         null=True,
-    )
-    archivo_adjunto = models.FileField(
-        upload_to="Fidelizacion/archivos_adjuntos/",
-        blank=True,
-        null=True,
-        verbose_name="Archivo adjunto",
     )
     usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
 
@@ -43,9 +37,7 @@ class Reto(models.Model):
     fecha_inicio = models.DateField(verbose_name="Fecha de inicio")
     fecha_fin = models.DateField(verbose_name="Fecha de finalización")
     punto_por_ganar = models.IntegerField(verbose_name="Puntos por ganar")
-    imagen = models.ImageField(
-        upload_to="Fidelizacion/retos/", verbose_name="Imagen del reto"
-    )
+    imagen = models.ImageField(upload_to="retos_img/", verbose_name="Imagen del reto")
     is_active = models.BooleanField(default=True, verbose_name="Reto activo")
     reto_completado = models.BooleanField(default=False, verbose_name="Reto completado")
     usuario_participante = models.ManyToManyField(

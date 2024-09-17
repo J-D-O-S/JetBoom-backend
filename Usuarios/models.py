@@ -15,7 +15,8 @@ class CustomUserManager(BaseUserManager):
         apellido,
         numero_identificacion,
         tipo_identificacion,
-        password=None,
+        valida_politicas,
+        password,
         **extra_fields,
     ):
         if not email:
@@ -28,6 +29,10 @@ class CustomUserManager(BaseUserManager):
             raise ValueError("El usuario debe tener un número de identificación")
         if not tipo_identificacion:
             raise ValueError("El usuario debe tener un tipo de documento")
+        if not valida_politicas:
+            raise ValueError(
+                "El usuario debe validado las políticas de tratamiento de datos"
+            )
 
         email_normalizado = self.normalize_email(email)
         user = self.model(
@@ -36,6 +41,7 @@ class CustomUserManager(BaseUserManager):
             apellido=apellido,
             numero_identificacion=numero_identificacion,
             tipo_identificacion=tipo_identificacion,
+            valida_politicas=valida_politicas,
             **extra_fields,
         )
         user.set_password(password)
@@ -49,7 +55,8 @@ class CustomUserManager(BaseUserManager):
         apellido,
         numero_identificacion,
         tipo_identificacion,
-        password=None,
+        valida_politicas,
+        password,
         **extra_fields,
     ):
         extra_fields.setdefault("is_staff", True)
@@ -66,6 +73,7 @@ class CustomUserManager(BaseUserManager):
             apellido,
             numero_identificacion,
             tipo_identificacion,
+            valida_politicas,
             password,
             **extra_fields,
         )
@@ -88,7 +96,7 @@ class Usuario(AbstractBaseUser, PermissionsMixin):
     fecha_modificacion = models.DateTimeField(auto_now=True, verbose_name="Modificado")
     foto_perfil = models.ImageField(
         "Foto de Perfil",
-        upload_to="static/images/perfil/",
+        upload_to="perfil_img/",
         max_length=200,
         blank=True,
         null=True,
@@ -128,6 +136,7 @@ class Usuario(AbstractBaseUser, PermissionsMixin):
         "fecha_nacimiento",
         "numero_identificacion",
         "tipo_identificacion",
+        "valida_politicas",
     ]
 
     def __str__(self):

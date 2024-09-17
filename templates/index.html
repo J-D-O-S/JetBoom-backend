@@ -106,6 +106,7 @@
 												</small>
 											</li>
 											<li class="li-items-config-nav">
+												{% comment %} aquí revisar {% endcomment %}
 												<form action="{% url "perfil" %}" method="get">
 													{% csrf_token %}
 													<button class="btn-user-info" type="submit">
@@ -172,12 +173,15 @@
 								</div>
 							</li>
 						{% else %}
-							<li class="underline nav-links getIntoSession">
-								<a href="{% url "registrarse" %}">Regístrate</a>
-							</li>
-							<li class="underline nav-links getIntoSession">
-								<a href="{% url "iniciar_sesion" %}">Iniciar Sesión</a>
-							</li>
+							{% if user.is_authenticated %}
+							{% else %}
+								<li class="underline nav-links getIntoSession">
+									<a href="{% url "registrarse" %}">Regístrate</a>
+								</li>
+								<li class="underline nav-links getIntoSession">
+									<a href="{% url "iniciar_sesion" %}">Iniciar Sesión</a>
+								</li>
+							{% endif %}
 						{% endif %}
 					</ul>
 				</nav>
@@ -298,17 +302,19 @@
 						<span class="material-symbols-rounded"> contact_support </span>
 						Sobre nosotros
 					</a>
-					<a href="{% url "registrarse" %}" class="btn-cards" type="button">
-						<span class="material-symbols-rounded">person_add</span>
-						Registrarse
-					</a>
+					{% if user.is_authenticated %}
+					{% else %}
+						<a href="{% url "registrarse" %}" class="btn-cards" type="button">
+							<span class="material-symbols-rounded">person_add</span>
+							Registrarse
+						</a>
+					{% endif %}
 				</div>
 			</section>
 		</main>
 		{% endblock main_content %} 
 		
 		<footer class="footer">
-			<!--Contenido del pie de página-->
 			<img src="{% static "img/imgFooter.svg" %}" class="img-footer" alt="Imagen de pie de página" />
 			<section class="content-footer">
 				<div class="items-content-footer">

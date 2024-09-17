@@ -5,7 +5,7 @@ from django.conf import settings
 
 class AlbumFoto(models.Model):
     foto_portada = models.ImageField(
-        upload_to="static/images/portada/",
+        upload_to="portada_img/",
         null=True,
         blank=True,
         verbose_name="Foto de portada",
@@ -45,9 +45,7 @@ class Foto(models.Model):
         null=True,
         verbose_name="Descripción de la imagen",
     )
-    imagen = models.ImageField(
-        upload_to="static/images/galeria/", verbose_name="Imagen"
-    )
+    imagen = models.ImageField(upload_to="galeria_img/", verbose_name="Imagen")
     fecha = models.DateTimeField(auto_now_add=True, verbose_name="Fecha de subida")
     comentario_publico = models.CharField(
         max_length=500, blank=True, null=True, verbose_name="Comentario público"
