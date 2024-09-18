@@ -5,22 +5,33 @@
   position: relative;
 }
   
+.formulario-pago{
+  margin: 0 10%;
+}
+
 /*Informacion Pago*/
 .section-pago h1{
-  font-size: 2.5em;
+  color: var(--font-color-negro);
+  font-family: 'titulos-especiales';
+  font-size: 3em;
   font-weight: bolder;
-  padding-bottom: 10vh;
+  padding-bottom: 3.5%;
 }
+
 .container-usuario{
   display: flex;
   flex-direction: column;
   font-size: 1.3em;
-  margin-left: 4%;
+  margin-left: 2%;
 }
+
 .usuario{
   display:flex;
   justify-content: left;
+  font-size: 1.5rem;
+  color: var(--font-color-oscuro);
 }
+
 .input-correo-usuario{
   width: 35%;
   padding: 0.8%;
@@ -30,18 +41,19 @@
   margin-top: 2%;
   margin-bottom: 5vh;
 }
+
 hr {
   height: 2px;
-  width: 90%;
-  background-color: black;
+  width: 100%;
+  background-color: var(--font-color-negro);
   margin: auto;
 }
 
 /*Detalle pago*/
 .detalle-pago{
-  width: 100%;
-  margin-left: 4%;
+  margin-left: 2%;
 }
+
 .info-personal{
   display: flex;
   flex-direction: row;
@@ -50,70 +62,54 @@ hr {
   padding-bottom: 5vh;
   max-width: 80%;
 }
+
 .title{
-  font-size: 1.3em;
-  font-weight: 2.5em;
+  font-size: 1.8em;
+  color: var(--font-color-oscuro);
+  font-family: "titulos";
   padding-top: 4vh;
   padding-bottom: 4vh;
   display: flex;
   justify-content: left;
 }
+
 .container {
   position: relative;
-  width: 80%;
+  width: 100%;
 }
-.input {
-  width: 60%;
-  padding: 3%;
+
+.input-usuario{
+  width: 50%;
+  height: 3rem;
+  padding: 1.5%;
+  font-size: 1.3em;
   border: 1px solid var(--gris);
   border-radius: 5px;
   background-color: var(--blanco);
-  font-size: 16px;
-  transition: border-color 0.3s ease;
-}
-.input:focus {
-  border-color: var(--rojo);
-  outline: none;
-}
-.label {
-  position: absolute;
-  top: 50%;
-  left: 10px;
-  transform: translateY(-50%);
-  font-size: 16px;
-  color: #cfcfcf;
-  pointer-events: none;
-  transition: 0.3s ease;
-  background-color: var(--blanco);
-  padding: 0 5px;
-  border-radius: 15%;
-}
-.input:focus + .label,
-.input:not(:placeholder-shown) ~ .label {
-  top: -2%;
-  left: 1%;
-  font-size: 12px;
-  color: var(--rojo);
-}
-.requerido {
-  color: var(--rojo);
+  margin-top: 2%;
+  margin-bottom: 5vh;
 }
 
-.form{
-  margin-left: 4%;
+/* ------------- Datos solicitados al usuario ------------- */
+.form-datos-solicitados{
+  margin-left: 2%;
 }
+
 /*Calendario*/
 .calendario h2,
 .cantidad-personas h2{
   display: flex;
   align-items: left;
+  color: var(--font-color-oscuro);
   margin-top: 4.5vh;
-  font-size: 1.3em;
+  font-size: 1.5em;
 }
+
 .calendario input[type="date"] {
   margin-top: 3vh;
   padding: 10px;
-  border-radius: 5px;
+  color: var(--font-color-oscuro);
+  border-radius: var(--border-radius);
   border: 1px solid #ccc;
   width: 100%;
   max-width: 300px;
@@ -123,77 +119,66 @@ hr {
 /* Sección del contador */
 .counter-container {
   display: flex;
-  justify-content: left; /* Centra el contador en su contenedor */
+  justify-content: left; 
   margin-top: 4vh;
 }
+
 .counter-btn {
   border-radius: 50%;
-  background-color: var(--rojo); /* Color de fondo del botón */
-  color: white; /* Color del texto del botón */
-  border: none; /* Elimina el borde predeterminado */
-  width: 50px; /* Ancho del botón, igual al alto para que sea cuadrado */
-  height: 50px; /* Altura del botón */
-  font-size: 1.5rem; /* Tamaño del texto dentro del botón */
-  margin: 0; /* Sin margen entre los botones */
-  display: flex; /* Utiliza Flexbox para centrar el contenido dentro del botón */
-  align-items: center; /* Centra verticalmente el texto dentro del botón */
-  justify-content: center; /* Centra horizontalmente el texto dentro del botón */
+  background-color: var(--rojo); 
+  color: var(--blanco); 
+  border: none; 
+  width: 3.3rem; 
+  height: 3.3rem; 
+  font-size: 1.6rem; 
+  margin: 0; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
   cursor: pointer;
 }
-.counter-input {
-  width: 60px; /* Ancho del campo de entrada */
-  height: 50px; /* Altura del campo de entrada, igual a los botones */
-  text-align: center; /* Centra el texto dentro del campo de entrada */
-  font-size: 1.5rem; /* Tamaño del texto dentro del campo de entrada */
-  border: 1px solid #ccc; /* Borde alrededor del campo de entrada */
-  border-radius: 5px; /* Radio de borde para redondear las esquinas */
-  margin: 0 10px; /* Espacio entre el campo de entrada y los botones */
-  margin-bottom: 5vh;
-}
 
-.btn-base {
-  width: 12rem; /* Tamaño del botón, ajusta según sea necesario */
-  height: 12rem; /* Debe ser igual al ancho para mantener la forma circular */
-  border-radius: 50%; /* Hace que el botón sea redondo */
-  background-color: var(--rojo); /* Color de fondo del botón */
-  color: #fff; /* Color del texto */
-  display: flex; /* Utiliza Flexbox para centrar el contenido dentro del botón */
-  align-items: center; /* Centra verticalmente el texto */
-  font-size: 2rem; /* Tamaño del texto del botón */
-  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
-  outline: none; /* Elimina el contorno del botón cuando está enfocado */
-}
-.btn-base:hover {
-  background: var(--amarillo);
-  outline: 2px solid var(--rojo);
-  color: var(--negro);
-  transition: all 0.5s ease-in-out;
+.counter-input {
+  width: 7rem; 
+  height: 3rem; 
+  text-align: center; 
+  color: var(--font-color-oscuro);
+  font-size: 1.5rem; 
+  border: 1px solid #ccc; 
+  border-radius: var(--border-radius); 
+  margin: 0 15px; 
+  margin-bottom: 5vh;
 }
 
 /*Columnas*/
 .dos-columnas {
-  display: flex; /* Utiliza Flexbox para alinear los elementos en fila */
-  justify-content: space-between; /* Distribuye el espacio entre las columnas */
-  gap: 20px; /* Espacio entre las dos columnas */
-  margin-left: 4%;
+  display: flex; 
+  justify-content: space-between; 
+  gap: 10px; 
+  margin-left: 2%;
 }
+
 .columna {
-  flex: 1; /* Cada columna ocupa el mismo espacio disponible */
+  flex: 1; 
 }
+
 .derecha {
   /* Estilo para la columna derecha */
-  display: flex; /* Alinea el contenido del botón en el centro de la columna */
-  align-items: center; /* Centra verticalmente el botón */
-  justify-content: center; /* Centra horizontalmente el botón */
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
   padding-top: 6vh;
 }
 
 /*Seccion del costo total*/
 .descripcion{
   padding-bottom:2vh;
-  font-size: 1.3em;
+  font-family: "titulos";
+  color: var(--font-color-oscuro);
+  font-size: 1.8em;
   padding-top: 4vh;
 }
+
 .detalle-item {
   width: 95%;
   display:flex;
@@ -201,54 +186,50 @@ hr {
   align-items: baseline;
   justify-content: flex-start;
 }
+
 .container-pago{
 display: flex;
 justify-content: row;
 margin-top: 2vh;
 }
+
 .container-pago-total{
   display: flex;
   justify-content: row;
   margin-top: 6vh;
 }
-.lugar{
-display: flex;
-margin-right: 2em;
-width: 100%;
-font-size: 1.1em;
-}
-.guia{
+
+.info{
   display: flex;
-  margin-right: 6.5em;
+  color: var(--font-color-oscuro);
+  padding: 2%;
   width: 100%;
-  font-size: 1.1em;
+  font-size: 1.5em;
 }
+
+.input-pago{
+  width: 45%;
+  height: 3rem;
+  margin: 2% 0;
+  padding: 3%;
+  border: 1px solid var(--gris);
+  border-radius: 5px;
+  background-color: var(--blanco);
+}
+
 .total{
   display: flex;
-  margin-right: 6em;
-  width: 20%;
-  font-size: 1.3em;
+  color: var(--font-color-oscuro);
+  padding: 2%;
+  margin-right: 4rem;
+  font-family: "titulos";
+  font-size: 1.8em;
   font-weight: bold;
 }
-.input-pago-lugar{
-  width: 77%;
-  padding: 3%;
-  border: 1px solid var(--gris);
-  border-radius: 5px;
-  background-color: var(--blanco);
-}
-.input-pago-guia{
-  width: 100%;
-  padding: 3.3%;
-  padding-right: 16%;
-  border: 1px solid var(--gris);
-  border-radius: 5px;
-  background-color: var(--blanco);
-}
-.input-pago-total{
-  width: 35%;
-  padding: 3%;
-  border: 1px solid var(--gris);
-  border-radius: 5px;
-  background-color: var(--blanco);
+
+.btn-base {
+  width: 12rem; 
+  height: 12rem; 
+  border-radius: 50%; 
+  font-size: 2rem; 
 }

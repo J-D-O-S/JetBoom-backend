@@ -15,40 +15,40 @@ Pago | JetBooms
 {% block main_content %}
     {% if user.is_authenticated %}
     <main class="main">
+      <div class="formulario-pago">
         <div class="section-pago">
             <h1>Pago</h1>
             <div class="container-usuario">
               <label class="usuario">Sesion iniciada como:</label>
               <input type="email"  class="input-correo-usuario" name="email" value="{{user.email}}" disabled>
             </div>
-          </div>
+        </div>
         
-          <hr>
+        <hr>
         
-          <div class="detalle-pago">
-            <h1 class="title">Información de la cuenta</h1>
-            <div class="info-personal">
-              
+        <div class="detalle-pago">
+          <h1 class="title">Información de la cuenta</h1>
+          <div class="info-personal">
+            <div class="container">
+              <label class="usuario">Nombre:</label>
+              <input type="text"  class="input-usuario" name="nombre" value="{{user.nombre}}" disabled>
+            </div>
 
-              <div class="container">
-                <label class="usuario">Nombre:</label>
-                <input type="text"  class="input-correo-usuario" name="nombre" value="{{user.nombre}}" disabled>
-              </div>
-
-              <div class="container">
-                <label class="usuario">Apellido:</label>
-                <input type="text"  class="input-correo-usuario" name="nombre" value="{{user.apellido}}" disabled>
-              </div>
+            <div class="container">
+              <label class="usuario">Apellido:</label>
+              <input type="text"  class="input-usuario" name="nombre" value="{{user.apellido}}" disabled>
             </div>
           </div>
+        </div>
         
-          <hr>
+        <hr>
         
-          <form class="form">
-            <!--Calendario-->
-            <div class="calendario">
-              <h2>Elige la fecha de tu visita</h2>
-              <input type="date" id="fecha-visita" name="fecha-visita">
+        <!-- Datos solicitados al usuario -->
+        <form class="form-datos-solicitados">
+          <!--Calendario-->
+          <div class="calendario">
+            <h2>Elige la fecha de tu visita</h2>
+              <input type="date" id="fecha-visita" placeholder="AAAA-MM-DD" min="2024-09-17" max="2025-03-17" name="fecha-visita">
             </div>
         
             <!--Cantidad personas-->
@@ -84,33 +84,36 @@ Pago | JetBooms
             </div>
           </form>
         
-          <hr>
+        <hr>
         
-          <section class="dos-columnas">
-            <div class="columna izquierda">
-                <div class="detalle-item">
-                  <p class="descripcion">Descripción del pago:</p>
-                  <div class="container-pago">
-                    <label for="lugar" class="lugar">Museo Botero</label>
-                    <input disabled type="text" id="lugar" class="input-pago-lugar" placeholder=" ">
-                  </div>
-                  <div class="container-pago">
-                    <label for="guia" class="guia">Guia</label>
-                    <input disabled type="text" id="guia" class="input-pago-guia" placeholder=" ">
-                  </div>
-                  <div class="container-pago-total">
-                    <label for="total" class="total">TOTAL:</label>
-                    <input disabled type="text" id="total" class="input-pago-total" placeholder=" ">
-                  </div>
-                </div>
+        <section class="dos-columnas">
+          <div class="columna izquierda">
+            <div class="detalle-item">
+              <p class="descripcion">Descripción del pago:</p>
+              <div class="container-pago">
+                <label for="lugar" class="info">Lugar turistico</label>
+                <input disabled type="text" id="lugar" class="input-pago" placeholder=" ">
+              </div>
+              <div class="container-pago">
+                <label for="guia" class="info">Valor del servicio</label>
+                <input disabled type="text" id="guia" class="input-pago" placeholder=" ">
+              </div>
+              <div class="container-pago">
+                <label for="guia" class="info">Valor añadido por persona</label>
+                <input disabled type="text" id="guia" class="input-pago" placeholder=" ">
+              </div>
+              <div class="container-pago-total">
+                <label for="total" class="total">TOTAL:</label>
+                <input disabled type="text" id="total" class="input-pago" placeholder=" ">
+              </div>
             </div>
+          </div>
         
-            <div class="columna derecha">
-              <section>
-                <a class=btn-base href="{% url "pasarela_pago" %}">COMPRA AHORA!!</a>
-              </section>
-            </div>
-          </section>
+          <div class="columna derecha">
+            <a class=btn-base href="{% url "pasarela_pago" %}">COMPRA AHORA!!</a>
+          </div>
+        </section>
+
     </main>
     
         {% comment %} Cómo puedo saber si estoy logueado desde otro template antes de inyectar la sección que deseo al base.html? {% endcomment %}
