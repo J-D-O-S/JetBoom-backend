@@ -4,7 +4,7 @@ from django.views.generic import TemplateView
 from django.views.generic.base import View
 from .forms import CustomFidelizacionForm
 
-    
+
 class AboutUsView(View):
     def get(self, request, *args, **kwargs):
         form = CustomFidelizacionForm()
@@ -22,8 +22,10 @@ class AboutUsView(View):
             print("Errores en el formulario: ", form.errors)
             return render(request, "sobreNosotros/sobreNosotros.html", {"form": form})
 
+
 class ContactanosView(TemplateView):
     template_name = "atencion_usuario/contactanos.html"
 
+
 class terminosCondicionesView(TemplateView):
-    template_name = "atencion_usuario/terminosCondiciones.html"    
+    template_name = "atencion_usuario/terminosCondiciones.html"
