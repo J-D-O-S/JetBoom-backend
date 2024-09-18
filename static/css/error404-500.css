@@ -47,7 +47,7 @@
   /* Tamaño y posición del texto del error */
   text-align: center;
   font-size: 1.3em;
-  color: var(--font-color-negro);
+  color: var(--font-color-oscuro);
 }
 
 @media (max-width: 1200px) {

@@ -1,16 +1,16 @@
-.main{
+.main {
   display: flex;
   flex-direction: column;
   justify-content: center;
   position: relative;
 }
-  
-.formulario-pago{
+
+.formulario-pago {
   margin: 0 10%;
 }
 
 /*Informacion Pago*/
-.section-pago h1{
+.section-pago h1 {
   color: var(--font-color-negro);
   font-family: 'titulos-especiales';
   font-size: 3em;
@@ -18,21 +18,21 @@
   padding-bottom: 3.5%;
 }
 
-.container-usuario{
+.container-usuario {
   display: flex;
   flex-direction: column;
   font-size: 1.3em;
   margin-left: 2%;
 }
 
-.usuario{
-  display:flex;
+.usuario {
+  display: flex;
   justify-content: left;
   font-size: 1.5rem;
   color: var(--font-color-oscuro);
 }
 
-.input-correo-usuario{
+.input-correo-usuario {
   width: 35%;
   padding: 0.8%;
   border: 1px solid var(--gris);
@@ -50,11 +50,11 @@ hr {
 }
 
 /*Detalle pago*/
-.detalle-pago{
+.detalle-pago {
   margin-left: 2%;
 }
 
-.info-personal{
+.info-personal {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -63,7 +63,7 @@ hr {
   max-width: 80%;
 }
 
-.title{
+.title {
   font-size: 1.8em;
   color: var(--font-color-oscuro);
   font-family: "titulos";
@@ -78,7 +78,7 @@ hr {
   width: 100%;
 }
 
-.input-usuario{
+.input-usuario {
   width: 50%;
   height: 3rem;
   padding: 1.5%;
@@ -91,13 +91,13 @@ hr {
 }
 
 /* ------------- Datos solicitados al usuario ------------- */
-.form-datos-solicitados{
+.form-datos-solicitados {
   margin-left: 2%;
 }
 
 /*Calendario*/
 .calendario h2,
-.cantidad-personas h2{
+.cantidad-personas h2 {
   display: flex;
   align-items: left;
   color: var(--font-color-oscuro);
@@ -115,64 +115,73 @@ hr {
   max-width: 300px;
 }
 
+[data-theme="dark"] input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(100%);
+}
+
+[data-theme="light"] input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: brightness(100%) saturate(100%) invert(0%) sepia(0%) saturate(7500%) hue-rotate(0deg) brightness(105%) contrast(102%);
+}
+
+
 /*Cantidad personas*/
 /* Sección del contador */
 .counter-container {
   display: flex;
-  justify-content: left; 
+  justify-content: left;
   margin-top: 4vh;
 }
 
 .counter-btn {
   border-radius: 50%;
-  background-color: var(--rojo); 
-  color: var(--blanco); 
-  border: none; 
-  width: 3.3rem; 
-  height: 3.3rem; 
-  font-size: 1.6rem; 
-  margin: 0; 
-  display: flex; 
-  align-items: center; 
-  justify-content: center; 
+  background-color: var(--rojo);
+  color: var(--blanco);
+  border: none;
+  width: 3.3rem;
+  height: 3.3rem;
+  font-size: 1.6rem;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
 }
 
 .counter-input {
-  width: 7rem; 
-  height: 3rem; 
-  text-align: center; 
+  width: 7rem;
+  height: 3rem;
+  text-align: center;
   color: var(--font-color-oscuro);
-  font-size: 1.5rem; 
-  border: 1px solid #ccc; 
-  border-radius: var(--border-radius); 
-  margin: 0 15px; 
+  font-size: 1.5rem;
+  border: 1px solid #ccc;
+  border-radius: var(--border-radius);
+  margin: 0 15px;
   margin-bottom: 5vh;
 }
 
 /*Columnas*/
 .dos-columnas {
-  display: flex; 
-  justify-content: space-between; 
-  gap: 10px; 
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
   margin-left: 2%;
 }
 
 .columna {
-  flex: 1; 
+  flex: 1;
 }
 
 .derecha {
   /* Estilo para la columna derecha */
-  display: flex; 
-  align-items: center; 
-  justify-content: center; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding-top: 6vh;
 }
 
 /*Seccion del costo total*/
-.descripcion{
-  padding-bottom:2vh;
+.descripcion {
+  padding-bottom: 2vh;
   font-family: "titulos";
   color: var(--font-color-oscuro);
   font-size: 1.8em;
@@ -181,43 +190,43 @@ hr {
 
 .detalle-item {
   width: 95%;
-  display:flex;
-  flex-direction: column;
-  align-items: baseline;
-  justify-content: flex-start;
-}
-
-.container-pago{
-display: flex;
-justify-content: row;
-margin-top: 2vh;
-}
-
-.container-pago-total{
   display: flex;
-  justify-content: row;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.container-pago {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2vh;
+}
+
+.container-pago-total {
+  display: flex;
+  justify-content: space-between;
   margin-top: 6vh;
 }
 
-.info{
+.info {
   display: flex;
+  justify-content: start;
   color: var(--font-color-oscuro);
   padding: 2%;
   width: 100%;
   font-size: 1.5em;
 }
 
-.input-pago{
+.input-pago {
+  background-color: var(--blanco);
+  border: 1px solid var(--gris);
+  border-radius: 5px;
   width: 45%;
   height: 3rem;
   margin: 2% 0;
   padding: 3%;
-  border: 1px solid var(--gris);
-  border-radius: 5px;
-  background-color: var(--blanco);
 }
 
-.total{
+.total-mostrar {
   display: flex;
   color: var(--font-color-oscuro);
   padding: 2%;
@@ -228,8 +237,8 @@ margin-top: 2vh;
 }
 
 .btn-base {
-  width: 12rem; 
-  height: 12rem; 
-  border-radius: 50%; 
-  font-size: 2rem; 
+  width: 12rem;
+  height: 12rem;
+  font-size: 2rem;
+  border-radius: 50%;
 }

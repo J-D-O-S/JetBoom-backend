@@ -1,10 +1,9 @@
 from django.shortcuts import render
 from django.views.generic.base import TemplateView
-from django.contrib.auth.mixins import LoginRequiredMixin
 from datetime import date
 
 
-class SellView(LoginRequiredMixin, TemplateView):
+class SellView(TemplateView):
     template_name = "pago/pago.html"
 
     def get_context_data(self, **kwargs):
@@ -14,10 +13,10 @@ class SellView(LoginRequiredMixin, TemplateView):
         return context
 
     def get(self, request):
-        return render(request, "pago.html")
+        return render(request, self.template_name)
 
     def post(self, request):
-        return render(request, "pago.html")
+        return render(request, self.template_name)
 
 
 class comprobanteView(TemplateView):

@@ -17,13 +17,13 @@ Comprobante de pago | JetBoom
     <section class="cuadrados-section">
         <div class="cuadradoContainer">
             <div class="cuadradorojo">
-                <img src="../img/imgFotoPerfil.webp" />
+                <img src="{% static "img/imgFotoPerfil.webp" %}" />
             </div>
             <p class="texto-cuadradorojo">Tu guía: Juan Olaya</p>
         </div>
         <div class="cuadradoContainer">
             <div class="cuadradoamarillo">
-                <img src="../img/cardMuseoOro.webp" />
+                <img src="{% static "img/cardMuseoOro.webp" %}" />
             </div>
             <p class="texto-cuadradoamarillo">Museo del Oro</p>
         </div>
@@ -72,7 +72,7 @@ Comprobante de pago | JetBoom
         </table>
     </section>
 
-    <a href="./../html/cambioContrasenia.html" class="btn-base" type="button" >
+    <a href="{% url "reservas" %}" class="btn-base" type="button" >
         Ir a Mis Reservas
     </a> 
 

@@ -10,7 +10,7 @@
 .container-titulo {
     color: var(--font-color-negro);
     margin: 1% 0;
-    text-align: center; 
+    text-align: center;
 }
 
 .container-titulo h2 {
@@ -26,7 +26,7 @@
     flex-wrap: nowrap;
     flex-direction: row;
 }
-  
+
 .button-option {
     display: flex;
     align-items: center;
@@ -38,27 +38,27 @@
     cursor: pointer;
     transition: all 0.3s ease;
 }
-  
+
 .button-content {
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     align-items: center;
     width: 20rem;
     height: 12rem;
     color: var(--font-color-oscuro);
-    transition: all 0.3s ease;  
+    transition: all 0.3s ease;
 }
-  
+
 .button-content img {
     width: 100%;
     height: auto;
-    max-height: 7rem;
+    max-height: 6.5rem;
     object-fit: cover;
-    margin-bottom: 1.5%; 
+    margin-bottom: 1.5%;
     border-radius: var(--border-radius);
     transition: all 0.3s ease;
 }
-  
+
 .button-content span {
     font-size: 1.5rem;
     margin-top: 3.5%;
@@ -68,20 +68,21 @@
 }
 
 /* Estilo cuando el radio está marcado */
-.radio-option:checked + .button-content {
-    background-color: var(--amarillo); 
+.radio-option:checked+.button-content {
+    background-color: var(--amarillo);
     border: 2px solid var(--amarillo);
+    border-radius: var(--border-radius);
     transform: scale(1.05);
     transition: all 0.3s ease-in-out;
 }
-  
-.radio-option:checked + .button-content img {
-    max-height: 9rem; 
+
+.radio-option:checked+.button-content img {
+    max-height: 8rem;
 }
-  
-.radio-option:checked + .button-content span {
+
+.radio-option:checked+.button-content span {
     font-size: 1.8rem;
-    color: var(--rojo); 
+    color: var(--rojo);
 }
 
 /* ------------------- contenedor del formulario ---------------- */
@@ -93,7 +94,7 @@
     align-items: center;
     background: var(--rojo);
     border-radius: var(--border-radius);
-    padding: 2%; 
+    padding: 2%;
 }
 
 .formulario h1 {
@@ -101,7 +102,7 @@
     font-family: "titulos-especiales";
     font-size: 2.5rem;
     color: var(--amarillo);
-    text-align: center; 
+    text-align: center;
 }
 
 .formulario form {
@@ -139,16 +140,31 @@ form .username {
     transition: 0.5s;
 }
 
+.username span::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--negro);
+    transition: .5s;
+}
+
+.username input:focus~label,
+.username input:valid~label {
+    top: -5px;
+    color: var(--gris);
+    font-family: "textos";
+    transition: top 0.3s ease, color 0.3s ease;
+}
+
 .button-container {
     margin: 0% 0 6%;
 }
 
 .btn-formulario {
-    padding: 2% 20%;
+    padding: 2% 10%;
     display: block;
-    margin: 0 auto; 
+    margin: 0 auto;
+    width: 50%;
 }
-
-
-
-
