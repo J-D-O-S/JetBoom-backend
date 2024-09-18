@@ -217,12 +217,12 @@ Sobre Nosotros | JetBoom
                     <label class="texto-label">Correo</label>
                       <div class="username">
                           {{ form.email.error }}
-                          <input type="email" name="email" value="{{user.email}}" disabled>
+                          <input type="email" name="email" value="{{ user.email }}" disabled>
                       </div>
-                      
+
                       <label class="texto-label">Nombre Completo</label>
                       <div class="username">
-                          <input type="text" name="nombre" value="{{user.nombre}} {{user.apellido}}" disabled>
+                          <input type="text" name="nombre" value="{{ user.nombre }} {{ user.apellido }}" disabled>
                       </div>
 
                       <div class="tipoDoc-box">
@@ -235,7 +235,7 @@ Sobre Nosotros | JetBoom
           
                       <label class="texto-label">Mensaje*</label>
                       <div class="username2">
-                          <input type="texto" name="opinion_servicio" required>
+                          <input type="text" name="opinion_servicio" required>
                           {% if form.opinion_servicio.errors %}
                               <div class="errorlist">{{ form.opinion_servicio.errors }}</div>
                           {% endif %}

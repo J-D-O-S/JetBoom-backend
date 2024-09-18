@@ -42,7 +42,11 @@ Perfil | JetBooms
                     <img src="{% static 'img/default_perfil.webp' %}" alt="Imagen por defecto de Perfil" />
                 {% endif %}
             </div>
-            <div class="nombreperfil">{{ user.nombre }} {{ user.apellido }}</div>
+            <div class="nombreperfil">{{ user.nombre }} {{ user.apellido }} 
+                <a href="{% url "actualizar_datos" %}">
+                    <span class="material-symbols-rounded">person_edit</span>
+                </a>
+            </div>
         </div>
 
         <div class="contenedorcuadradorojo">

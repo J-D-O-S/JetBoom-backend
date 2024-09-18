@@ -7,9 +7,7 @@ from .views import (
     LoginUsuarioView,
     LogoutUsuarioView,
     RegistroView,
-    PerfilView,
-    PuntosView,
-    CustomResetPasswordView,
+    actualizarDatosView,
 )
 
 
@@ -25,6 +23,11 @@ urlpatterns = [
         name="registrarse",
     ),
     path(
+        "actualizar_datos/",
+        actualizarDatosView.as_view(),
+        name="actualizar_datos",
+    ),
+    path(
         "cerrar_sesion/",
         LogoutUsuarioView.as_view(),
         name="cerrar_sesion",
@@ -33,12 +36,6 @@ urlpatterns = [
         "perfil/",
         include("Usuarios.urls_perfil"),
     ),
-    # path("perfil_puntos/", PuntosView.as_view(), name="puntos"),
-    # path(
-    #     "recuperar_contrasena/",
-    #     CustomResetPasswordView.as_view(),
-    #     name="reset_password",
-    # ),
 ]
 
 if settings.DEBUG:

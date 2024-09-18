@@ -5,7 +5,7 @@ from datetime import date
 
 
 class SellView(LoginRequiredMixin, TemplateView):
-    template_name = "pago.html"
+    template_name = "pago/pago.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -18,3 +18,11 @@ class SellView(LoginRequiredMixin, TemplateView):
 
     def post(self, request):
         return render(request, "pago.html")
+
+
+class comprobanteView(TemplateView):
+    template_name = "pago/comprobantePago.html"
+
+
+class pasarelaView(TemplateView):
+    template_name = "pasarela_pago/pasarelaPago.html"
