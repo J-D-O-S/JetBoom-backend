@@ -82,39 +82,85 @@ Perfil | JetBooms
         </section>
 
         {% block perfil_content %}
-            {% if imagenes|length > 0 %}
-            <section class="galeria" id="galeria">
-                {% for img in imagenes %}
-                    <a href="#{{ img.order }}">
-                        <img src="{{ img.imagen.url }}" />
-                    </a>
-                    {% endfor %}
-                </section>
-                
-                {% for img in imagenes %}
-                <article class="ligth-box" id="{{ img.order }}">
-                    {% if not forloop.first %}
-                    <a href="#{{ forloop.counter|add:'-1' }}" class="next">
-                        <span class="material-symbols-rounded">arrow_back_ios</span>
-                    </a>
-                    {% endif %}
-                    <img src="{{ img.imagen.url }}" />
-                    {% if not forloop.last %}
-                    <a href="#{{ forloop.counter|add:'1' }}" class="next">
-                        <span class="material-symbols-rounded">arrow_forward_ios</span>
-                    </a>
-                    {% endif %}
-                    <a href="#galeria" class="close">X</a>
-                </article>
-                {% endfor %}
-            
-            {% else %}
-                <span class="material-symbols-rounded icon-add-picture">
-                    arrow_upward
-                </span>
-                <p class="text">Agrega imágenes a tu galería para verlas aquí.</p>	
-                <p class="text">No hay imágenes en tu galería.</p>
-            {% endif %}
-        {% endblock perfil_content %}
+        {% if imagenes|length > 0 %}
+          <section class="galeria" id="galeria">
+            {% for img in imagenes %}
+              <a href="#{{ img.order }}">
+                <img src="{{ img.imagen.url }}" />
+              </a>
+            {% endfor %}
+          </section>
+  
+          {% for img in imagenes %}
+            <article class="ligth-box" id="{{ img.order }}">
+              {% if not forloop.first %}
+                <a href="#{{ forloop.counter|add:'-1' }}" class="next">
+                  <span class="material-symbols-rounded next">arrow_back_ios</span>
+                </a>
+              {% endif %}
+              <div class="container">
+                <div class="lado-izquierdo">
+                  <img src="{{ img.imagen.url }}" />
+                </div>
+                <div class="lado-derecho">
+                  <div class="card-comentarios-user">
+                    <div class="user">
+                      <div class="nombre-user-admin">
+                        <!-- Poner la imagen de perfil del usuario dueño de la foto -->
+                        <img src="{% static 'img/cardParqueTunal.webp' %}" alt="Foto de Perfil" class="foto-perfil">
+                        {{ user.nombre }} {{ user.apellido }}
+                      </div>
+                      <div>
+                        <span class="material-symbols-rounded">delete</span>
+                      </div>
+                    </div>
+                    <div class="descripcion">
+                      <p>{{ img.descripcion }}</p>
+                    </div>
+                  </div>
+  
+                  <!-- Comentarios de otros usuarios -->
+                  <div class="card-comentarios">
+                    <div class="user">
+                      <div class="nombre-user">
+                        <!-- Poner la foto de perfil del usuario que hace el comentario -->
+                        <img src="{% static 'img/cardParqueTunal.webp' %}" alt="Foto perfil" class="foto-perfil">
+                       <!-- Poner el perfil del usuario que hace el comentario -->
+                        Juan Olaya
+                      </div>
+                      <div><span class="material-symbols-rounded">more_vert</span></div>
+                    </div>
+                    <div class="descripcion">
+                      <p>Que lindo lugar</p>
+                    </div>
+                  </div>
+                  
+                  <!--Agregar comentario-->
+                  <div id="form-comentario">
+                    <input id="texto-comentario" placeholder="Escribe tu comentario...">
+                    <span class="material-symbols-rounded">send</span>
+                  </div>  
+                </div>
+              </div>
+              
+              {% if not forloop.last %}
+                <a href="#{{ forloop.counter|add:'1' }}" class="next">
+                  <span class="material-symbols-rounded next">arrow_forward_ios</span>
+                </a>
+              {% endif %}
+              <a href="#galeria" class="close">X</a>
+            </article>
+          {% endfor %}
+  
+        {% else %}
+          <span class="material-symbols-rounded icon-add-picture">
+            arrow_upward
+          </span>
+          <p class="text">Agrega fotos a tu álbum JetBoom y visualízalas aquí.
+            <br>
+            Aún no has agregado fotos a tu álbum.
+          </p>
+        {% endif %}
+      {% endblock perfil_content %}
     </main>
 {% endblock main_content %}
