@@ -31,7 +31,7 @@
   margin-top: 2%;
   font-family: "titulos-especiales";
   font-size: 4.5em;
-  color: var(--negro);
+  color: var(--font-color-negro);
 }
 
 .titulo500 {
@@ -40,14 +40,14 @@
   margin-top: -2%;
   font-family: "titulos-especiales";
   font-size: 4.5em;
-  color: var(--negro);
+  color: var(--font-color-negro);
 }
 
 .texto-404-500 {
   /* Tamaño y posición del texto del error */
   text-align: center;
   font-size: 1.3em;
-  color: var(--oscuro);
+  color: var(--font-color-negro);
 }
 
 @media (max-width: 1200px) {

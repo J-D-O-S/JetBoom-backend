@@ -10,6 +10,7 @@ from .views import (
     PerfilView,
     PuntosView,
     CustomResetPasswordView,
+    actualizarDatosView,
 )
 
 
@@ -24,6 +25,11 @@ urlpatterns = (
             "registrarse/",
             RegistroView.as_view(),
             name="registrarse",
+        ),
+        path(
+            "actualizar_datos/",
+            actualizarDatosView.as_view(),
+            name="actualizar_datos",
         ),
         path(
             "cerrar_sesion/",

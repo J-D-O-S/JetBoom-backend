@@ -11,17 +11,21 @@ class AboutUsView(View):
         return render(request, "sobreNosotros/sobreNosotros.html", {"form": form})
 
     def post(self, request, *args, **kwargs):
-        form = CustomFidelizacionForm(request.POST)
+        form = CustomFidelizacionForm(request.POST, request.FILES)
         print(form)
         if form.is_valid():
-            print(form.cleaned_data)
+            user = self.request.user
+            form.instance.usuario_id = user.id
             form.save()
-            return render(request, "sobreNosotros/sobreNosotros.html")
+            return render(request, "index.html", {"form": form})
         else:
-            print("\n\nAquí se van a presentar los errores\n\n")
-            print(form.errors)
-            return render(request, "sobreNosotros/sobreNosotros.html")
+            print("Errores en el formulario: ", form.errors)
+            return render(request, "sobreNosotros/sobreNosotros.html", {"form": form})
 
 
 class ContactanosView(TemplateView):
     template_name = "atencion_usuario/contactanos.html"
+
+
+class terminosCondicionesView(TemplateView):
+    template_name = "atencion_usuario/terminosCondiciones.html"

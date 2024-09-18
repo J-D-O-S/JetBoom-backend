@@ -1,26 +1,24 @@
 {% extends "index.html" %} 
 {% block title %}
-    Crear Cuenta | JetBoom
+    Actualizar datos | JetBoom
 {% endblock title%}
 {% block styles_apply %} 
   {% load static %}
-  <link rel="stylesheet" href="{% static "css/crearCuenta.css" %}" /> 
+  <link rel="stylesheet" href="{% static "css/actualizaDatos.css" %}" /> 
 {% endblock styles_apply %} 
 
 {% block main_content %}
 <main class="main">
     <div class="formulario">
-        <h1>Regístrate</h1>
+        <h1>Actualizar datos personales</h1>
         <form method="post" autocomplete="off">
             {% csrf_token %}
-            <div class="container-correo">
+            <label class="texto-label">Correo</label>
+            <br>
                 <div class="username">
                     {{ form.email.error }}
-                    <input type="email" name="email" required>
-                    <label>Correo*</label>
-                </div>
-            </div>    
-            <section class="text-columns">    
+                    <input type="email" name="email" value="{{user.email}}" disabled>
+                </div>  
                 <div class="username">
                     <input type="text" name="nombre" required>
                     <label>Nombre*</label>
@@ -37,44 +35,20 @@
                     <input type="text"  name="segundo_apellido" placeholder=" " />
                     <label>Segundo Apellido</label>
                 </div>
-
-                <div class="birthdate-box">
-                    {% comment %} <form action="fecha" class="form"> {% endcomment %}
-                    <label class="texto-label">Fecha de Nacimiento*</label>
-                    <br>
-                    <input type="date" class="calendario" placeholder="AAAA-MM-DD" min="1924-01-01" max="2006-12-31" name="fecha_nacimiento" />
-                    {% comment %} </form>   {% endcomment %}
-                </div>
-
                 {% comment %} name="fecha_nacimiento" {% endcomment %}
+                
                 <div class="tipoDoc-box" name="tipo_identificacion">
                     <label class="texto-label">Tipo de Documento*</label>
-                    <br>
                     {{ form.tipo_identificacion }}
-                    {{ form.tipo_identificacion.errors.as_widget({"class": "color: blue;"}) }}
+                    {{ form.errors }}
                 </div>
                 <div class="username">
                     <input type="text" name="numero_identificacion" required>
                     <label>Número de Identificación*</label>
                 </div>
 
-                <div class="username">
-                    <input type="password" name="password1" required>
-                    <label>Contraseña*</label>
-                </div>
-                <div class="username">
-                    <input type="password" name="password2" required>
-                    <label>Validar Contraseña*</label>
-                </div>   
-            </section>
-            <div class="terms-container">
-                <input type="checkbox" id="terms" name="terms" required>
-                <label for="terms" class="custom-checkbox">
-                  Acepto los &nbsp; <a href="{% url "terminos" %}" target="_blank">términos y condiciones</a>
-                </label>
-              </div>
             <button class="btn-formulario" type="submit" >
-                Crear Cuenta
+                Actualizar datos
             </button>
         </form>
     </div>

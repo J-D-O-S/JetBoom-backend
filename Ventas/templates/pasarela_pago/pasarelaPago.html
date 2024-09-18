@@ -1,0 +1,56 @@
+{% extends "index.html" %} 
+{% block title %}
+Pasarela de Pago | JetBoom
+{% endblock title%}
+{% block styles_apply %} 
+  {% load static %}
+  <link rel="stylesheet" href="{% static "css/pasarelaPago.css" %}" /> 
+{% endblock styles_apply %} 
+
+
+{% block main_content %}
+<main class="main">
+    <div class="container-titulo">
+        <h2>Formas de pago</h2>
+    </div>
+
+    <div class="button-group">
+        <label class="button-option">
+            <input type="radio" name="option" value="1" class="radio-option">
+            <div class="button-content">
+                <img src="{% static "img/logo-Pse.webp" %}" alt="Opción 1">
+                <span>Pse</span>
+            </div>
+        </label>
+        
+        <label class="button-option">
+            <input type="radio" name="option" value="2" class="radio-option">
+            <div class="button-content">
+                <img src="{% static "img/logo-PayU.webp" %}" alt="Opción 2">
+                <span>PayU</span>
+            </div>
+        </label>
+    </div>
+    
+      
+    <div class="formulario">
+        <h1>Datos requeridos</h1>
+        <form method="post" autocomplete="off">
+            {% csrf_token %}
+            <div class="username">
+                <input type="text" name="email" id="id_username" required>
+                <label>Correo*</label>
+            </div>
+ 
+            <div class="button-container">
+                <a class=btn-formulario href="{% url "comprobante_pago" %}">Pagar</a>
+            </div>
+           
+        </form>
+    </div>
+      
+          
+    
+
+</main>
+{% endblock main_content %}
