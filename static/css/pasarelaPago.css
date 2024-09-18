@@ -5,107 +5,150 @@
     align-items: center;
     position: relative;
 }
-  
- /*diseño del titulo*/
+
+/* Título */
 .container-titulo {
     color: var(--font-color-negro);
-    margin: 1% 0 2%;
+    margin: 1% 0;
+    text-align: center; 
 }
-  
+
 .container-titulo h2 {
-    /*tipo y tamaño de la letra del titulo*/
     font-family: "titulos";
-    font-size: 35px;
+    font-size: 3rem;
+}
+
+/* --------------------------- botones --------------------------- */
+.button-group {
+    display: flex;
+    gap: 3rem;
+    justify-content: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
 }
   
-
-.payment-gateway {
-    max-width: 600px;
-    margin: 50px auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.button-option {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--font-color-oscuro);
+    padding: 2%;
+    margin-bottom: 5%;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
-
-.payment-gateway h2 {
+  
+.button-content {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    width: 20rem;
+    height: 12rem;
+    color: var(--font-color-oscuro);
+    transition: all 0.3s ease;  
+}
+  
+.button-content img {
+    width: 100%;
+    height: auto;
+    max-height: 7rem;
+    object-fit: cover;
+    margin-bottom: 1.5%; 
+    border-radius: var(--border-radius);
+    transition: all 0.3s ease;
+}
+  
+.button-content span {
+    font-size: 1.5rem;
+    margin-top: 3.5%;
+    font-weight: bold;
     text-align: center;
-    color: #333;
-    margin-bottom: 20px;
+    transition: all 0.3s ease;
 }
 
-/* Estilos de pestañas */
-.tabs {
+/* Estilo cuando el radio está marcado */
+.radio-option:checked + .button-content {
+    background-color: var(--amarillo); 
+    border: 2px solid var(--amarillo);
+    transform: scale(1.05);
+    transition: all 0.3s ease-in-out;
+}
+  
+.radio-option:checked + .button-content img {
+    max-height: 9rem; 
+}
+  
+.radio-option:checked + .button-content span {
+    font-size: 1.8rem;
+    color: var(--rojo); 
+}
+
+/* ------------------- contenedor del formulario ---------------- */
+.formulario {
+    width: 40%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--rojo);
+    border-radius: var(--border-radius);
+    padding: 2%; 
 }
 
-.tabs input[type="radio"] {
-    display: none;
+.formulario h1 {
+    margin: 6% 2% 5%;
+    font-family: "titulos-especiales";
+    font-size: 2.5rem;
+    color: var(--amarillo);
+    text-align: center; 
 }
 
-.tabs label {
-    padding: 10px;
-    background-color: #f4f4f4;
-    color: #333;
-    cursor: pointer;
-    text-align: center;
-    border: 1px solid #ddd;
-    border-radius: 4px 4px 0 0;
+.formulario form {
+    width: 30rem;
+    padding: 0 5%;
+    box-sizing: border-box;
 }
 
-.tabs label:hover {
-    background-color: #e4e4e4;
-}
-
-.tab-content {
-    display: none;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-top: none;
-    background-color: #fff;
-}
-
-#credit:checked ~ .credit-content,
-#pse:checked ~ .pse-content,
-#paypal:checked ~ .paypal-content {
-    display: block;
-}
-
-.tabs label[for="credit"] {
-    border-bottom-left-radius: 0;
-}
-
-.tabs label[for="paypal"] {
-    border-bottom-right-radius: 0;
-}
-
-/* Estilos generales para los formularios */
-label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-input[type="text"], input[type="email"], select {
+form .username {
+    position: relative;
+    background-color: var(--gris);
+    border-radius: var(--border-radius);
+    margin: 8% 0;
+    padding: 0 2%;
     width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
 }
 
-button {
+.username input {
     width: 100%;
-    padding: 15px;
-    background-color: #28a745;
-    color: white;
-    font-size: 16px;
+    padding: 4%;
     border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    background: none;
+    outline: none;
 }
 
-button:hover {
-    background-color: #218838;
+.username label {
+    position: absolute;
+    top: 70%;
+    left: 4%;
+    color: var(--negro);
+    font-family: "textos";
+    transform: translateY(-75%);
+    font-size: 16px;
+    pointer-events: none;
+    transition: 0.5s;
 }
+
+.button-container {
+    margin: 0% 0 6%;
+}
+
+.btn-formulario {
+    padding: 2% 20%;
+    display: block;
+    margin: 0 auto; 
+}
+
+
+
+
