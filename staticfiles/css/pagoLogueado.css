@@ -1,0 +1,244 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.formulario-pago {
+  margin: 0 10%;
+}
+
+/*Informacion Pago*/
+.section-pago h1 {
+  color: var(--font-color-negro);
+  font-family: 'titulos-especiales';
+  font-size: 3em;
+  font-weight: bolder;
+  padding-bottom: 3.5%;
+}
+
+.container-usuario {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.3em;
+  margin-left: 2%;
+}
+
+.usuario {
+  display: flex;
+  justify-content: left;
+  font-size: 1.5rem;
+  color: var(--font-color-oscuro);
+}
+
+.input-correo-usuario {
+  width: 35%;
+  padding: 0.8%;
+  border: 1px solid var(--gris);
+  border-radius: 5px;
+  background-color: var(--blanco);
+  margin-top: 2%;
+  margin-bottom: 5vh;
+}
+
+hr {
+  height: 2px;
+  width: 100%;
+  background-color: var(--font-color-negro);
+  margin: auto;
+}
+
+/*Detalle pago*/
+.detalle-pago {
+  margin-left: 2%;
+}
+
+.info-personal {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  padding-bottom: 5vh;
+  max-width: 80%;
+}
+
+.title {
+  font-size: 1.8em;
+  color: var(--font-color-oscuro);
+  font-family: "titulos";
+  padding-top: 4vh;
+  padding-bottom: 4vh;
+  display: flex;
+  justify-content: left;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+}
+
+.input-usuario {
+  width: 50%;
+  height: 3rem;
+  padding: 1.5%;
+  font-size: 1.3em;
+  border: 1px solid var(--gris);
+  border-radius: 5px;
+  background-color: var(--blanco);
+  margin-top: 2%;
+  margin-bottom: 5vh;
+}
+
+/* ------------- Datos solicitados al usuario ------------- */
+.form-datos-solicitados {
+  margin-left: 2%;
+}
+
+/*Calendario*/
+.calendario h2,
+.cantidad-personas h2 {
+  display: flex;
+  align-items: left;
+  color: var(--font-color-oscuro);
+  margin-top: 4.5vh;
+  font-size: 1.5em;
+}
+
+.calendario input[type="date"] {
+  margin-top: 3vh;
+  padding: 10px;
+  color: var(--font-color-oscuro);
+  border-radius: var(--border-radius);
+  border: 1px solid #ccc;
+  width: 100%;
+  max-width: 300px;
+}
+
+[data-theme="dark"] input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(100%);
+}
+
+[data-theme="light"] input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: brightness(100%) saturate(100%) invert(0%) sepia(0%) saturate(7500%) hue-rotate(0deg) brightness(105%) contrast(102%);
+}
+
+
+/*Cantidad personas*/
+/* Sección del contador */
+.counter-container {
+  display: flex;
+  justify-content: left;
+  margin-top: 4vh;
+}
+
+.counter-btn {
+  border-radius: 50%;
+  background-color: var(--rojo);
+  color: var(--blanco);
+  border: none;
+  width: 3.3rem;
+  height: 3.3rem;
+  font-size: 1.6rem;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.counter-input {
+  width: 7rem;
+  height: 3rem;
+  text-align: center;
+  color: var(--font-color-oscuro);
+  font-size: 1.5rem;
+  border: 1px solid #ccc;
+  border-radius: var(--border-radius);
+  margin: 0 15px;
+  margin-bottom: 5vh;
+}
+
+/*Columnas*/
+.dos-columnas {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-left: 2%;
+}
+
+.columna {
+  flex: 1;
+}
+
+.derecha {
+  /* Estilo para la columna derecha */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 6vh;
+}
+
+/*Seccion del costo total*/
+.descripcion {
+  padding-bottom: 2vh;
+  font-family: "titulos";
+  color: var(--font-color-oscuro);
+  font-size: 1.8em;
+  padding-top: 4vh;
+}
+
+.detalle-item {
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.container-pago {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2vh;
+}
+
+.container-pago-total {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 6vh;
+}
+
+.info {
+  display: flex;
+  justify-content: start;
+  color: var(--font-color-oscuro);
+  padding: 2%;
+  width: 100%;
+  font-size: 1.5em;
+}
+
+.input-pago {
+  background-color: var(--blanco);
+  border: 1px solid var(--gris);
+  border-radius: 5px;
+  width: 45%;
+  height: 3rem;
+  margin: 2% 0;
+  padding: 3%;
+}
+
+.total-mostrar {
+  display: flex;
+  color: var(--font-color-oscuro);
+  padding: 2%;
+  margin-right: 4rem;
+  font-family: "titulos";
+  font-size: 1.8em;
+  font-weight: bold;
+}
+
+.btn-base {
+  width: 12rem;
+  height: 12rem;
+  font-size: 2rem;
+  border-radius: 50%;
+}

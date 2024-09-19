@@ -1,0 +1,641 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* ------------------------------------ Estilos de la imagen y titulo principal ------------------------------------ */
+.contenedor-texto-sobre-imagen {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-section {
+  width: 85%;
+  height: auto;
+  display: block;
+  margin: 3rem 0;
+}
+
+.texto-sobre-imagen {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.titulo-sobre-imagen {
+  color: var(--font-color-negro);
+  font-size: 4.5rem;
+  font-family: "titulos-especiales";
+}
+
+/* ------------------------------------ Estilos del texto JetBoom ------------------------------------ */
+.rectangulo-jet {
+  background-color: var(--rojo);
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.titulo-jet {
+  color: var(--blanco);
+  font-size: 6rem;
+  font-family: "JF";
+}
+
+.texto-jet {
+  text-align: center;
+  color: var(--gris);
+  margin: 0.5% 15%;
+  font-size: 1.4rem;
+}
+
+/* ------------------------------------ Estilos para los lados izquierdo y derecho ------------------------------------ */
+#pantalla-dividida {
+  display: flex;
+  justify-content: right;
+  align-items: right;
+  padding: 4rem 4rem 2rem;
+}
+
+/* -------------------- lado izquierdo -------------------- */
+.ladoizquierdo {
+  flex: 1;
+  display: flex;
+  justify-content: right;
+  align-items: right;
+}
+
+.cuadradoi {
+  width: 32rem;
+  height: 22rem;
+  padding: 5%;
+  border-radius: var(--border-radius);
+  background-color: var(--amarillo);
+  align-content: center;
+}
+
+.titulo-i {
+  color: var(--negro);
+  font-size: 2.5rem;
+  font-family: "titulos";
+}
+
+.texto-i {
+  color: var(--oscuro);
+  text-align: center;
+  margin: 2% 10% 0;
+  font-size: 1.2rem;
+}
+
+/* -------------------- lado derecho -------------------- */
+.ladoderecho {
+  flex: 1;
+  display: flex;
+  justify-content: left;
+  padding-left: 6rem;
+}
+
+.cuadradod {
+  width: 22rem;
+  height: 22rem;
+  background-color: var(--gris);
+  box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.7);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+[data-theme="dark"] .cuadradod {
+  box-shadow: 0px 0px 15px 5px rgba(62, 62, 62, 0.2);
+}
+
+.texto-d {
+  font-size: 1.6rem;
+  color: var(--oscuro);
+  margin: 0 12%;
+}
+
+.btn-show-more {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-top: 8%;
+  width: 3rem;
+  height: 3rem;
+  border: 5px double var(--oscuro);
+  border-radius: 50%;
+  outline: 5px dotted var(--oscuro);
+  outline-offset: 5px;
+  animation: jumpBtn 1.8s ease-in-out infinite;
+  text-decoration: none;
+  color: var(--oscuro);
+}
+
+.material-symbols-rounded {
+  font-size: 3rem;
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+@keyframes jumpBtn {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* ------------------------------------ Estilos para la misión y la visión ------------------------------------ */
+.section-MV {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem 4rem;
+}
+
+.container-MV {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+.title-MV {
+  color: var(--font-color-negro);
+  font-size: 3.5rem;
+  font-family: "titulos";
+}
+
+.container-vision {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  width: 80%;
+  padding: 3rem 4rem;
+  background-color: var(--rojo);
+  border-radius: 20px;
+}
+
+.container-mision {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  width: 80%;
+  padding: 3rem 4rem;
+  background-color: var(--amarillo);
+  border-radius: 20px;
+  flex-direction: row-reverse;
+}
+
+.titles-v {
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--amarillo)
+}
+
+.text-v {
+  font-size: 1.3rem;
+  text-align: center;
+  color: var(--gris);
+}
+
+.titles-m {
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--rojo)
+}
+
+.text-m {
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+/* ------------------------------------ Estilos para Preguntas fecuentes y PQRS ------------------------------------ */
+.section-PQRSF {
+  margin: 0 15%;
+}
+
+#titulo-tabs {
+  color: var(--font-color-negro);
+  font-size: 3.5rem;
+  font-family: "titulos";
+  margin-bottom: 3rem;
+
+}
+
+/* -------------------- tabs de navegacion -------------------- */
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  align-items: flex-start;
+  border-bottom: none;
+}
+
+.tab-label {
+  display: inline-block;
+  padding: 1% 2%;
+  color: var(--oscuro);
+  background-color: var(--gris);
+  cursor: pointer;
+  margin-right: 1%;
+  border-radius: 10px 10px 0 0;
+  border: 1.5px solid var(--font-color-oscuro);
+  border-bottom: none;
+  transition: background-color 0.3s;
+}
+
+.tab-label:hover {
+  background-color: var(--amarillo);
+}
+
+.tab-content {
+  width: 100%;
+  border-top: 4px solid var(--font-color-oscuro);
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+.tab-content {
+  width: 100%;
+  padding: 20px;
+
+}
+
+.tab-panel {
+  display: none;
+}
+
+#tab1:checked~.tab-content #content1,
+#tab2:checked~.tab-content #content2 {
+  display: block;
+}
+
+.tab-label:before {
+  content: '';
+  display: inline-block;
+}
+
+#tab1:checked+.tab-label,
+#tab2:checked+.tab-label {
+  border-bottom: none;
+  background-color: var(--rojo);
+  color: var(--blanco);
+  z-index: 1;
+}
+
+/* -------------------- preguntas frecuentes -------------------- */
+.preguntas-container {
+  width: 100%;
+}
+
+.preguntas-item {
+  margin-bottom: 15px;
+  border-bottom: 1px solid var(--blanco);
+  padding-bottom: 10px;
+}
+
+.pregunta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: #333;
+  background-color: var(--blanco);
+  transition: background-color 0.3s ease;
+}
+
+.pregunta:hover {
+  background-color: var(--blanco);
+}
+
+.respuesta {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 15px;
+  transition: max-height 0.3s ease;
+}
+
+.respuesta p {
+  padding: 15px 0;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: var(--font-color-negro);
+}
+
+.pregunta-icon {
+  font-size: 2rem;
+  transition: transform 0.3s ease;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+input[type="checkbox"]:checked~.respuesta {
+  max-height: 200px;
+}
+
+input[type="checkbox"]:checked+label .pregunta-icon {
+  transform: rotate(45deg);
+}
+
+/* -------------------- Pqrsf sin loguear -------------------- */
+.titulo {
+  padding: 2rem 0 0;
+  font-family: "titulos-especiales";
+  font-size: 4rem;
+  text-align: center;
+  color: var(--font-color-negro);
+}
+
+.texto {
+  font-size: 1.4rem;
+  color: var(--font-color-oscuro);
+  padding: 2rem;
+}
+
+/* -------------------- Pqrsf logueada -------------------- */
+.formulario {
+  /*diseño de la caja con el contenido del formulario*/
+  background-color: var(--rojo);
+  padding: 5%;
+  border-radius: var(--border-radius);
+  width: 55rem;
+  margin: auto;
+}
+
+.formulario h1 {
+  /*tipo y tamaño de la letra del titulo de la caja*/
+  font-family: "titulos-especiales";
+  font-size: 2rem;
+  color: var(--amarillo);
+  margin-bottom: 5%;
+}
+
+.username,
+.username2,
+.tipoDoc-box {
+  /* Estilos de los campos de entrada */
+  margin-bottom: 4%;
+  position: relative;
+}
+
+.username input,
+.tipoDoc-box select {
+  /* Diseño de los campos de entrada */
+  width: 100%;
+  height: 3.3rem;
+  padding: 12px;
+  background-color: var(--gris);
+  border-radius: var(--border-radius);
+  font-size: 1.2rem;
+  color: var(--oscuro);
+}
+
+.username2 input {
+  /* Diseño de los campos de entrada */
+  width: 100%;
+  height: 15rem;
+  padding: 12px;
+  background-color: var(--gris);
+  border-radius: var(--border-radius);
+  font-size: 1.2rem;
+  color: var(--oscuro);
+}
+
+.tipoDoc-box {
+  color: var(--gris);
+}
+
+.texto-label {
+  color: var(--gris);
+  margin-bottom: 2%;
+  margin-left: 1.5%;
+  font-size: 1.2rem;
+  text-align: left;
+}
+
+.username label {
+  /* Animación de las etiquetas */
+  position: absolute;
+  top: 65%;
+  left: 3%;
+  color: var(--negro);
+  transform: translateY(-75%);
+  font-size: 1.2rem;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.username input:focus~label,
+.username input:valid~label {
+  /* Animación después de completar el campo */
+  top: -5px;
+  color: var(--gris);
+  font-family: "textos";
+  transition: top 0.3s ease, color 0.3s ease;
+}
+
+.username2 label {
+  /* Animación de las etiquetas */
+  position: absolute;
+  top: 15%;
+  left: 3%;
+  color: var(--negro);
+  transform: translateY(-75%);
+  font-size: 1.2rem;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.username2 input:focus~label,
+.username2 input:valid~label {
+  /* Cuando hay texto en el input */
+  top: -5px;
+  color: var(--gris);
+  font-family: "textos";
+  transition: top 0.3s ease, color 0.3s ease;
+}
+
+.username span::before {
+  /*Animación de los espacios para los campos de entrada */
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--negro);
+  transition: 0.5s;
+}
+
+.btn-archivo{
+  font-size: 1.5rem;
+  color: var(--gris);
+  text-decoration: underline;
+}
+
+.btn-archivo:hover {
+  color: var(--amarillo);
+  text-decoration: underline;
+}
+
+.pqrsf-group .material-symbols-rounded {
+  font-size: 1.5rem;
+  text-decoration: underline;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.button-container {
+  /*Contenedor del boton de registrarse*/
+  margin-top: 5%;
+}
+
+/* -------------------- Media queries para pantallas más pequeñas (móviles) -------------------- */
+@media (max-width: 1200px) {
+
+  /* Estilos de la imagen y titulo principal*/
+  .img-section {
+    width: 95%;
+    height: auto;
+  }
+
+  .texto-sobre-imagen {
+    top: 38%;
+  }
+
+  .titulo-sobre-imagen {
+    font-size: 3.8rem;
+  }
+
+  /* Estilos del texto JetBoom */
+  .titulo-jet {
+    font-size: 5.5rem;
+  }
+
+  .texto-jet {
+    font-size: 1.3rem;
+  }
+
+  /* Estilos para los lados izquierdo y derecho */
+  #pantalla-dividida {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* lado izquierdo */
+  .ladoizquierdo {
+    flex: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem 0;
+  }
+
+  .cuadradoi {
+    width: 50rem;
+    height: 35rem;
+  }
+
+  .titulo-i {
+    margin: 3rem 0 1.5rem 0;
+    font-size: 4rem;
+  }
+
+  .texto-i {
+    margin: 0 3rem 3rem;
+    font-size: 2rem;
+  }
+
+  /* lado derecho*/
+  .ladoderecho {
+    flex: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
+  }
+
+  .cuadradod {
+    width: 38rem;
+    height: 38rem;
+  }
+
+  .texto-d {
+    font-size: 2.5rem;
+    margin: -2% 15%;
+  }
+
+  /*Botón*/
+  .cuadradod .btn-pqrs {
+    padding: 10px 60px;
+    font-size: 40px;
+    margin-top: 30px;
+  }
+
+  /* Estilos para la misión y la visión*/
+  .title-MV {
+    font-size: 5rem;
+  }
+
+  .container-vision {
+    width: 95%;
+    padding: 3rem 2.5rem;
+  }
+
+  .container-mision {
+    width: 95%;
+    padding: 3rem 2.5rem;
+  }
+
+  .titles-v {
+    font-size: 3.5rem;
+  }
+
+  .text-v {
+    font-size: 1.5rem;
+  }
+
+  .titles-m {
+    font-size: 3.5rem;
+  }
+
+  .text-m {
+    font-size: 1.5rem;
+  }
+}

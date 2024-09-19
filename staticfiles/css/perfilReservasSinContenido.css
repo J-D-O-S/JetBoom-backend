@@ -1,0 +1,13 @@
+/* ------------------------------------ contenido sin reservas ------------------------------------ */
+
+.cero-reservas .material-symbols-rounded {
+  font-size: 15rem;
+  font-weight: 600;
+  color: var(--oscuro);
+  padding: 6% 0 0;
+}
+
+.crear-reserva p {
+  font-size: 1.7rem;
+  margin: 5%;
+}

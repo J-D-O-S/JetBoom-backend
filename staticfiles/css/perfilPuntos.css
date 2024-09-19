@@ -1,0 +1,155 @@
+  /* ------------------------------------ contenido puntos ------------------------------------ */  
+  .container-puntos{
+    padding: 2rem;
+  }
+
+  .container-puntos h1{
+    font-size: 4rem;
+    font-family: "titulos";
+    font-weight: 600;
+    color: var(--font-color-oscuro);
+  }
+
+  .container-puntos p{
+    font-size: 2rem;
+    font-family: "titulos-especiales";
+    color: var(--font-color-oscuro);
+  }
+
+  .descripcion-puntos{
+    font-size: 1.8rem;
+    color: var(--font-color-oscuro);
+    margin: 2% 14% 4%;
+  }
+
+  .tabla-puntos{
+    margin: 0 auto;
+    border: 3px solid var(--amarillo);
+    border-radius: var(--border-radius);
+    width: 60%;
+    padding: 3rem 4rem;
+  }
+
+  .detalle-puntos{
+    display:flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .detalle-puntos h2{
+    font-family: "JF";
+    font-size: 4rem;
+    font-weight: 600;
+    color: var(--rojo);
+  }
+
+  .fecha-obtenidos,
+  .fecha-vencidos{
+    font-size: 1.8rem;
+    color: var(--font-color-oscuro);
+    margin: 2.5% 0;
+  }
+
+  .valor-puntos{
+    font-size: 1.4rem;
+    color: var(--font-color-oscuro);
+    margin: 1.5% 0;
+  }
+
+  .modal-puntos{
+    display:flex;
+    justify-content: flex-end;
+  }
+
+  .modal-puntos .material-symbols-rounded{
+    color: var(--font-color-oscuro);
+    font-size: 2.5rem;
+  }
+  
+  /*modal*/
+  /*Efecto*/
+  .modalmask {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: rgba(0,0,0,0.8);
+      z-index: 99999;
+      opacity:0;
+      -webkit-transition: opacity 400ms ease-in;
+      -moz-transition: opacity 400ms ease-in;
+      transition: opacity 400ms ease-in;
+      pointer-events: none;
+  }
+
+  .modalmask:target {
+      opacity:1;
+      pointer-events: auto;
+  }
+  
+  /*Formato de la ventana*/
+  .modalbox{
+      width: 400px;
+      position: relative;
+      padding: 5px 20px 13px 20px;
+      background: var(--blanco);
+      border-radius: var(--border-radius);
+      -webkit-transition: all 500ms ease-in;
+      -moz-transition: all 500ms ease-in;
+      transition: all 500ms ease-in;
+  
+  }
+  
+  /*Movimientos*/
+  .movedown {
+      margin: 0 auto;
+  }
+
+  .rotate {
+      margin: 10% auto;
+      -webkit-transform: scale(-5,-5);
+      transform: scale(-5,-5);
+  }
+
+  .resize {
+      margin: 10% auto;
+  }
+
+  .modalmask:target .movedown{       
+      margin:10% auto;
+  }
+
+  .modalmask:target .rotate{     
+      transform: rotate(360deg) scale(1,1);
+      -webkit-transform: rotate(360deg) scale(1,1);
+  }
+  
+  .modalmask:target .resize{
+      width:35%;
+  }
+  
+  /*Boton de cerrar*/
+  .modalbox .btn-cards {
+      line-height: 2rem;
+      position: absolute;
+      right: 1px;
+      width: 10%;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 2% 3%;
+      display: flex;
+      justify-content: center;
+  }
+
+  .modalbox h2{
+    font-size: 2.5rem;
+    font-weight: 400;
+    padding: 7% 7% 3% 7%;
+  }
+  .modalbox p{
+    font-size: 1.4rem;
+    text-align: left;
+    padding: 1.5%;
+  }
+  

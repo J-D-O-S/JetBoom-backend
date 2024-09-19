@@ -1,0 +1,386 @@
+@charset "UTF-8";
+
+@font-face {
+    /*fuente1*/
+    font-family: "titulos-especiales";
+    src: url(./../font/GeometosSoftBlack.otf) format("OpenType");
+}
+
+@font-face {
+    /*fuente2*/
+    font-family: "titulos";
+    src: url(./../font/Brother1816Printed-ExtraBold.ttf) format("truetype");
+}
+
+@font-face {
+    /*fuente*/
+    font-family: "textos";
+    src: url(./../font/Brother1816-Medium.ttf) format("truetype");
+}
+
+@font-face {
+    /*fuente para el logo*/
+    font-family: "JF";
+    src: url(./../font/CornerStoreJF.ttf) format("truetype");
+}
+
+:root {
+    /* colores */
+    --amarillo: #fab62d;
+    --rojo: #e4032e;
+    --rojo-claro: rgb(160, 10, 40);
+    --oscuro: #151a1f;
+    --blanco: white;
+    --gris: #ebebeb;
+    --negro: #0c0e0c;
+    /* --negro: #656568; #112261 */
+    --background-theme: var(--gris);
+
+    /* tipografía */
+    --font-color-negro: var(--negro);
+    --font-color-blanco: var(--blanco);
+    --font-color-gris: var(--gris);
+    --font-color-oscuro: var(--oscuro);
+
+    /* border  */
+    --border-radius: 10px;
+
+    font-family: "textos";
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+}
+
+[data-theme="dark"] {
+    --font-color: var(--gris);
+    --background-theme: var(--oscuro);
+
+    /* tipografía */
+    --font-color-negro: var(--blanco);
+    --font-color-blanco: var(--negro);
+    --font-color-gris: var(--oscuro);
+    --font-color-oscuro: var(--gris);
+
+}
+
+[data-theme="light"] {
+    --font-color: var(--oscuro);
+    --background-theme: var(--gris);
+
+    /* tipografía */
+    --font-color-negro: var(--negro);
+    --font-color-blanco: var(--blanco);
+    --font-color-gris: var(--gris);
+    --font-color-oscuro: var(--oscuro);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        -webkit-animation: none !important;
+        animation: none !important;
+        -webkit-transition: none !important;
+        transition: none !important;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    vertical-align: baseline;
+    font-family: "textos";
+}
+
+.body {
+    transition: all 0.3s ease-in-out;
+    background-color: var(--background-theme);
+}
+
+img,
+picture,
+video,
+iframe,
+figure {
+    max-width: 100%;
+    width: 100%;
+    margin: 0;
+    display: block;
+    -o-object-fit: cover;
+    object-fit: cover;
+    -o-object-position: center center;
+    object-position: center center;
+}
+
+a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    font-size: inherit;
+}
+
+p a {
+    display: inline;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    list-style-type: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a,
+strong,
+blockquote,
+i,
+b,
+u,
+em {
+    font-size: 1em;
+    font-weight: inherit;
+    font-style: inherit;
+    text-decoration: none;
+    color: inherit;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: "";
+    content: none;
+}
+
+::-moz-selection {
+    background-color: var(--negro);
+    color: var(--blanco);
+}
+
+::selection {
+    background-color: var(--negro);
+    color: var(--blanco);
+}
+
+form,
+input,
+textarea,
+select,
+button,
+label {
+    font-family: inherit;
+    font-size: inherit;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+    background-color: transparent;
+    color: inherit;
+    display: block;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+button,
+a {
+    cursor: pointer;
+}
+
+[type="button"] {
+    border-radius: var(--border-radius);
+    cursor: pointer;
+}
+
+table,
+tr,
+td {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+svg {
+    width: 100%;
+    display: block;
+    fill: currentColor;
+}
+
+/* Pruebas */
+.centrado {
+    padding: 2rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.light .temaOscuro {
+    display: none;
+}
+
+.dark .temaClaro {
+    display: none;
+}
+
+
+/* -------------------------------- Botón base -------------------------------- */
+.btn-base {
+    background-color: var(--rojo);
+    color: var(--gris);
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    top: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hover en modo oscuro */
+[data-theme="dark"] .btn-base:hover {
+    color: var(--gris);
+    background-color: var(--rojo);
+    outline: none;
+    box-shadow:
+        0 0 0 2px var(--rojo),
+        0 0 0 5px var(--amarillo),
+        0 0 0 8px var(--rojo),
+        0 0 0 11px var(--amarillo);
+    transition: all 0.3s ease-in-out;
+    transform: scale(1.05);
+}
+
+/* Hover en modo claro */
+[data-theme="light"] .btn-base:hover {
+    background-color: var(--rojo-claro);
+}
+
+
+.btn-base .material-symbols-rounded {
+    /* estilos de los iconos del boton */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.5rem;
+    font-size: 1.8rem;
+}
+
+/* -------------------------------- Botón cards -------------------------------- */
+.btn-cards {
+    background-color: var(--rojo);
+    color: var(--gris);
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    top: 5px;
+    transition: background-color 0.3s;
+}
+
+.btn-cards:hover {
+    background-color: var(--rojo-claro);
+}
+
+.btn-cards .material-symbols-rounded {
+    /* estilos de los iconos del boton */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.5rem;
+    font-size: 1.8rem;
+}
+
+/* -------------------------------- boton redondo rojo -------------------------------- */
+.btn-redondo {
+    /* estilos de los iconos del boton */
+    background-color: var(--rojo);
+    color: var(--gris);
+    border: none;
+    padding: 0.6rem;
+    font-size: 2.5rem;
+    border-radius: 50%; 
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+}   
+
+/* Hover en modo oscuro */
+[data-theme="dark"] .btn-redondo:hover {
+    color: var(--oscuro);
+    background-color: var(--rojo);
+    outline: none;
+    box-shadow:
+        /* Primera capa */
+        0 0 0 2px var(--amarillo),
+        /* Segunda capa */
+        0 0 0 5px var(--rojo),
+        /* Tercera capa */
+        0 0 0 8px var(--amarillo);
+    transition: all 0.3s ease-in-out;
+    transform: scale(1.05);
+}
+
+/* Hover en modo claro */
+[data-theme="light"] .btn-redondo:hover {
+    background-color: var(--rojo-claro);
+}
+
+.btn-redondo .material-symbols-rounded {
+    /* estilos de los iconos del boton */
+    font-size: 2.5rem;
+    color: var(--gris);
+    border-radius: 50%;
+    padding: 0.6rem;
+}
+  
+/* -------------------------------- boton formularios -------------------------------- */
+.btn-formulario {
+    /*Diseño del boton de registrarse*/
+    background-color: var(--amarillo);
+    color: var(--oscuro);
+    border: none;
+    padding: 1% 10%;
+    font-size: 1.5rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    margin-top: 2rem;
+    transition: all 0.3s ease-in-out;
+}
+  
+.btn-formulario:hover {
+    color: var(--oscuro);
+    background-color: var(--amarillo);
+    outline: none;
+    box-shadow:
+      /* Primera capa */
+      0 0 0 2px var(--amarillo),
+      /* Segunda capa */
+      0 0 0 5px var(--rojo),
+      /* Tercera capa */
+      0 0 0 8px var(--amarillo);
+    transition: all 0.3s ease-in-out;
+    transform: scale(1.2);
+}
+
+  

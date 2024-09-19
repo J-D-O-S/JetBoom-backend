@@ -1,0 +1,254 @@
+.contenedorprincipal {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Estilos para los lados izquierdo y derecho */
+#pantalla-dividida {
+  display: flex;
+  padding: 2% 0 4%;
+}
+
+/* lado izquierdo */
+.ladoizquierdo {
+  flex: 1;
+  display: flex;
+  justify-content: right;
+  align-items: right;
+  padding: 0 2%;
+}
+
+.cuadradoi {
+  width: 36rem;
+  height: 35rem;
+  background-color: var(--blanco);
+  border-radius: var(--border-radius);
+  box-shadow: 0px 4px 9px rgba(0, 0, 1, 1);
+  align-content: center;
+}
+
+.cuadradoi .img {
+  width: 100%;
+  object-fit: contain;
+  padding: 0 5%;
+}
+
+.cuadradoi p {
+  text-align: center;
+  margin: 6% 0 1%;
+  font-size: 3rem;
+  font-family: "jf";
+}
+
+/* lado derecho */
+.ladoderecho {
+  flex: 1;
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  padding: 0 2%;
+}
+
+.cuadradod {
+  width: 36rem;
+  height: 35rem;
+  background-color: var(--rojo);
+  border-radius: var(--border-radius);
+}
+
+.cuadradod h1 {
+  font-size: 3.5rem;
+  text-align: center;
+  color: var(--amarillo);
+  font-family: "titulos-especiales";
+  margin-top: 5%;
+}
+
+.cuadradod p {
+  font-size: 1.2rem;
+  color: var(--gris);
+  padding: 5% 6%;
+}
+
+/* Estilos del mapa */
+.rectangulomapa {
+  background-color: var(--amarillo);
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rectangulomapa input[type="checkbox"] {
+  display: none;
+}
+
+.rectangulomapa .map-toggle {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* simbolo del mapa */
+.rectangulomapa .material-symbols-rounded {
+  font-size: 6rem;
+  color: var(--oscuro);
+}
+
+.rectangulomapa .contenido-adicional {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Asegura que el contenedor del mapa ocupe el 100% del ancho disponible */
+  width: 100%;
+}
+
+.rectangulomapa input[type="checkbox"]:checked~.contenido-adicional {
+  /* valor para mostrar el mapa */
+  max-height: 600px;
+}
+
+.rectangulomapa #map-text {
+  font-size: 2rem;
+  margin-bottom: 8px;
+  color: var(--oscuro);
+  /* Transición suave para el cambio de color */
+  transition: color 0.3s;
+}
+
+/* Estilo del texto de descripción del mapa */
+.rectangulomapa #map-description {
+  font-size: 2rem;
+  margin-bottom: 8px;
+  color: var(--oscuro);
+  /* Transición suave para el cambio de color */
+  transition: color 0.3s;
+}
+
+.rectangulomapa input[type="checkbox"]:checked~.map-toggle #map-description {
+  /* Color del texto cuando el mapa está desplegado */
+  color: var(--amarillo);
+  font-size: 1rem;
+}
+
+.map-container {
+  margin: 2rem;
+  /* Ajusta el tamaño del contenedor del mapa */
+  width: 100%;
+  /* Establece un ancho máximo opcional */
+  max-width: 800px;
+  position: relative;
+  border-radius: 15px;
+  /* Borde negro alrededor del contenedor */
+  border: 2px solid var(--negro);
+  /* Sombra intensa en los 4 lados */
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5), -2px -2px 8px rgba(0, 0, 0, 0.5);
+  /* Asegura que el contenido no se desborde del contenedor con bordes redondeados */
+  overflow: hidden;
+}
+
+.map-container::before {
+  content: "";
+  display: block;
+  /* Mantiene una proporción de 16:9 */
+  padding-top: 56.25%;
+}
+
+.map-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Diseño del contenedor que tiene el texto y el botón de reserva tu plan turístico */
+.texto-adicional {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2%;
+}
+
+.texto-adicional h2 {
+  color: var(--font-color-oscuro);
+  font-size: 2rem;
+  margin: 3% 10% 5%;
+}
+
+/* texto del Botón */
+.texto-adicional a {
+  font-size: 2.3rem;
+}
+
+/* Media queries para pantallas más pequeñas (móviles) */
+@media (max-width: 1200px) {
+  .contenedorprincipal {
+    flex-direction: column;
+  }
+
+  /* Estilos para los lados izquierdo y derecho */
+  #pantalla-dividida {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* lado izquierdo */
+  .ladoizquierdo,
+  .ladoderecho {
+    padding: 4% 0;
+  }
+
+  .cuadradoi,
+  .cuadradod {
+    width: 45rem;
+    height: 44rem;
+  }
+
+  .cuadradoi p {
+    font-size: 5rem;
+  }
+
+  /* lado derecho */
+  .cuadradod h1 {
+    font-size: 4.5rem;
+  }
+
+  .cuadradod p {
+    font-size: 1.5rem;
+  }
+
+  /* Estilos del mapa */
+  .rectangulomapa #map-text {
+    font-size: 3.5rem;
+  }
+
+  /* Estilo del texto de descripción del mapa */
+  .rectangulomapa #map-description {
+    font-size: 3rem;
+    margin: 0 6%;
+  }
+
+  /* Diseño del contenedor que tiene el texto y el botón de reserva tu plan turístico */
+  .texto-adicional h2 {
+    font-size: 1.8rem;
+    margin: 3% 6% 5%;
+  }
+
+  /* texto del Botón */
+  .texto-adicional a {
+    font-size: 2.7rem;
+  }
+}
