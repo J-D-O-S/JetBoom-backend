@@ -31,10 +31,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-!ns$os31#k_!=*@=s#+42=h9+692266tp^l(xkyxeawft!6&v7"
 # SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'unsafe-default-key')
 
-DEBUG = True
-# DEBUG = False
+# DEBUG = True
+DEBUG = False
 
-# ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
 # ALLOWED_HOSTS = [".vercel.app", "localhost", "127.0.0.1"]
 # ALLOWED_HOSTS = [".vercel.app"]
 # ALLOWED_HOSTS = ["*"]
