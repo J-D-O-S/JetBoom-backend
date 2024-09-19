@@ -34,7 +34,7 @@ SECRET_KEY = "django-insecure-!ns$os31#k_!=*@=s#+42=h9+692266tp^l(xkyxeawft!6&v7
 DEBUG = True
 # DEBUG = False
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
+# ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
 # ALLOWED_HOSTS = [".vercel.app", "localhost", "127.0.0.1"]
 # ALLOWED_HOSTS = [".vercel.app"]
 # ALLOWED_HOSTS = ["*"]
@@ -122,7 +122,7 @@ AUTH_USER_MODEL = "Usuarios.Usuario"
 
 LANGUAGE_CODE = "es-co"
 
-TIME_ZONE = "UTC-5"
+TIME_ZONE = "UTC"
 
 USE_I18N = True
 
